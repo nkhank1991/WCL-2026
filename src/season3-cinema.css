@@ -1,0 +1,105 @@
+/* Season 3: a complete ensemble frame, then a separate theatrical title block. */
+:root{--campaign:'Barlow Condensed','Arial Narrow',sans-serif}
+body .sports-feature-copy h1{font:800 clamp(56px,7.8vw,124px)/.88 var(--campaign);letter-spacing:-.025em;max-width:none;text-transform:uppercase}
+body .sports-feature-copy h1 span{font-weight:800;letter-spacing:-.015em;color:#ffce62}
+body .section-title h2{font:700 clamp(36px,4vw,60px)/1 var(--campaign);letter-spacing:-.015em}
+body .page-title h1,body .player-profile h1{font:800 clamp(58px,7vw,104px)/.95 var(--campaign);letter-spacing:-.02em;text-transform:uppercase}
+body .spotlight-bio h2{font:700 clamp(50px,5.5vw,80px)/.98 var(--campaign);letter-spacing:-.015em;color:#ffcf72}
+body .section{padding-block:72px}
+body .sports-feature.ensemble-feature{height:auto;min-height:0;overflow:hidden;background:#030916}
+body .ensemble-feature .sports-feature-content{position:relative;padding-bottom:150px}
+body .ensemble-feature .sports-feature-image{position:relative;inset:auto;width:100%;height:auto;aspect-ratio:16/9}
+body .ensemble-feature .sports-feature-image img{object-fit:contain;object-position:center;animation:none!important;transform:none}
+body .ensemble-feature .sports-feature-shade{inset:0 0 auto;height:56.25vw;pointer-events:none;background:linear-gradient(0deg,#030916,transparent 12%)}
+body .ensemble-feature .sports-feature-copy{position:relative;bottom:auto;padding-top:28px;padding-bottom:28px;display:grid;grid-template-columns:1fr auto;align-items:end;gap:22px 48px}
+body .ensemble-feature .sports-eyebrow,body .ensemble-feature h1{grid-column:1/-1;margin:0}
+body .ensemble-feature .sports-feature-copy>p:not(.sports-eyebrow){margin:0;max-width:none;font-size:17px}
+body .ensemble-feature .sports-hero-actions{margin:0}
+body .ensemble-feature .stadium-lights{opacity:.3;pointer-events:none}
+body .portrait-card{background:linear-gradient(150deg,#102846,#061225);border-color:#568fc433;border-bottom-color:#d9ae57}
+body .portrait-card>div{background:radial-gradient(ellipse at top,#233b55,#091526)}
+body .portrait-unavailable{color:#b7c7dc}
+.trophy-scene{background:#02060d;isolation:isolate;overflow:hidden;border-block:1px solid #cfa45230}
+.trophy-scene-inner{display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:6vw;min-height:620px}
+.trophy-scene-art{position:relative;height:600px}
+.trophy-scene-art:before{content:'';position:absolute;inset:15% 5%;background:radial-gradient(ellipse,#bc7e2433,transparent 65%);z-index:-1}
+.trophy-scene-art img{width:100%;height:100%;object-fit:contain;mix-blend-mode:screen}
+.trophy-scene h2{font:800 clamp(66px,7.5vw,116px)/.88 var(--campaign);letter-spacing:-.02em;margin:24px 0;color:#fff}
+.trophy-scene .kicker{color:#f3d18a}
+.trophy-scene h2 span{color:#ffce62}
+.trophy-scene p:not(.kicker){color:#acbed4;line-height:1.8;max-width:440px;margin-bottom:30px}
+.roster-pending{padding:20px 24px;background:#10203a;border:1px solid #a9c7ef25;border-radius:12px;margin:24px 0;color:#c1cee0;font-size:13px;line-height:1.7}
+.roster-pending summary{cursor:pointer;color:#f3d18a;font-weight:600}
+.roster-pending ul{padding-left:20px}
+@media(min-width:1800px){body .ensemble-feature .sports-feature-image{max-height:1000px}body .ensemble-feature .sports-feature-shade{height:1000px}}
+@media(max-width:760px){
+ body .section{padding-block:48px}
+ body .sports-feature-copy h1{font-size:clamp(44px,9vw,68px);line-height:.94}
+ body .ensemble-feature .sports-feature-content{padding-bottom:170px}
+ body .ensemble-feature .sports-feature-copy{display:block;padding-top:25px;padding-bottom:0}
+ body .ensemble-feature h1{margin:18px 0}
+ body .ensemble-feature .sports-feature-copy>p:not(.sports-eyebrow){font-size:15px;margin-bottom:24px}
+ body .ensemble-feature .sports-hero-actions{flex-wrap:wrap;gap:18px}
+ body .ensemble-feature .sports-hero-actions a{white-space:nowrap;flex-shrink:0}
+ body .ensemble-feature .sports-feature-bottom{bottom:22px}
+ body .ensemble-feature .feature-arrows{bottom:85px}
+ body .section-title h2{font-size:36px}
+ .trophy-scene-inner{grid-template-columns:1fr;gap:12px;padding-block:32px 50px}
+ .trophy-scene-art{height:380px}
+ .trophy-scene h2{font-size:64px}
+ .trophy-scene p:not(.kicker){font-size:15px}
+}
+@media(prefers-reduced-motion:reduce){.stadium-lights{display:none}}
+
+/* Golden Arena: preserve the entire supplied poster, without face crops or overlays. */
+body .ensemble-feature .sports-feature-content{display:grid;grid-template-columns:minmax(0,.72fr) minmax(0,1.28fr);padding-bottom:128px;align-items:center}
+body .ensemble-feature .sports-feature-image{grid-column:2;grid-row:1;aspect-ratio:13107/16384;max-height:none;height:auto}
+body .ensemble-feature .sports-feature-image img{position:relative;display:block;width:100%;height:auto;filter:none;opacity:1;mix-blend-mode:normal}
+body .ensemble-feature .sports-feature-shade{display:none}
+body .ensemble-feature .sports-feature-copy{grid-column:1;grid-row:1;display:block;width:auto;padding:48px clamp(24px,3.3vw,64px);margin:0}
+body .ensemble-feature .sports-feature-copy h1{font-size:clamp(46px,5.3vw,100px);line-height:.96;margin:24px 0}
+body .ensemble-feature .sports-feature-copy>p:not(.sports-eyebrow){font-size:16px;line-height:1.8;max-width:28ch}
+body .ensemble-feature .sports-hero-actions{margin-top:30px;flex-wrap:wrap;gap:22px}
+@media(max-width:900px){
+ body .ensemble-feature .sports-feature-content{display:flex;flex-direction:column;align-items:stretch;padding-bottom:170px}
+ body .ensemble-feature .sports-feature-image{width:100%;max-height:none;order:0}
+ body .ensemble-feature .sports-feature-copy{order:1;padding:28px 24px 10px;width:auto}
+ body .ensemble-feature .sports-feature-copy h1{font-size:clamp(42px,8vw,70px)}
+ body .ensemble-feature .sports-feature-copy>p:not(.sports-eyebrow){max-width:none}
+}
+
+/* Film-inspired stage. Source artwork stays intact; grading is reversible. */
+body .ensemble-feature{border:1px solid #d9ba762b;border-radius:20px}
+body .ensemble-feature .sports-feature-content{position:relative;padding-top:58px;align-items:start;background:#070d18}
+body .ensemble-feature .sports-feature-copy{padding-top:100px;position:sticky;top:24px}
+body .ensemble-feature .sports-feature-image{padding:18px 20px 18px 0;box-sizing:border-box;overflow:visible}
+body .ensemble-feature .sports-feature-image img{border-radius:8px;box-shadow:0 24px 60px #0008;transform-origin:center}
+body .sports-hero[data-look=film] .ensemble-feature .sports-feature-image img{filter:contrast(1.035) saturate(.94) brightness(.98)}
+.cinema-controls{position:absolute;inset:0 0 auto;display:flex;align-items:center;justify-content:space-between;padding:12px 24px;border-bottom:1px solid #ffffff14;color:#afbacb;gap:12px;font:500 10px/1.4 Inter,sans-serif;letter-spacing:.13em}
+.cinema-controls>div{display:flex;gap:8px}
+.cinema-controls button{display:flex;align-items:center;gap:6px;padding:9px 12px;border:1px solid #ffffff26;background:#ffffff08;color:#fff;border-radius:30px;cursor:pointer;min-height:34px}
+.cinema-controls button[aria-pressed=true]{border-color:#ddb86b88;color:#edce8e}
+.hero-trophy-detail{grid-column:1;grid-row:1;align-self:end;display:flex;align-items:center;gap:18px;margin:0 38px 28px;padding:18px 0;border-top:1px solid #ddbd7033;color:white;text-decoration:none;z-index:3}
+.hero-trophy-detail img{width:70px;height:100px;object-fit:contain}
+.hero-trophy-detail small{display:block;color:#acbacf;font-size:10px;letter-spacing:.15em}
+.hero-trophy-detail strong{display:block;font:600 28px/1.05 var(--campaign);margin:8px 0}
+.hero-trophy-detail em{display:flex;align-items:center;gap:10px;font:500 11px Inter,sans-serif;color:#edce8e}
+html[data-motion=on] .sports-hero[data-ambient=playing] .ensemble-feature .sports-feature-image img{animation:poster-breathe 18s ease-in-out infinite alternate!important}
+html[data-motion=on] .ensemble-feature .sports-feature-copy{animation:campaign-enter 950ms cubic-bezier(.22,1,.36,1) both}
+html[data-motion=on] .ensemble-feature .hero-trophy-detail{animation:campaign-enter 1.2s cubic-bezier(.22,1,.36,1) both}
+@keyframes poster-breathe{from{transform:translateY(0) scale(.985)}to{transform:translateY(-5px) scale(1)}}
+@keyframes campaign-enter{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
+html[data-motion=on] .sports-hero .btn,html[data-motion=on] .feature-pagination button,html[data-motion=on] .hero-trophy-detail{transition:transform .35s cubic-bezier(.22,1,.36,1),border-color .35s,background .35s}
+@media(hover:hover){html[data-motion=on] .sports-hero .btn:hover{transform:translateY(-3px)}html[data-motion=on] .feature-pagination button:hover{transform:translateY(-3px)}}
+.sports-hero button:focus-visible,.hero-trophy-detail:focus-visible{outline:2px solid #f5cf81;outline-offset:4px}
+body .ensemble-feature .feature-pagination button[aria-pressed=true]{background:#ddbd7014;border-color:#d9b66f}
+@media(min-width:901px) and (max-width:1200px){body .ensemble-feature .sports-feature-copy{padding-top:65px}.hero-trophy-detail{margin-inline:24px}.hero-trophy-detail img{height:70px;width:50px}.hero-trophy-detail strong{font-size:22px}}
+@media(max-width:900px){
+ body .ensemble-feature .sports-feature-content{padding-top:62px}
+ body .ensemble-feature .sports-feature-image{padding:10px 12px}
+ body .ensemble-feature .sports-feature-copy{position:relative;top:auto;padding-top:24px}
+ .cinema-controls{padding:10px 12px;letter-spacing:.03em;font-size:9px}
+ .cinema-controls button{padding:8px;font-size:10px}
+ .hero-trophy-detail{order:2;align-self:stretch;margin:24px 24px 10px}
+}
+@media(prefers-reduced-motion:reduce){body .ensemble-feature *{animation:none!important;transition:none!important}}

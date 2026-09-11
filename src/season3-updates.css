@@ -1,0 +1,38 @@
+/* Current-season content: navy surfaces, original artwork, restrained interactions. */
+.story-tabs{display:flex;gap:24px;overflow-x:auto;scroll-snap-type:x proximity;padding-bottom:8px;scrollbar-width:thin;scrollbar-color:#436293 #07152e}
+.story-tabs button{flex:0 0 170px;scroll-snap-align:start}
+.story-control-heading>div button[data-rotation]{margin-right:0}
+.story-control-heading button:focus-visible,.destination-poster:focus-visible{outline:2px solid #ff823a;outline-offset:4px}
+.story-new-stars .story-visual,.story-bangladesh .story-visual,.story-schedule .story-visual{padding-left:6%;height:auto;aspect-ratio:1.5}
+.story-new-stars h1,.story-bangladesh h1,.story-schedule h1,.story-uae h1{font-size:clamp(64px,6.7vw,115px)}
+.story-uae .story-poster img{height:auto;aspect-ratio:16/9;object-fit:cover}
+.update-grid,.destination-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px}
+.update-card,.destination-card{display:block;min-width:0;overflow:hidden;border:1px solid #30405b;background:#0c1b35;border-radius:6px;color:#f5f8ff}
+.update-card>img{width:100%;aspect-ratio:1.88;object-fit:contain;display:block;background:#071326}
+.update-card>div,.destination-copy{padding:24px}
+.update-card small,.destination-copy>small{color:#ffb077;font:600 10px/1.5 Inter,sans-serif;text-transform:uppercase;letter-spacing:.08em}
+.update-card h3,.destination-copy h3{font:700 33px/1.05 var(--display);margin:13px 0}
+.update-card p,.destination-copy p,.destination-intro{color:#bac8df;font-size:14px;line-height:1.7}
+.update-card span,.destination-copy>a{display:flex;align-items:center;justify-content:space-between;gap:14px;margin-top:24px;font-size:12px;color:#fff}
+.update-card:hover{border-color:#ff823a}.update-card:hover span svg{transform:translate(2px,-2px)}
+.destination-intro{max-width:650px;margin:0 0 30px}
+.destination-player{position:relative;aspect-ratio:16/9;background:#030914}
+.destination-poster{border:0;padding:0;cursor:pointer;background:transparent;position:relative;width:100%;height:100%;color:#fff}
+.destination-poster img{width:100%;height:100%;object-fit:cover;display:block}
+.film-play{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);height:56px;width:56px;border-radius:50%;background:#ff823a;color:#06152a;display:grid;place-items:center}
+.film-index{position:absolute;left:16px;bottom:14px;background:#050b19c9;padding:6px 9px;font-size:9px;letter-spacing:.1em}
+.destination-player iframe{width:100%;height:100%;border:0}
+.close-film{position:absolute;right:6px;top:6px;width:44px;height:44px;background:#050b19;color:#fff;border:1px solid #9cb4df;border-radius:50%;cursor:pointer;display:grid;place-items:center}
+.destination-page h1{font:800 clamp(64px,7vw,110px)/.92 var(--display);margin:18px 0;color:white}
+.schedule-banner{display:grid;grid-template-columns:1fr 1.4fr;align-items:center;gap:40px;padding:32px;background:#0c1f45;border:1px solid #314c74;margin-bottom:36px;border-radius:6px}
+.schedule-banner h2{font:800 clamp(46px,5vw,76px)/.95 var(--display);margin:15px 0;color:#fff}.schedule-banner p{color:#c4d3ed;font-size:14px}
+.schedule-banner img{width:100%;height:auto;display:block;border-radius:3px}
+.match-contender .tbd-crest{display:grid;place-items:center;background:#143362;color:#b6ccef}
+.headshot-portrait>div{background:#102445;display:flex;align-items:flex-end;justify-content:center}
+.headshot-portrait>div>img{width:100%;height:100%;object-fit:contain!important;object-position:center bottom!important;filter:none!important}
+.headshot-profile>.wrap>img{object-fit:contain!important;object-position:center bottom!important;max-height:560px;padding:30px 0 0;background:#112343}
+.press-image-credit{display:block;font:400 10px/1.4 Inter,sans-serif;color:#b4c4e1;margin-top:10px}
+.news-art-placeholder{aspect-ratio:16/9;display:flex;flex-direction:column;justify-content:space-between;padding:28px;background:#113d83;color:#fff}.news-art-placeholder strong{font:700 46px/.95 var(--display)}.news-art-placeholder small{font-size:10px;text-transform:uppercase;letter-spacing:.07em}
+@media(max-width:900px){.update-grid,.destination-grid{grid-template-columns:1fr 1fr}.update-card:last-child,.destination-card:last-child{grid-column:1/-1}.schedule-banner{gap:24px;padding:24px}.story-tabs button{flex-basis:160px}}
+@media(max-width:600px){.update-grid,.destination-grid,.schedule-banner{grid-template-columns:1fr}.update-card:last-child,.destination-card:last-child{grid-column:auto}.update-card>div,.destination-copy{padding:22px}.story-new-stars .story-visual,.story-bangladesh .story-visual,.story-schedule .story-visual{padding:0;height:auto;aspect-ratio:1.88}.story-uae .story-visual{height:auto;aspect-ratio:16/9}.story-control-heading{flex-wrap:nowrap;font-size:9px}.story-control-heading>div{width:auto}.story-control-heading b{display:block;margin:5px 0 0}.story-control-heading>div{gap:5px}.story-tabs button{flex-basis:148px}.schedule-banner{padding:22px}.headshot-profile>.wrap>img{max-height:410px;width:100%}}
+@media(prefers-reduced-motion:reduce){.update-card svg{transform:none!important}.story-tabs{scroll-behavior:auto}}

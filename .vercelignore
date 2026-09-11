@@ -1,0 +1,23 @@
+# Only the public Vite site and isolated contact API belong on Vercel.
+.git
+.env
+.env.*
+node_modules
+dist
+server/*
+!server/policy.mjs
+private-inputs
+docs
+deliverables
+output
+tmp
+.playwright-mcp
+tests
+*.sqlite
+*.sqlite-*
+*.log
+qa-*.png
+*.xlsx
+*.xls
+*.csv
+*.zip

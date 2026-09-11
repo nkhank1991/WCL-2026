@@ -1,0 +1,67 @@
+/* One hero rhythm: readable facts, aligned actions, borderless subject artwork. */
+.wcl-story-hero{position:relative}
+.hero-access-button:not(:focus){position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap;border:0}
+.hero-access-button:focus{position:absolute;left:24px;top:70px;z-index:30;padding:14px 22px;background:#fff;color:#071a43;border:0;border-radius:12px;font:600 1rem Inter,sans-serif}
+.wcl-story-hero .hero-bottom{justify-content:flex-end;padding-block:18px}
+.wcl-story-hero .hero-story-copy{width:100%;padding-right:clamp(20px,3vw,64px)}
+.wcl-story-hero h1{font-size:clamp(64px,6.5vw,132px);line-height:1.02;letter-spacing:-.012em}
+.wcl-story-hero .hero-title-mask{padding-bottom:.05em;margin-bottom:-.025em}
+.wcl-story-hero .hero-title-mask>span{overflow-wrap:normal;word-break:normal}
+.wcl-story-hero p.story-kicker{font-size:.875rem;line-height:1.55;letter-spacing:.06em;margin-bottom:20px}
+.wcl-story-hero .story-description{font-size:1rem!important;max-width:510px!important;line-height:1.7}
+.wcl-story-hero .story-actions{display:flex;align-items:stretch;gap:12px 20px;width:100%;margin:0}
+.wcl-story-hero .story-actions a{font:600 .875rem/1.4 Inter,sans-serif;min-height:52px;gap:16px;justify-content:center;white-space:normal}
+.wcl-story-hero .story-actions svg{width:20px;height:20px;flex:none}
+.wcl-story-hero .story-secondary{padding:12px 2px;border-bottom:1px solid #52698d}
+.wcl-story-hero .story-facts{width:100%;max-width:560px;grid-template-columns:repeat(3,minmax(0,1fr));column-gap:20px;margin:28px 0 0;padding:24px 0 0;align-items:start}
+.wcl-story-hero .story-facts>div{min-width:0;padding:0;border-left:0;display:grid;grid-template-rows:2.75rem auto;align-items:start}
+.wcl-story-hero .story-facts dt{font:700 clamp(1.05rem,1.5vw,1.625rem)/1.25 Inter,sans-serif;letter-spacing:-.025em;font-variant-numeric:lining-nums tabular-nums;white-space:nowrap;align-self:start}
+.wcl-story-hero .story-facts dt[data-compact]{font-size:clamp(.95rem,1.16vw,1.15rem);line-height:1.7}
+.wcl-story-hero .story-facts dd{font:400 .8125rem/1.5 Inter,sans-serif;margin:0;color:#afc2df;max-width:150px}
+.wcl-story-hero .hero-story-role{font-size:.875rem;line-height:1.6}
+.wcl-story-hero .hero-story-chapter{font-size:1rem;margin-bottom:14px}
+.wcl-story-hero .hero-biography-source{font-size:.8125rem;line-height:1.5;align-items:center}
+.wcl-story-hero .story-bangladesh h1,.wcl-story-hero .story-new-stars h1{font-size:clamp(54px,5.75vw,110px)!important}
+.wcl-story-hero .story-ajay-devgn h1,.wcl-story-hero .story-harshit-tomar h1{font-size:clamp(72px,7.4vw,144px);line-height:1.04}
+.wcl-story-hero .story-scene.hero-subject-scene{align-items:stretch;grid-template-columns:43% 57%;padding-block:48px 0}
+.wcl-story-hero .hero-subject-scene .hero-story-copy{align-self:center;padding-block:24px 54px}
+.wcl-story-hero .hero-subject-scene .story-visual{align-self:stretch;min-height:0;max-height:none;height:auto;aspect-ratio:auto;padding:0;margin:0 -4vw 0 0;background:transparent;border-radius:0;align-items:flex-end}
+.wcl-story-hero .hero-subject-scene .story-visual>:is(img,svg){display:block;width:100%;height:100%;max-height:840px;object-fit:contain;object-position:center bottom;border-radius:0;filter:none}
+.wcl-story-hero .story-trophy.hero-subject-scene .story-visual{padding:30px 5% 45px;margin-right:0;align-items:center}
+.wcl-story-hero .story-trophy.hero-subject-scene .story-visual>:is(img,svg){max-height:740px;object-position:center}
+.wcl-story-hero .hero-group-scene .story-visual>:is(img,svg){height:auto;max-height:none}
+.wcl-story-hero .hero-group-scene .story-visual{align-self:end}
+.wcl-story-hero .hero-subject-scene .story-visual{border:0;box-shadow:none;overflow:visible}
+.wcl-story-hero .hero-group-scene .hero-story-copy{padding-bottom:70px}
+@media(max-width:1100px){
+ .wcl-story-hero .hero-story-copy{padding-right:0}
+ .wcl-story-hero .story-scene.hero-subject-scene{padding:32px 4vw 0;gap:0}
+ .wcl-story-hero .hero-subject-scene .hero-story-copy{padding:0 0 32px}
+ .wcl-story-hero .hero-subject-scene .story-visual{width:calc(100% + 8vw);height:520px;min-height:0;margin:0 -4vw}
+ .wcl-story-hero .hero-group-scene .story-visual{height:auto}
+ .wcl-story-hero .story-trophy.hero-subject-scene .story-visual{margin:0;width:100%;height:500px}
+ .wcl-story-hero .story-facts dt{font-size:1.375rem}
+ .wcl-story-hero .story-facts dt[data-compact]{font-size:1.1rem}
+ .wcl-story-hero .story-season .story-actions{margin:0!important}
+ .wcl-story-hero .story-season .story-facts{margin:28px 0 0!important}
+ .wcl-story-hero .story-bangladesh h1,.wcl-story-hero .story-new-stars h1{font-size:clamp(54px,9.4vw,108px)!important}
+}
+@media(max-width:700px){
+ .wcl-story-hero .hero-story-copy{max-width:100%;padding:0}
+ .wcl-story-hero .story-scene.hero-subject-scene{padding:28px 20px 0}
+ .wcl-story-hero .hero-subject-scene .story-visual{height:410px;width:calc(100% + 40px);margin:0 -20px}
+ .wcl-story-hero .hero-group-scene .story-visual{height:auto}
+ .wcl-story-hero .hero-group-scene .hero-story-copy{padding-bottom:32px}
+ .wcl-story-hero .story-trophy.hero-subject-scene .story-visual{height:440px;margin:0;width:100%;padding:12px 16px 32px}
+ .wcl-story-hero h1,.wcl-story-hero .story-season h1{font-size:clamp(52px,14vw,92px);line-height:1.02}
+ .wcl-story-hero .story-bangladesh h1,.wcl-story-hero .story-new-stars h1{font-size:clamp(42px,11.6vw,80px)!important}
+ .wcl-story-hero .story-ajay-devgn h1,.wcl-story-hero .story-harshit-tomar h1{font-size:clamp(64px,17vw,108px)}
+ .wcl-story-hero .story-facts{gap:12px;padding-top:20px}
+ .wcl-story-hero .story-facts>div{grid-template-rows:2.25rem auto}
+ .wcl-story-hero .story-facts dt{font-size:clamp(.95rem,3.7vw,1.25rem)}
+ .wcl-story-hero .story-facts dt[data-compact]{font-size:clamp(.82rem,3.25vw,1.1rem)}
+ .wcl-story-hero .story-facts dd{font-size:.75rem;line-height:1.6}
+ .wcl-story-hero .story-actions{gap:12px 18px}
+ .wcl-story-hero .story-actions a{font-size:.875rem}
+ .wcl-story-hero .hero-about-team .story-kicker{font-size:.75rem}
+}

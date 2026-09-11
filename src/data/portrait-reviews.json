@@ -1,0 +1,866 @@
+{
+  "west-indies-lendl-simmons": {
+    "status": "approved",
+    "source": "/assets/portraits-v2/west-indies-lendl-simmons.png",
+    "card": "/assets/portraits-v2/west-indies-lendl-simmons-card.webp",
+    "profile": "/assets/portraits-v2/west-indies-lendl-simmons-profile.webp",
+    "framing": "headshot",
+    "reviewed": "2026-09-10",
+    "basis": "Source photograph / generated campaign adaptation"
+  },
+  "west-indies-carlosbrathwaite": {
+    "status": "approved",
+    "source": "/assets/portraits-v2/west-indies-carlosbrathwaite.png",
+    "card": "/assets/portraits-v2/west-indies-carlosbrathwaite-card.webp",
+    "profile": "/assets/portraits-v2/west-indies-carlosbrathwaite-profile.webp",
+    "framing": "headshot",
+    "reviewed": "2026-09-10",
+    "basis": "Source photograph / generated campaign adaptation"
+  },
+  "west-indies-andrerussell": {
+    "status": "approved",
+    "source": "/assets/portraits-v2/west-indies-andrerussell.png",
+    "card": "/assets/portraits-v2/west-indies-andrerussell-card.webp",
+    "profile": "/assets/portraits-v2/west-indies-andrerussell-profile.webp",
+    "framing": "headshot",
+    "reviewed": "2026-09-10",
+    "basis": "Source photograph / generated campaign adaptation"
+  },
+  "west-indies-dwaynebravo": {
+    "status": "approved",
+    "source": "/assets/portraits-v2/west-indies-dwaynebravo.png",
+    "card": "/assets/portraits-v2/west-indies-dwaynebravo-card.webp",
+    "profile": "/assets/portraits-v2/west-indies-dwaynebravo-profile.webp",
+    "framing": "headshot",
+    "reviewed": "2026-09-10",
+    "basis": "Source photograph / generated campaign adaptation"
+  },
+  "west-indies-sheldoncottrell": {
+    "status": "approved",
+    "source": "/assets/portraits-v2/west-indies-sheldoncottrell.png",
+    "card": "/assets/portraits-v2/west-indies-sheldoncottrell-card.webp",
+    "profile": "/assets/portraits-v2/west-indies-sheldoncottrell-profile.webp",
+    "framing": "headshot",
+    "reviewed": "2026-09-10",
+    "basis": "Source photograph / generated campaign adaptation"
+  },
+  "west-indies-fidel-edwards": {
+    "status": "approved",
+    "source": "/assets/portraits-v2/west-indies-fidel-edwards.png",
+    "card": "/assets/portraits-v2/west-indies-fidel-edwards-card.webp",
+    "profile": "/assets/portraits-v2/west-indies-fidel-edwards-profile.webp",
+    "framing": "headshot",
+    "reviewed": "2026-09-10",
+    "basis": "Source photograph / generated campaign adaptation"
+  },
+  "west-indies-rayademrit": {
+    "status": "approved",
+    "source": "/assets/portraits-v2/west-indies-rayademrit.png",
+    "card": "/assets/portraits-v2/west-indies-rayademrit-card.webp",
+    "profile": "/assets/portraits-v2/west-indies-rayademrit-profile.webp",
+    "framing": "headshot",
+    "reviewed": "2026-09-10",
+    "basis": "Source photograph / generated campaign adaptation"
+  },
+  "west-indies-sulieman-benn": {
+    "status": "approved",
+    "source": "/assets/portraits-v2/west-indies-sulieman-benn.png",
+    "card": "/assets/portraits-v2/west-indies-sulieman-benn-card.webp",
+    "profile": "/assets/portraits-v2/west-indies-sulieman-benn-profile.webp",
+    "framing": "headshot",
+    "reviewed": "2026-09-10",
+    "basis": "Source photograph / generated campaign adaptation"
+  },
+  "west-indies-shivnarinechanderpaul": {
+    "status": "approved",
+    "source": "/assets/portraits-v2/west-indies-shivnarinechanderpaul.png",
+    "card": "/assets/portraits-v2/west-indies-shivnarinechanderpaul-card.webp",
+    "profile": "/assets/portraits-v2/west-indies-shivnarinechanderpaul-profile.webp",
+    "framing": "headshot",
+    "reviewed": "2026-09-10",
+    "basis": "Source photograph / generated campaign adaptation"
+  },
+  "west-indies-nikita-miller": {
+    "status": "approved",
+    "source": "/assets/portraits-v2/west-indies-nikita-miller.png",
+    "card": "/assets/portraits-v2/west-indies-nikita-miller-card.webp",
+    "profile": "/assets/portraits-v2/west-indies-nikita-miller-profile.webp",
+    "framing": "headshot",
+    "reviewed": "2026-09-10",
+    "basis": "Source photograph / generated campaign adaptation"
+  },
+  "west-indies-dave-mohammed": {
+    "status": "approved",
+    "source": "/assets/portraits-v2/west-indies-dave-mohammed.png",
+    "card": "/assets/portraits-v2/west-indies-dave-mohammed-card.webp",
+    "profile": "/assets/portraits-v2/west-indies-dave-mohammed-profile.webp",
+    "framing": "headshot",
+    "reviewed": "2026-09-10",
+    "basis": "Source photograph / generated campaign adaptation"
+  },
+  "australia-usmankhawaja": {
+    "status": "approved",
+    "source": "/assets/portraits-v2/australia-usmankhawaja.png",
+    "card": "/assets/portraits-v2/australia-usmankhawaja-card.webp",
+    "profile": "/assets/portraits-v2/australia-usmankhawaja-profile.webp",
+    "framing": "headshot",
+    "reviewed": "2026-09-10",
+    "basis": "Source photograph / generated campaign adaptation"
+  },
+  "australia-darcy-short": {
+    "status": "approved",
+    "source": "/assets/portraits-v2/australia-darcy-short.png",
+    "card": "/assets/portraits-v2/australia-darcy-short-card.webp",
+    "profile": "/assets/portraits-v2/australia-darcy-short-profile.webp",
+    "framing": "headshot",
+    "reviewed": "2026-09-10",
+    "basis": "Source photograph / generated campaign adaptation"
+  },
+  "australia-ben-dunk": {
+    "status": "approved",
+    "source": "/assets/portraits-v2/australia-ben-dunk.png",
+    "card": "/assets/portraits-v2/australia-ben-dunk-card.webp",
+    "profile": "/assets/portraits-v2/australia-ben-dunk-profile.webp",
+    "framing": "headshot",
+    "reviewed": "2026-09-10",
+    "basis": "Source photograph / generated campaign adaptation"
+  },
+  "australia-kanerichardson": {
+    "status": "approved",
+    "source": "/assets/portraits-v2/australia-kanerichardson.png",
+    "card": "/assets/portraits-v2/australia-kanerichardson-card.webp",
+    "profile": "/assets/portraits-v2/australia-kanerichardson-profile.webp",
+    "framing": "headshot",
+    "reviewed": "2026-09-10",
+    "basis": "Source photograph / generated campaign adaptation"
+  },
+  "australia-benhilfenhaus": {
+    "status": "approved",
+    "source": "/assets/portraits-v2/australia-benhilfenhaus.png",
+    "card": "/assets/portraits-v2/australia-benhilfenhaus-card.webp",
+    "profile": "/assets/portraits-v2/australia-benhilfenhaus-profile.webp",
+    "framing": "headshot",
+    "reviewed": "2026-09-10",
+    "basis": "Source photograph / generated campaign adaptation"
+  },
+  "australia-jamespattinson": {
+    "status": "approved",
+    "source": "/assets/portraits-v2/australia-jamespattinson.png",
+    "card": "/assets/portraits-v2/australia-jamespattinson-card.webp",
+    "profile": "/assets/portraits-v2/australia-jamespattinson-profile.webp",
+    "framing": "headshot",
+    "reviewed": "2026-09-10",
+    "basis": "Source photograph / generated campaign adaptation"
+  },
+  "australia-fawadahmed": {
+    "status": "approved",
+    "source": "/assets/portraits-v2/australia-fawadahmed.png",
+    "card": "/assets/portraits-v2/australia-fawadahmed-card.webp",
+    "profile": "/assets/portraits-v2/australia-fawadahmed-profile.webp",
+    "framing": "headshot",
+    "reviewed": "2026-09-10",
+    "basis": "Source photograph / generated campaign adaptation"
+  },
+  "australia-ben-laughlin": {
+    "status": "approved",
+    "source": "/assets/portraits-v2/australia-ben-laughlin.png",
+    "card": "/assets/portraits-v2/australia-ben-laughlin-card.webp",
+    "profile": "/assets/portraits-v2/australia-ben-laughlin-profile.webp",
+    "framing": "headshot",
+    "reviewed": "2026-09-10",
+    "basis": "Source photograph / generated campaign adaptation"
+  },
+  "australia-rob-quiney": {
+    "status": "approved",
+    "source": "/assets/portraits-v2/australia-rob-quiney.png",
+    "card": "/assets/portraits-v2/australia-rob-quiney-card.webp",
+    "profile": "/assets/portraits-v2/australia-rob-quiney-profile.webp",
+    "framing": "headshot",
+    "reviewed": "2026-09-10",
+    "basis": "Source photograph / generated campaign adaptation"
+  },
+  "australia-nathanreardon": {
+    "status": "approved",
+    "source": "/assets/portraits-v2/australia-nathanreardon.png",
+    "card": "/assets/portraits-v2/australia-nathanreardon-card.webp",
+    "profile": "/assets/portraits-v2/australia-nathanreardon-profile.webp",
+    "framing": "headshot",
+    "reviewed": "2026-09-10",
+    "basis": "Source photograph / generated campaign adaptation"
+  },
+  "australia-andrewtye": {
+    "status": "approved",
+    "source": "/assets/portraits-v2/australia-andrewtye.png",
+    "card": "/assets/portraits-v2/australia-andrewtye-card.webp",
+    "profile": "/assets/portraits-v2/australia-andrewtye-profile.webp",
+    "framing": "headshot",
+    "reviewed": "2026-09-10",
+    "basis": "Source photograph / generated campaign adaptation"
+  },
+  "india-ambati-rayudu": {
+    "status": "approved",
+    "source": "/assets/portraits-v2/india-ambati-rayudu.png",
+    "card": "/assets/portraits-v2/india-ambati-rayudu-card.webp",
+    "profile": "/assets/portraits-v2/india-ambati-rayudu-profile.webp",
+    "framing": "headshot",
+    "reviewed": "2026-09-10",
+    "basis": "Source photograph / generated campaign adaptation"
+  },
+  "india-yusuf-pathan": {
+    "status": "approved",
+    "source": "/assets/portraits-v2/india-yusuf-pathan.png",
+    "card": "/assets/portraits-v2/india-yusuf-pathan-card.webp",
+    "profile": "/assets/portraits-v2/india-yusuf-pathan-profile.webp",
+    "framing": "headshot",
+    "reviewed": "2026-09-10",
+    "basis": "Source photograph / generated campaign adaptation"
+  },
+  "india-irfan-pathan": {
+    "status": "approved",
+    "source": "/assets/portraits-v2/india-irfan-pathan.png",
+    "card": "/assets/portraits-v2/india-irfan-pathan-card.webp",
+    "profile": "/assets/portraits-v2/india-irfan-pathan-profile.webp",
+    "framing": "headshot",
+    "reviewed": "2026-09-10",
+    "basis": "Source photograph / generated campaign adaptation"
+  },
+  "india-mohitsharma": {
+    "status": "approved",
+    "source": "/assets/portraits-v2/india-mohitsharma.png",
+    "card": "/assets/portraits-v2/india-mohitsharma-card.webp",
+    "profile": "/assets/portraits-v2/india-mohitsharma-profile.webp",
+    "framing": "headshot",
+    "reviewed": "2026-09-10",
+    "basis": "Source photograph / generated campaign adaptation"
+  },
+  "india-dhawal-kulkarni": {
+    "status": "approved",
+    "source": "/assets/portraits-v2/india-dhawal-kulkarni.png",
+    "card": "/assets/portraits-v2/india-dhawal-kulkarni-card.webp",
+    "profile": "/assets/portraits-v2/india-dhawal-kulkarni-profile.webp",
+    "framing": "headshot",
+    "reviewed": "2026-09-10",
+    "basis": "Source photograph / generated campaign adaptation"
+  },
+  "india-varun-aaron": {
+    "status": "approved",
+    "source": "/assets/portraits-v2/india-varun-aaron.png",
+    "card": "/assets/portraits-v2/india-varun-aaron-card.webp",
+    "profile": "/assets/portraits-v2/india-varun-aaron-profile.webp",
+    "framing": "headshot",
+    "reviewed": "2026-09-10",
+    "basis": "Source photograph / generated campaign adaptation"
+  },
+  "india-harbhajan-singh": {
+    "status": "approved",
+    "source": "/assets/portraits-v2/india-harbhajan-singh.png",
+    "card": "/assets/portraits-v2/india-harbhajan-singh-card.webp",
+    "profile": "/assets/portraits-v2/india-harbhajan-singh-profile.webp",
+    "framing": "headshot",
+    "reviewed": "2026-09-10",
+    "basis": "Source photograph / generated campaign adaptation"
+  },
+  "india-pawan-negi": {
+    "status": "approved",
+    "source": "/assets/portraits-v2/india-pawan-negi.png",
+    "card": "/assets/portraits-v2/india-pawan-negi-card.webp",
+    "profile": "/assets/portraits-v2/india-pawan-negi-profile.webp",
+    "framing": "headshot",
+    "reviewed": "2026-09-10",
+    "basis": "Source photograph / generated campaign adaptation"
+  },
+  "india-piyush-chawla": {
+    "status": "approved",
+    "source": "/assets/portraits-v2/india-piyush-chawla.png",
+    "card": "/assets/portraits-v2/india-piyush-chawla-card.webp",
+    "profile": "/assets/portraits-v2/india-piyush-chawla-profile.webp",
+    "framing": "headshot",
+    "reviewed": "2026-09-10",
+    "basis": "Source photograph / generated campaign adaptation"
+  },
+  "india-stuart-binny": {
+    "status": "approved",
+    "source": "/assets/portraits-v2/india-stuart-binny.png",
+    "card": "/assets/portraits-v2/india-stuart-binny-card.webp",
+    "profile": "/assets/portraits-v2/india-stuart-binny-profile.webp",
+    "framing": "headshot",
+    "reviewed": "2026-09-10",
+    "basis": "Source photograph / generated campaign adaptation"
+  },
+  "india-rishidhawan": {
+    "status": "approved",
+    "source": "/assets/portraits-v2/india-rishidhawan.png",
+    "card": "/assets/portraits-v2/india-rishidhawan-card.webp",
+    "profile": "/assets/portraits-v2/india-rishidhawan-profile.webp",
+    "framing": "headshot",
+    "reviewed": "2026-09-10",
+    "basis": "Source photograph / generated campaign adaptation"
+  },
+  "india-abhimanyu-mithun": {
+    "status": "approved",
+    "source": "/assets/portraits-v2/india-abhimanyu-mithun.png",
+    "card": "/assets/portraits-v2/india-abhimanyu-mithun-card.webp",
+    "profile": "/assets/portraits-v2/india-abhimanyu-mithun-profile.webp",
+    "framing": "headshot",
+    "reviewed": "2026-09-10",
+    "basis": "Source photograph / generated campaign adaptation"
+  },
+  "west-indies-andrefletcher": {
+    "status": "approved",
+    "source": "/assets/portraits-v2/west-indies-andrefletcher.png",
+    "card": "/assets/portraits-v2/west-indies-andrefletcher-card.webp",
+    "profile": "/assets/portraits-v2/west-indies-andrefletcher-profile.webp",
+    "framing": "headshot",
+    "reviewed": "2026-09-10",
+    "basis": "Source photograph / generated campaign adaptation"
+  },
+  "south-africa-albiemorkel": {
+    "status": "approved",
+    "source": "/assets/portraits-v2/south-africa-albiemorkel.png",
+    "card": "/assets/portraits-v2/south-africa-albiemorkel-card.webp",
+    "profile": "/assets/portraits-v2/south-africa-albiemorkel-profile.webp",
+    "framing": "headshot",
+    "reviewed": "2026-09-10",
+    "basis": "Source photograph / generated campaign adaptation"
+  },
+  "south-africa-wayne-parnell": {
+    "status": "approved",
+    "source": "/assets/portraits-v2/south-africa-wayne-parnell.png",
+    "card": "/assets/portraits-v2/south-africa-wayne-parnell-card.webp",
+    "profile": "/assets/portraits-v2/south-africa-wayne-parnell-profile.webp",
+    "framing": "headshot",
+    "reviewed": "2026-09-10",
+    "basis": "Source photograph / generated campaign adaptation"
+  },
+  "south-africa-imran-tahir": {
+    "status": "approved",
+    "source": "/assets/portraits-v2/south-africa-imran-tahir.png",
+    "card": "/assets/portraits-v2/south-africa-imran-tahir-card.webp",
+    "profile": "/assets/portraits-v2/south-africa-imran-tahir-profile.webp",
+    "framing": "headshot",
+    "reviewed": "2026-09-10",
+    "basis": "Source photograph / generated campaign adaptation"
+  },
+  "south-africa-richard-levi": {
+    "status": "approved",
+    "source": "/assets/portraits-v2/south-africa-richard-levi.png",
+    "card": "/assets/portraits-v2/south-africa-richard-levi-card.webp",
+    "profile": "/assets/portraits-v2/south-africa-richard-levi-profile.webp",
+    "framing": "headshot",
+    "reviewed": "2026-09-10",
+    "basis": "Source photograph / generated campaign adaptation"
+  },
+  "south-africa-dane-vilas": {
+    "status": "approved",
+    "source": "/assets/portraits-v2/south-africa-dane-vilas.png",
+    "card": "/assets/portraits-v2/south-africa-dane-vilas-card.webp",
+    "profile": "/assets/portraits-v2/south-africa-dane-vilas-profile.webp",
+    "framing": "headshot",
+    "reviewed": "2026-09-10",
+    "basis": "Source photograph / generated campaign adaptation"
+  },
+  "south-africa-sj-erwee": {
+    "status": "approved",
+    "source": "/assets/portraits-v2/south-africa-sj-erwee.png",
+    "card": "/assets/portraits-v2/south-africa-sj-erwee-card.webp",
+    "profile": "/assets/portraits-v2/south-africa-sj-erwee-profile.webp",
+    "framing": "headshot",
+    "reviewed": "2026-09-10",
+    "basis": "Source photograph / generated campaign adaptation"
+  },
+  "south-africa-duanne-oliver": {
+    "status": "approved",
+    "source": "/assets/portraits-v2/south-africa-duanne-oliver.png",
+    "card": "/assets/portraits-v2/south-africa-duanne-oliver-card.webp",
+    "profile": "/assets/portraits-v2/south-africa-duanne-oliver-profile.webp",
+    "framing": "headshot",
+    "reviewed": "2026-09-10",
+    "basis": "Source photograph / generated campaign adaptation"
+  },
+  "south-africa-morne-van-wyk": {
+    "status": "approved",
+    "source": "/assets/portraits-v2/south-africa-morne-van-wyk.png",
+    "card": "/assets/portraits-v2/south-africa-morne-van-wyk-card.webp",
+    "profile": "/assets/portraits-v2/south-africa-morne-van-wyk-profile.webp",
+    "framing": "headshot",
+    "reviewed": "2026-09-10",
+    "basis": "Source photograph / generated campaign adaptation"
+  },
+  "south-africa-aaron-phangiso": {
+    "status": "approved",
+    "source": "/assets/portraits-v2/south-africa-aaron-phangiso.png",
+    "card": "/assets/portraits-v2/south-africa-aaron-phangiso-card.webp",
+    "profile": "/assets/portraits-v2/south-africa-aaron-phangiso-profile.webp",
+    "framing": "headshot",
+    "reviewed": "2026-09-10",
+    "basis": "Source photograph / generated campaign adaptation"
+  },
+  "south-africa-coliningram": {
+    "status": "approved",
+    "source": "/assets/portraits-v2/south-africa-coliningram.png",
+    "card": "/assets/portraits-v2/south-africa-coliningram-card.webp",
+    "profile": "/assets/portraits-v2/south-africa-coliningram-profile.webp",
+    "framing": "headshot",
+    "reviewed": "2026-09-10",
+    "basis": "Source photograph / generated campaign adaptation"
+  },
+  "south-africa-jp-duminy": {
+    "status": "approved",
+    "source": "/assets/portraits-v2/south-africa-jp-duminy.png",
+    "card": "/assets/portraits-v2/south-africa-jp-duminy-card.webp",
+    "profile": "/assets/portraits-v2/south-africa-jp-duminy-profile.webp",
+    "framing": "headshot",
+    "reviewed": "2026-09-10",
+    "basis": "Source photograph / generated campaign adaptation"
+  },
+  "england-jasonroy": {
+    "status": "approved",
+    "source": "/assets/portraits-v2/england-jasonroy.png",
+    "card": "/assets/portraits-v2/england-jasonroy-card.webp",
+    "profile": "/assets/portraits-v2/england-jasonroy-profile.webp",
+    "framing": "headshot",
+    "reviewed": "2026-09-10",
+    "basis": "Source photograph / generated campaign adaptation"
+  },
+  "england-dawidmalan": {
+    "status": "approved",
+    "source": "/assets/portraits-v2/england-dawidmalan.png",
+    "card": "/assets/portraits-v2/england-dawidmalan-card.webp",
+    "profile": "/assets/portraits-v2/england-dawidmalan-profile.webp",
+    "framing": "headshot",
+    "reviewed": "2026-09-10",
+    "basis": "Source photograph / generated campaign adaptation"
+  },
+  "england-ravi-bopara": {
+    "status": "approved",
+    "source": "/assets/portraits-v2/england-ravi-bopara.png",
+    "card": "/assets/portraits-v2/england-ravi-bopara-card.webp",
+    "profile": "/assets/portraits-v2/england-ravi-bopara-profile.webp",
+    "framing": "headshot",
+    "reviewed": "2026-09-10",
+    "basis": "Source photograph / generated campaign adaptation"
+  },
+  "england-samit-patel": {
+    "status": "approved",
+    "source": "/assets/portraits-v2/england-samit-patel.png",
+    "card": "/assets/portraits-v2/england-samit-patel-card.webp",
+    "profile": "/assets/portraits-v2/england-samit-patel-profile.webp",
+    "framing": "headshot",
+    "reviewed": "2026-09-10",
+    "basis": "Source photograph / generated campaign adaptation"
+  },
+  "england-liam-plunkett": {
+    "status": "approved",
+    "source": "/assets/portraits-v2/england-liam-plunkett.png",
+    "card": "/assets/portraits-v2/england-liam-plunkett-card.webp",
+    "profile": "/assets/portraits-v2/england-liam-plunkett-profile.webp",
+    "framing": "headshot",
+    "reviewed": "2026-09-10",
+    "basis": "Source photograph / generated campaign adaptation"
+  },
+  "england-ajmal-shahzad": {
+    "status": "approved",
+    "source": "/assets/portraits-v2/england-ajmal-shahzad.png",
+    "card": "/assets/portraits-v2/england-ajmal-shahzad-card.webp",
+    "profile": "/assets/portraits-v2/england-ajmal-shahzad-profile.webp",
+    "framing": "headshot",
+    "reviewed": "2026-09-10",
+    "basis": "Source photograph / generated campaign adaptation"
+  },
+  "england-ryan-sidebottom": {
+    "status": "approved",
+    "source": "/assets/portraits-v2/england-ryan-sidebottom.png",
+    "card": "/assets/portraits-v2/england-ryan-sidebottom-card.webp",
+    "profile": "/assets/portraits-v2/england-ryan-sidebottom-profile.webp",
+    "framing": "headshot",
+    "reviewed": "2026-09-10",
+    "basis": "Source photograph / generated campaign adaptation"
+  },
+  "england-montypanesar": {
+    "status": "approved",
+    "source": "/assets/portraits-v2/england-montypanesar.png",
+    "card": "/assets/portraits-v2/england-montypanesar-card.webp",
+    "profile": "/assets/portraits-v2/england-montypanesar-profile.webp",
+    "framing": "headshot",
+    "reviewed": "2026-09-10",
+    "basis": "Source photograph / generated campaign adaptation"
+  },
+  "england-tim-ambrose": {
+    "status": "approved",
+    "source": "/assets/portraits-v2/england-tim-ambrose.png",
+    "card": "/assets/portraits-v2/england-tim-ambrose-card.webp",
+    "profile": "/assets/portraits-v2/england-tim-ambrose-profile.webp",
+    "framing": "headshot",
+    "reviewed": "2026-09-10",
+    "basis": "Source photograph / generated campaign adaptation"
+  },
+  "england-joedenly": {
+    "status": "approved",
+    "source": "/assets/portraits-v2/england-joedenly.png",
+    "card": "/assets/portraits-v2/england-joedenly-card.webp",
+    "profile": "/assets/portraits-v2/england-joedenly-profile.webp",
+    "framing": "headshot",
+    "reviewed": "2026-09-10",
+    "basis": "Source photograph / generated campaign adaptation"
+  },
+  "england-stuart-meaker": {
+    "status": "approved",
+    "source": "/assets/portraits-v2/england-stuart-meaker.png",
+    "card": "/assets/portraits-v2/england-stuart-meaker-card.webp",
+    "profile": "/assets/portraits-v2/england-stuart-meaker-profile.webp",
+    "framing": "headshot",
+    "reviewed": "2026-09-10",
+    "basis": "Source photograph / generated campaign adaptation"
+  },
+  "pakistan-sharjeel-khan": {
+    "status": "approved",
+    "source": "/assets/portraits-v2/pakistan-sharjeel-khan.png",
+    "card": "/assets/portraits-v2/pakistan-sharjeel-khan-card.webp",
+    "profile": "/assets/portraits-v2/pakistan-sharjeel-khan-profile.webp",
+    "framing": "headshot",
+    "reviewed": "2026-09-10",
+    "basis": "Source photograph / generated campaign adaptation"
+  },
+  "pakistan-mohammadhafeez": {
+    "status": "approved",
+    "source": "/assets/portraits-v2/pakistan-mohammadhafeez.png",
+    "card": "/assets/portraits-v2/pakistan-mohammadhafeez-card.webp",
+    "profile": "/assets/portraits-v2/pakistan-mohammadhafeez-profile.webp",
+    "framing": "headshot",
+    "reviewed": "2026-09-10",
+    "basis": "Source photograph / generated campaign adaptation"
+  },
+  "pakistan-asif-ali": {
+    "status": "approved",
+    "source": "/assets/portraits-v2/pakistan-asif-ali.png",
+    "card": "/assets/portraits-v2/pakistan-asif-ali-card.webp",
+    "profile": "/assets/portraits-v2/pakistan-asif-ali-profile.webp",
+    "framing": "headshot",
+    "reviewed": "2026-09-10",
+    "basis": "Source photograph / generated campaign adaptation"
+  },
+  "pakistan-iftikharahmed": {
+    "status": "approved",
+    "source": "/assets/portraits-v2/pakistan-iftikharahmed.png",
+    "card": "/assets/portraits-v2/pakistan-iftikharahmed-card.webp",
+    "profile": "/assets/portraits-v2/pakistan-iftikharahmed-profile.webp",
+    "framing": "headshot",
+    "reviewed": "2026-09-10",
+    "basis": "Source photograph / generated campaign adaptation"
+  },
+  "pakistan-umar-amin": {
+    "status": "approved",
+    "source": "/assets/portraits-v2/pakistan-umar-amin.png",
+    "card": "/assets/portraits-v2/pakistan-umar-amin-card.webp",
+    "profile": "/assets/portraits-v2/pakistan-umar-amin-profile.webp",
+    "framing": "headshot",
+    "reviewed": "2026-09-10",
+    "basis": "Source photograph / generated campaign adaptation"
+  },
+  "pakistan-asifafridi": {
+    "status": "approved",
+    "source": "/assets/portraits-v2/pakistan-asifafridi.png",
+    "card": "/assets/portraits-v2/pakistan-asifafridi-card.webp",
+    "profile": "/assets/portraits-v2/pakistan-asifafridi-profile.webp",
+    "framing": "headshot",
+    "reviewed": "2026-09-10",
+    "basis": "Source photograph / generated campaign adaptation"
+  },
+  "pakistan-amir-yamin": {
+    "status": "approved",
+    "source": "/assets/portraits-v2/pakistan-amir-yamin.png",
+    "card": "/assets/portraits-v2/pakistan-amir-yamin-card.webp",
+    "profile": "/assets/portraits-v2/pakistan-amir-yamin-profile.webp",
+    "framing": "headshot",
+    "reviewed": "2026-09-10",
+    "basis": "Source photograph / generated campaign adaptation"
+  },
+  "pakistan-sohailtanvir": {
+    "status": "approved",
+    "source": "/assets/portraits-v2/pakistan-sohailtanvir.png",
+    "card": "/assets/portraits-v2/pakistan-sohailtanvir-card.webp",
+    "profile": "/assets/portraits-v2/pakistan-sohailtanvir-profile.webp",
+    "framing": "headshot",
+    "reviewed": "2026-09-10",
+    "basis": "Source photograph / generated campaign adaptation"
+  },
+  "pakistan-mohammadamir": {
+    "status": "approved",
+    "source": "/assets/portraits-v2/pakistan-mohammadamir.png",
+    "card": "/assets/portraits-v2/pakistan-mohammadamir-card.webp",
+    "profile": "/assets/portraits-v2/pakistan-mohammadamir-profile.webp",
+    "framing": "headshot",
+    "reviewed": "2026-09-10",
+    "basis": "Source photograph / generated campaign adaptation"
+  },
+  "pakistan-wahab-riaz": {
+    "status": "approved",
+    "source": "/assets/portraits-v2/pakistan-wahab-riaz.png",
+    "card": "/assets/portraits-v2/pakistan-wahab-riaz-card.webp",
+    "profile": "/assets/portraits-v2/pakistan-wahab-riaz-profile.webp",
+    "framing": "headshot",
+    "reviewed": "2026-09-10",
+    "basis": "Source photograph / generated campaign adaptation"
+  },
+  "pakistan-rumman-raees": {
+    "status": "approved",
+    "source": "/assets/portraits-v2/pakistan-rumman-raees.png",
+    "card": "/assets/portraits-v2/pakistan-rumman-raees-card.webp",
+    "profile": "/assets/portraits-v2/pakistan-rumman-raees-profile.webp",
+    "framing": "headshot",
+    "reviewed": "2026-09-10",
+    "basis": "Source photograph / generated campaign adaptation"
+  },
+  "bangladesh-imrulkayes": {
+    "status": "approved",
+    "source": "/assets/portraits-v2/bangladesh-imrulkayes.png",
+    "card": "/assets/portraits-v2/bangladesh-imrulkayes-card.webp",
+    "profile": "/assets/portraits-v2/bangladesh-imrulkayes-profile.webp",
+    "framing": "headshot",
+    "reviewed": "2026-09-10",
+    "basis": "Source photograph / generated campaign adaptation"
+  },
+  "bangladesh-ronytalukder": {
+    "status": "approved",
+    "source": "/assets/portraits-v2/bangladesh-ronytalukder.png",
+    "card": "/assets/portraits-v2/bangladesh-ronytalukder-card.webp",
+    "profile": "/assets/portraits-v2/bangladesh-ronytalukder-profile.webp",
+    "framing": "headshot",
+    "reviewed": "2026-09-10",
+    "basis": "Source photograph / generated campaign adaptation"
+  },
+  "bangladesh-nasirhossain": {
+    "status": "approved",
+    "source": "/assets/portraits-v2/bangladesh-nasirhossain.png",
+    "card": "/assets/portraits-v2/bangladesh-nasirhossain-card.webp",
+    "profile": "/assets/portraits-v2/bangladesh-nasirhossain-profile.webp",
+    "framing": "headshot",
+    "reviewed": "2026-09-10",
+    "basis": "Source photograph / generated campaign adaptation"
+  },
+  "bangladesh-arafatsunny": {
+    "status": "approved",
+    "source": "/assets/portraits-v2/bangladesh-arafatsunny.png",
+    "card": "/assets/portraits-v2/bangladesh-arafatsunny-card.webp",
+    "profile": "/assets/portraits-v2/bangladesh-arafatsunny-profile.webp",
+    "framing": "headshot",
+    "reviewed": "2026-09-10",
+    "basis": "Source photograph / generated campaign adaptation"
+  },
+  "bangladesh-kamrulislamrabbi": {
+    "status": "approved",
+    "source": "/assets/portraits-v2/bangladesh-kamrulislamrabbi.png",
+    "card": "/assets/portraits-v2/bangladesh-kamrulislamrabbi-card.webp",
+    "profile": "/assets/portraits-v2/bangladesh-kamrulislamrabbi-profile.webp",
+    "framing": "headshot",
+    "reviewed": "2026-09-10",
+    "basis": "Source photograph / generated campaign adaptation"
+  },
+  "bangladesh-ziaurrahman": {
+    "status": "approved",
+    "source": "/assets/portraits-v2/bangladesh-ziaurrahman.png",
+    "card": "/assets/portraits-v2/bangladesh-ziaurrahman-card.webp",
+    "profile": "/assets/portraits-v2/bangladesh-ziaurrahman-profile.webp",
+    "framing": "headshot",
+    "reviewed": "2026-09-10",
+    "basis": "Source photograph / generated campaign adaptation"
+  },
+  "bangladesh-enamulhaquejr": {
+    "status": "approved",
+    "source": "/assets/portraits-v2/bangladesh-enamulhaquejr.png",
+    "card": "/assets/portraits-v2/bangladesh-enamulhaquejr-card.webp",
+    "profile": "/assets/portraits-v2/bangladesh-enamulhaquejr-profile.webp",
+    "framing": "headshot",
+    "reviewed": "2026-09-10",
+    "basis": "Source photograph / generated campaign adaptation"
+  },
+  "bangladesh-jahurulislamomi": {
+    "status": "approved",
+    "source": "/assets/portraits-v2/bangladesh-jahurulislamomi.png",
+    "card": "/assets/portraits-v2/bangladesh-jahurulislamomi-card.webp",
+    "profile": "/assets/portraits-v2/bangladesh-jahurulislamomi-profile.webp",
+    "framing": "headshot",
+    "reviewed": "2026-09-10",
+    "basis": "Source photograph / generated campaign adaptation"
+  },
+  "bangladesh-shuvagatahom": {
+    "status": "approved",
+    "source": "/assets/portraits-v2/bangladesh-shuvagatahom.png",
+    "card": "/assets/portraits-v2/bangladesh-shuvagatahom-card.webp",
+    "profile": "/assets/portraits-v2/bangladesh-shuvagatahom-profile.webp",
+    "framing": "headshot",
+    "reviewed": "2026-09-10",
+    "basis": "Source photograph / generated campaign adaptation"
+  },
+  "bangladesh-abuzayedchowdhury": {
+    "status": "approved",
+    "source": "/assets/portraits-v2/bangladesh-abuzayedchowdhury.png",
+    "card": "/assets/portraits-v2/bangladesh-abuzayedchowdhury-card.webp",
+    "profile": "/assets/portraits-v2/bangladesh-abuzayedchowdhury-profile.webp",
+    "framing": "headshot",
+    "reviewed": "2026-09-10",
+    "basis": "Source photograph / generated campaign adaptation"
+  },
+  "bangladesh-fazelmahmudrabbi": {
+    "status": "approved",
+    "source": "/assets/portraits-v2/bangladesh-fazelmahmudrabbi.png",
+    "card": "/assets/portraits-v2/bangladesh-fazelmahmudrabbi-card.webp",
+    "profile": "/assets/portraits-v2/bangladesh-fazelmahmudrabbi-profile.webp",
+    "framing": "headshot",
+    "reviewed": "2026-09-10",
+    "basis": "Source photograph / generated campaign adaptation"
+  },
+  "bangladesh-mohammadashraful": {
+    "status": "approved",
+    "source": "/assets/portraits-v2/bangladesh-mohammadashraful.png",
+    "card": "/assets/portraits-v2/bangladesh-mohammadashraful-card.webp",
+    "profile": "/assets/portraits-v2/bangladesh-mohammadashraful-profile.webp",
+    "framing": "headshot",
+    "reviewed": "2026-09-10",
+    "basis": "Source photograph / generated campaign adaptation"
+  },
+  "west-indies-chris-gayle": {
+    "status": "approved",
+    "source": "/assets/chris-gayle-campaign.png",
+    "card": "/assets/portraits-v2/west-indies-chris-gayle-card.webp",
+    "profile": "/assets/portraits-v2/west-indies-chris-gayle-profile.webp",
+    "framing": "campaign",
+    "reviewed": "2026-09-10",
+    "basis": "Previously supplied / approved campaign asset"
+  },
+  "west-indies-chadwick-walton": {
+    "status": "approved",
+    "source": "/assets/west-indies-chadwick-walton-campaign-2026-v1.png",
+    "card": "/assets/portraits-v2/west-indies-chadwick-walton-card.webp",
+    "profile": "/assets/portraits-v2/west-indies-chadwick-walton-profile.webp",
+    "framing": "campaign",
+    "reviewed": "2026-09-10",
+    "basis": "Previously supplied / approved campaign asset"
+  },
+  "australia-chris-lynn": {
+    "status": "approved",
+    "source": "/assets/australia-chris-lynn-campaign-2026-v1.png",
+    "card": "/assets/portraits-v2/australia-chris-lynn-card.webp",
+    "profile": "/assets/portraits-v2/australia-chris-lynn-profile.webp",
+    "framing": "campaign",
+    "reviewed": "2026-09-10",
+    "basis": "Previously supplied / approved campaign asset"
+  },
+  "australia-davidwarner": {
+    "status": "approved",
+    "source": "/assets/australia.png",
+    "card": "/assets/portraits-v2/australia-davidwarner-card.webp",
+    "profile": "/assets/portraits-v2/australia-davidwarner-profile.webp",
+    "framing": "campaign",
+    "reviewed": "2026-09-10",
+    "basis": "Previously supplied / approved campaign asset"
+  },
+  "india-robin-uthappa": {
+    "status": "approved",
+    "source": "/assets/india-robin-uthappa-campaign-2026-v1.png",
+    "card": "/assets/portraits-v2/india-robin-uthappa-card.webp",
+    "profile": "/assets/portraits-v2/india-robin-uthappa-profile.webp",
+    "framing": "campaign",
+    "reviewed": "2026-09-10",
+    "basis": "Previously supplied / approved campaign asset"
+  },
+  "india-yuvraj-singh": {
+    "status": "approved",
+    "source": "/assets/india.png",
+    "card": "/assets/portraits-v2/india-yuvraj-singh-card.webp",
+    "profile": "/assets/portraits-v2/india-yuvraj-singh-profile.webp",
+    "framing": "campaign",
+    "reviewed": "2026-09-10",
+    "basis": "Previously supplied / approved campaign asset"
+  },
+  "south-africa-ab-de-villiers": {
+    "status": "approved",
+    "source": "/assets/south-africa.png",
+    "card": "/assets/portraits-v2/south-africa-ab-de-villiers-card.webp",
+    "profile": "/assets/portraits-v2/south-africa-ab-de-villiers-profile.webp",
+    "framing": "campaign",
+    "reviewed": "2026-09-10",
+    "basis": "Previously supplied / approved campaign asset"
+  },
+  "south-africa-fafduplessis": {
+    "status": "approved",
+    "source": "/assets/season3-portraits/faf-du-plessis-v1.webp",
+    "card": "/assets/portraits-v2/south-africa-fafduplessis-card.webp",
+    "profile": "/assets/portraits-v2/south-africa-fafduplessis-profile.webp",
+    "framing": "campaign",
+    "reviewed": "2026-09-10",
+    "basis": "Previously supplied / approved campaign asset"
+  },
+  "south-africa-hardus-viljoen": {
+    "status": "approved",
+    "source": "/assets/south-africa-hardus-viljoen-campaign-2026-v1.png",
+    "card": "/assets/portraits-v2/south-africa-hardus-viljoen-card.webp",
+    "profile": "/assets/portraits-v2/south-africa-hardus-viljoen-profile.webp",
+    "framing": "campaign",
+    "reviewed": "2026-09-10",
+    "basis": "Previously supplied / approved campaign asset"
+  },
+  "england-moeen-ali": {
+    "status": "approved",
+    "source": "/assets/england.png",
+    "card": "/assets/portraits-v2/england-moeen-ali-card.webp",
+    "profile": "/assets/portraits-v2/england-moeen-ali-profile.webp",
+    "framing": "campaign",
+    "reviewed": "2026-09-10",
+    "basis": "Previously supplied / approved campaign asset"
+  },
+  "england-phil-mustard": {
+    "status": "approved",
+    "source": "/assets/england-phil-mustard-campaign-2026-v1.png",
+    "card": "/assets/portraits-v2/england-phil-mustard-card.webp",
+    "profile": "/assets/portraits-v2/england-phil-mustard-profile.webp",
+    "framing": "campaign",
+    "reviewed": "2026-09-10",
+    "basis": "Previously supplied / approved campaign asset"
+  },
+  "england-jamesanderson": {
+    "status": "approved",
+    "source": "/assets/season3-portraits/james-anderson-v1.webp",
+    "card": "/assets/portraits-v2/england-jamesanderson-card.webp",
+    "profile": "/assets/portraits-v2/england-jamesanderson-profile.webp",
+    "framing": "campaign",
+    "reviewed": "2026-09-10",
+    "basis": "Previously supplied / approved campaign asset"
+  },
+  "pakistan-kamran-akmal": {
+    "status": "approved",
+    "source": "/assets/pakistan-kamran-akmal-campaign-2026-v1.png",
+    "card": "/assets/portraits-v2/pakistan-kamran-akmal-card.webp",
+    "profile": "/assets/portraits-v2/pakistan-kamran-akmal-profile.webp",
+    "framing": "campaign",
+    "reviewed": "2026-09-10",
+    "basis": "Previously supplied / approved campaign asset"
+  },
+  "pakistan-shahid-afridi": {
+    "status": "approved",
+    "source": "/assets/pakistan.png",
+    "card": "/assets/portraits-v2/pakistan-shahid-afridi-card.webp",
+    "profile": "/assets/portraits-v2/pakistan-shahid-afridi-profile.webp",
+    "framing": "campaign",
+    "reviewed": "2026-09-10",
+    "basis": "Previously supplied / approved campaign asset"
+  },
+  "bangladesh-mahmudullahriyad": {
+    "status": "approved",
+    "source": "/assets/bangladesh.png",
+    "card": "/assets/portraits-v2/bangladesh-mahmudullahriyad-card.webp",
+    "profile": "/assets/portraits-v2/bangladesh-mahmudullahriyad-profile.webp",
+    "framing": "campaign",
+    "reviewed": "2026-09-10",
+    "basis": "Previously supplied / approved campaign asset"
+  },
+  "bangladesh-shakibalhasan": {
+    "status": "approved",
+    "source": "/assets/season3-portraits/shakib-al-hasan-v1.webp",
+    "card": "/assets/portraits-v2/bangladesh-shakibalhasan-card.webp",
+    "profile": "/assets/portraits-v2/bangladesh-shakibalhasan-profile.webp",
+    "framing": "campaign",
+    "reviewed": "2026-09-10",
+    "basis": "Previously supplied / approved campaign asset"
+  }
+}

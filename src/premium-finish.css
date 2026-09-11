@@ -1,0 +1,428 @@
+/*
+ * WCL public-surface finish — September 2026.
+ * Reference adaptation: editorial scale, one shell per object, image-led cards,
+ * deliberate active states. Private portals intentionally do not inherit this.
+ * Component-owned broadcast/player motion remains the source of sequencing.
+ */
+.wcl-public {
+  --finish-canvas: #070f22;
+  --finish-surface: #101e36;
+  --finish-raised: #142743;
+  --finish-line: #2b3c56;
+  --finish-muted: #b4c4dd;
+  --finish-white: #f5f8ff;
+  --finish-orange: #ff823a;
+  --finish-feature: 24px;
+  --finish-card: 16px;
+  --finish-control: 10px;
+  --finish-ease: cubic-bezier(.22,1,.36,1);
+  --ui-surface: var(--finish-surface);
+  --ui-border: var(--finish-line);
+  --ui-muted: var(--finish-muted);
+  --muted: var(--finish-muted);
+  --line: var(--finish-line);
+  color: var(--finish-white);
+  background: var(--finish-canvas);
+  isolation: isolate;
+}
+.wcl-public .wrap { width: calc(100% - 96px); max-width: 1440px; }
+.wcl-public .section { padding-block: clamp(44px,5vw,72px); }
+.wcl-public :is(a,button,input,select,summary):focus-visible { outline: 2px solid var(--finish-orange); outline-offset: 4px; }
+.wcl-public .kicker { color: var(--finish-orange); font: 600 11px/1.5 Inter,sans-serif; letter-spacing: .1em; }
+.wcl-public .section-title { gap: 24px; margin-bottom: 28px; }
+.wcl-public .section-title h2 { font: 600 clamp(28px,3vw,40px)/1.12 Inter,sans-serif; letter-spacing: -.045em; text-transform: none; }
+.wcl-public .section-title>a { color: var(--finish-white); padding: 10px 0; border-radius: 0; font-size: 13px; }
+.wcl-public .section-title .kicker { margin-bottom: 10px; }
+.wcl-public :is(.source-note,.archive-label,.player-archive-note) { color: var(--finish-muted); font-size: 12px; line-height: 1.65; }
+
+/* Stable navigation and a consistent, dark-text-on-orange primary action. */
+.wcl-public .utility { background: #050b19; color: #b4c4dd; border-color: #202c40; }
+.wcl-public .league-header { background: #050b19; border-bottom: 1px solid #202c40; box-shadow: none; backdrop-filter: none; }
+.wcl-public .nav-wrap { max-width: 1440px; width: calc(100% - 96px); height: 78px; }
+.wcl-public .league-header nav>a:not(.ticket-link) { font: 500 13px/1.4 Inter,sans-serif; }
+.wcl-public :is(.btn,.story-primary,.ticket-link) { border-radius: 999px; min-height: 48px; padding: 14px 22px; background: var(--finish-orange); border: 1px solid var(--finish-orange); color: #081426; box-shadow: none; font: 600 13px/1.4 Inter,sans-serif; gap: 18px; transition: background 200ms ease,border-color 200ms ease; }
+.wcl-public :is(.btn,.story-primary,.ticket-link):hover { background: #ff995e; border-color: #ff995e; color: #081426; box-shadow: none; }
+.wcl-public .btn.light { background: var(--finish-white); border-color: var(--finish-white); color: #081426; }
+.wcl-public :is(.btn,.text-link,.story-primary,.story-secondary,.guide-card) svg { flex-shrink: 0; }
+.wcl-public :is(.btn,.story-primary,.story-secondary,.text-link)>svg:last-child { transition: transform 220ms var(--finish-ease); }
+
+/* Page openings: less vertical chrome, more content in the first viewport. */
+.wcl-public .page-title { background: var(--finish-canvas); padding: 44px 0 32px; border-bottom: 1px solid var(--finish-line); }
+.wcl-public .page-title .kicker { margin: 0 0 14px; }
+.wcl-public .page-title h1 { font: 700 clamp(42px,4.6vw,68px)/1.02 'Barlow Condensed',sans-serif; letter-spacing: -.015em; margin: 0; max-width: 1120px; }
+.wcl-public .page-title p:last-child:not(.kicker) { max-width: 730px; margin: 15px 0 0; font: 400 15px/1.7 Inter,sans-serif; color: var(--finish-muted); }
+.wcl-public .page-title+.section { padding-top: 32px; }
+
+/* Filters are a toolbar, not an extra card surrounding more cards. */
+.wcl-public .filters { padding: 0; border: 0; border-radius: 0; background: none; margin-bottom: 22px; gap: 16px!important; }
+.wcl-public :is(.filters,.team-season-bar,.home-player-controls) .select-label { font: 500 11px/1.5 Inter,sans-serif; color: var(--finish-muted)!important; gap: 7px; }
+.wcl-public :is(.filters,.team-season-bar,.ticket-planner) select,
+.wcl-public .filters .input-search,
+.wcl-public .home-player-controls .input-search,
+.wcl-public .news-search input { background: var(--finish-surface)!important; border: 1px solid var(--finish-line)!important; border-radius: var(--finish-control)!important; min-height: 46px; font-size: 13px; color: var(--finish-white)!important; }
+.wcl-public .filters .input-search input { border: 0!important; background: none!important; }
+.wcl-public .filters input::placeholder { color: #a0b2cc; }
+.wcl-public .directory-summary { margin: 18px 0 26px; color: var(--finish-muted); font-size: 12px; gap: 20px; }
+.wcl-public :is(.team-pills,.press-filters) { gap: 8px; }
+.wcl-public :is(.team-pills,.press-filters) button { background: var(--finish-surface); border: 1px solid var(--finish-line); border-radius: 999px; color: var(--finish-muted); min-height: 42px; padding: 10px 16px; font: 500 12px/1.4 Inter,sans-serif; transition: background 220ms ease,color 220ms ease,border-color 220ms ease; }
+.wcl-public :is(.team-pills,.press-filters) button.active { background: var(--finish-white); border-color: var(--finish-white); color: #081426; }
+.wcl-public .press-filters button[aria-pressed=true] { background: var(--finish-white); border-color: var(--finish-white); color: #081426; }
+.wcl-public .team-season-bar { padding: 0 0 24px; background: none; border: 0; border-radius: 0; }
+.wcl-public .league-tabs { margin-bottom: 32px; gap: 24px; border-color: var(--finish-line); background: none; }
+.wcl-public .league-tabs button { padding: 15px 0; color: var(--finish-muted); background: none; font: 500 14px/1.5 Inter,sans-serif; }
+.wcl-public .league-tabs button.active { color: var(--finish-white); border-color: var(--finish-orange); }
+
+/* Editorial portraits: one frame, one caption, one integrated team destination. */
+.wcl-public .players-grid { gap: 24px; }
+.wcl-public .player-card.player-profile-card { background: var(--finish-surface)!important; border: 1px solid var(--finish-line)!important; border-radius: var(--finish-card)!important; overflow: hidden; min-height: 0; display: flex; flex-direction: column; transition: border-color 220ms ease,background 400ms var(--finish-ease); }
+.wcl-public .player-profile-card .player-photo { border-radius: 0; aspect-ratio: 4/4.5; background: #101e36; }
+.wcl-public .player-profile-card .player-portrait-link { flex: 1; }
+.wcl-public .player-profile-card .player-photo>img { transition: transform 500ms var(--finish-ease); }
+.wcl-public .player-profile-card .player-photo-campaign>img { transform: scale(1.26); transform-origin: 50% 0; object-position: center 5%; }
+.wcl-public .player-profile-card .player-caption { padding: 18px 20px 16px; min-height: 88px; }
+.wcl-public .player-profile-card .player-caption h3 { font-size: clamp(24px,2vw,30px); line-height: 1.12; margin: 0 0 7px!important; }
+.wcl-public .player-profile-card .player-caption small { display: block; margin: 0; color: var(--finish-muted); }
+.wcl-public .player-profile-card .player-team-strip { margin: 0 20px; padding: 15px 0; border: 0; border-top: 1px solid var(--finish-line); border-radius: 0; background: none; gap: 10px; }
+.wcl-public .player-team-strip>img { width: 32px; height: 32px; background: none; padding: 0; border-radius: 0; }
+.wcl-public .player-team-strip>span { font-size: 12px; }
+.wcl-public .player-team-strip small { font-size: 10px; color: var(--finish-muted); }
+.wcl-public .player-team-strip>svg { width: 16px; }
+.wcl-public .player-team-strip>.player-team-code { width: 32px; flex-shrink: 0; display: block; color: var(--finish-muted); font: 600 12px/1.4 Inter,sans-serif; letter-spacing: -.025em; }
+.wcl-public .hero-team-players .player-team-strip small { text-transform: none; letter-spacing: 0; white-space: nowrap; font-size: 10px; }
+.wcl-public .hero-team-players .player-caption { min-height: 88px; }
+.wcl-public .hero-team-players .player-caption h3 { text-transform: none; font-size: 25px; }
+.wcl-public .hero-team-players .player-team-strip { margin-top: auto; }
+.wcl-public .player-profile-card .player-profile-arrow { opacity: 1; transform: none; width: 36px; height: 36px; right: 14px; bottom: 14px; background: var(--finish-white); }
+.wcl-public .player-profile-card:focus-within { border-color: var(--finish-orange)!important; background: color-mix(in srgb,var(--club) 17%,var(--finish-surface))!important; }
+.wcl-public .player-profile-card :is(.player-portrait-link,.player-team-strip):focus-visible { outline-offset: -4px; }
+.wcl-public .players-grid.home-player-grid { padding: 4px 2px 12px; scrollbar-width: none; }
+.wcl-public .players-grid.home-player-grid::-webkit-scrollbar { display: none; }
+
+/* Team cards pair a quiet editorial zone with an unfiltered campaign portrait. */
+.wcl-public .team-directory { gap: 24px; }
+.wcl-public .team-directory-card { border: 1px solid var(--finish-line); border-radius: var(--finish-card); overflow: hidden; background: var(--finish-surface); transition: background 400ms var(--finish-ease),border-color 220ms ease; }
+.wcl-public .team-directory-card .team-panel { border: 0; border-radius: 0; min-height: 320px; height: auto; background: var(--finish-surface); overflow: hidden; isolation: isolate; box-shadow: none; }
+.wcl-public .team-directory-card .team-panel::after { display: none; }
+.wcl-public .team-directory-card .team-panel>div { position: relative; width: 52%; min-height: 320px; padding: 28px; background: var(--finish-surface); z-index: 2; transition: background 400ms var(--finish-ease); }
+.wcl-public .team-directory-card .team-panel>img { position: absolute; inset: 0 0 0 auto; width: 52%; height: 100%; object-fit: cover; object-position: center 18%; opacity: 1; filter: none; transform: none; mix-blend-mode: normal; transition: transform 500ms var(--finish-ease); }
+.wcl-public .team-directory-card .team-panel h2 { font: 700 clamp(30px,3vw,44px)/1.02 'Barlow Condensed',sans-serif; margin: 16px 0 24px; letter-spacing: -.01em; color: var(--finish-white); }
+.wcl-public .team-directory-card .team-panel h2 span { font-size: .64em; font-weight: 500; color: var(--finish-muted); }
+.wcl-public .team-directory-card .team-panel .kicker { margin: 14px 0 0; }
+.wcl-public .team-directory-card .team-panel .text-link { font-size: 12px; gap: 12px; }
+.wcl-public .team-directory-card .team-panel .crest { width: 56px; height: 56px; padding: 0; background: none; border-radius: 0; box-shadow: none; }
+.wcl-public .team-directory-card>.team-instagram { border: 0; border-top: 1px solid var(--finish-line); margin: 0 28px; padding: 15px 0; border-radius: 0; background: none; font-size: 12px; min-height: 48px; }
+.wcl-public .club-tile { border: 1px solid var(--finish-line); border-radius: var(--finish-card); background: var(--finish-surface); box-shadow: none; }
+.wcl-public .club-tile::before { display: none; }
+.wcl-public .club-tile h3 { color: var(--finish-white); }
+.wcl-public .team-top { background: var(--finish-canvas); border-bottom: 1px solid var(--finish-line); }
+.wcl-public .team-top>.wrap { padding-block: 44px; gap: 48px; }
+.wcl-public .team-top h1 { font-size: clamp(56px,6vw,86px); line-height: 1.03; }
+.wcl-public .team-top>.wrap>img { border-radius: var(--finish-feature); max-height: 480px; object-position: center 16%; filter: none; }
+.wcl-public .team-quick { border: 1px solid var(--finish-line); border-radius: var(--finish-card); background: var(--finish-surface); padding: 28px; }
+
+/* A single spotlight stage, with compact selection controls outside the portrait. */
+.wcl-public :is(.spotlight-section,.video-section) { background: #0a1427; border-block: 1px solid #203047; }
+.wcl-public .spotlight-grid { grid-template-columns: minmax(0,1fr) minmax(0,1fr) minmax(220px,.72fr); gap: 32px; }
+.wcl-public .spotlight-grid { background: none!important; border: 0; box-shadow: none; }
+.wcl-public .spotlight-portrait { border-radius: var(--finish-feature); height: 440px; background: var(--finish-surface); }
+.wcl-public .spotlight-picker button { border: 1px solid transparent; border-radius: var(--finish-control); padding: 10px; background: none; transition: background 300ms var(--finish-ease),border-color 220ms ease; }
+.wcl-public .spotlight-picker button.active { background: color-mix(in srgb,var(--club) 22%,var(--finish-surface)); border: 1px solid color-mix(in srgb,var(--club) 60%,#667895); }
+.wcl-public .spotlight-picker img { width: 40px; height: 48px; border-radius: 6px; }
+.wcl-public .spotlight-picker strong { font: 600 13px/1.4 Inter,sans-serif; }
+.wcl-public .spotlight-bio h2 { font-size: clamp(40px,4vw,60px); color: var(--finish-white); }
+.wcl-public .player-facts { border-color: var(--finish-line); padding-block: 22px; margin-block: 24px; gap: 18px; }
+
+/* News and films share the same one-shell media / caption geometry. */
+.wcl-public :is(.video-grid,.press-grid,.guide-grid) { gap: 24px; }
+.wcl-public :is(.video-card,.press-card,.story-card,.guide-card) { border: 1px solid var(--finish-line); border-radius: var(--finish-card)!important; background: var(--finish-surface); color: var(--finish-white); box-shadow: none; overflow: hidden; }
+.wcl-public .video-card { padding: 0 0 20px; display: flex; flex-direction: column; }
+.wcl-public .video-card .video-art { border-radius: 0!important; flex-shrink: 0; }
+.wcl-public .video-card>h3 { color: var(--finish-white); font: 500 14px/1.55 Inter,sans-serif!important; padding: 0 20px; margin: 17px 0 12px!important; }
+.wcl-public .video-card>span { margin: auto 20px 0; color: var(--finish-muted); display: flex; justify-content: space-between; gap: 16px; }
+.wcl-public .video-art .video-match-title { font: 600 14px/1.45 Inter,sans-serif; bottom: 16px; }
+.wcl-public .video-art .video-season { font-size: 10px!important; border-radius: 5px; }
+.wcl-public .video-editorial-label { font-size: 9px; letter-spacing: .04em; }
+.wcl-public .press-card { transition: border-color 220ms ease,background 300ms ease; }
+.wcl-public .press-copy { padding: 24px; }
+.wcl-public .press-copy h3 { color: var(--finish-white); font: 600 clamp(20px,1.8vw,26px)/1.25 Inter,sans-serif; letter-spacing: -.035em; }
+.wcl-public .press-copy>p { color: var(--finish-muted); font-size: 13px; line-height: 1.7; }
+.wcl-public .press-meta { font-size: 10px; letter-spacing: .05em; }
+.wcl-public .press-featured { border-radius: var(--finish-feature)!important; }
+.wcl-public .press-featured .press-copy { padding: clamp(24px,3vw,44px); }
+.wcl-public .press-featured .press-copy h3 { font-size: clamp(26px,2.6vw,36px); }
+.wcl-public .news-search { max-width: 560px; margin-bottom: 20px; }
+.wcl-public .press-filters { margin-bottom: 28px; }
+.wcl-public .reel-card>a { border-radius: var(--finish-card); border-color: var(--finish-line); }
+.wcl-public .reels-rail { gap: 24px; }
+.wcl-public .video-player { border-radius: var(--finish-feature); border-color: var(--finish-line); }
+.wcl-public .hero-fixture-sides .hero-fixture-code { width: 36px; flex-shrink: 0; font: 600 12px/1.3 Inter,sans-serif; color: var(--finish-muted); text-align: center; }
+.wcl-public .hero-fixture-sides>span>img { border-radius: 0; padding: 0; background: none; }
+.wcl-public .guide-card { padding: 28px; }
+.wcl-public .guide-card h3 { font: 600 23px/1.2 Inter,sans-serif; letter-spacing: -.035em; }
+.wcl-public .guide-card p { color: var(--finish-muted); font-size: 14px; }
+.wcl-public .guide-card>svg:first-child { color: var(--finish-orange); }
+.wcl-public .guide-card>svg:last-child { background: none; color: var(--finish-white); border: 1px solid var(--finish-line); width: 36px; height: 36px; padding: 9px; }
+
+/* Match Centre stays a sports product; the finish never adds demonstration UI. */
+.wcl-public .ms-stage { border: 1px solid var(--finish-line); border-radius: var(--finish-feature); --ms-surface: var(--finish-surface); }
+.wcl-public .ms-topline { padding: 22px 28px 0; }
+.wcl-public .ms-matchup { padding: 34px 36px; min-height: 208px; }
+.wcl-public .ms-story-strap { background: #0b172c; border-block: 1px solid #243650; min-height: 56px; }
+.wcl-public .ms-footer { padding: 16px 28px; }
+.wcl-public .match-broadcast .mc-home-grid { gap: 16px; border: 0; }
+.wcl-public .match-broadcast .mc-home-grid .mc-fixture { border: 1px solid var(--finish-line); border-radius: var(--finish-card); background: var(--finish-surface); padding: 22px; }
+.wcl-public .match-broadcast .mc-home-grid .mc-fixture+.mc-fixture { border-left: 1px solid var(--finish-line); }
+.wcl-public .match-broadcast .mc-date-group>div { border: 1px solid var(--finish-line); border-radius: var(--finish-card); background: #0c192e; }
+.wcl-public .match-broadcast .mc-date-group .mc-fixture:last-child { border-bottom: 0; }
+.wcl-public .mc-view-filter button[aria-pressed=true] { background: var(--finish-white); color: #081426; }
+.wcl-public .match-tile.broadcast-match.refined-match { background: var(--finish-surface)!important; border: 1px solid var(--finish-line)!important; border-radius: var(--finish-card); box-shadow: none!important; }
+.wcl-public .match-tile.broadcast-match.refined-match:is(:hover,:focus-visible) { background: color-mix(in srgb,var(--home-color) 18%,var(--finish-surface))!important; box-shadow: none!important; border-color: var(--home-color)!important; }
+.wcl-public .refined-match .match-contender:first-child .crest { box-shadow: none!important; }
+.wcl-public .refined-match:hover .match-foot svg { transform: translateX(3px); }
+
+/* Visit / league / personal pages inherit the same restrained surface family. */
+.wcl-public :is(.ticket-availability,.stadium-detail,.season-banner,.hero-about-visual,.hero-leadership-photo) { border-radius: var(--finish-feature); border-color: var(--finish-line); background-color: var(--finish-surface); }
+.wcl-public .season-banner { height: auto!important; max-height: none!important; aspect-ratio: auto; object-fit: contain!important; }
+.wcl-public .season-summary { margin-block: 24px 44px; border: 1px solid var(--finish-line); border-radius: var(--finish-card); overflow: hidden; background: var(--finish-surface); }
+.wcl-public .season-summary>div { border-color: var(--finish-line); }
+.wcl-public .season-summary svg { color: var(--finish-orange); }
+.wcl-public .ticket-planner { gap: 48px; align-items: center; }
+.wcl-public .ticket-availability { padding: 32px; }
+.wcl-public .ticket-planner h2 { font-size: clamp(36px,4vw,56px); line-height: 1.08; }
+.wcl-public .ticket-planner label { color: var(--finish-muted); }
+.wcl-public .stadium-explorer { margin-top: 64px; }
+.wcl-public .stadium-choice { border-radius: var(--finish-card); border-color: var(--finish-line); }
+.wcl-public .stadium-choice.selected { border-color: var(--finish-orange); box-shadow: none; }
+.wcl-public .stadium-detail-copy { padding: 28px; }
+.wcl-public :is(.overview-grid,.season-summary) { gap: 32px; }
+.wcl-public :is(.overview-grid,.article-body,.faq-list) p:not(.kicker) { color: var(--finish-muted); line-height: 1.75; }
+.wcl-public .overview-grid { align-items: start; }
+.wcl-public .overview-grid h2 { font: 600 clamp(28px,3vw,40px)/1.16 Inter,sans-serif; text-transform: none; letter-spacing: -.04em; }
+.wcl-public .team-quick { display: flex; flex-direction: column; align-items: flex-start; gap: 20px; }
+.wcl-public .team-quick h3 { margin: 0; font: 600 23px/1.25 Inter,sans-serif; letter-spacing: -.035em; }
+.wcl-public .team-quick p { margin: 0; }
+.wcl-public .team-quick .crest { background: none; padding: 0; border-radius: 0; }
+.wcl-public :is(.team-top,.player-profile) { background: var(--finish-canvas); border-bottom: 1px solid var(--finish-line); overflow: visible; }
+.wcl-public :is(.team-top,.player-profile)>.wrap { position: relative; display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1fr); align-items: center; gap: 48px; min-height: 0; height: auto; padding-block: 44px; }
+.wcl-public :is(.team-top,.player-profile)>.wrap>div { position: relative; width: 100%; padding: 0; z-index: 1; }
+.wcl-public :is(.team-top,.player-profile)>.wrap>img { position: static; width: 100%; height: 480px; max-height: none; object-fit: contain!important; object-position: center; opacity: 1; filter: none!important; mix-blend-mode: normal; transform: none; border-radius: var(--finish-feature); }
+.wcl-public .team-top>.wrap>img { object-fit: cover!important; object-position: center 10%; }
+.wcl-public :is(.team-top,.player-profile) h1 { font: 700 clamp(48px,6vw,86px)/1.03 'Barlow Condensed',sans-serif!important; letter-spacing: -.01em; margin: 24px 0; }
+.wcl-public .player-profile .status { margin-top: 12px; }
+.wcl-public .player-profile .back { margin-bottom: 26px; }
+.wcl-public .fan-teams { gap: 14px; }
+.wcl-public .fan-teams>button { background: var(--finish-surface); border: 1px solid var(--finish-line); border-radius: var(--finish-card); color: var(--finish-white); padding: 24px 12px; gap: 18px; font: 500 12px/1.4 Inter,sans-serif; transition: background 350ms var(--finish-ease),border-color 220ms ease; }
+.wcl-public .fan-teams>button .crest { background: none; border-radius: 0; padding: 0; width: 64px; height: 64px; transition: transform 300ms var(--finish-ease); }
+.wcl-public .fan-teams>button .crest:not(:has(img)) { color: var(--finish-muted); }
+.wcl-public .fan-teams>button.selected { background: #1b314f; border-color: var(--finish-orange); color: var(--finish-white); }
+.wcl-public .fan-teams>button>svg { color: var(--finish-orange); }
+.wcl-public .empty-box { border: 1px solid var(--finish-line); border-radius: var(--finish-card); background: var(--finish-surface); padding: 36px 24px; }
+.wcl-public .empty-box h3 { color: var(--finish-white); font: 600 26px/1.25 Inter,sans-serif; letter-spacing: -.035em; }
+.wcl-public .empty-box p { color: var(--finish-muted); font-size: 14px; }
+.wcl-public .empty-box>svg { color: var(--finish-orange); }
+.wcl-public :is(.gallery-grid button,.destination-card,.leadership-grid article,.update-card) { border: 1px solid var(--finish-line); border-radius: var(--finish-card); overflow: hidden; background: var(--finish-surface); }
+.wcl-public .gallery-grid button { color: var(--finish-white); }
+.wcl-public .gallery-grid span { padding: 18px 20px; background: var(--finish-surface); font: 500 13px/1.5 Inter,sans-serif; }
+.wcl-public .leadership-grid { gap: 24px; }
+.wcl-public .leadership-grid article>img { background: #0b172a; height: 380px; }
+.wcl-public .leadership-grid article>div { padding: 28px; }
+.wcl-public .leadership-grid dl { padding-top: 22px; border-top: 1px solid var(--finish-line); }
+.wcl-public .destination-page h1 { font-size: clamp(48px,5.5vw,80px); line-height: 1.02; }
+.wcl-public .global-search { border: 1px solid var(--finish-line); border-radius: var(--finish-control); background: var(--finish-surface); }
+.wcl-public .search-results>a { border: 1px solid var(--finish-line); border-radius: var(--finish-control); background: var(--finish-surface); color: var(--finish-white); padding: 22px; }
+.wcl-public .search-results h3 { font: 600 22px/1.3 Inter,sans-serif; letter-spacing: -.025em; }
+.wcl-public .faq-list details { border: 0; border-bottom: 1px solid var(--finish-line); border-radius: 0; background: none; padding-inline: 0; }
+.wcl-public .faq-list summary { color: var(--finish-white); font: 500 16px/1.5 Inter,sans-serif; padding-block: 22px; }
+.wcl-public .wcl-bento { background: none; border: 0; border-radius: 0; padding: 0; gap: 24px; }
+.wcl-public .wcl-bento>a { border-radius: var(--finish-card); border: 1px solid var(--finish-line); }
+.wcl-public .fan-banner { border: 1px solid var(--finish-line); border-radius: var(--finish-feature); background: var(--finish-surface); padding: 36px 40px; margin-block: 32px 48px; }
+.wcl-public .fan-banner h2 { font: 600 clamp(30px,3vw,42px)/1.15 Inter,sans-serif; letter-spacing: -.045em; text-transform: none; }
+.wcl-public .fan-banner p:last-child { font-size: 14px; color: var(--finish-muted); }
+.wcl-public .league-footer { margin: 0; border-radius: 0; background: #050b19; border-top: 1px solid #253249; padding-block: 48px 24px; }
+.wcl-public .footer-wordmark { font-size: clamp(36px,7.5vw,116px); line-height: 1; letter-spacing: -.015em; margin-bottom: 44px; }
+.wcl-public .footer-grid { padding-block: 0 40px; }
+.wcl-public .footer-grid h3 { font: 600 13px/1.5 Inter,sans-serif; color: var(--finish-white); }
+.wcl-public .footer-grid a:not(.wcl-logo) { font-size: 12px; color: var(--finish-muted); }
+.wcl-public .copyright { border-color: #253249; font-size: 11px; }
+
+/* Hero stays edge-to-edge. Height is intrinsic: copy and facts are never clipped. */
+@media(min-width:1101px) {
+  .wcl-public .story-stage { min-height: 0; }
+  .wcl-public .wcl-story-hero .story-scene { height: auto; min-height: min(760px,calc(100vw * .5)); padding-block: 40px; align-items: center; }
+  .wcl-public .wcl-story-hero .hero-story-copy { padding-block: 16px 28px; }
+  .wcl-public .wcl-story-hero h1 { font-size: clamp(64px,6vw,112px); line-height: 1.01; }
+  .wcl-public .wcl-story-hero .story-refined-group .hero-story-copy { padding-bottom: 32px; }
+  .wcl-public .wcl-story-hero .hero-subject-scene { padding-bottom: 0; }
+  .wcl-public .wcl-story-hero .hero-group-scene .hero-story-copy { padding-bottom: 48px; }
+  .wcl-public .wcl-story-hero .story-facts { margin-top: 24px; padding-top: 20px; }
+}
+
+/* A finite, shared response. No drift at rest, no 3D tilt or decorative glow. */
+@media(hover:hover) and (pointer:fine) {
+  .wcl-public[data-surface-motion=spatial] :is(.btn,.story-primary,.story-secondary,.text-link):hover>svg:last-child { transform: translateX(4px); }
+  .wcl-public .player-profile-card:hover { background: color-mix(in srgb,var(--club) 17%,var(--finish-surface))!important; border-color: color-mix(in srgb,var(--club) 65%,#526886)!important; }
+  .wcl-public[data-surface-motion=spatial] .player-profile-card:hover .player-photo:not(.player-photo-campaign)>img { transform: scale(1.025); }
+  .wcl-public[data-surface-motion=spatial] .player-profile-card:hover .player-photo-campaign>img { transform: scale(1.285); }
+  .wcl-public .team-directory-card:is(:hover,:focus-within) { border-color: color-mix(in srgb,var(--club) 60%,#526886); }
+  .wcl-public .team-directory-card:is(:hover,:focus-within) .team-panel>div { background: color-mix(in srgb,var(--club) 20%,var(--finish-surface)); }
+  .wcl-public[data-surface-motion=spatial] .team-directory-card:hover .team-panel>img { transform: scale(1.025); }
+  .wcl-public :is(.press-card,.video-card,.guide-card,.club-tile):hover { border-color: #596e8d; background: var(--finish-raised); box-shadow: none; }
+  .wcl-public .fan-teams>button:hover { background: #1b314f; border-color: #7083a0; }
+  .wcl-public[data-surface-motion=spatial] .fan-teams>button:hover .crest { transform: translateY(-3px); }
+}
+@media(max-width:1100px) {
+  .wcl-public .wrap,.wcl-public .nav-wrap { width: calc(100% - 48px); }
+  .wcl-public .spotlight-grid { grid-template-columns: minmax(0,1fr) minmax(0,1fr); gap: 28px; }
+  .wcl-public .spotlight-picker { grid-column: 1/-1; display: flex; flex-direction: row; overflow-x: auto; }
+  .wcl-public .spotlight-picker button { flex: 1 0 100px; }
+  .wcl-public .team-directory-card .team-panel>div { padding: 24px; }
+  .wcl-public .team-directory-card .team-panel h2 { font-size: 34px; }
+}
+@media(max-width:700px) {
+  .wcl-public .wrap,.wcl-public .nav-wrap { width: calc(100% - 40px); }
+  .wcl-public .nav-wrap { height: 70px; }
+  .wcl-public .section { padding-block: 40px; }
+  .wcl-public .section-title { gap: 16px; margin-bottom: 24px; align-items: flex-end; }
+  .wcl-public .section-title h2 { font-size: 28px; }
+  .wcl-public .section-title>a { font-size: 11px; white-space: normal; text-align: right; flex-shrink: 0; max-width: 120px; }
+  .wcl-public .page-title { padding: 32px 0 26px; }
+  .wcl-public .page-title h1 { font-size: clamp(38px,11.5vw,54px); }
+  .wcl-public .page-title p:last-child:not(.kicker) { font-size: 14px; }
+  .wcl-public .page-title+.section { padding-top: 24px; }
+  .wcl-public .filters { gap: 12px!important; }
+  .wcl-public .player-filters { grid-template-columns: repeat(2,minmax(0,1fr))!important; }
+  .wcl-public .player-filters .input-search { grid-column: 1/-1; min-width: 0; }
+  .wcl-public .player-filters .select-label:nth-child(2) { grid-column: 1/-1; }
+  .wcl-public .player-filters .select-label:last-child { grid-column: auto; }
+  .wcl-public .directory-summary { gap: 8px; margin: 18px 0 22px; font-size: 11px; }
+  .wcl-public .players-grid { gap: 14px!important; }
+  .wcl-public .player-profile-card .player-caption { padding: 14px 12px; min-height: 84px; }
+  .wcl-public .player-profile-card .player-caption h3 { font-size: 23px; }
+  .wcl-public .player-profile-card .player-caption small { font-size: 11px; }
+  .wcl-public .player-profile-card .player-team-strip { margin-inline: 12px; padding-block: 12px; gap: 7px; }
+  .wcl-public .player-team-strip>img { width: 26px; height: 26px; }
+  .wcl-public .player-team-strip>span { font-size: 11px; }
+  .wcl-public .player-team-strip small { font-size: 9px; }
+  .wcl-public .player-team-strip>svg { width: 13px; }
+  .wcl-public .player-profile-card .player-profile-arrow { width: 30px; height: 30px; right: 10px; bottom: 10px; }
+  .wcl-public .spotlight-grid { grid-template-columns: minmax(0,1fr); gap: 24px; }
+  .wcl-public .spotlight-portrait { height: 400px; }
+  .wcl-public .spotlight-picker { grid-column: auto; }
+  .wcl-public .team-directory { grid-template-columns: 1fr; gap: 20px; }
+  .wcl-public .team-directory-card .team-panel,.wcl-public .team-directory-card .team-panel>div { min-height: 294px; }
+  .wcl-public .team-directory-card .team-panel>div { width: 53%; padding: 22px 18px; }
+  .wcl-public .team-directory-card .team-panel h2 { font-size: 32px; }
+  .wcl-public .team-directory-card .team-panel .text-link { font-size: 11px; }
+  .wcl-public .team-directory-card>.team-instagram { margin-inline: 18px; }
+  .wcl-public :is(.team-top,.player-profile)>.wrap { grid-template-columns: minmax(0,1fr); padding-block: 28px; gap: 28px; }
+  .wcl-public :is(.team-top,.player-profile) h1 { font-size: clamp(48px,12vw,62px)!important; }
+  .wcl-public :is(.team-top,.player-profile)>.wrap>img { height: 420px; max-height: none; }
+  .wcl-public .fan-teams { grid-template-columns: repeat(2,minmax(0,1fr)); }
+  .wcl-public .fan-teams>button { min-height: 156px; }
+  .wcl-public .fan-teams>button:last-child { grid-column: 1/-1; flex-direction: row; min-height: 100px; }
+  .wcl-public .leadership-grid article>div { padding: 24px; }
+  .wcl-public .leadership-grid article>img { height: 340px; }
+  .wcl-public .destination-page h1 { font-size: clamp(44px,12vw,60px); }
+  .wcl-public .league-tabs { gap: 24px; }
+  .wcl-public .league-tabs button { font-size: 12px; }
+  .wcl-public .ms-topline { padding: 18px 20px 0; }
+  .wcl-public .ms-matchup { padding: 26px 20px; min-height: 0; }
+  .wcl-public .ms-footer { padding: 16px 20px; }
+  .wcl-public .match-broadcast .mc-home-grid { gap: 12px; }
+  .wcl-public .match-broadcast .mc-home-grid .mc-fixture { padding: 20px; }
+  .wcl-public .mc-home-grid .mc-fixture-arrow { right: 18px; }
+  .wcl-public .press-copy,.wcl-public .press-featured .press-copy { padding: 22px; }
+  .wcl-public .press-copy h3 { font-size: 22px; }
+  .wcl-public .video-card>h3 { padding-inline: 18px; }
+  .wcl-public .ticket-planner { gap: 28px; }
+  .wcl-public .ticket-availability,.wcl-public .stadium-detail-copy,.wcl-public .team-quick { padding: 24px; }
+  .wcl-public .stadium-explorer { margin-top: 48px; }
+  .wcl-public .wcl-bento { gap: 16px; }
+  .wcl-public .fan-banner { padding: 28px 24px; margin-block: 24px 40px; gap: 24px; }
+  .wcl-public .league-footer { padding-block: 36px 22px; }
+  .wcl-public .footer-wordmark { font-size: 8.8vw; margin-bottom: 32px; }
+}
+@media(prefers-reduced-motion:reduce) {
+  .wcl-public *, .wcl-public *::before, .wcl-public *::after { scroll-behavior: auto!important; }
+  .wcl-public :is(.player-profile-card,.team-directory-card,.team-panel,.video-card,.press-card,.guide-card,.club-tile,.btn,.story-primary,.story-secondary),
+  .wcl-public :is(.player-profile-card,.team-panel,.btn,.story-primary,.story-secondary) * { transition: none!important; }
+}
+.wcl-public[data-surface-motion=quiet] :is(.player-profile-card,.team-directory-card,.team-panel,.video-card,.press-card,.guide-card,.club-tile) { transition: none; }
+.wcl-public[data-surface-motion=quiet] :is(.player-photo,.team-panel)>img { transition: none; }
+.wcl-public[data-surface-motion=quiet] :is(.team-panel,.fan-teams,.player-profile-card,.press-card,.video-card,.guide-card) * { transition: none!important; }
+.wcl-public[data-surface-motion=quiet] :is(.team-panel>img,.player-photo:not(.player-photo-campaign)>img,.fan-teams .crest,.press-card,.video-card) { transform: none!important; }
+.wcl-public[data-surface-motion=quiet] .player-photo-campaign>img { transform: scale(1.26)!important; }
+.wcl-public .hero-team-players .player-profile-card .player-photo>img,
+.wcl-public[data-surface-motion=quiet] .hero-team-players .player-photo>img { transform: none!important; object-position: center; }
+.wcl-public .team-roster-intro{display:flex;align-items:end;justify-content:space-between;gap:24px;margin-bottom:28px}
+.wcl-public .team-roster-intro p{margin:0 0 6px;color:#f5f8ff;font-size:18px}
+.wcl-public .team-roster-intro span{color:#b4c4dd;font-size:14px}
+.wcl-public .team-roster-intro .select-label{min-width:210px}
+.wcl-public .team-roster-list{display:grid;gap:14px}
+.wcl-public .team-roster-card{min-width:0;border:1px solid #29364b;border-radius:16px;background:#101e36;overflow:clip;transition:border-color .2s}
+.wcl-public .team-roster-card:is(:hover,:focus-within,.is-open){border-color:color-mix(in srgb,var(--club) 70%,#b4c4dd)}
+.wcl-public .team-roster-heading{margin:0;font:inherit}
+.wcl-public .team-roster-toggle{width:100%;display:grid;grid-template-columns:72px 1fr auto 174px;align-items:center;gap:24px;border:0;background:none;padding:20px 28px;color:#f5f8ff;text-align:left;cursor:pointer;scroll-margin-top:112px;transition:background-color .22s}
+.wcl-public .team-roster-toggle:is(:hover,[aria-expanded=true]){background:color-mix(in srgb,var(--club) 20%,#101e36)}
+.wcl-public .team-roster-toggle:focus-visible{outline:2px solid #ff823a;outline-offset:-4px;border-radius:16px}
+.wcl-public .team-roster-toggle>img{width:64px;height:68px;object-fit:contain}
+.wcl-public .team-roster-name{font-family:'Barlow Condensed',sans-serif;font-size:32px;font-weight:700;line-height:1.05}
+.wcl-public .team-roster-name small{display:block;font:12px Inter,sans-serif;letter-spacing:.08em;margin-top:8px;color:#b4c4dd}
+.wcl-public .team-roster-count{font-size:14px;color:#b4c4dd;font-variant-numeric:tabular-nums}
+.wcl-public .team-roster-action{display:flex;align-items:center;justify-content:end;gap:16px;font-size:13px;font-weight:600}
+.wcl-public .team-roster-action svg{width:20px;height:20px;transition:transform .22s}
+.wcl-public .is-open .team-roster-action svg{transform:rotate(180deg)}
+.wcl-public .team-roster-panel{overflow:clip}
+.wcl-public .team-roster-content{padding:0 28px 28px;border-top:1px solid #29364b}
+.wcl-public .team-roster-toolbar{display:flex;align-items:center;gap:28px;padding:24px 0;color:#b4c4dd}
+.wcl-public .team-roster-toolbar p{margin-right:auto;font-size:14px}
+.wcl-public .team-roster-toolbar .select-label{display:flex;align-items:center;gap:12px}
+.wcl-public .team-roster-toolbar select{width:190px}
+.wcl-public .team-roster-toolbar .text-link{font-size:14px;white-space:nowrap}
+.wcl-public .team-roster-content .players-grid{margin:0;gap:20px}
+.wcl-public .roster-back{margin:28px auto 0;display:flex;align-items:center;gap:10px;padding:12px 18px;background:none;border:1px solid #34425a;border-radius:999px;color:#f5f8ff;cursor:pointer}
+.wcl-public .roster-empty{padding:24px 0;color:#b4c4dd}
+.wcl-public .nav-wrap nav{margin-left:auto}
+@media(max-width:700px){
+ .wcl-public .team-roster-intro{align-items:start;gap:18px;flex-direction:column}
+ .wcl-public .team-roster-intro .select-label{width:100%}
+ .wcl-public .team-roster-toggle{grid-template-columns:44px 1fr auto;gap:14px;padding:18px 16px}
+ .wcl-public .team-roster-toggle>img{width:44px;height:54px;grid-row:1/3}
+ .wcl-public .team-roster-name{font-size:26px}
+ .wcl-public .team-roster-name small{font-size:11px;margin-top:5px}
+ .wcl-public .team-roster-count{grid-column:2;font-size:12px}
+ .wcl-public .team-roster-action{grid-column:3;grid-row:1/3;font-size:0;gap:0}
+ .wcl-public .team-roster-content{padding:0 14px 20px}
+ .wcl-public .team-roster-toolbar{gap:12px;flex-wrap:wrap;padding:18px 0}
+ .wcl-public .team-roster-toolbar p{width:100%;margin:0}
+ .wcl-public .team-roster-toolbar .select-label{font-size:0;gap:0}
+ .wcl-public .team-roster-toolbar select{width:150px;font-size:12px}
+ .wcl-public .team-roster-content .players-grid{gap:12px}
+ .wcl-public .team-roster-content .player-caption{padding:14px 10px 10px}
+ .wcl-public .team-roster-content .player-caption h3{font-size:20px}
+ .wcl-public .team-roster-content .player-team-strip{padding:10px;gap:7px}
+ .wcl-public .team-roster-content .player-team-strip img{width:22px;height:28px}
+ .wcl-public .team-roster-content .player-team-strip span{font-size:10px}
+ .wcl-public .team-roster-content .player-team-strip small{font-size:9px}
+}
+@media(prefers-reduced-motion:reduce){
+ .wcl-public .team-roster-action svg{transition:none}
+}
+.wcl-public[data-surface-motion=quiet] .team-roster-action svg{transition:none}
+.wcl-public .reels-channel{margin-left:auto;display:flex;align-items:center;gap:12px}
+.wcl-public .reels-channel select{width:215px}
+@media(max-width:700px){
+ .wcl-public .reels-toolbar{flex-wrap:wrap;gap:16px}
+ .wcl-public .reels-toolbar>.team-pills{width:100%}
+ .wcl-public .reels-channel{margin-left:0;gap:8px;font-size:12px}
+ .wcl-public .reels-channel select{width:172px}
+}
+.wcl-public .team-player-directory .select-label{color:#b4c4dd;font-size:12px}
+.wcl-public .team-player-directory select,.wcl-public .reels-channel select{min-height:46px;border:1px solid #34425a;border-radius:10px;background:#101e36;padding:10px 14px;color:#f5f8ff}
+.wcl-public .team-player-directory .team-roster-toolbar .select-label{display:flex;align-items:center;gap:12px}
+@media(max-width:700px){
+ .wcl-public .team-player-directory .team-roster-toolbar .select-label{font-size:0;gap:0}
+ .wcl-public .team-player-directory .team-roster-toolbar select{font-size:12px}
+ .wcl-public .nav-wrap .mobile-menu{margin-left:auto}
+}
+.wcl-public .reels-section .reels-channel{flex-direction:row;align-items:center;width:auto;color:#b4c4dd}

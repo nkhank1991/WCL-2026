@@ -1,0 +1,477 @@
+{
+  "2": {
+    "team": "west-indies",
+    "sourceName": "Chris Gayle",
+    "image": "/assets/season3-headshots/west-indies-2.webp"
+  },
+  "3": {
+    "team": "west-indies",
+    "sourceName": "Chadwick Walton (WK)",
+    "image": "/assets/season3-headshots/west-indies-3.webp"
+  },
+  "4": {
+    "team": "west-indies",
+    "sourceName": "Lendl Simmons",
+    "image": "/assets/season3-headshots/west-indies-4.webp"
+  },
+  "5": {
+    "team": "west-indies",
+    "sourceName": "Andre Fletcher",
+    "image": "/assets/season3-headshots/west-indies-5.webp"
+  },
+  "6": {
+    "team": "west-indies",
+    "sourceName": "Carlos   Brathwaite",
+    "image": "/assets/season3-headshots/west-indies-6.webp"
+  },
+  "7": {
+    "team": "west-indies",
+    "sourceName": "Andre Russell",
+    "image": "/assets/season3-headshots/west-indies-7.webp"
+  },
+  "8": {
+    "team": "west-indies",
+    "sourceName": "DJ Bravo",
+    "image": "/assets/season3-headshots/west-indies-8.webp"
+  },
+  "9": {
+    "team": "west-indies",
+    "sourceName": "Sheldon Cotrell",
+    "image": "/assets/season3-headshots/west-indies-9.webp"
+  },
+  "10": {
+    "team": "west-indies",
+    "sourceName": "Fidel Edwards",
+    "image": "/assets/season3-headshots/west-indies-10.webp"
+  },
+  "11": {
+    "team": "west-indies",
+    "sourceName": "Rayad Emrit",
+    "image": "/assets/season3-headshots/west-indies-11.webp"
+  },
+  "12": {
+    "team": "west-indies",
+    "sourceName": "Sulieman Benn",
+    "image": "/assets/season3-headshots/west-indies-12.webp"
+  },
+  "13": {
+    "team": "west-indies",
+    "sourceName": "Shiv Chanderpaul",
+    "image": "/assets/season3-headshots/west-indies-13.webp"
+  },
+  "14": {
+    "team": "west-indies",
+    "sourceName": "Nikita Miller",
+    "image": "/assets/season3-headshots/west-indies-14.webp"
+  },
+  "15": {
+    "team": "west-indies",
+    "sourceName": "Dave Mohammed",
+    "image": "/assets/season3-headshots/west-indies-15.webp"
+  },
+  "19": {
+    "team": "australia",
+    "sourceName": "Chris Lynn",
+    "image": "/assets/season3-headshots/australia-19.webp"
+  },
+  "20": {
+    "team": "australia",
+    "sourceName": "David Warner",
+    "image": "/assets/season3-headshots/australia-20.webp"
+  },
+  "21": {
+    "team": "australia",
+    "sourceName": "Usman Khawaja",
+    "image": "/assets/season3-headshots/australia-21.webp"
+  },
+  "22": {
+    "team": "australia",
+    "sourceName": "Darcy Short",
+    "image": "/assets/season3-headshots/australia-22.webp"
+  },
+  "24": {
+    "team": "australia",
+    "sourceName": "Ben Dunk",
+    "image": "/assets/season3-headshots/australia-24.webp"
+  },
+  "25": {
+    "team": "australia",
+    "sourceName": "Kane Richardson",
+    "image": "/assets/season3-headshots/australia-25.webp"
+  },
+  "26": {
+    "team": "australia",
+    "sourceName": "Ben Hilfenhaus",
+    "image": "/assets/season3-headshots/australia-26.webp"
+  },
+  "27": {
+    "team": "australia",
+    "sourceName": "James Pattinson",
+    "image": "/assets/season3-headshots/australia-27.webp"
+  },
+  "28": {
+    "team": "australia",
+    "sourceName": "Fawad Ahmed",
+    "image": "/assets/season3-headshots/australia-28.webp"
+  },
+  "30": {
+    "team": "australia",
+    "sourceName": "Ben laughlin",
+    "image": "/assets/season3-headshots/australia-30.webp"
+  },
+  "31": {
+    "team": "australia",
+    "sourceName": "Rob Quiney",
+    "image": "/assets/season3-headshots/australia-31.webp"
+  },
+  "32": {
+    "team": "australia",
+    "sourceName": "Nathan Reardon",
+    "image": "/assets/season3-headshots/australia-32.webp"
+  },
+  "33": {
+    "team": "australia",
+    "sourceName": "Andrew Tye",
+    "image": "/assets/season3-headshots/australia-33.webp"
+  },
+  "36": {
+    "team": "india",
+    "sourceName": "ROBIN UTHAPPA",
+    "image": "/assets/season3-headshots/india-36.webp"
+  },
+  "37": {
+    "team": "india",
+    "sourceName": "AMBATI RAUDU",
+    "image": "/assets/season3-headshots/india-37.webp"
+  },
+  "38": {
+    "team": "india",
+    "sourceName": "YUVRAJ SINGH",
+    "image": "/assets/season3-headshots/india-38.webp"
+  },
+  "40": {
+    "team": "india",
+    "sourceName": "YUSUF PATHAN",
+    "image": "/assets/season3-headshots/india-40.webp"
+  },
+  "41": {
+    "team": "india",
+    "sourceName": "IFRAN PATHAN",
+    "image": "/assets/season3-headshots/india-41.webp"
+  },
+  "42": {
+    "team": "india",
+    "sourceName": "MOHIT SHARMA",
+    "image": "/assets/season3-headshots/india-42.webp"
+  },
+  "43": {
+    "team": "india",
+    "sourceName": "DHAWAL KULKARNI",
+    "image": "/assets/season3-headshots/india-43.webp"
+  },
+  "44": {
+    "team": "india",
+    "sourceName": "VARUN AARON",
+    "image": "/assets/season3-headshots/india-44.webp"
+  },
+  "45": {
+    "team": "india",
+    "sourceName": "HARBHAJAN SINGH",
+    "image": "/assets/season3-headshots/india-45.webp"
+  },
+  "46": {
+    "team": "india",
+    "sourceName": "PAWAN NEGI",
+    "image": "/assets/season3-headshots/india-46.webp"
+  },
+  "47": {
+    "team": "india",
+    "sourceName": "PIYUSH CHAWLA",
+    "image": "/assets/season3-headshots/india-47.webp"
+  },
+  "48": {
+    "team": "india",
+    "sourceName": "STUART BINNY",
+    "image": "/assets/season3-headshots/india-48.webp"
+  },
+  "49": {
+    "team": "india",
+    "sourceName": "RISHI DHAWAN",
+    "image": "/assets/season3-headshots/india-49.webp"
+  },
+  "50": {
+    "team": "india",
+    "sourceName": "ABHIMANYU MITHUN",
+    "image": "/assets/season3-headshots/india-50.webp"
+  },
+  "54": {
+    "team": "south-africa",
+    "sourceName": "AB DE VILLIERS",
+    "image": "/assets/season3-headshots/south-africa-54.webp"
+  },
+  "55": {
+    "team": "south-africa",
+    "sourceName": "FAF DU PLESSIS",
+    "image": "/assets/season3-headshots/south-africa-55.webp"
+  },
+  "56": {
+    "team": "south-africa",
+    "sourceName": "ALBIE MORKEL",
+    "image": "/assets/season3-headshots/south-africa-56.webp"
+  },
+  "57": {
+    "team": "south-africa",
+    "sourceName": "HARDUS VILJOEN",
+    "image": "/assets/season3-headshots/south-africa-57.webp"
+  },
+  "58": {
+    "team": "south-africa",
+    "sourceName": "WAYNE PARNELL",
+    "image": "/assets/season3-headshots/south-africa-58.webp"
+  },
+  "59": {
+    "team": "south-africa",
+    "sourceName": "IMRAN TAHIR",
+    "image": "/assets/season3-headshots/south-africa-59.webp"
+  },
+  "60": {
+    "team": "south-africa",
+    "sourceName": "RICHARD LEVI",
+    "image": "/assets/season3-headshots/south-africa-60.webp"
+  },
+  "61": {
+    "team": "south-africa",
+    "sourceName": "DANE VILAS",
+    "image": "/assets/season3-headshots/south-africa-61.webp"
+  },
+  "62": {
+    "team": "south-africa",
+    "sourceName": "SJ ERWEE",
+    "image": "/assets/season3-headshots/south-africa-62.webp"
+  },
+  "63": {
+    "team": "south-africa",
+    "sourceName": "DUANNE OLIVER",
+    "image": "/assets/season3-headshots/south-africa-63.webp"
+  },
+  "64": {
+    "team": "south-africa",
+    "sourceName": "MORNE VAN WYK",
+    "image": "/assets/season3-headshots/south-africa-64.webp"
+  },
+  "65": {
+    "team": "south-africa",
+    "sourceName": "AARON PHANGISO",
+    "image": "/assets/season3-headshots/south-africa-65.webp"
+  },
+  "66": {
+    "team": "south-africa",
+    "sourceName": "COLIN INGRAM",
+    "image": "/assets/season3-headshots/south-africa-66.webp"
+  },
+  "67": {
+    "team": "south-africa",
+    "sourceName": "JP DUMINY",
+    "image": "/assets/season3-headshots/south-africa-67.webp"
+  },
+  "70": {
+    "team": "england",
+    "sourceName": "Jason Roy",
+    "image": "/assets/season3-headshots/england-70.webp"
+  },
+  "71": {
+    "team": "england",
+    "sourceName": "Dawid Malan",
+    "image": "/assets/season3-headshots/england-71.webp"
+  },
+  "72": {
+    "team": "england",
+    "sourceName": "Moeen Ali",
+    "image": "/assets/season3-headshots/england-72.webp"
+  },
+  "73": {
+    "team": "england",
+    "sourceName": "Phil Mustard (WK)",
+    "image": "/assets/season3-headshots/england-73.webp"
+  },
+  "74": {
+    "team": "england",
+    "sourceName": "Ravi Bopara",
+    "image": "/assets/season3-headshots/england-74.webp"
+  },
+  "75": {
+    "team": "england",
+    "sourceName": "Samit Patel",
+    "image": "/assets/season3-headshots/england-75.webp"
+  },
+  "76": {
+    "team": "england",
+    "sourceName": "Lian Plunekett",
+    "image": "/assets/season3-headshots/england-76.webp"
+  },
+  "78": {
+    "team": "england",
+    "sourceName": "Ajmal Shehzad",
+    "image": "/assets/season3-headshots/england-78.webp"
+  },
+  "79": {
+    "team": "england",
+    "sourceName": "Ryan Sidebottom",
+    "image": "/assets/season3-headshots/england-79.webp"
+  },
+  "80": {
+    "team": "england",
+    "sourceName": "Monty Panesar",
+    "image": "/assets/season3-headshots/england-80.webp"
+  },
+  "81": {
+    "team": "england",
+    "sourceName": "Tim Ambrose",
+    "image": "/assets/season3-headshots/england-81.webp"
+  },
+  "82": {
+    "team": "england",
+    "sourceName": "Joe Denly",
+    "image": "/assets/season3-headshots/england-82.webp"
+  },
+  "83": {
+    "team": "england",
+    "sourceName": "Stuart Meaker",
+    "image": "/assets/season3-headshots/england-83.webp"
+  },
+  "86": {
+    "team": "pakistan",
+    "sourceName": "KAMRAN AKMAL",
+    "image": "/assets/season3-headshots/pakistan-86.webp"
+  },
+  "87": {
+    "team": "pakistan",
+    "sourceName": "SHARJEEL KHAN",
+    "image": "/assets/season3-headshots/pakistan-87.webp"
+  },
+  "88": {
+    "team": "pakistan",
+    "sourceName": "MOHAMMAD HAFEEZ",
+    "image": "/assets/season3-headshots/pakistan-88.webp"
+  },
+  "89": {
+    "team": "pakistan",
+    "sourceName": "SHAHID AFRIDI",
+    "image": "/assets/season3-headshots/pakistan-89.webp"
+  },
+  "90": {
+    "team": "pakistan",
+    "sourceName": "ASIF ALI",
+    "image": "/assets/season3-headshots/pakistan-90.webp"
+  },
+  "91": {
+    "team": "pakistan",
+    "sourceName": "IFIKHAR AHMED",
+    "image": "/assets/season3-headshots/pakistan-91.webp"
+  },
+  "92": {
+    "team": "pakistan",
+    "sourceName": "UMER AMIN",
+    "image": "/assets/season3-headshots/pakistan-92.webp"
+  },
+  "93": {
+    "team": "pakistan",
+    "sourceName": "ASIF AFRIDI",
+    "image": "/assets/season3-headshots/pakistan-93.webp"
+  },
+  "94": {
+    "team": "pakistan",
+    "sourceName": "AMIR YAMIN",
+    "image": "/assets/season3-headshots/pakistan-94.webp"
+  },
+  "95": {
+    "team": "pakistan",
+    "sourceName": "SOHAIL TANVEER",
+    "image": "/assets/season3-headshots/pakistan-95.webp"
+  },
+  "96": {
+    "team": "pakistan",
+    "sourceName": "MOHAMMED AMIR",
+    "image": "/assets/season3-headshots/pakistan-96.webp"
+  },
+  "97": {
+    "team": "pakistan",
+    "sourceName": "WAHAB RIAZ",
+    "image": "/assets/season3-headshots/pakistan-97.webp"
+  },
+  "98": {
+    "team": "pakistan",
+    "sourceName": "RUMAN RAEES",
+    "image": "/assets/season3-headshots/pakistan-98.webp"
+  },
+  "101": {
+    "team": "bangladesh",
+    "sourceName": "MAHMUDULLAH RIYAD",
+    "image": "/assets/season3-headshots/bangladesh-101.webp"
+  },
+  "102": {
+    "team": "bangladesh",
+    "sourceName": "SHAKIB AL HASAN",
+    "image": "/assets/season3-headshots/bangladesh-102.webp"
+  },
+  "103": {
+    "team": "bangladesh",
+    "sourceName": "IMRUL KAYES",
+    "image": "/assets/season3-headshots/bangladesh-103.webp"
+  },
+  "104": {
+    "team": "bangladesh",
+    "sourceName": "RONY TALUKDER",
+    "image": "/assets/season3-headshots/bangladesh-104.webp"
+  },
+  "105": {
+    "team": "bangladesh",
+    "sourceName": "NASIR HOSSAIN",
+    "image": "/assets/season3-headshots/bangladesh-105.webp"
+  },
+  "106": {
+    "team": "bangladesh",
+    "sourceName": "ARAFAT SUNNY",
+    "image": "/assets/season3-headshots/bangladesh-106.webp"
+  },
+  "107": {
+    "team": "bangladesh",
+    "sourceName": "KAMRUL ISLAM RABBI",
+    "image": "/assets/season3-headshots/bangladesh-107.webp"
+  },
+  "108": {
+    "team": "bangladesh",
+    "sourceName": "ZIAUR RAHMAN",
+    "image": "/assets/season3-headshots/bangladesh-108.webp"
+  },
+  "109": {
+    "team": "bangladesh",
+    "sourceName": "ENAMUK HAQUE JR.",
+    "image": "/assets/season3-headshots/bangladesh-109.webp"
+  },
+  "110": {
+    "team": "bangladesh",
+    "sourceName": "JAHURUL ISLAM OMI",
+    "image": "/assets/season3-headshots/bangladesh-110.webp"
+  },
+  "111": {
+    "team": "bangladesh",
+    "sourceName": "SHUVAGATA HOM",
+    "image": "/assets/season3-headshots/bangladesh-111.webp"
+  },
+  "112": {
+    "team": "bangladesh",
+    "sourceName": "ABU ZAYED CHOWDHURY",
+    "image": "/assets/season3-headshots/bangladesh-112.webp"
+  },
+  "113": {
+    "team": "bangladesh",
+    "sourceName": "FAZEL MAHMUD RABBI",
+    "image": "/assets/season3-headshots/bangladesh-113.webp"
+  },
+  "114": {
+    "team": "bangladesh",
+    "sourceName": "MOHAMMAD ASHRAFUL",
+    "image": "/assets/season3-headshots/bangladesh-114.webp"
+  }
+}

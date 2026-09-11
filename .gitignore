@@ -1,0 +1,15 @@
+node_modules/
+dist/
+.env
+.env.*
+!.env.example
+.vercel/
+*.sqlite
+*.sqlite-*
+*.log
+private-inputs/
+docs/
+deliverables/
+output/
+tmp/
+qa-*.png

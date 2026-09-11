@@ -1,0 +1,154 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "framework": "vite",
+  "buildCommand": "npm run build",
+  "outputDirectory": "dist/client",
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "functions": {
+    "api/contact.js": {
+      "maxDuration": 30
+    }
+  },
+  "rewrites": [
+    {
+      "source": "/admin/:path*",
+      "destination": "/private-shell"
+    },
+    {
+      "source": "/accreditation/:path*",
+      "destination": "/private-shell"
+    }
+  ],
+  "redirects": [
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "wclcricket.com"
+        }
+      ],
+      "destination": "https://www.wclcricket.com/:path*",
+      "permanent": true
+    },
+    {
+      "source": "/search",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/experience",
+      "destination": "/tickets",
+      "permanent": true
+    },
+    {
+      "source": "/standings",
+      "destination": "/matches",
+      "permanent": true
+    },
+    {
+      "source": "/stats",
+      "destination": "/players",
+      "permanent": true
+    },
+    {
+      "source": "/india",
+      "destination": "/teams/india",
+      "permanent": true
+    },
+    {
+      "source": "/pakistan",
+      "destination": "/teams/pakistan",
+      "permanent": true
+    },
+    {
+      "source": "/south-africa",
+      "destination": "/teams/south-africa",
+      "permanent": true
+    },
+    {
+      "source": "/australia",
+      "destination": "/teams/australia",
+      "permanent": true
+    },
+    {
+      "source": "/england",
+      "destination": "/teams/england",
+      "permanent": true
+    },
+    {
+      "source": "/west-indies",
+      "destination": "/teams/west-indies",
+      "permanent": true
+    },
+    {
+      "source": "/bangladesh",
+      "destination": "/teams/bangladesh",
+      "permanent": true
+    },
+    {
+      "source": "/wcl-season-1",
+      "destination": "/seasons/1",
+      "permanent": true
+    },
+    {
+      "source": "/wcl-season-2",
+      "destination": "/seasons/2",
+      "permanent": true
+    },
+    {
+      "source": "/harshit-tomar",
+      "destination": "/about#harshit-tomar",
+      "permanent": true
+    },
+    {
+      "source": "/ajay-devgn",
+      "destination": "/about#ajay-devgn",
+      "permanent": true
+    }
+  ],
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        },
+        {
+          "key": "Referrer-Policy",
+          "value": "strict-origin-when-cross-origin"
+        },
+        {
+          "key": "X-Frame-Options",
+          "value": "SAMEORIGIN"
+        }
+      ]
+    },
+    {
+      "source": "/(admin|accreditation|api|fan-zone|private-shell)(.*)",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex, nofollow, noarchive"
+        }
+      ]
+    },
+    {
+      "source": "/(.*)",
+      "has": [
+        {
+          "type": "host",
+          "value": "(.*)\\.vercel\\.app"
+        }
+      ],
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex, nofollow"
+        }
+      ]
+    }
+  ]
+}

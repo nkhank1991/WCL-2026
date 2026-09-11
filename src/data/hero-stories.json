@@ -1,0 +1,322 @@
+[
+  {
+    "id": "season",
+    "label": "The UAE chapter",
+    "tag": "WORLD CHAMPIONSHIP OF LEGENDS",
+    "title": "LEGENDS.",
+    "line": "LIVE ON.",
+    "copy": "Seven nations. Unfinished rivalries. The next chapter of cricket’s great stories begins in the UAE.",
+    "action": "Explore Season 3",
+    "to": "/season",
+    "secondary": "Watch the highlights",
+    "secondaryTo": "/watch",
+    "facts": [
+      [
+        "03–18 OCT",
+        "2026 · United Arab Emirates"
+      ],
+      [
+        "07",
+        "Nations. One stage."
+      ],
+      [
+        "03",
+        "A new chapter"
+      ]
+    ]
+  },
+  {
+    "id": "india-pakistan",
+    "label": "India × Pakistan",
+    "tag": "THE RIVALRIES / INDIA × PAKISTAN",
+    "title": "OLD RIVALRIES.",
+    "line": "NEW CHAPTERS.",
+    "copy": "Two sets of colours. Generations of memories. Explore the India and Pakistan Champions lineups, led here by two unmistakable faces: Yuvraj Singh and Shahid Afridi.",
+    "players": [
+      {
+        "image": "/assets/india.png",
+        "name": "Yuvraj Singh",
+        "team": "India"
+      },
+      {
+        "image": "/assets/pakistan.png",
+        "name": "Shahid Afridi",
+        "team": "Pakistan"
+      }
+    ],
+    "action": "Explore India",
+    "to": "/teams/india",
+    "secondary": "Explore Pakistan",
+    "secondaryTo": "/teams/pakistan",
+    "facts": [
+      [
+        "IND",
+        "India Champions"
+      ],
+      [
+        "PAK",
+        "Pakistan Champions"
+      ],
+      [
+        "2026",
+        "Season 3 lineup"
+      ]
+    ],
+    "note": "10 October · 19:30 UAE · Match 14 in the supplied schedule."
+  },
+  {
+    "id": "england-australia",
+    "label": "England × Australia",
+    "tag": "THE RIVALRIES / ENGLAND × AUSTRALIA",
+    "title": "HISTORY RUNS",
+    "line": "DEEP.",
+    "copy": "England and Australia. A rivalry that needs little introduction. Meet the WCL players carrying their national colours into a new chapter.",
+    "players": [
+      {
+        "image": "/assets/england.png",
+        "name": "Moeen Ali",
+        "team": "England"
+      },
+      {
+        "image": "/assets/australia.png",
+        "name": "David Warner",
+        "team": "Australia"
+      }
+    ],
+    "action": "Explore England",
+    "to": "/teams/england",
+    "secondary": "Explore Australia",
+    "secondaryTo": "/teams/australia",
+    "facts": [
+      [
+        "ENG",
+        "England Champions"
+      ],
+      [
+        "AUS",
+        "Australia Champions"
+      ],
+      [
+        "T20",
+        "The WCL format"
+      ]
+    ],
+    "note": "13 October · 15:30 UAE · Match 18. A WCL fixture, not an Ashes event."
+  },
+  {
+    "id": "south-africa-australia",
+    "label": "South Africa × Australia",
+    "tag": "THE RIVALRIES / SOUTH AFRICA × AUSTRALIA",
+    "title": "PRIDE ON",
+    "line": "BOTH SIDES.",
+    "copy": "AB de Villiers. David Warner. Two distinctive batting talents, two proud cricket nations. Discover the players behind the colours.",
+    "players": [
+      {
+        "image": "/assets/south-africa.png",
+        "name": "AB de Villiers",
+        "team": "South Africa"
+      },
+      {
+        "image": "/assets/australia.png",
+        "name": "David Warner",
+        "team": "Australia"
+      }
+    ],
+    "action": "Explore South Africa",
+    "to": "/teams/south-africa",
+    "secondary": "Meet the players",
+    "secondaryTo": "/players",
+    "facts": [
+      [
+        "SA",
+        "South Africa Champions"
+      ],
+      [
+        "AUS",
+        "Australia Champions"
+      ],
+      [
+        "03",
+        "WCL season"
+      ]
+    ],
+    "note": "9 October · 15:30 UAE · Match 11 in the supplied schedule."
+  },
+  {
+    "id": "legacy",
+    "label": "The West Indies legacy",
+    "tag": "THE LEGENDS / WEST INDIES",
+    "title": "THE GAME.",
+    "line": "THE PERSONALITY.",
+    "copy": "The colours. The presence. The unmistakable Chris Gayle. Explore West Indies Champions, then revisit the action in the WCL video archive.",
+    "players": [
+      {
+        "image": "/assets/chris-gayle-campaign.png",
+        "name": "Chris Gayle",
+        "team": "West Indies"
+      }
+    ],
+    "action": "Explore West Indies",
+    "to": "/teams/west-indies",
+    "secondary": "Watch highlights",
+    "secondaryTo": "/watch",
+    "facts": [
+      [
+        "WI",
+        "West Indies Champions"
+      ],
+      [
+        "2026",
+        "Season 3 lineup"
+      ],
+      [
+        "WCL TV",
+        "Video archive"
+      ]
+    ]
+  },
+  {
+    "id": "trophy",
+    "label": "One trophy. One stage.",
+    "tag": "THE CHAMPIONSHIP / SEASON 3",
+    "title": "SEVEN NATIONS.",
+    "line": "ONE TROPHY.",
+    "copy": "Every colour has a story. Every team has a purpose. Explore the UAE campaign, explore the supplied 24-match schedule and find out how to experience Season 3.",
+    "image": "/assets/season3-trophy.png",
+    "alt": "Supplied gold WCL Season 3 trophy",
+    "action": "Match centre",
+    "to": "/matches",
+    "secondary": "Season information",
+    "secondaryTo": "/season",
+    "facts": [
+      [
+        "07",
+        "Nations"
+      ],
+      [
+        "01",
+        "Championship trophy"
+      ],
+      [
+        "03–18 OCT",
+        "Campaign dates"
+      ]
+    ],
+    "note": "Grand final · 18 October · 19:30 UAE. Stadium allocation to be confirmed."
+  },
+  {
+    "id": "schedule",
+    "label": "The 2026 schedule",
+    "tag": "SEASON 3 / THE FIXTURES",
+    "title": "MARK YOUR",
+    "line": "CALENDAR.",
+    "copy": "24 matches. Seven nations. Pakistan and Bangladesh open the campaign on 3 October. The grand final awaits on 18 October.",
+    "image": "/assets/season3-updates/schedule.webp",
+    "alt": "Supplied WCL UAE 2026 schedule",
+    "action": "See all 24 fixtures",
+    "to": "/matches?season=3",
+    "secondary": "Season information",
+    "secondaryTo": "/season",
+    "facts": [
+      [
+        "03 OCT",
+        "Opening day"
+      ],
+      [
+        "10 OCT",
+        "India × Pakistan"
+      ],
+      [
+        "18 OCT",
+        "Grand final"
+      ]
+    ],
+    "note": "All start times shown in UAE time. Stadium allocations are not supplied."
+  },
+  {
+    "id": "new-stars",
+    "label": "New stars, new stories",
+    "tag": "THE PLAYERS / A NEW CHAPTER",
+    "title": "MORE NAMES.",
+    "line": "MORE STORIES.",
+    "copy": "Andre Russell. Shakib Al Hasan. David Warner. James Anderson. Faf du Plessis. Explore the names featured in the new Season 3 campaign.",
+    "image": "/assets/season3-updates/new-stars.webp",
+    "alt": "Supplied new stars campaign poster",
+    "action": "Meet the new stars",
+    "to": "/news/new-stars",
+    "secondary": "All Season 3 players",
+    "secondaryTo": "/players",
+    "facts": [
+      [
+        "05",
+        "Featured campaign stars"
+      ],
+      [
+        "07",
+        "WCL nations"
+      ],
+      [
+        "2026",
+        "The UAE chapter"
+      ]
+    ]
+  },
+  {
+    "id": "bangladesh",
+    "label": "Bangladesh arrives",
+    "tag": "THE TEAMS / BANGLADESH CHAMPIONS",
+    "title": "BANGLADESH.",
+    "line": "JOINS THE STAGE.",
+    "copy": "Bangladesh joins the WCL stage. Discover the team, its Season 3 player list and an opening-day meeting with Pakistan.",
+    "image": "/assets/season3-updates/bangladesh.webp",
+    "alt": "Supplied Bangladesh Champions new team artwork",
+    "action": "Explore Bangladesh",
+    "to": "/teams/bangladesh",
+    "secondary": "Read the team story",
+    "secondaryTo": "/news/bangladesh-arrives",
+    "facts": [
+      [
+        "14",
+        "Listed squad members"
+      ],
+      [
+        "03 OCT",
+        "Pakistan × Bangladesh"
+      ],
+      [
+        "15:30",
+        "UAE · opening match"
+      ]
+    ],
+    "note": "Announcement artwork is distinct from the current roster. Team profiles follow the supplied player workbook."
+  },
+  {
+    "id": "uae",
+    "label": "Dubai & Sharjah films",
+    "tag": "THE DESTINATION / THE UAE",
+    "title": "BEYOND THE",
+    "line": "BOUNDARY.",
+    "copy": "From Dubai’s skyline to Sharjah’s cricket heritage, explore the setting for the UAE chapter through destination and stadium films.",
+    "image": "https://i.ytimg.com/vi/WfTJL_h0XfY/hqdefault.jpg",
+    "alt": "Preview of the Visit Dubai destination film",
+    "action": "Watch the UAE films",
+    "to": "/news/the-uae-stage",
+    "secondary": "Tickets & venue info",
+    "secondaryTo": "/tickets",
+    "facts": [
+      [
+        "DUBAI",
+        "Skyline & city stories"
+      ],
+      [
+        "SHARJAH",
+        "Cricket heritage"
+      ],
+      [
+        "03",
+        "Destination films"
+      ]
+    ],
+    "note": "Archive destination films, not Season 3 footage or confirmed stadium allocations."
+  }
+]

@@ -1,0 +1,29 @@
+.wcl-public .seo-breadcrumbs {padding-top:22px;padding-bottom:0;font-size:12px;color:#aab9cb}
+.seo-breadcrumbs ol {display:flex;gap:8px;list-style:none;margin:0;padding:0;flex-wrap:wrap}
+.seo-breadcrumbs li {min-width:0;overflow-wrap:anywhere}
+.seo-breadcrumbs li+li::before {content:"/";margin-right:8px;color:#71829a}
+.seo-breadcrumbs a:hover,.answer-links a:hover,.site-directory a:hover {color:var(--orange,#ff782c)}
+.answer-links {display:flex;flex-wrap:wrap;gap:12px 24px;padding:8px 0 24px;font-size:14px}
+.answer-links a {text-decoration:underline;text-underline-offset:5px}
+.site-directory {display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px 48px}
+.site-directory details {border-top:1px solid #29394d;padding-top:20px}
+.site-directory summary {cursor:pointer;font-weight:600;font-size:18px}
+.site-directory summary span {float:right;font-size:12px;color:#aab9cb}
+.site-directory ul {list-style:none;padding:0;margin:16px 0 24px}
+.site-directory li {margin:10px 0;font-size:14px;line-height:1.6;overflow-wrap:anywhere}
+.rivalry-guide-grid {display:grid;grid-template-columns:1fr 1fr;gap:64px;padding-top:0}
+.rivalry-guide h2 {font-size:clamp(30px,3vw,44px)}
+.rivalry-guide dl {margin:24px 0 32px}
+.rivalry-guide dl>div {display:grid;grid-template-columns:120px 1fr;gap:16px;border-bottom:1px solid #29394d;padding:14px 0}
+.rivalry-guide dt {color:#aab9cb;font-size:14px}
+.rivalry-guide dd {margin:0}
+.rivalry-guide-teams {display:grid;gap:20px}
+.rivalry-guide-teams>a {display:flex;align-items:center;gap:30px;padding:30px;border:1px solid #29394d;border-radius:16px;background:#0d1b30;transition:border-color .2s}
+.rivalry-guide-teams>a:hover {border-color:#ff782c}
+.rivalry-guide-teams img {object-fit:contain;flex-shrink:0}
+.rivalry-guide-teams h2 {margin:0 0 14px}
+.rivalry-guide-teams span {font-size:13px;color:#aab9cb}
+.rivalry-guide-history {border-top:1px solid #29394d}
+.rivalry-guide-history>p:not(.kicker) {max-width:640px;color:#b8c8dc;line-height:1.8}
+.rivalry-guide .source-note {margin-top:16px}
+@media(max-width:720px){.site-directory,.rivalry-guide-grid{grid-template-columns:1fr;gap:24px}.rivalry-guide-teams>a{padding:24px;gap:20px}.rivalry-guide dd{font-size:14px}.seo-breadcrumbs{font-size:11px}}

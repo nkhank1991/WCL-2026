@@ -1,0 +1,2012 @@
+{
+  "importedAt": "2026-09-09T14:33:22.574Z",
+  "pages": [
+    {
+      "slug": "wcl-season-2",
+      "title": "WCL Season 2",
+      "source": "https://wclcricket.com/wcl-season-2/"
+    },
+    {
+      "slug": "wcl-season-1",
+      "title": "WCL Season 1",
+      "source": "https://wclcricket.com/wcl-season-1/"
+    },
+    {
+      "slug": "ajay-devgn",
+      "title": "Ajay Devgn",
+      "source": "https://wclcricket.com/ajay-devgn/"
+    },
+    {
+      "slug": "harshit-tomar",
+      "title": "Harshit Tomar",
+      "source": "https://wclcricket.com/harshit-tomar/"
+    },
+    {
+      "slug": "west-indies",
+      "title": "West Indies",
+      "source": "https://wclcricket.com/west-indies/"
+    },
+    {
+      "slug": "england",
+      "title": "England",
+      "source": "https://wclcricket.com/england/"
+    },
+    {
+      "slug": "pakistan",
+      "title": "Pakistan",
+      "source": "https://wclcricket.com/pakistan/"
+    },
+    {
+      "slug": "india",
+      "title": "India",
+      "source": "https://wclcricket.com/india/"
+    },
+    {
+      "slug": "australia",
+      "title": "Australia",
+      "source": "https://wclcricket.com/australia/"
+    },
+    {
+      "slug": "south-africa",
+      "title": "South Africa",
+      "source": "https://wclcricket.com/south-africa/"
+    },
+    {
+      "slug": "home",
+      "title": "Home",
+      "source": "https://wclcricket.com/"
+    }
+  ],
+  "players": [
+    {
+      "id": "west-indies-chris-gayle",
+      "name": "Chris Gayle",
+      "role": "All Rounder",
+      "image": "https://wclcricket.com/wp-content/uploads/2026/09/chris-gayle.png",
+      "team": "west-indies",
+      "source": "https://wclcricket.com/west-indies/",
+      "status": "Published squad archive"
+    },
+    {
+      "id": "west-indies-darren-sammy",
+      "name": "Darren Sammy",
+      "role": "All Rounder",
+      "image": "https://wclcricket.com/wp-content/uploads/2026/09/darren-sammy.png",
+      "team": "west-indies",
+      "source": "https://wclcricket.com/west-indies/",
+      "status": "Published squad archive"
+    },
+    {
+      "id": "west-indies-dwayne-smith",
+      "name": "Dwayne Smith",
+      "role": "Batsman",
+      "image": "https://wclcricket.com/wp-content/uploads/2026/09/dwayne.png",
+      "team": "west-indies",
+      "source": "https://wclcricket.com/west-indies/",
+      "status": "Published squad archive"
+    },
+    {
+      "id": "west-indies-samuel-badree",
+      "name": "Samuel Badree",
+      "role": "Bowler",
+      "image": "https://wclcricket.com/wp-content/uploads/2026/09/samuel.png",
+      "team": "west-indies",
+      "source": "https://wclcricket.com/west-indies/",
+      "status": "Published squad archive"
+    },
+    {
+      "id": "west-indies-chadwick-walton",
+      "name": "Chadwick Walton",
+      "role": "Batsman/Wk",
+      "image": "https://wclcricket.com/wp-content/uploads/2026/09/chadwick.png",
+      "team": "west-indies",
+      "source": "https://wclcricket.com/west-indies/",
+      "status": "Published squad archive"
+    },
+    {
+      "id": "west-indies-tino-best",
+      "name": "Tino Best",
+      "role": "Bowler",
+      "image": "https://wclcricket.com/wp-content/uploads/2026/09/tino-best.png",
+      "team": "west-indies",
+      "source": "https://wclcricket.com/west-indies/",
+      "status": "Published squad archive"
+    },
+    {
+      "id": "west-indies-jason-mohammed",
+      "name": "Jason Mohammed",
+      "role": "Batsman",
+      "image": "https://wclcricket.com/wp-content/uploads/2026/09/jason.png",
+      "team": "west-indies",
+      "source": "https://wclcricket.com/west-indies/",
+      "status": "Published squad archive"
+    },
+    {
+      "id": "west-indies-ashley-nurse",
+      "name": "Ashley Nurse",
+      "role": "All Rounder",
+      "image": "https://wclcricket.com/wp-content/uploads/2026/09/ashley.png",
+      "team": "west-indies",
+      "source": "https://wclcricket.com/west-indies/",
+      "status": "Published squad archive"
+    },
+    {
+      "id": "west-indies-jerome-taylor",
+      "name": "Jerome Taylor",
+      "role": "Bowler",
+      "image": "https://wclcricket.com/wp-content/uploads/2026/09/jerome.png",
+      "team": "west-indies",
+      "source": "https://wclcricket.com/west-indies/",
+      "status": "Published squad archive"
+    },
+    {
+      "id": "west-indies-sulieman-benn",
+      "name": "Sulieman Benn",
+      "role": "Bowler",
+      "image": "https://wclcricket.com/wp-content/uploads/2026/09/suleimen.png",
+      "team": "west-indies",
+      "source": "https://wclcricket.com/west-indies/",
+      "status": "Published squad archive"
+    },
+    {
+      "id": "west-indies-jonathan-carter",
+      "name": "Jonathan Carter",
+      "role": "All Rounder",
+      "image": "https://wclcricket.com/wp-content/uploads/2026/09/jonathan.png",
+      "team": "west-indies",
+      "source": "https://wclcricket.com/west-indies/",
+      "status": "Published squad archive"
+    },
+    {
+      "id": "west-indies-rayad-ryan-emrit",
+      "name": "Rayad Ryan Emrit",
+      "role": "All Rounder",
+      "image": "https://wclcricket.com/wp-content/uploads/2026/09/rayad.png",
+      "team": "west-indies",
+      "source": "https://wclcricket.com/west-indies/",
+      "status": "Published squad archive"
+    },
+    {
+      "id": "west-indies-fidel-edwards",
+      "name": "Fidel Edwards",
+      "role": "Bowler",
+      "image": "https://wclcricket.com/wp-content/uploads/2026/09/fidel.png",
+      "team": "west-indies",
+      "source": "https://wclcricket.com/west-indies/",
+      "status": "Published squad archive"
+    },
+    {
+      "id": "west-indies-keiron-pollard",
+      "name": "Keiron Pollard",
+      "role": "All Rounder",
+      "image": "https://wclcricket.com/wp-content/uploads/2026/09/kioren.png",
+      "team": "west-indies",
+      "source": "https://wclcricket.com/west-indies/",
+      "status": "Published squad archive"
+    },
+    {
+      "id": "west-indies-dj-bravo",
+      "name": "DJ Bravo",
+      "role": "All Rounder",
+      "image": "https://wclcricket.com/wp-content/uploads/2026/09/dj-bravo.png",
+      "team": "west-indies",
+      "source": "https://wclcricket.com/west-indies/",
+      "status": "Published squad archive"
+    },
+    {
+      "id": "west-indies-lendl-simmons",
+      "name": "Lendl Simmons",
+      "role": "Batsman",
+      "image": "https://wclcricket.com/wp-content/uploads/2026/09/lendl.png",
+      "team": "west-indies",
+      "source": "https://wclcricket.com/west-indies/",
+      "status": "Published squad archive"
+    },
+    {
+      "id": "west-indies-sheldon-cottrel",
+      "name": "Sheldon Cottrel",
+      "role": "Bowler",
+      "image": "https://wclcricket.com/wp-content/uploads/2026/09/sheldon.png",
+      "team": "west-indies",
+      "source": "https://wclcricket.com/west-indies/",
+      "status": "Published squad archive"
+    },
+    {
+      "id": "west-indies-shivnarain-chanderpaul",
+      "name": "Shivnarain Chanderpaul",
+      "role": "Batsman",
+      "image": "https://wclcricket.com/wp-content/uploads/2026/09/chanderpaul.png",
+      "team": "west-indies",
+      "source": "https://wclcricket.com/west-indies/",
+      "status": "Published squad archive"
+    },
+    {
+      "id": "west-indies-shannon-gabriel",
+      "name": "Shannon Gabriel",
+      "role": "Bowler",
+      "image": "https://wclcricket.com/wp-content/uploads/2026/09/shannon.png",
+      "team": "west-indies",
+      "source": "https://wclcricket.com/west-indies/",
+      "status": "Published squad archive"
+    },
+    {
+      "id": "west-indies-perkins-willian",
+      "name": "Perkins Willian",
+      "role": "Batsman/WK",
+      "image": "https://wclcricket.com/wp-content/uploads/2026/09/william.png",
+      "team": "west-indies",
+      "source": "https://wclcricket.com/west-indies/",
+      "status": "Published squad archive"
+    },
+    {
+      "id": "west-indies-dave-mohammed",
+      "name": "Dave Mohammed",
+      "role": "Bowler",
+      "image": "https://wclcricket.com/wp-content/uploads/2026/09/dave-md.png",
+      "team": "west-indies",
+      "source": "https://wclcricket.com/west-indies/",
+      "status": "Published squad archive"
+    },
+    {
+      "id": "west-indies-nikita-miller",
+      "name": "Nikita Miller",
+      "role": "Bowler",
+      "image": "https://wclcricket.com/wp-content/uploads/2026/09/nikita.png",
+      "team": "west-indies",
+      "source": "https://wclcricket.com/west-indies/",
+      "status": "Published squad archive"
+    },
+    {
+      "id": "england-kevin-peterson",
+      "name": "Kevin Peterson",
+      "role": "Batsman",
+      "image": "https://wclcricket.com/wp-content/uploads/2026/09/kevin-pietersen.png",
+      "team": "england",
+      "source": "https://wclcricket.com/england/",
+      "status": "Published squad archive"
+    },
+    {
+      "id": "england-ian-bell",
+      "name": "Ian Bell",
+      "role": "Batsman",
+      "image": "https://wclcricket.com/wp-content/uploads/2026/09/ian.png",
+      "team": "england",
+      "source": "https://wclcricket.com/england/",
+      "status": "Published squad archive"
+    },
+    {
+      "id": "england-owais-shah",
+      "name": "Owais Shah",
+      "role": "All Rounder",
+      "image": "https://wclcricket.com/wp-content/uploads/2026/09/owais.png",
+      "team": "england",
+      "source": "https://wclcricket.com/england/",
+      "status": "Published squad archive"
+    },
+    {
+      "id": "england-ravi-bopara",
+      "name": "Ravi Bopara",
+      "role": "All Rounder",
+      "image": "https://wclcricket.com/wp-content/uploads/2026/09/ravi.png",
+      "team": "england",
+      "source": "https://wclcricket.com/england/",
+      "status": "Published squad archive"
+    },
+    {
+      "id": "england-sumit-patel",
+      "name": "Sumit Patel",
+      "role": "All Rounder",
+      "image": "https://wclcricket.com/wp-content/uploads/2026/09/samit.png",
+      "team": "england",
+      "source": "https://wclcricket.com/england/",
+      "status": "Published squad archive"
+    },
+    {
+      "id": "england-sajid-mahmood",
+      "name": "Sajid Mahmood",
+      "role": "Bowler",
+      "image": "https://wclcricket.com/wp-content/uploads/2026/09/sajid.png",
+      "team": "england",
+      "source": "https://wclcricket.com/england/",
+      "status": "Published squad archive"
+    },
+    {
+      "id": "england-chris-schofield",
+      "name": "Chris Schofield",
+      "role": "Bowler",
+      "image": "https://wclcricket.com/wp-content/uploads/2026/09/chris-1.png",
+      "team": "england",
+      "source": "https://wclcricket.com/england/",
+      "status": "Published squad archive"
+    },
+    {
+      "id": "england-ajmal-shahzad",
+      "name": "Ajmal Shahzad",
+      "role": "Bowler",
+      "image": "https://wclcricket.com/wp-content/uploads/2026/09/ajmal.png",
+      "team": "england",
+      "source": "https://wclcricket.com/england/",
+      "status": "Published squad archive"
+    },
+    {
+      "id": "england-kevin-o-brien",
+      "name": "Kevin O'Brien",
+      "role": "All Rounder",
+      "image": "https://wclcricket.com/wp-content/uploads/2026/09/kevin.png",
+      "team": "england",
+      "source": "https://wclcricket.com/england/",
+      "status": "Published squad archive"
+    },
+    {
+      "id": "england-phil-mustard",
+      "name": "Phil Mustard",
+      "role": "Batsman/WK",
+      "image": "https://wclcricket.com/wp-content/uploads/2026/09/mustard.png",
+      "team": "england",
+      "source": "https://wclcricket.com/england/",
+      "status": "Published squad archive"
+    },
+    {
+      "id": "england-darren-maddy",
+      "name": "Darren Maddy",
+      "role": "Batsman",
+      "image": "https://wclcricket.com/wp-content/uploads/2026/09/darren.png",
+      "team": "england",
+      "source": "https://wclcricket.com/england/",
+      "status": "Published squad archive"
+    },
+    {
+      "id": "england-ryan-sidebottom",
+      "name": "Ryan Sidebottom",
+      "role": "Bowler",
+      "image": "https://wclcricket.com/wp-content/uploads/2026/09/ryan.png",
+      "team": "england",
+      "source": "https://wclcricket.com/england/",
+      "status": "Published squad archive"
+    },
+    {
+      "id": "england-stuart-meaker",
+      "name": "Stuart Meaker",
+      "role": "Bowler",
+      "image": "https://wclcricket.com/wp-content/uploads/2026/09/stuart.png",
+      "team": "england",
+      "source": "https://wclcricket.com/england/",
+      "status": "Published squad archive"
+    },
+    {
+      "id": "england-usman-afzaal",
+      "name": "Usman Afzaal",
+      "role": "All Rounder",
+      "image": "https://wclcricket.com/wp-content/uploads/2026/09/usman.png",
+      "team": "england",
+      "source": "https://wclcricket.com/england/",
+      "status": "Published squad archive"
+    },
+    {
+      "id": "england-eoin-morgan",
+      "name": "Eoin Morgan",
+      "role": "Batsman",
+      "image": "https://wclcricket.com/wp-content/uploads/2026/09/eoin.png",
+      "team": "england",
+      "source": "https://wclcricket.com/england/",
+      "status": "Published squad archive"
+    },
+    {
+      "id": "england-moeen-ali",
+      "name": "Moeen Ali",
+      "role": "All Rounder",
+      "image": "https://wclcricket.com/wp-content/uploads/2026/09/Moeen-Ali.png",
+      "team": "england",
+      "source": "https://wclcricket.com/england/",
+      "status": "Published squad archive"
+    },
+    {
+      "id": "england-alastair-cook",
+      "name": "Alastair Cook",
+      "role": "Batsman",
+      "image": "https://wclcricket.com/wp-content/uploads/2026/09/alastair.png",
+      "team": "england",
+      "source": "https://wclcricket.com/england/",
+      "status": "Published squad archive"
+    },
+    {
+      "id": "england-samit-patel",
+      "name": "Samit Patel",
+      "role": "All Rounder",
+      "image": "https://wclcricket.com/wp-content/uploads/2026/09/samit-patel.png",
+      "team": "england",
+      "source": "https://wclcricket.com/england/",
+      "status": "Published squad archive"
+    },
+    {
+      "id": "england-liam-plunkett",
+      "name": "Liam Plunkett",
+      "role": "Bowler",
+      "image": "https://wclcricket.com/wp-content/uploads/2026/09/liam.png",
+      "team": "england",
+      "source": "https://wclcricket.com/england/",
+      "status": "Published squad archive"
+    },
+    {
+      "id": "england-chris-tremlett",
+      "name": "Chris Tremlett",
+      "role": "Bowler",
+      "image": "https://wclcricket.com/wp-content/uploads/2026/09/chris-t.png",
+      "team": "england",
+      "source": "https://wclcricket.com/england/",
+      "status": "Published squad archive"
+    },
+    {
+      "id": "england-dimitri-mascarenhas",
+      "name": "Dimitri Mascarenhas",
+      "role": "All Rounder",
+      "image": "https://wclcricket.com/wp-content/uploads/2026/09/dimitri.png",
+      "team": "england",
+      "source": "https://wclcricket.com/england/",
+      "status": "Published squad archive"
+    },
+    {
+      "id": "england-tim-ambrose",
+      "name": "Tim Ambrose",
+      "role": "Batsman/WK",
+      "image": "https://wclcricket.com/wp-content/uploads/2026/09/tim-1.png",
+      "team": "england",
+      "source": "https://wclcricket.com/england/",
+      "status": "Published squad archive"
+    },
+    {
+      "id": "england-james-vince",
+      "name": "James Vince",
+      "role": "Batsman",
+      "image": "https://wclcricket.com/wp-content/uploads/2026/09/james.png",
+      "team": "england",
+      "source": "https://wclcricket.com/england/",
+      "status": "Published squad archive"
+    },
+    {
+      "id": "pakistan-sharjeel-khan",
+      "name": "Sharjeel Khan",
+      "role": "Batsman",
+      "image": "https://wclcricket.com/wp-content/uploads/2026/09/sharjeel.png",
+      "team": "pakistan",
+      "source": "https://wclcricket.com/pakistan/",
+      "status": "Published squad archive"
+    },
+    {
+      "id": "pakistan-misbah-ul-haq",
+      "name": "Misbah UL Haq",
+      "role": "Batsman",
+      "image": "https://wclcricket.com/wp-content/uploads/2026/09/isbah.png",
+      "team": "pakistan",
+      "source": "https://wclcricket.com/pakistan/",
+      "status": "Published squad archive"
+    },
+    {
+      "id": "pakistan-younis-khan",
+      "name": "Younis Khan",
+      "role": "Batsman",
+      "image": "https://wclcricket.com/wp-content/uploads/2026/09/younis.png",
+      "team": "pakistan",
+      "source": "https://wclcricket.com/pakistan/",
+      "status": "Published squad archive"
+    },
+    {
+      "id": "pakistan-shahid-afridi",
+      "name": "Shahid Afridi",
+      "role": "All Rounder",
+      "image": "https://wclcricket.com/wp-content/uploads/2026/09/shahid.png",
+      "team": "pakistan",
+      "source": "https://wclcricket.com/pakistan/",
+      "status": "Published squad archive"
+    },
+    {
+      "id": "pakistan-sohaib-maqsood",
+      "name": "Sohaib Maqsood",
+      "role": "Batsman",
+      "image": "https://wclcricket.com/wp-content/uploads/2026/09/sohaib-m.png",
+      "team": "pakistan",
+      "source": "https://wclcricket.com/pakistan/",
+      "status": "Published squad archive"
+    },
+    {
+      "id": "pakistan-shoaib-malik",
+      "name": "Shoaib Malik",
+      "role": "All Rounder",
+      "image": "https://wclcricket.com/wp-content/uploads/2026/09/shoiab-malik.png",
+      "team": "pakistan",
+      "source": "https://wclcricket.com/pakistan/",
+      "status": "Published squad archive"
+    },
+    {
+      "id": "pakistan-abdul-razzaq",
+      "name": "Abdul Razzaq",
+      "role": "All Rounder",
+      "image": "https://wclcricket.com/wp-content/uploads/2026/09/abdul.png",
+      "team": "pakistan",
+      "source": "https://wclcricket.com/pakistan/",
+      "status": "Published squad archive"
+    },
+    {
+      "id": "pakistan-sohail-tanveer",
+      "name": "Sohail Tanveer",
+      "role": "Bowler",
+      "image": "https://wclcricket.com/wp-content/uploads/2026/09/sohail.png",
+      "team": "pakistan",
+      "source": "https://wclcricket.com/pakistan/",
+      "status": "Published squad archive"
+    },
+    {
+      "id": "pakistan-wahab-riaz",
+      "name": "Wahab Riaz",
+      "role": "Bowler",
+      "image": "https://wclcricket.com/wp-content/uploads/2026/09/wahab.png",
+      "team": "pakistan",
+      "source": "https://wclcricket.com/pakistan/",
+      "status": "Published squad archive"
+    },
+    {
+      "id": "pakistan-sohail-khan",
+      "name": "Sohail Khan",
+      "role": "Bowler",
+      "image": "https://wclcricket.com/wp-content/uploads/2026/09/sohail-khan.png",
+      "team": "pakistan",
+      "source": "https://wclcricket.com/pakistan/",
+      "status": "Published squad archive"
+    },
+    {
+      "id": "pakistan-aamir-yamin",
+      "name": "Aamir Yamin",
+      "role": "All Rounder",
+      "image": "https://wclcricket.com/wp-content/uploads/2026/09/aamer.png",
+      "team": "pakistan",
+      "source": "https://wclcricket.com/pakistan/",
+      "status": "Published squad archive"
+    },
+    {
+      "id": "pakistan-mohammed-hafeez",
+      "name": "Mohammed Hafeez",
+      "role": "All Rounder",
+      "image": "https://wclcricket.com/wp-content/uploads/2026/09/hafeez.png",
+      "team": "pakistan",
+      "source": "https://wclcricket.com/pakistan/",
+      "status": "Published squad archive"
+    },
+    {
+      "id": "pakistan-asif-ali",
+      "name": "Asif Ali",
+      "role": "Batsman",
+      "image": "https://wclcricket.com/wp-content/uploads/2026/09/asif-ali.png",
+      "team": "pakistan",
+      "source": "https://wclcricket.com/pakistan/",
+      "status": "Published squad archive"
+    },
+    {
+      "id": "pakistan-kamran-akmal",
+      "name": "Kamran Akmal",
+      "role": "Batsman/WK",
+      "image": "https://wclcricket.com/wp-content/uploads/2026/09/kamran.jpg",
+      "team": "pakistan",
+      "source": "https://wclcricket.com/pakistan/",
+      "status": "Published squad archive"
+    },
+    {
+      "id": "pakistan-amir-yamin",
+      "name": "Amir Yamin",
+      "role": "All Rounder",
+      "image": "https://wclcricket.com/wp-content/uploads/2026/09/aamer-1.png",
+      "team": "pakistan",
+      "source": "https://wclcricket.com/pakistan/",
+      "status": "Published squad archive"
+    },
+    {
+      "id": "pakistan-umar-amin",
+      "name": "Umar Amin",
+      "role": "Batsman",
+      "image": "https://wclcricket.com/wp-content/uploads/2026/09/umar-amin.png",
+      "team": "pakistan",
+      "source": "https://wclcricket.com/pakistan/",
+      "status": "Published squad archive"
+    },
+    {
+      "id": "pakistan-rumman-raees",
+      "name": "Rumman Raees",
+      "role": "Bowler",
+      "image": "https://wclcricket.com/wp-content/uploads/2026/09/rumaan.png",
+      "team": "pakistan",
+      "source": "https://wclcricket.com/pakistan/",
+      "status": "Published squad archive"
+    },
+    {
+      "id": "pakistan-saeed-ajmal",
+      "name": "Saeed Ajmal",
+      "role": "Bowler",
+      "image": "https://wclcricket.com/wp-content/uploads/2026/09/saeed-1.png",
+      "team": "pakistan",
+      "source": "https://wclcricket.com/pakistan/",
+      "status": "Published squad archive"
+    },
+    {
+      "id": "pakistan-imad-wasim",
+      "name": "Imad Wasim",
+      "role": "All Rounder",
+      "image": "https://wclcricket.com/wp-content/uploads/2026/09/imad.png",
+      "team": "pakistan",
+      "source": "https://wclcricket.com/pakistan/",
+      "status": "Published squad archive"
+    },
+    {
+      "id": "india-yuvraj-singh",
+      "name": "Yuvraj Singh",
+      "role": "All Rounder",
+      "image": "https://wclcricket.com/wp-content/uploads/2026/09/yuvraj.png",
+      "team": "india",
+      "source": "https://wclcricket.com/india/",
+      "status": "Published squad archive"
+    },
+    {
+      "id": "india-harbhajan-singh",
+      "name": "Harbhajan Singh",
+      "role": "Bowler",
+      "image": "https://wclcricket.com/wp-content/uploads/2026/09/harbhajan.png",
+      "team": "india",
+      "source": "https://wclcricket.com/india/",
+      "status": "Published squad archive"
+    },
+    {
+      "id": "india-suresh-raina",
+      "name": "Suresh Raina",
+      "role": "All Rounder",
+      "image": "https://wclcricket.com/wp-content/uploads/2026/09/suresh.png",
+      "team": "india",
+      "source": "https://wclcricket.com/india/",
+      "status": "Published squad archive"
+    },
+    {
+      "id": "india-irfan-pathan",
+      "name": "Irfan Pathan",
+      "role": "All Rounder",
+      "image": "https://wclcricket.com/wp-content/uploads/2026/09/irfan.png",
+      "team": "india",
+      "source": "https://wclcricket.com/india/",
+      "status": "Published squad archive"
+    },
+    {
+      "id": "india-robin-uthappa",
+      "name": "Robin Uthappa",
+      "role": "Batsman/WK",
+      "image": "https://wclcricket.com/wp-content/uploads/2026/09/robin.png",
+      "team": "india",
+      "source": "https://wclcricket.com/india/",
+      "status": "Published squad archive"
+    },
+    {
+      "id": "india-ambati-rayudu",
+      "name": "Ambati Rayudu",
+      "role": "Batsman",
+      "image": "https://wclcricket.com/wp-content/uploads/2026/09/ambati.png",
+      "team": "india",
+      "source": "https://wclcricket.com/india/",
+      "status": "Published squad archive"
+    },
+    {
+      "id": "india-yusuf-pathan",
+      "name": "Yusuf Pathan",
+      "role": "All Rounder",
+      "image": "https://wclcricket.com/wp-content/uploads/2026/09/yusuf.png",
+      "team": "india",
+      "source": "https://wclcricket.com/india/",
+      "status": "Published squad archive"
+    },
+    {
+      "id": "india-naman-ojha",
+      "name": "Naman Ojha",
+      "role": "Batsman/WK",
+      "image": "https://wclcricket.com/wp-content/uploads/2026/09/naman.png",
+      "team": "india",
+      "source": "https://wclcricket.com/india/",
+      "status": "Published squad archive"
+    },
+    {
+      "id": "india-rp-singh",
+      "name": "RP Singh",
+      "role": "Bowler",
+      "image": "https://wclcricket.com/wp-content/uploads/2026/09/rp-singh.png",
+      "team": "india",
+      "source": "https://wclcricket.com/india/",
+      "status": "Published squad archive"
+    },
+    {
+      "id": "india-vinay-kumar",
+      "name": "Vinay Kumar",
+      "role": "Bowler",
+      "image": "https://wclcricket.com/wp-content/uploads/2026/09/vinay.png",
+      "team": "india",
+      "source": "https://wclcricket.com/india/",
+      "status": "Published squad archive"
+    },
+    {
+      "id": "india-dhawal-kulkarni",
+      "name": "Dhawal Kulkarni",
+      "role": "Bowler",
+      "image": "https://wclcricket.com/wp-content/uploads/2026/09/dhawal.png",
+      "team": "india",
+      "source": "https://wclcricket.com/india/",
+      "status": "Published squad archive"
+    },
+    {
+      "id": "india-rahul-sharma",
+      "name": "Rahul Sharma",
+      "role": "Bowler",
+      "image": "https://wclcricket.com/wp-content/uploads/2026/09/rahul.png",
+      "team": "india",
+      "source": "https://wclcricket.com/india/",
+      "status": "Published squad archive"
+    },
+    {
+      "id": "india-gurkeerat-maan",
+      "name": "Gurkeerat Maan",
+      "role": "Batsman",
+      "image": "https://wclcricket.com/wp-content/uploads/2026/09/gurkeerat.png",
+      "team": "india",
+      "source": "https://wclcricket.com/india/",
+      "status": "Published squad archive"
+    },
+    {
+      "id": "india-anureet-singh",
+      "name": "Anureet Singh",
+      "role": "Bowler",
+      "image": "https://wclcricket.com/wp-content/uploads/2026/09/anureet.png",
+      "team": "india",
+      "source": "https://wclcricket.com/india/",
+      "status": "Published squad archive"
+    },
+    {
+      "id": "india-pawan-negi",
+      "name": "Pawan Negi",
+      "role": "All Rounder",
+      "image": "https://wclcricket.com/wp-content/uploads/2026/09/pawan.png",
+      "team": "india",
+      "source": "https://wclcricket.com/india/",
+      "status": "Published squad archive"
+    },
+    {
+      "id": "india-sikhar-dhawan",
+      "name": "Sikhar Dhawan",
+      "role": "Batsman",
+      "image": "https://wclcricket.com/wp-content/uploads/2026/09/shikhar.png",
+      "team": "india",
+      "source": "https://wclcricket.com/india/",
+      "status": "Published squad archive"
+    },
+    {
+      "id": "india-piyush-chawla",
+      "name": "Piyush Chawla",
+      "role": "Bowler",
+      "image": "https://wclcricket.com/wp-content/uploads/2026/09/piyush.png",
+      "team": "india",
+      "source": "https://wclcricket.com/india/",
+      "status": "Published squad archive"
+    },
+    {
+      "id": "india-stuart-binny",
+      "name": "Stuart Binny",
+      "role": "All Rounder",
+      "image": "https://wclcricket.com/wp-content/uploads/2026/09/stuart-blnny.png",
+      "team": "india",
+      "source": "https://wclcricket.com/india/",
+      "status": "Published squad archive"
+    },
+    {
+      "id": "india-varun-aaron",
+      "name": "Varun Aaron",
+      "role": "Bowler",
+      "image": "https://wclcricket.com/wp-content/uploads/2026/09/varun.png",
+      "team": "india",
+      "source": "https://wclcricket.com/india/",
+      "status": "Published squad archive"
+    },
+    {
+      "id": "india-abhimanyu-mithun",
+      "name": "Abhimanyu Mithun",
+      "role": "Bowler",
+      "image": "https://wclcricket.com/wp-content/uploads/2026/09/mithun.png",
+      "team": "india",
+      "source": "https://wclcricket.com/india/",
+      "status": "Published squad archive"
+    },
+    {
+      "id": "india-sidhart-kaul",
+      "name": "Sidhart Kaul",
+      "role": "Bowler",
+      "image": "https://wclcricket.com/wp-content/uploads/2026/09/kaul.png",
+      "team": "india",
+      "source": "https://wclcricket.com/india/",
+      "status": "Published squad archive"
+    },
+    {
+      "id": "australia-brett-lee",
+      "name": "Brett lee",
+      "role": "Bowler",
+      "image": "https://wclcricket.com/wp-content/uploads/2026/09/brett-lee.png",
+      "team": "australia",
+      "source": "https://wclcricket.com/australia/",
+      "status": "Published squad archive"
+    },
+    {
+      "id": "australia-aaron-finch",
+      "name": "Aaron Finch",
+      "role": "Batsman",
+      "image": "https://wclcricket.com/wp-content/uploads/2026/09/aaron-finch.png",
+      "team": "australia",
+      "source": "https://wclcricket.com/australia/",
+      "status": "Published squad archive"
+    },
+    {
+      "id": "australia-tim-paine",
+      "name": "Tim Paine",
+      "role": "Batsman/WK",
+      "image": "https://wclcricket.com/wp-content/uploads/2026/09/tim.png",
+      "team": "australia",
+      "source": "https://wclcricket.com/australia/",
+      "status": "Published squad archive"
+    },
+    {
+      "id": "australia-shaun-marsh",
+      "name": "Shaun marsh",
+      "role": "Batsman",
+      "image": "https://wclcricket.com/wp-content/uploads/2026/09/shaun.png",
+      "team": "australia",
+      "source": "https://wclcricket.com/australia/",
+      "status": "Published squad archive"
+    },
+    {
+      "id": "australia-ben-cutting",
+      "name": "Ben Cutting",
+      "role": "All Rounder",
+      "image": "https://wclcricket.com/wp-content/uploads/2026/09/ben-cutting.png",
+      "team": "australia",
+      "source": "https://wclcricket.com/australia/",
+      "status": "Published squad archive"
+    },
+    {
+      "id": "australia-nathan-coulternile",
+      "name": "Nathan Coulternile",
+      "role": "Bowler",
+      "image": "https://wclcricket.com/wp-content/uploads/2026/09/nathan.png",
+      "team": "australia",
+      "source": "https://wclcricket.com/australia/",
+      "status": "Published squad archive"
+    },
+    {
+      "id": "australia-ben-dunk",
+      "name": "Ben Dunk",
+      "role": "Batsman/WK",
+      "image": "https://wclcricket.com/wp-content/uploads/2026/09/ben-dunk.png",
+      "team": "australia",
+      "source": "https://wclcricket.com/australia/",
+      "status": "Published squad archive"
+    },
+    {
+      "id": "australia-dirk-nannes",
+      "name": "Dirk Nannes",
+      "role": "Bowler",
+      "image": "https://wclcricket.com/wp-content/uploads/2026/09/dirk.png",
+      "team": "australia",
+      "source": "https://wclcricket.com/australia/",
+      "status": "Published squad archive"
+    },
+    {
+      "id": "australia-dan-christian",
+      "name": "Dan Christian",
+      "role": "All Rounder",
+      "image": "https://wclcricket.com/wp-content/uploads/2026/09/dan.png",
+      "team": "australia",
+      "source": "https://wclcricket.com/australia/",
+      "status": "Published squad archive"
+    },
+    {
+      "id": "australia-peter-siddle",
+      "name": "Peter Siddle",
+      "role": "Bowler",
+      "image": "https://wclcricket.com/wp-content/uploads/2026/09/peter.png",
+      "team": "australia",
+      "source": "https://wclcricket.com/australia/",
+      "status": "Published squad archive"
+    },
+    {
+      "id": "australia-callum-fergusan",
+      "name": "Callum Fergusan",
+      "role": "Batsman",
+      "image": "https://wclcricket.com/wp-content/uploads/2026/08/rory.png",
+      "team": "australia",
+      "source": "https://wclcricket.com/australia/",
+      "status": "Published squad archive"
+    },
+    {
+      "id": "australia-ben-laughlin",
+      "name": "Ben Laughlin",
+      "role": "Bowler",
+      "image": "https://wclcricket.com/wp-content/uploads/2026/09/ben.png",
+      "team": "australia",
+      "source": "https://wclcricket.com/australia/",
+      "status": "Published squad archive"
+    },
+    {
+      "id": "australia-xavier-doherty",
+      "name": "Xavier Doherty",
+      "role": "Bowler",
+      "image": "https://wclcricket.com/wp-content/uploads/2026/09/xavier.png",
+      "team": "australia",
+      "source": "https://wclcricket.com/australia/",
+      "status": "Published squad archive"
+    },
+    {
+      "id": "australia-john-hasting",
+      "name": "John Hasting",
+      "role": "All Rounder",
+      "image": "https://wclcricket.com/wp-content/uploads/2026/09/jhon.png",
+      "team": "australia",
+      "source": "https://wclcricket.com/australia/",
+      "status": "Published squad archive"
+    },
+    {
+      "id": "australia-chris-lynn",
+      "name": "Chris Lynn",
+      "role": "Batsman",
+      "image": "https://wclcricket.com/wp-content/uploads/2026/09/chris.png",
+      "team": "australia",
+      "source": "https://wclcricket.com/australia/",
+      "status": "Published squad archive"
+    },
+    {
+      "id": "australia-darcy-short",
+      "name": "Darcy Short",
+      "role": "All Rounder",
+      "image": "https://wclcricket.com/wp-content/uploads/2026/09/darcy.png",
+      "team": "australia",
+      "source": "https://wclcricket.com/australia/",
+      "status": "Published squad archive"
+    },
+    {
+      "id": "australia-nathan-coulternilr",
+      "name": "Nathan Coulternilr",
+      "role": "Bowler",
+      "image": "https://wclcricket.com/wp-content/uploads/2026/09/nathan-1.png",
+      "team": "australia",
+      "source": "https://wclcricket.com/australia/",
+      "status": "Published squad archive"
+    },
+    {
+      "id": "australia-callum-ferguson",
+      "name": "Callum Ferguson",
+      "role": "Batsman",
+      "image": "https://wclcricket.com/wp-content/uploads/2026/09/callum-1.png",
+      "team": "australia",
+      "source": "https://wclcricket.com/australia/",
+      "status": "Published squad archive"
+    },
+    {
+      "id": "australia-steve-o-keefe",
+      "name": "Steve O'Keefe",
+      "role": "Bowler",
+      "image": "https://wclcricket.com/wp-content/uploads/2026/09/steve.png",
+      "team": "australia",
+      "source": "https://wclcricket.com/australia/",
+      "status": "Published squad archive"
+    },
+    {
+      "id": "australia-rob-quiney",
+      "name": "Rob Quiney",
+      "role": "Batsman/WK",
+      "image": "https://wclcricket.com/wp-content/uploads/2026/09/rob.png",
+      "team": "australia",
+      "source": "https://wclcricket.com/australia/",
+      "status": "Published squad archive"
+    },
+    {
+      "id": "australia-john-hastings",
+      "name": "John Hastings",
+      "role": "All Rounder",
+      "image": "https://wclcricket.com/wp-content/uploads/2026/09/john-hasting.png",
+      "team": "australia",
+      "source": "https://wclcricket.com/australia/",
+      "status": "Published squad archive"
+    },
+    {
+      "id": "south-africa-jacques-kallis",
+      "name": "Jacques kallis",
+      "role": "All Rounder",
+      "image": "https://wclcricket.com/wp-content/uploads/2026/08/j-kalis.png",
+      "team": "south-africa",
+      "source": "https://wclcricket.com/south-africa/",
+      "status": "Published squad archive"
+    },
+    {
+      "id": "south-africa-imran-tahir",
+      "name": "Imran tahir",
+      "role": "Bowler",
+      "image": "https://wclcricket.com/wp-content/uploads/2026/08/imran-tahir.png",
+      "team": "south-africa",
+      "source": "https://wclcricket.com/south-africa/",
+      "status": "Published squad archive"
+    },
+    {
+      "id": "south-africa-herschelle-gibbss",
+      "name": "Herschelle Gibbss",
+      "role": "Batsman",
+      "image": "https://wclcricket.com/wp-content/uploads/2026/08/herschelle-gibbs.png",
+      "team": "south-africa",
+      "source": "https://wclcricket.com/south-africa/",
+      "status": "Published squad archive"
+    },
+    {
+      "id": "south-africa-dale-steyn",
+      "name": "Dale Steyn",
+      "role": "Bowler",
+      "image": "https://wclcricket.com/wp-content/uploads/2026/08/dane-vilas.png",
+      "team": "south-africa",
+      "source": "https://wclcricket.com/south-africa/",
+      "status": "Published squad archive"
+    },
+    {
+      "id": "south-africa-makhaya-ntini",
+      "name": "Makhaya Ntini",
+      "role": "Bowler",
+      "image": "https://wclcricket.com/wp-content/uploads/2026/08/mahakaya.png",
+      "team": "south-africa",
+      "source": "https://wclcricket.com/south-africa/",
+      "status": "Published squad archive"
+    },
+    {
+      "id": "south-africa-jp-duminy",
+      "name": "JP Duminy",
+      "role": "All Rounder",
+      "image": "https://wclcricket.com/wp-content/uploads/2026/08/jp-duminy-1.png",
+      "team": "south-africa",
+      "source": "https://wclcricket.com/south-africa/",
+      "status": "Published squad archive"
+    },
+    {
+      "id": "south-africa-aswell-prince",
+      "name": "Aswell Prince",
+      "role": "Batsman",
+      "image": "https://wclcricket.com/wp-content/uploads/2026/08/ashwell-prince.png",
+      "team": "south-africa",
+      "source": "https://wclcricket.com/south-africa/",
+      "status": "Published squad archive"
+    },
+    {
+      "id": "south-africa-neil-mckenzie",
+      "name": "Neil Mckenzie",
+      "role": "Batsman",
+      "image": "https://wclcricket.com/wp-content/uploads/2026/08/hardus.png",
+      "team": "south-africa",
+      "source": "https://wclcricket.com/south-africa/",
+      "status": "Published squad archive"
+    },
+    {
+      "id": "south-africa-ryan-mclaren",
+      "name": "Ryan Mclaren",
+      "role": "All Rounder",
+      "image": "https://wclcricket.com/wp-content/uploads/2026/08/ryan.png",
+      "team": "south-africa",
+      "source": "https://wclcricket.com/south-africa/",
+      "status": "Published squad archive"
+    },
+    {
+      "id": "south-africa-justin-ontong",
+      "name": "Justin Ontong",
+      "role": "All Rounder",
+      "image": "https://wclcricket.com/wp-content/uploads/2026/08/justice.png",
+      "team": "south-africa",
+      "source": "https://wclcricket.com/south-africa/",
+      "status": "Published squad archive"
+    },
+    {
+      "id": "south-africa-rory-kliendflet",
+      "name": "Rory Kliendflet",
+      "role": "Bowler",
+      "image": "https://wclcricket.com/wp-content/uploads/2026/08/rory.png",
+      "team": "south-africa",
+      "source": "https://wclcricket.com/south-africa/",
+      "status": "Published squad archive"
+    },
+    {
+      "id": "south-africa-richard-levi",
+      "name": "Richard Levi",
+      "role": "Batsman",
+      "image": "https://wclcricket.com/wp-content/uploads/2026/08/richard-levi-1.png",
+      "team": "south-africa",
+      "source": "https://wclcricket.com/south-africa/",
+      "status": "Published squad archive"
+    },
+    {
+      "id": "south-africa-dane-vilas",
+      "name": "Dane Vilas",
+      "role": "Batsman/WK",
+      "image": "https://wclcricket.com/wp-content/uploads/2026/08/dane-vilas.png",
+      "team": "south-africa",
+      "source": "https://wclcricket.com/south-africa/",
+      "status": "Published squad archive"
+    },
+    {
+      "id": "south-africa-vernon-philander",
+      "name": "Vernon Philander",
+      "role": "Bowler",
+      "image": "https://wclcricket.com/wp-content/uploads/2026/08/vernon.png",
+      "team": "south-africa",
+      "source": "https://wclcricket.com/south-africa/",
+      "status": "Published squad archive"
+    },
+    {
+      "id": "south-africa-charl-langeveldt",
+      "name": "Charl Langeveldt",
+      "role": "Bowler",
+      "image": "https://wclcricket.com/wp-content/uploads/2026/08/charl.png",
+      "team": "south-africa",
+      "source": "https://wclcricket.com/south-africa/",
+      "status": "Published squad archive"
+    },
+    {
+      "id": "south-africa-ab-de-villiers",
+      "name": "Ab De Villiers",
+      "role": "Batsman",
+      "image": "https://wclcricket.com/wp-content/uploads/2026/08/AB-de-villars.png",
+      "team": "south-africa",
+      "source": "https://wclcricket.com/south-africa/",
+      "status": "Published squad archive"
+    },
+    {
+      "id": "south-africa-hashim-amla",
+      "name": "Hashim Amla",
+      "role": "Batsman",
+      "image": "https://wclcricket.com/wp-content/uploads/2026/08/Hashim-Amla.png",
+      "team": "south-africa",
+      "source": "https://wclcricket.com/south-africa/",
+      "status": "Published squad archive"
+    },
+    {
+      "id": "south-africa-chris-morris",
+      "name": "Chris Morris",
+      "role": "Batsman",
+      "image": "https://wclcricket.com/wp-content/uploads/2026/08/chriss-moris.png",
+      "team": "south-africa",
+      "source": "https://wclcricket.com/south-africa/",
+      "status": "Published squad archive"
+    },
+    {
+      "id": "south-africa-wayne-parnell",
+      "name": "Wayne Parnell",
+      "role": "Batsman",
+      "image": "https://wclcricket.com/wp-content/uploads/2026/08/Wayne-Parnell.png",
+      "team": "south-africa",
+      "source": "https://wclcricket.com/south-africa/",
+      "status": "Published squad archive"
+    },
+    {
+      "id": "south-africa-jj-smuts",
+      "name": "Jj Smuts",
+      "role": "Batsman",
+      "image": "https://wclcricket.com/wp-content/uploads/2026/08/JJ-smuts.png",
+      "team": "south-africa",
+      "source": "https://wclcricket.com/south-africa/",
+      "status": "Published squad archive"
+    },
+    {
+      "id": "south-africa-hardus-viljoen",
+      "name": "Hardus Viljoen",
+      "role": "Batsman",
+      "image": "https://wclcricket.com/wp-content/uploads/2026/08/hardus.png",
+      "team": "south-africa",
+      "source": "https://wclcricket.com/south-africa/",
+      "status": "Published squad archive"
+    },
+    {
+      "id": "south-africa-sj-erwee",
+      "name": "Sj Erwee",
+      "role": "Batsman",
+      "image": "https://wclcricket.com/wp-content/uploads/2026/08/SJ-erwee.png",
+      "team": "south-africa",
+      "source": "https://wclcricket.com/south-africa/",
+      "status": "Published squad archive"
+    },
+    {
+      "id": "south-africa-duanne-oliver",
+      "name": "Duanne Oliver",
+      "role": "Batsman",
+      "image": "https://wclcricket.com/wp-content/uploads/2026/08/duanne-oliver.png",
+      "team": "south-africa",
+      "source": "https://wclcricket.com/south-africa/",
+      "status": "Published squad archive"
+    },
+    {
+      "id": "south-africa-morne-van-wyk",
+      "name": "Morne Van Wyk",
+      "role": "Batsman",
+      "image": "https://wclcricket.com/wp-content/uploads/2026/08/morne-van-wyk.png",
+      "team": "south-africa",
+      "source": "https://wclcricket.com/south-africa/",
+      "status": "Published squad archive"
+    },
+    {
+      "id": "south-africa-aaron-phangiso",
+      "name": "Aaron Phangiso",
+      "role": "Batsman",
+      "image": "https://wclcricket.com/wp-content/uploads/2026/08/aaron-phangiso.png",
+      "team": "south-africa",
+      "source": "https://wclcricket.com/south-africa/",
+      "status": "Published squad archive"
+    },
+    {
+      "id": "south-africa-jacques-rudolph",
+      "name": "Jacques Rudolph",
+      "role": "Batsman",
+      "image": "https://wclcricket.com/wp-content/uploads/2026/08/jacques.png",
+      "team": "south-africa",
+      "source": "https://wclcricket.com/south-africa/",
+      "status": "Published squad archive"
+    },
+    {
+      "id": "south-africa-henry-davids",
+      "name": "Henry Davids",
+      "role": "Batsman",
+      "image": "https://wclcricket.com/wp-content/uploads/2026/08/Henry-Davids.png",
+      "team": "south-africa",
+      "source": "https://wclcricket.com/south-africa/",
+      "status": "Published squad archive"
+    }
+  ],
+  "matches": [
+    {
+      "id": "s1-1",
+      "season": 1,
+      "label": "Match 1",
+      "date": "Wed 3 Jul  ·  12:30 PM BST",
+      "teams": [
+        "england",
+        "india"
+      ],
+      "venue": "Edgbaston, Birmingham",
+      "source": "https://wclcricket.com/india/",
+      "status": "Archive schedule"
+    },
+    {
+      "id": "s1-2",
+      "season": 1,
+      "label": "Match 2",
+      "date": "Wed 3 Jul  ·  4:30 PM BST",
+      "teams": [
+        "pakistan",
+        "australia"
+      ],
+      "venue": "Edgbaston, Birmingham",
+      "source": "https://wclcricket.com/india/",
+      "status": "Archive schedule"
+    },
+    {
+      "id": "s1-3",
+      "season": 1,
+      "label": "Match 3",
+      "date": "Thu 4 Jul  ·  12:30 PM BST",
+      "teams": [
+        "england",
+        "south-africa"
+      ],
+      "venue": "Edgbaston, Birmingham",
+      "source": "https://wclcricket.com/india/",
+      "status": "Archive schedule"
+    },
+    {
+      "id": "s1-4",
+      "season": 1,
+      "label": "Match 4",
+      "date": "Thu 4 Jul  ·  4:30 PM BST",
+      "teams": [
+        "west-indies",
+        "pakistan"
+      ],
+      "venue": "Edgbaston, Birmingham",
+      "source": "https://wclcricket.com/india/",
+      "status": "Archive schedule"
+    },
+    {
+      "id": "s1-5",
+      "season": 1,
+      "label": "Match 5",
+      "date": "Fri 5 Jul  ·  12:30 PM BST",
+      "teams": [
+        "australia",
+        "south-africa"
+      ],
+      "venue": "Edgbaston, Birmingham",
+      "source": "https://wclcricket.com/india/",
+      "status": "Archive schedule"
+    },
+    {
+      "id": "s1-6",
+      "season": 1,
+      "label": "Match 6",
+      "date": "Fri 5 Jul  ·  4:30 PM BST",
+      "teams": [
+        "india",
+        "west-indies"
+      ],
+      "venue": "Edgbaston, Birmingham",
+      "source": "https://wclcricket.com/india/",
+      "status": "Archive schedule"
+    },
+    {
+      "id": "s1-7",
+      "season": 1,
+      "label": "Match 7",
+      "date": "Sat 6 Jul  ·  12:30 PM BST",
+      "teams": [
+        "england",
+        "australia"
+      ],
+      "venue": "Edgbaston, Birmingham",
+      "source": "https://wclcricket.com/india/",
+      "status": "Archive schedule"
+    },
+    {
+      "id": "s1-8",
+      "season": 1,
+      "label": "Match 8",
+      "date": "Sat 6 Jul  ·  4:30 PM BST",
+      "teams": [
+        "india",
+        "pakistan"
+      ],
+      "venue": "Edgbaston, Birmingham",
+      "source": "https://wclcricket.com/india/",
+      "status": "Archive schedule"
+    },
+    {
+      "id": "s1-9",
+      "season": 1,
+      "label": "Match 9",
+      "date": "Sun 7 Jul  ·  12:30 PM BST",
+      "teams": [
+        "west-indies",
+        "south-africa"
+      ],
+      "venue": "Edgbaston, Birmingham",
+      "source": "https://wclcricket.com/india/",
+      "status": "Archive schedule"
+    },
+    {
+      "id": "s1-10",
+      "season": 1,
+      "label": "Match 10",
+      "date": "Sun 7 Jul  ·  4:30 PM BST",
+      "teams": [
+        "england",
+        "pakistan"
+      ],
+      "venue": "Edgbaston, Birmingham",
+      "source": "https://wclcricket.com/india/",
+      "status": "Archive schedule"
+    },
+    {
+      "id": "s1-11",
+      "season": 1,
+      "label": "Match 11",
+      "date": "Mon 8 Jul  ·  12:30 PM BST",
+      "teams": [
+        "india",
+        "australia"
+      ],
+      "venue": "The County Ground, Northamptonshire",
+      "source": "https://wclcricket.com/india/",
+      "status": "Archive schedule"
+    },
+    {
+      "id": "s1-12",
+      "season": 1,
+      "label": "Match 12",
+      "date": "Tue 9 Jul  ·  12:30 PM BST",
+      "teams": [
+        "west-indies",
+        "england"
+      ],
+      "venue": "The County Ground, Northamptonshire",
+      "source": "https://wclcricket.com/india/",
+      "status": "Archive schedule"
+    },
+    {
+      "id": "s1-13",
+      "season": 1,
+      "label": "Match 13",
+      "date": "Tue 9 Jul  ·  4:30 PM BST",
+      "teams": [
+        "south-africa",
+        "pakistan"
+      ],
+      "venue": "The County Ground, Northamptonshire",
+      "source": "https://wclcricket.com/india/",
+      "status": "Archive schedule"
+    },
+    {
+      "id": "s1-14",
+      "season": 1,
+      "label": "Match 14",
+      "date": "Wed 10 Jul  ·  12:30 PM BST",
+      "teams": [
+        "west-indies",
+        "australia"
+      ],
+      "venue": "Edgbaston, Birmingham",
+      "source": "https://wclcricket.com/india/",
+      "status": "Archive schedule"
+    },
+    {
+      "id": "s1-15",
+      "season": 1,
+      "label": "Match 15",
+      "date": "Wed 10 Jul  ·  4:30 PM BST",
+      "teams": [
+        "india",
+        "south-africa"
+      ],
+      "venue": "Edgbaston, Birmingham",
+      "source": "https://wclcricket.com/india/",
+      "status": "Archive schedule"
+    },
+    {
+      "id": "s1-16",
+      "season": 1,
+      "label": "Semi Final 1",
+      "date": "Fri 12 Jul  ·  12:30 PM BST",
+      "teams": [
+        "india",
+        "australia"
+      ],
+      "venue": "The County Ground, Northamptonshire",
+      "source": "https://wclcricket.com/india/",
+      "status": "Archive schedule"
+    },
+    {
+      "id": "s1-17",
+      "season": 1,
+      "label": "Semi Final 2",
+      "date": "Fri 12 Jul  ·  4:30 PM BST",
+      "teams": [
+        "pakistan",
+        "west-indies"
+      ],
+      "venue": "The County Ground, Northamptonshire",
+      "source": "https://wclcricket.com/india/",
+      "status": "Archive schedule"
+    },
+    {
+      "id": "s1-18",
+      "season": 1,
+      "label": "Final",
+      "date": "Sat 13 Jul  ·  4:30 PM BST",
+      "teams": [
+        "pakistan",
+        "india"
+      ],
+      "venue": "Edgbaston, Birmingham",
+      "source": "https://wclcricket.com/india/",
+      "status": "Archive schedule"
+    },
+    {
+      "id": "s2-1",
+      "season": 2,
+      "label": "Match 1",
+      "date": "Fri 18 Jul  ·  4:30 PM BST",
+      "teams": [
+        "england",
+        "pakistan"
+      ],
+      "venue": "Edgbaston, Birmingham",
+      "source": "https://wclcricket.com/india/",
+      "status": "Archive schedule"
+    },
+    {
+      "id": "s2-2",
+      "season": 2,
+      "label": "Match 2",
+      "date": "Sat 19 Jul  ·  12:30 PM BST",
+      "teams": [
+        "west-indies",
+        "south-africa"
+      ],
+      "venue": "Edgbaston, Birmingham",
+      "source": "https://wclcricket.com/india/",
+      "status": "Archive schedule"
+    },
+    {
+      "id": "s2-3",
+      "season": 2,
+      "label": "Match 3",
+      "date": "Sat 19 Jul  ·  4:30 PM BST",
+      "teams": [
+        "england",
+        "australia"
+      ],
+      "venue": "Edgbaston, Birmingham",
+      "source": "https://wclcricket.com/india/",
+      "status": "Archive schedule"
+    },
+    {
+      "id": "s2-4",
+      "season": 2,
+      "label": "Match 4",
+      "date": "Sun 20 Jul  ·  4:30 PM BST",
+      "teams": [
+        "india",
+        "pakistan"
+      ],
+      "venue": "Edgbaston, Birmingham",
+      "source": "https://wclcricket.com/india/",
+      "status": "Archive schedule"
+    },
+    {
+      "id": "s2-5",
+      "season": 2,
+      "label": "Match 5",
+      "date": "Tue 22 Jul  ·  12:30 PM BST",
+      "teams": [
+        "england",
+        "west-indies"
+      ],
+      "venue": "The County Ground, Northamptonshire",
+      "source": "https://wclcricket.com/india/",
+      "status": "Archive schedule"
+    },
+    {
+      "id": "s2-6",
+      "season": 2,
+      "label": "Match 6",
+      "date": "Tue 22 Jul  ·  4:30 PM BST",
+      "teams": [
+        "india",
+        "south-africa"
+      ],
+      "venue": "The County Ground, Northamptonshire",
+      "source": "https://wclcricket.com/india/",
+      "status": "Archive schedule"
+    },
+    {
+      "id": "s2-7",
+      "season": 2,
+      "label": "Match 7",
+      "date": "Wed 23 Jul  ·  4:30 PM BST",
+      "teams": [
+        "australia",
+        "west-indies"
+      ],
+      "venue": "The County Ground, Northamptonshire",
+      "source": "https://wclcricket.com/india/",
+      "status": "Archive schedule"
+    },
+    {
+      "id": "s2-8",
+      "season": 2,
+      "label": "Match 8",
+      "date": "Thu 24 Jul  ·  4:30 PM BST",
+      "teams": [
+        "england",
+        "south-africa"
+      ],
+      "venue": "Uptonsteel, Leicester",
+      "source": "https://wclcricket.com/india/",
+      "status": "Archive schedule"
+    },
+    {
+      "id": "s2-9",
+      "season": 2,
+      "label": "Match 9",
+      "date": "Fri 25 Jul  ·  4:30 PM BST",
+      "teams": [
+        "south-africa",
+        "pakistan"
+      ],
+      "venue": "Uptonsteel, Leicester",
+      "source": "https://wclcricket.com/india/",
+      "status": "Archive schedule"
+    },
+    {
+      "id": "s2-10",
+      "season": 2,
+      "label": "Match 10",
+      "date": "Sat 26 Jul  ·  12:30 PM BST",
+      "teams": [
+        "india",
+        "australia"
+      ],
+      "venue": "Headingley, Leeds",
+      "source": "https://wclcricket.com/india/",
+      "status": "Archive schedule"
+    },
+    {
+      "id": "s2-11",
+      "season": 2,
+      "label": "Match 11",
+      "date": "Sat 26 Jul  ·  4:30 PM BST",
+      "teams": [
+        "pakistan",
+        "west-indies"
+      ],
+      "venue": "Headingley, Leeds",
+      "source": "https://wclcricket.com/india/",
+      "status": "Archive schedule"
+    },
+    {
+      "id": "s2-12",
+      "season": 2,
+      "label": "Match 12",
+      "date": "Sun 27 Jul  ·  12:30 PM BST",
+      "teams": [
+        "south-africa",
+        "australia"
+      ],
+      "venue": "Headingley, Leeds",
+      "source": "https://wclcricket.com/india/",
+      "status": "Archive schedule"
+    },
+    {
+      "id": "s2-13",
+      "season": 2,
+      "label": "Match 13",
+      "date": "Sun 27 Jul  ·  4:30 PM BST",
+      "teams": [
+        "india",
+        "england"
+      ],
+      "venue": "Headingley, Leeds",
+      "source": "https://wclcricket.com/india/",
+      "status": "Archive schedule"
+    },
+    {
+      "id": "s2-14",
+      "season": 2,
+      "label": "Match 14",
+      "date": "Tue 29 Jul  ·  12:30 PM BST",
+      "teams": [
+        "australia",
+        "pakistan"
+      ],
+      "venue": "Uptonsteel, Leicester",
+      "source": "https://wclcricket.com/india/",
+      "status": "Archive schedule"
+    },
+    {
+      "id": "s2-15",
+      "season": 2,
+      "label": "Match 15",
+      "date": "Tue 29 Jul  ·  4:30 PM BST",
+      "teams": [
+        "india",
+        "west-indies"
+      ],
+      "venue": "Uptonsteel, Leicester",
+      "source": "https://wclcricket.com/india/",
+      "status": "Archive schedule"
+    },
+    {
+      "id": "s2-16",
+      "season": 2,
+      "label": "Semi Final 1",
+      "date": "Thu 31 Jul  ·  12:30 PM BST",
+      "teams": [
+        "india",
+        "pakistan"
+      ],
+      "venue": "Edgbaston, Birmingham · Playoffs",
+      "source": "https://wclcricket.com/india/",
+      "status": "Archive schedule"
+    },
+    {
+      "id": "s2-17",
+      "season": 2,
+      "label": "Semi Final 2",
+      "date": "Thu 31 Jul  ·  4:30 PM BST",
+      "teams": [
+        "south-africa",
+        "australia"
+      ],
+      "venue": "Edgbaston, Birmingham · Playoffs",
+      "source": "https://wclcricket.com/india/",
+      "status": "Archive schedule"
+    },
+    {
+      "id": "s2-18",
+      "season": 2,
+      "label": "Final",
+      "date": "Sat 2 Aug  ·  4:30 PM BST",
+      "teams": [
+        "pakistan",
+        "south-africa"
+      ],
+      "venue": "Edgbaston, Birmingham · Playoffs",
+      "source": "https://wclcricket.com/india/",
+      "status": "Archive schedule"
+    }
+  ],
+  "videos": [
+    {
+      "id": "0h8eYdGRixY",
+      "season": 2,
+      "title": "WCL S2 2025: Pak Champions Beat Eng Champions By 5 Runs | 1st Match Highlights | 18 July - WCL T20",
+      "source": "https://wclcricket.com/wcl-season-2/",
+      "url": "https://www.youtube.com/watch?v=0h8eYdGRixY",
+      "thumbnail": "https://i.ytimg.com/vi/0h8eYdGRixY/hqdefault.jpg"
+    },
+    {
+      "id": "ULdp67QT_aQ",
+      "season": 2,
+      "title": "Mr. 360 ABD Returns! To Cricket | SA Champions Win Bowl-Out vs WI | Match Highlights - WCL S2 2025",
+      "source": "https://wclcricket.com/wcl-season-2/",
+      "url": "https://www.youtube.com/watch?v=ULdp67QT_aQ",
+      "thumbnail": "https://i.ytimg.com/vi/ULdp67QT_aQ/hqdefault.jpg"
+    },
+    {
+      "id": "xJ1OWnmEsG8",
+      "season": 2,
+      "title": "England Champions vs Australia Champions 3rd Match Highlights | Epic Ashes Rivalry - WCL S2 2025",
+      "source": "https://wclcricket.com/wcl-season-2/",
+      "url": "https://www.youtube.com/watch?v=xJ1OWnmEsG8",
+      "thumbnail": "https://i.ytimg.com/vi/xJ1OWnmEsG8/hqdefault.jpg"
+    },
+    {
+      "id": "bXoj67ZRQvs",
+      "season": 2,
+      "title": "Walton's 83 & Edwards 4/11 | WI Champions Beat Eng Champions by 10 runs - WCL S2 2025 Highlights",
+      "source": "https://wclcricket.com/wcl-season-2/",
+      "url": "https://www.youtube.com/watch?v=bXoj67ZRQvs",
+      "thumbnail": "https://i.ytimg.com/vi/bXoj67ZRQvs/hqdefault.jpg"
+    },
+    {
+      "id": "1M4IicqG7XI",
+      "season": 2,
+      "title": "AB de Villiers Fantastic Catch🔥 | SA Champions Beat India Champions By 88 Runs | WCL S2 2025",
+      "source": "https://wclcricket.com/wcl-season-2/",
+      "url": "https://www.youtube.com/watch?v=1M4IicqG7XI",
+      "thumbnail": "https://i.ytimg.com/vi/1M4IicqG7XI/hqdefault.jpg"
+    },
+    {
+      "id": "eSL-Werj1yE",
+      "season": 2,
+      "title": "Lynn’s 81* off 27 Crushes WI by 8 Wkts! | Aus Champions Vs WI Champions Highlights | WCL S2 2025",
+      "source": "https://wclcricket.com/wcl-season-2/",
+      "url": "https://www.youtube.com/watch?v=eSL-Werj1yE",
+      "thumbnail": "https://i.ytimg.com/vi/eSL-Werj1yE/hqdefault.jpg"
+    },
+    {
+      "id": "lb9IZAq43nA",
+      "season": 2,
+      "title": "AB de Villiers’ 116* Powers💥SA to 10-Wkt Win | Eng Champions vs SA Champions Highlights| WCL S2 2025",
+      "source": "https://wclcricket.com/wcl-season-2/",
+      "url": "https://www.youtube.com/watch?v=lb9IZAq43nA",
+      "thumbnail": "https://i.ytimg.com/vi/lb9IZAq43nA/hqdefault.jpg"
+    },
+    {
+      "id": "kcKOktIMKrM",
+      "season": 2,
+      "title": "SA vs Pak WCL S2 2025 | Amin’s 58 & Malik’s 46* Seal 31-Run Win! | Full Match Highlights",
+      "source": "https://wclcricket.com/wcl-season-2/",
+      "url": "https://www.youtube.com/watch?v=kcKOktIMKrM",
+      "thumbnail": "https://i.ytimg.com/vi/kcKOktIMKrM/hqdefault.jpg"
+    },
+    {
+      "id": "4EqUh9pBjyU",
+      "season": 2,
+      "title": "Ind vs Aus WCL S2 2025: Dhawan’s 91* & Pathan's 52* in Vain! Aus Chase 204 in Thriller! Highlights",
+      "source": "https://wclcricket.com/wcl-season-2/",
+      "url": "https://www.youtube.com/watch?v=4EqUh9pBjyU",
+      "thumbnail": "https://i.ytimg.com/vi/4EqUh9pBjyU/hqdefault.jpg"
+    },
+    {
+      "id": "KYfW6eW5u7M",
+      "season": 2,
+      "title": "Pak Champions vs WI Champions | Akmal’s⚡113 Powers 49-Run Win! | Match Highlights | WCL S2 2025",
+      "source": "https://wclcricket.com/wcl-season-2/",
+      "url": "https://www.youtube.com/watch?v=KYfW6eW5u7M",
+      "thumbnail": "https://i.ytimg.com/vi/KYfW6eW5u7M/hqdefault.jpg"
+    },
+    {
+      "id": "-RFfq6Bu1F4",
+      "season": 2,
+      "title": "Ab De Villiers’ 39-Ball 100!🔥Crush Aus by 95 Runs! | SA vs Aus Champions | Highlights WCL S2 2025",
+      "source": "https://wclcricket.com/wcl-season-2/",
+      "url": "https://www.youtube.com/watch?v=-RFfq6Bu1F4",
+      "thumbnail": "https://i.ytimg.com/vi/-RFfq6Bu1F4/hqdefault.jpg"
+    },
+    {
+      "id": "TxYHO57Z6oU",
+      "season": 2,
+      "title": "Bopara’s 110* & Shahzad’s 4/34 Crush India Champions | WCL S2 2025 Cricket Match Highlights",
+      "source": "https://wclcricket.com/wcl-season-2/",
+      "url": "https://www.youtube.com/watch?v=TxYHO57Z6oU",
+      "thumbnail": "https://i.ytimg.com/vi/TxYHO57Z6oU/hqdefault.jpg"
+    },
+    {
+      "id": "b_92vyOvjPk",
+      "season": 2,
+      "title": "Aus vs Pak WCL 2025 | Ajmal’s 6/16 Crushes Australia Champions | World Championship of Legends",
+      "source": "https://wclcricket.com/wcl-season-2/",
+      "url": "https://www.youtube.com/watch?v=b_92vyOvjPk",
+      "thumbnail": "https://i.ytimg.com/vi/b_92vyOvjPk/hqdefault.jpg"
+    },
+    {
+      "id": "SM05uFpQg3Q",
+      "season": 2,
+      "title": "India Champions to WCL Semis 2025! | Yusuf & Binny Shines💥| Cricket Highlights Season 2",
+      "source": "https://wclcricket.com/wcl-season-2/",
+      "url": "https://www.youtube.com/watch?v=SM05uFpQg3Q",
+      "thumbnail": "https://i.ytimg.com/vi/SM05uFpQg3Q/hqdefault.jpg"
+    },
+    {
+      "id": "TGOfWKx5Gns",
+      "season": 2,
+      "title": "SA Win by 1 Run in Last-Ball Thriller💥! SA Edge Aus in Epic Finish! WCL 2025 Highlights Semi Final 2",
+      "source": "https://wclcricket.com/wcl-season-2/",
+      "url": "https://www.youtube.com/watch?v=TGOfWKx5Gns",
+      "thumbnail": "https://i.ytimg.com/vi/TGOfWKx5Gns/hqdefault.jpg"
+    },
+    {
+      "id": "QEJpiLFlHeo",
+      "season": 2,
+      "title": "WCL 2025 Final: ABD’s 120* & Duminy’s 50* Power SA to WCL 2025 Glory! | Edgbaston, Birmingham",
+      "source": "https://wclcricket.com/wcl-season-2/",
+      "url": "https://www.youtube.com/watch?v=QEJpiLFlHeo",
+      "thumbnail": "https://i.ytimg.com/vi/QEJpiLFlHeo/hqdefault.jpg"
+    },
+    {
+      "id": "QWS95Yx4j18",
+      "season": 1,
+      "title": "India vs England | World Championship Of Legends 2024 | Full Cricket Highlights | 3rd July | WCL T20",
+      "source": "https://wclcricket.com/wcl-season-1/",
+      "url": "https://www.youtube.com/watch?v=QWS95Yx4j18",
+      "thumbnail": "https://i.ytimg.com/vi/QWS95Yx4j18/hqdefault.jpg"
+    },
+    {
+      "id": "ssU2HPNOSEw",
+      "season": 1,
+      "title": "Pak vs Aus | World Championship Of Legends 2024 | Full Match Cricket Highlights | 3rd July | WCL T20",
+      "source": "https://wclcricket.com/wcl-season-1/",
+      "url": "https://www.youtube.com/watch?v=ssU2HPNOSEw",
+      "thumbnail": "https://i.ytimg.com/vi/ssU2HPNOSEw/hqdefault.jpg"
+    },
+    {
+      "id": "LYVnvT14c24",
+      "season": 1,
+      "title": "Eng VS SA | World Championship Of Legends 2024 | Full Cricket Highlights | 4th July | WCL T20",
+      "source": "https://wclcricket.com/wcl-season-1/",
+      "url": "https://www.youtube.com/watch?v=LYVnvT14c24",
+      "thumbnail": "https://i.ytimg.com/vi/LYVnvT14c24/hqdefault.jpg"
+    },
+    {
+      "id": "I72n496JzFk",
+      "season": 1,
+      "title": "WI vs Pak | World Championship Of Legends 2024 | Full Cricket Match Highlights | 4th July |  WCL T20",
+      "source": "https://wclcricket.com/wcl-season-1/",
+      "url": "https://www.youtube.com/watch?v=I72n496JzFk",
+      "thumbnail": "https://i.ytimg.com/vi/I72n496JzFk/hqdefault.jpg"
+    },
+    {
+      "id": "-smZkpFRwmI",
+      "season": 1,
+      "title": "Aus vs SA | World Championship Of Legends 2024 | 5th July | | Cricket Highlights | WCLT20",
+      "source": "https://wclcricket.com/wcl-season-1/",
+      "url": "https://www.youtube.com/watch?v=-smZkpFRwmI",
+      "thumbnail": "https://i.ytimg.com/vi/-smZkpFRwmI/hqdefault.jpg"
+    },
+    {
+      "id": "T8bJexwKEWw",
+      "season": 1,
+      "title": "Ind vs WI | World Championship Of Legends, 2024 | Cricket Highlights | 5th July | WCL T20",
+      "source": "https://wclcricket.com/wcl-season-1/",
+      "url": "https://www.youtube.com/watch?v=T8bJexwKEWw",
+      "thumbnail": "https://i.ytimg.com/vi/T8bJexwKEWw/hqdefault.jpg"
+    },
+    {
+      "id": "AU4N2nTTygI",
+      "season": 1,
+      "title": "Aus vs Eng | World Championship Of Legends, 2024 | Cricket Highlights | 6th July | WCL T20",
+      "source": "https://wclcricket.com/wcl-season-1/",
+      "url": "https://www.youtube.com/watch?v=AU4N2nTTygI",
+      "thumbnail": "https://i.ytimg.com/vi/AU4N2nTTygI/hqdefault.jpg"
+    },
+    {
+      "id": "-TdMtpEjFDw",
+      "season": 1,
+      "title": "Ind vs Pak | World Championship Of Legends, 2024 | Cricket Highlights | 6th July | WCL T20",
+      "source": "https://wclcricket.com/wcl-season-1/",
+      "url": "https://www.youtube.com/watch?v=-TdMtpEjFDw",
+      "thumbnail": "https://i.ytimg.com/vi/-TdMtpEjFDw/hqdefault.jpg"
+    },
+    {
+      "id": "RsKyi0JYgFw",
+      "season": 1,
+      "title": "SA vs WI | World Championship Of Legends, 2024 | Cricket Highlights | 7th July | WCL T20",
+      "source": "https://wclcricket.com/wcl-season-1/",
+      "url": "https://www.youtube.com/watch?v=RsKyi0JYgFw",
+      "thumbnail": "https://i.ytimg.com/vi/RsKyi0JYgFw/hqdefault.jpg"
+    },
+    {
+      "id": "-JIIelAG1M4",
+      "season": 1,
+      "title": "Pak vs Eng | World Championship Of Legends, 2024 | Cricket Highlights | 7th July | WCL T20",
+      "source": "https://wclcricket.com/wcl-season-1/",
+      "url": "https://www.youtube.com/watch?v=-JIIelAG1M4",
+      "thumbnail": "https://i.ytimg.com/vi/-JIIelAG1M4/hqdefault.jpg"
+    },
+    {
+      "id": "fXE-b6aZELk",
+      "season": 1,
+      "title": "Ind vs Aus | World Championship Of Legends, 2024 | Cricket Highlights | 8th July | WCL T20",
+      "source": "https://wclcricket.com/wcl-season-1/",
+      "url": "https://www.youtube.com/watch?v=fXE-b6aZELk",
+      "thumbnail": "https://i.ytimg.com/vi/fXE-b6aZELk/hqdefault.jpg"
+    },
+    {
+      "id": "DJUTsaur7BY",
+      "season": 1,
+      "title": "WI vs Eng | World Championship Of Legends, 2024 | Cricket Highlights | 9th July | WCL T20",
+      "source": "https://wclcricket.com/wcl-season-1/",
+      "url": "https://www.youtube.com/watch?v=DJUTsaur7BY",
+      "thumbnail": "https://i.ytimg.com/vi/DJUTsaur7BY/hqdefault.jpg"
+    },
+    {
+      "id": "r40t_rxznWA",
+      "season": 1,
+      "title": "SA vs Pak | World Championship Of Legends, 2024 |  9th July | Cricket Highlights | WCL T20",
+      "source": "https://wclcricket.com/wcl-season-1/",
+      "url": "https://www.youtube.com/watch?v=r40t_rxznWA",
+      "thumbnail": "https://i.ytimg.com/vi/r40t_rxznWA/hqdefault.jpg"
+    },
+    {
+      "id": "2lHWxbo8iU4",
+      "season": 1,
+      "title": "WI vs Aus | World Championship Of Legends 2024| Full Match Cricket Highlights | 10th July | WCL T20",
+      "source": "https://wclcricket.com/wcl-season-1/",
+      "url": "https://www.youtube.com/watch?v=2lHWxbo8iU4",
+      "thumbnail": "https://i.ytimg.com/vi/2lHWxbo8iU4/hqdefault.jpg"
+    },
+    {
+      "id": "BggptQa3Sz0",
+      "season": 1,
+      "title": "Ind Vs SA | World Championship Of Legends 2024 | Full Match Highlights | 10th July | WCL T20",
+      "source": "https://wclcricket.com/wcl-season-1/",
+      "url": "https://www.youtube.com/watch?v=BggptQa3Sz0",
+      "thumbnail": "https://i.ytimg.com/vi/BggptQa3Sz0/hqdefault.jpg"
+    },
+    {
+      "id": "y-UKoRso2O4",
+      "season": 1,
+      "title": "Pak vs WI | Semi-Final | World Championship Of Legends 2024 | Cricket Highlights | 12th July WCL T20",
+      "source": "https://wclcricket.com/wcl-season-1/",
+      "url": "https://www.youtube.com/watch?v=y-UKoRso2O4",
+      "thumbnail": "https://i.ytimg.com/vi/y-UKoRso2O4/hqdefault.jpg"
+    },
+    {
+      "id": "76NJfPIxIss",
+      "season": 1,
+      "title": "Ind vs Aus Semi Final | World Championship Of Legends Cricket 2024 | 12th July Highlights | WCL T20",
+      "source": "https://wclcricket.com/wcl-season-1/",
+      "url": "https://www.youtube.com/watch?v=76NJfPIxIss",
+      "thumbnail": "https://i.ytimg.com/vi/76NJfPIxIss/hqdefault.jpg"
+    },
+    {
+      "id": "CraJy_hGPSk",
+      "season": 1,
+      "title": "Yuvraj vs Younis: WCL 2024 Final India vs Pakistan Showdown! | Cricket Highlights | WCL T20",
+      "source": "https://wclcricket.com/wcl-season-1/",
+      "url": "https://www.youtube.com/watch?v=CraJy_hGPSk",
+      "thumbnail": "https://i.ytimg.com/vi/CraJy_hGPSk/hqdefault.jpg"
+    }
+  ],
+  "photos": [],
+  "logos": {
+    "england": "https://wclcricket.com/wp-content/uploads/2026/08/England-Champions-WCL.png",
+    "india": "https://wclcricket.com/wp-content/uploads/2026/07/india-champions-WCL.png",
+    "pakistan": "https://wclcricket.com/wp-content/uploads/2026/07/Pakistan-Champions-WCL.png",
+    "australia": "https://wclcricket.com/wp-content/uploads/2026/07/Australia-Champions-WCL.png",
+    "south-africa": "https://wclcricket.com/wp-content/uploads/2026/07/South-Africa-Champions-WCL.png",
+    "west-indies": "https://wclcricket.com/wp-content/uploads/2026/07/West-indies-Champions-WCL.png"
+  }
+}

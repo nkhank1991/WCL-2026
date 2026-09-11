@@ -1,0 +1,4 @@
+import {usePublished} from './PublishedContent.jsx';
+import {leadership} from './leadership-data.js';
+export {leadership} from './leadership-data.js';
+export function LeadershipProfiles(){const people=usePublished('leadership',leadership);return <section className="wrap section leadership-profiles" id="leadership"><div className="section-title"><div><p className="kicker">THE PEOPLE BEHIND THE CHAMPIONSHIP</p><h2>Building the next chapter.</h2></div></div><div className="leadership-grid">{people.map(person=><article id={person.id} key={person.id}><img src={person.image} alt={person.name+' — official WCL photograph'} loading="lazy"/><div><small>{person.role}</small><h3>{person.name}</h3><p>{person.copy}</p><dl>{person.facts.map(([value,label])=><div key={label}><dt>{value}</dt><dd>{label}</dd></div>)}</dl></div></article>)}</div></section>}

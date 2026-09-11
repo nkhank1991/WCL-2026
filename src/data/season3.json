@@ -1,0 +1,729 @@
+{
+  "season": 3,
+  "year": 2026,
+  "source": "WCL 3 Players 2 (1).xlsx",
+  "sheet": "Sheet1",
+  "slots": [
+    {
+      "team": "west-indies",
+      "slot": 1,
+      "sourceRow": 2,
+      "sourceName": "Chris Gayle",
+      "status": "listed"
+    },
+    {
+      "team": "west-indies",
+      "slot": 2,
+      "sourceRow": 3,
+      "sourceName": "Chadwick Walton (WK)",
+      "status": "listed"
+    },
+    {
+      "team": "west-indies",
+      "slot": 3,
+      "sourceRow": 4,
+      "sourceName": "Lendl Simmons",
+      "status": "listed"
+    },
+    {
+      "team": "west-indies",
+      "slot": 4,
+      "sourceRow": 5,
+      "sourceName": "Andre Fletcher",
+      "status": "listed"
+    },
+    {
+      "team": "west-indies",
+      "slot": 5,
+      "sourceRow": 6,
+      "sourceName": "Carlos Brathwaite",
+      "status": "listed"
+    },
+    {
+      "team": "west-indies",
+      "slot": 6,
+      "sourceRow": 7,
+      "sourceName": "Andre Russell",
+      "status": "listed"
+    },
+    {
+      "team": "west-indies",
+      "slot": 7,
+      "sourceRow": 8,
+      "sourceName": "DJ Bravo",
+      "status": "listed"
+    },
+    {
+      "team": "west-indies",
+      "slot": 8,
+      "sourceRow": 9,
+      "sourceName": "Sheldon Cotrell",
+      "status": "listed"
+    },
+    {
+      "team": "west-indies",
+      "slot": 9,
+      "sourceRow": 10,
+      "sourceName": "Fidel Edwards",
+      "status": "listed"
+    },
+    {
+      "team": "west-indies",
+      "slot": 10,
+      "sourceRow": 11,
+      "sourceName": "Rayad Emrit",
+      "status": "listed"
+    },
+    {
+      "team": "west-indies",
+      "slot": 11,
+      "sourceRow": 12,
+      "sourceName": "Sulieman Benn",
+      "status": "listed"
+    },
+    {
+      "team": "west-indies",
+      "slot": 12,
+      "sourceRow": 13,
+      "sourceName": "Shiv Chanderpaul",
+      "status": "listed"
+    },
+    {
+      "team": "west-indies",
+      "slot": 13,
+      "sourceRow": 14,
+      "sourceName": "Nikita Miller",
+      "status": "listed"
+    },
+    {
+      "team": "west-indies",
+      "slot": 14,
+      "sourceRow": 15,
+      "sourceName": "Dave Mohammed",
+      "status": "listed"
+    },
+    {
+      "team": "west-indies",
+      "slot": 15,
+      "sourceRow": 16,
+      "sourceName": "Jonathan Carter / Jason Mohammed",
+      "status": "alternative"
+    },
+    {
+      "team": "australia",
+      "slot": 1,
+      "sourceRow": 19,
+      "sourceName": "Chris Lynn",
+      "status": "listed"
+    },
+    {
+      "team": "australia",
+      "slot": 2,
+      "sourceRow": 20,
+      "sourceName": "David Warner",
+      "status": "listed"
+    },
+    {
+      "team": "australia",
+      "slot": 3,
+      "sourceRow": 21,
+      "sourceName": "Usman Khawaja",
+      "status": "listed"
+    },
+    {
+      "team": "australia",
+      "slot": 4,
+      "sourceRow": 22,
+      "sourceName": "Darcy Short",
+      "status": "listed"
+    },
+    {
+      "team": "australia",
+      "slot": 5,
+      "sourceRow": 23,
+      "sourceName": "Callum Ferguson / Camerom white",
+      "status": "alternative"
+    },
+    {
+      "team": "australia",
+      "slot": 6,
+      "sourceRow": 24,
+      "sourceName": "Ben Dunk",
+      "status": "listed"
+    },
+    {
+      "team": "australia",
+      "slot": 7,
+      "sourceRow": 25,
+      "sourceName": "Kane Richardson",
+      "status": "listed"
+    },
+    {
+      "team": "australia",
+      "slot": 8,
+      "sourceRow": 26,
+      "sourceName": "Ben Hilfenhaus",
+      "status": "listed"
+    },
+    {
+      "team": "australia",
+      "slot": 9,
+      "sourceRow": 27,
+      "sourceName": "James Pattinson",
+      "status": "listed"
+    },
+    {
+      "team": "australia",
+      "slot": 10,
+      "sourceRow": 28,
+      "sourceName": "Fawad Ahmed",
+      "status": "listed"
+    },
+    {
+      "team": "australia",
+      "slot": 11,
+      "sourceRow": 29,
+      "sourceName": "Steve Okeefe / Jon Holland",
+      "status": "alternative"
+    },
+    {
+      "team": "australia",
+      "slot": 12,
+      "sourceRow": 30,
+      "sourceName": "Ben laughlin",
+      "status": "listed"
+    },
+    {
+      "team": "australia",
+      "slot": 13,
+      "sourceRow": 31,
+      "sourceName": "Rob Quiney",
+      "status": "listed"
+    },
+    {
+      "team": "australia",
+      "slot": 14,
+      "sourceRow": 32,
+      "sourceName": "Nathan Reardon",
+      "status": "listed"
+    },
+    {
+      "team": "australia",
+      "slot": 15,
+      "sourceRow": 33,
+      "sourceName": "Andrew Tye",
+      "status": "listed"
+    },
+    {
+      "team": "india",
+      "slot": 1,
+      "sourceRow": 36,
+      "sourceName": "ROBIN UTHAPPA",
+      "status": "listed"
+    },
+    {
+      "team": "india",
+      "slot": 2,
+      "sourceRow": 37,
+      "sourceName": "AMBATI RAUDU",
+      "status": "listed"
+    },
+    {
+      "team": "india",
+      "slot": 3,
+      "sourceRow": 38,
+      "sourceName": "YUVRAJ SINGH",
+      "status": "listed"
+    },
+    {
+      "team": "india",
+      "slot": 4,
+      "sourceRow": 39,
+      "sourceName": "SURESH RAINA /  SHIKHAR DHAWAN",
+      "status": "alternative"
+    },
+    {
+      "team": "india",
+      "slot": 5,
+      "sourceRow": 40,
+      "sourceName": "YUSUF PATHAN",
+      "status": "listed"
+    },
+    {
+      "team": "india",
+      "slot": 6,
+      "sourceRow": 41,
+      "sourceName": "IFRAN PATHAN",
+      "status": "listed"
+    },
+    {
+      "team": "india",
+      "slot": 7,
+      "sourceRow": 42,
+      "sourceName": "MOHIT SHARMA",
+      "status": "listed"
+    },
+    {
+      "team": "india",
+      "slot": 8,
+      "sourceRow": 43,
+      "sourceName": "DHAWAL KULKARNI",
+      "status": "listed"
+    },
+    {
+      "team": "india",
+      "slot": 9,
+      "sourceRow": 44,
+      "sourceName": "VARUN AARON",
+      "status": "listed"
+    },
+    {
+      "team": "india",
+      "slot": 10,
+      "sourceRow": 45,
+      "sourceName": "HARBHAJAN SINGH",
+      "status": "listed"
+    },
+    {
+      "team": "india",
+      "slot": 11,
+      "sourceRow": 46,
+      "sourceName": "PAWAN NEGI",
+      "status": "listed"
+    },
+    {
+      "team": "india",
+      "slot": 12,
+      "sourceRow": 47,
+      "sourceName": "PIYUSH CHAWLA",
+      "status": "listed"
+    },
+    {
+      "team": "india",
+      "slot": 13,
+      "sourceRow": 48,
+      "sourceName": "STUART BINNY",
+      "status": "listed"
+    },
+    {
+      "team": "india",
+      "slot": 14,
+      "sourceRow": 49,
+      "sourceName": "RISHI DHAWAN",
+      "status": "listed"
+    },
+    {
+      "team": "india",
+      "slot": 15,
+      "sourceRow": 50,
+      "sourceName": "ABHIMANYU MITHUN",
+      "status": "listed"
+    },
+    {
+      "team": "india",
+      "slot": 16,
+      "sourceRow": 51,
+      "sourceName": "AMIT MISHRA / RAHUL SHARMA",
+      "status": "alternative"
+    },
+    {
+      "team": "south-africa",
+      "slot": 1,
+      "sourceRow": 54,
+      "sourceName": "AB DE VILLIERS",
+      "status": "listed"
+    },
+    {
+      "team": "south-africa",
+      "slot": 2,
+      "sourceRow": 55,
+      "sourceName": "FAF DU PLESSIS",
+      "status": "listed"
+    },
+    {
+      "team": "south-africa",
+      "slot": 3,
+      "sourceRow": 56,
+      "sourceName": "ALBIE MORKEL",
+      "status": "listed"
+    },
+    {
+      "team": "south-africa",
+      "slot": 4,
+      "sourceRow": 57,
+      "sourceName": "HARDUS VILJOEN",
+      "status": "listed"
+    },
+    {
+      "team": "south-africa",
+      "slot": 5,
+      "sourceRow": 58,
+      "sourceName": "WAYNE PARNELL",
+      "status": "listed"
+    },
+    {
+      "team": "south-africa",
+      "slot": 6,
+      "sourceRow": 59,
+      "sourceName": "IMRAN TAHIR",
+      "status": "listed"
+    },
+    {
+      "team": "south-africa",
+      "slot": 7,
+      "sourceRow": 60,
+      "sourceName": "RICHARD LEVI",
+      "status": "listed"
+    },
+    {
+      "team": "south-africa",
+      "slot": 8,
+      "sourceRow": 61,
+      "sourceName": "DANE VILAS",
+      "status": "listed"
+    },
+    {
+      "team": "south-africa",
+      "slot": 9,
+      "sourceRow": 62,
+      "sourceName": "SJ ERWEE",
+      "status": "listed"
+    },
+    {
+      "team": "south-africa",
+      "slot": 10,
+      "sourceRow": 63,
+      "sourceName": "DUANNE OLIVER",
+      "status": "listed"
+    },
+    {
+      "team": "south-africa",
+      "slot": 11,
+      "sourceRow": 64,
+      "sourceName": "MORNE VAN WYK",
+      "status": "listed"
+    },
+    {
+      "team": "south-africa",
+      "slot": 12,
+      "sourceRow": 65,
+      "sourceName": "AARON PHANGISO",
+      "status": "listed"
+    },
+    {
+      "team": "south-africa",
+      "slot": 13,
+      "sourceRow": 66,
+      "sourceName": "COLIN INGRAM",
+      "status": "listed"
+    },
+    {
+      "team": "south-africa",
+      "slot": 14,
+      "sourceRow": 67,
+      "sourceName": "JP DUMINY",
+      "status": "listed"
+    },
+    {
+      "team": "south-africa",
+      "slot": 15,
+      "sourceRow": 68,
+      "sourceName": null,
+      "status": "vacant"
+    },
+    {
+      "team": "england",
+      "slot": 1,
+      "sourceRow": 70,
+      "sourceName": "Jason Roy",
+      "status": "listed"
+    },
+    {
+      "team": "england",
+      "slot": 2,
+      "sourceRow": 71,
+      "sourceName": "Dawid Malan",
+      "status": "listed"
+    },
+    {
+      "team": "england",
+      "slot": 3,
+      "sourceRow": 72,
+      "sourceName": "Moeen Ali",
+      "status": "listed"
+    },
+    {
+      "team": "england",
+      "slot": 4,
+      "sourceRow": 73,
+      "sourceName": "Phil Mustard (WK)",
+      "status": "listed"
+    },
+    {
+      "team": "england",
+      "slot": 5,
+      "sourceRow": 74,
+      "sourceName": "Ravi Bopara",
+      "status": "listed"
+    },
+    {
+      "team": "england",
+      "slot": 6,
+      "sourceRow": 75,
+      "sourceName": "Samit Patel",
+      "status": "listed"
+    },
+    {
+      "team": "england",
+      "slot": 7,
+      "sourceRow": 76,
+      "sourceName": "Lian Plunekett",
+      "status": "listed"
+    },
+    {
+      "team": "england",
+      "slot": 8,
+      "sourceRow": 77,
+      "sourceName": "James Anderson ©",
+      "status": "listed"
+    },
+    {
+      "team": "england",
+      "slot": 9,
+      "sourceRow": 78,
+      "sourceName": "Ajmal Shehzad",
+      "status": "listed"
+    },
+    {
+      "team": "england",
+      "slot": 10,
+      "sourceRow": 79,
+      "sourceName": "Ryan Sidebottom",
+      "status": "listed"
+    },
+    {
+      "team": "england",
+      "slot": 11,
+      "sourceRow": 80,
+      "sourceName": "Monty Panesar",
+      "status": "listed"
+    },
+    {
+      "team": "england",
+      "slot": 12,
+      "sourceRow": 81,
+      "sourceName": "Tim Ambrose",
+      "status": "listed"
+    },
+    {
+      "team": "england",
+      "slot": 13,
+      "sourceRow": 82,
+      "sourceName": "Joe Denly",
+      "status": "listed"
+    },
+    {
+      "team": "england",
+      "slot": 14,
+      "sourceRow": 83,
+      "sourceName": "Stuart Meaker",
+      "status": "listed"
+    },
+    {
+      "team": "england",
+      "slot": 15,
+      "sourceRow": 84,
+      "sourceName": null,
+      "status": "vacant"
+    },
+    {
+      "team": "pakistan",
+      "slot": 1,
+      "sourceRow": 86,
+      "sourceName": "KAMRAN AKMAL",
+      "status": "listed"
+    },
+    {
+      "team": "pakistan",
+      "slot": 2,
+      "sourceRow": 87,
+      "sourceName": "SHARJEEL KHAN",
+      "status": "listed"
+    },
+    {
+      "team": "pakistan",
+      "slot": 3,
+      "sourceRow": 88,
+      "sourceName": "MOHAMMAD HAFEEZ",
+      "status": "listed"
+    },
+    {
+      "team": "pakistan",
+      "slot": 4,
+      "sourceRow": 89,
+      "sourceName": "SHAHID AFRIDI",
+      "status": "listed"
+    },
+    {
+      "team": "pakistan",
+      "slot": 5,
+      "sourceRow": 90,
+      "sourceName": "ASIF ALI",
+      "status": "listed"
+    },
+    {
+      "team": "pakistan",
+      "slot": 6,
+      "sourceRow": 91,
+      "sourceName": "IFIKHAR AHMED",
+      "status": "listed"
+    },
+    {
+      "team": "pakistan",
+      "slot": 7,
+      "sourceRow": 92,
+      "sourceName": "UMER AMIN",
+      "status": "listed"
+    },
+    {
+      "team": "pakistan",
+      "slot": 8,
+      "sourceRow": 93,
+      "sourceName": "ASIF AFRIDI",
+      "status": "listed"
+    },
+    {
+      "team": "pakistan",
+      "slot": 9,
+      "sourceRow": 94,
+      "sourceName": "AMIR YAMIN",
+      "status": "listed"
+    },
+    {
+      "team": "pakistan",
+      "slot": 10,
+      "sourceRow": 95,
+      "sourceName": "SOHAIL TANVEER",
+      "status": "listed"
+    },
+    {
+      "team": "pakistan",
+      "slot": 11,
+      "sourceRow": 96,
+      "sourceName": "MOHAMMED AMIR",
+      "status": "listed"
+    },
+    {
+      "team": "pakistan",
+      "slot": 12,
+      "sourceRow": 97,
+      "sourceName": "WAHAB RIAZ",
+      "status": "listed"
+    },
+    {
+      "team": "pakistan",
+      "slot": 13,
+      "sourceRow": 98,
+      "sourceName": "RUMAN RAEES",
+      "status": "listed"
+    },
+    {
+      "team": "bangladesh",
+      "slot": 1,
+      "sourceRow": 101,
+      "sourceName": "MAHMUDULLAH RIYAD",
+      "status": "listed"
+    },
+    {
+      "team": "bangladesh",
+      "slot": 2,
+      "sourceRow": 102,
+      "sourceName": "SHAKIB AL HASAN",
+      "status": "listed"
+    },
+    {
+      "team": "bangladesh",
+      "slot": 3,
+      "sourceRow": 103,
+      "sourceName": "IMRUL KAYES",
+      "status": "listed"
+    },
+    {
+      "team": "bangladesh",
+      "slot": 4,
+      "sourceRow": 104,
+      "sourceName": "RONY TALUKDER",
+      "status": "listed"
+    },
+    {
+      "team": "bangladesh",
+      "slot": 5,
+      "sourceRow": 105,
+      "sourceName": "NASIR HOSSAIN",
+      "status": "listed"
+    },
+    {
+      "team": "bangladesh",
+      "slot": 6,
+      "sourceRow": 106,
+      "sourceName": "ARAFAT SUNNY",
+      "status": "listed"
+    },
+    {
+      "team": "bangladesh",
+      "slot": 7,
+      "sourceRow": 107,
+      "sourceName": "KAMRUL ISLAM RABBI",
+      "status": "listed"
+    },
+    {
+      "team": "bangladesh",
+      "slot": 8,
+      "sourceRow": 108,
+      "sourceName": "ZIAUR RAHMAN",
+      "status": "listed"
+    },
+    {
+      "team": "bangladesh",
+      "slot": 9,
+      "sourceRow": 109,
+      "sourceName": "ENAMUK HAQUE JR.",
+      "status": "listed"
+    },
+    {
+      "team": "bangladesh",
+      "slot": 10,
+      "sourceRow": 110,
+      "sourceName": "JAHURUL ISLAM OMI",
+      "status": "listed"
+    },
+    {
+      "team": "bangladesh",
+      "slot": 11,
+      "sourceRow": 111,
+      "sourceName": "SHUVAGATA HOM",
+      "status": "listed"
+    },
+    {
+      "team": "bangladesh",
+      "slot": 12,
+      "sourceRow": 112,
+      "sourceName": "ABU ZAYED CHOWDHURY",
+      "status": "listed"
+    },
+    {
+      "team": "bangladesh",
+      "slot": 13,
+      "sourceRow": 113,
+      "sourceName": "FAZEL MAHMUD RABBI",
+      "status": "listed"
+    },
+    {
+      "team": "bangladesh",
+      "slot": 14,
+      "sourceRow": 114,
+      "sourceName": "MOHAMMAD ASHRAFUL",
+      "status": "listed"
+    }
+  ]
+}

@@ -1,0 +1,79 @@
+[
+  {
+    "id": "about-wcl",
+    "label": "About WCL",
+    "tag": "ABOUT WCL",
+    "title": "GREAT NAMES.",
+    "line": "A SHARED STAGE.",
+    "copy": "World Championship of Legends brings celebrated international cricketers back together in national team colours. Seven championship teams come together for Season 3 in the UAE.",
+    "supportingCopy": "The first two season archives preserve the matches and moments that built the league’s story.",
+    "image": "/assets/season3-ensemble-2026.webp",
+    "alt": "Seven WCL nations represented by the supplied Season 3 campaign lineup",
+    "action": "Explore the archive",
+    "to": "/watch",
+    "secondary": "About the league",
+    "secondaryTo": "/about",
+    "facts": [["07", "Championship teams"], ["02", "Season archives"], ["UAE", "Season 3 · 2026"]],
+    "order": 9.5,
+    "visible": true
+  },
+  {
+    "id": "ensemble-2026",
+    "label": "Seven nations. One stage.",
+    "tag": "SEASON 3 / THE LEGENDS",
+    "title": "SEVEN NATIONS.",
+    "line": "ONE STAGE.",
+    "copy": "The faces. The colours. The stories that stay with us. Meet the legends of the UAE chapter.",
+    "image": "/assets/season3-ensemble-2026.webp",
+    "alt": "WCL Season 3 ensemble: Moeen Ali, David Warner, Shahid Afridi, Yuvraj Singh, AB de Villiers, Andre Russell and Mahmudullah Riyad",
+    "action": "Meet the players",
+    "to": "/players?season=3",
+    "secondary": "Explore the teams",
+    "secondaryTo": "/teams",
+    "facts": [
+      [
+        "07",
+        "National identities"
+      ],
+      [
+        "2026",
+        "The UAE chapter"
+      ],
+      [
+        "03–18 OCT",
+        "Season 3"
+      ]
+    ],
+    "order": 1.5
+  },
+  {
+    "id": "film-story",
+    "label": "WCL TV · AB returns",
+    "tag": "WCL TV / SEASON 2 ARCHIVE",
+    "title": "THE MOMENTS.",
+    "line": "LIVE AGAIN.",
+    "copy": "AB de Villiers returns. Revisit South Africa and West Indies in the official Season 2 highlights archive.",
+    "image": "https://i.ytimg.com/vi/ULdp67QT_aQ/hqdefault.jpg",
+    "videoId": "ULdp67QT_aQ",
+    "alt": "Season 2 South Africa and West Indies highlights",
+    "action": "Open the highlights",
+    "to": "/watch/ULdp67QT_aQ",
+    "secondary": "Explore WCL TV",
+    "secondaryTo": "/watch",
+    "facts": [
+      [
+        "2025",
+        "Season 2 archive"
+      ],
+      [
+        "SA × WI",
+        "Match highlights"
+      ],
+      [
+        "WCL TV",
+        "Official video archive"
+      ]
+    ],
+    "order": 13
+  }
+]

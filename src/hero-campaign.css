@@ -1,0 +1,76 @@
+/* Six editorial stories. Unaltered player artwork; live titles outside the face area. */
+.wcl-story-hero{background:#080d18;color:#f8f7f3;isolation:isolate}
+.story-season-bar{display:flex;justify-content:space-between;align-items:center;gap:20px;padding:13px 4vw;border-block:1px solid #ffffff26;font:500 11px/1.5 Inter,sans-serif;letter-spacing:.04em}
+.story-season-bar>span{color:#d7b778}.story-season-bar a{display:flex;align-items:center;gap:12px;color:#c6ccd5}
+.story-stage{position:relative;background:#080d18;min-height:700px}
+.story-scene{min-height:700px;display:grid;grid-template-columns:1fr 1fr;align-items:center;max-width:1920px;margin:auto;padding:38px 4vw;gap:4vw}
+.hero-story-copy{position:relative;z-index:1;min-width:0;padding:20px 0}
+.wcl-story-hero p.story-kicker{display:flex;align-items:center;gap:12px;font:600 11px/1.5 Inter,sans-serif;letter-spacing:.09em;color:#d7b778;margin:0 0 24px}
+.story-kicker>span{width:30px;height:1px;background:currentColor;flex-shrink:0}
+.wcl-story-hero h1{font:700 clamp(62px,6.2vw,114px)/.92 'Barlow Condensed','Arial Narrow',sans-serif;letter-spacing:-.015em;text-transform:uppercase;margin:0 0 28px;color:#f8f7f3;text-shadow:none}
+.hero-title-mask{display:block;overflow:hidden;padding-bottom:.06em}.hero-title-mask>span{display:block}.hero-title-mask:last-child{color:#d7b778}
+.wcl-story-hero p.story-description{font:400 16px/1.65 Inter,sans-serif;color:#c6ccd5;max-width:490px;margin:0 0 26px}
+.story-actions{display:flex;align-items:center;gap:22px;flex-wrap:wrap}
+.story-actions a{display:inline-flex;align-items:center;justify-content:space-between;gap:20px;min-height:48px;font:600 13px/1.4 Inter,sans-serif}
+.story-primary{background:#d7b778;color:#080d18;padding:15px 22px;border-radius:3px;transition:background .2s}.story-primary:hover{background:#ead0a0}
+.story-secondary{color:#f8f7f3;border-bottom:1px solid #ffffff55;transition:border-color .2s}.story-secondary:hover{border-color:#d7b778}
+.story-facts{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;border-top:1px solid #ffffff26;padding-top:24px;margin:32px 0 0;max-width:560px}
+.story-facts>div+div{padding-left:18px;border-left:1px solid #ffffff26}
+.story-facts dt{font:600 clamp(26px,2.3vw,40px)/1 'Barlow Condensed',sans-serif;color:#f8f7f3;font-variant-numeric:tabular-nums}.story-facts dd{margin:9px 0 0;color:#b8c0cb;font:400 11px/1.5 Inter,sans-serif}
+.wcl-story-hero p.story-note{font:400 11px/1.6 Inter,sans-serif;color:#a3afbf;max-width:490px;margin:18px 0 0}
+.story-visual{position:relative;min-width:0;height:624px;display:flex;align-items:center;justify-content:center;gap:12px}
+.story-poster>img{width:100%;height:100%;object-fit:contain;display:block}.story-trophy .story-poster{background:#000}
+.story-portraits figure{position:relative;flex:1;min-width:0;margin:0;height:90%;background:#f4f0e8;border-radius:3px;overflow:hidden}
+.story-portraits figure:nth-child(2){transform:translateY(22px)}
+.story-portraits img{width:100%;height:100%;object-fit:cover;object-position:50% 15%;display:block}
+.story-portraits figcaption{position:absolute;inset:auto 0 0;padding:62px 20px 24px;background:linear-gradient(transparent,#080d18 94%)}
+.story-portraits figcaption small{display:block;font:500 11px/1.5 Inter,sans-serif;color:#d7b778}
+.story-portraits figcaption strong{display:block;font:600 clamp(27px,2.5vw,44px)/1.1 'Barlow Condensed',sans-serif;margin-top:5px;color:#fff}
+.story-versus{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);background:#080d18;color:#d7b778;border:1px solid #b89860;width:46px;height:46px;display:grid;place-items:center;font:400 28px/1 Inter,sans-serif}
+.story-legacy .story-portraits figure{max-width:430px;height:100%}
+/* Native 16:9 opening frame. Only lower torsos are cropped, never heads. */
+.story-season{padding:0;gap:0;aspect-ratio:16/9;min-height:0;grid-template-columns:1fr;grid-template-rows:62% 38%;align-items:stretch;overflow:hidden}
+.story-season .story-visual{grid-row:1;height:100%;overflow:hidden;background:#e9e3d8}
+.story-season .story-visual img{object-fit:cover;object-position:center top}
+.story-season .hero-story-copy{grid-row:2;padding:28px 4vw 30px;display:grid;grid-template-columns:1.6fr 1fr;column-gap:5vw;align-content:center;border-top:3px solid #b99552}
+.story-season p.story-kicker{grid-column:1;margin:0 0 12px}
+.story-season h1{grid-column:1;grid-row:2/5;font-size:clamp(56px,6.1vw,116px);margin:0;line-height:.92}
+.story-season p.story-description{grid-column:2;grid-row:1/3;font-size:clamp(14px,1.05vw,18px);margin:0 0 14px;max-width:400px}
+.story-season .story-actions{grid-column:2;grid-row:3;gap:18px}
+.story-season .story-facts{grid-column:2;grid-row:4;margin:20px 0 0;padding:14px 0 0;gap:12px;grid-template-columns:1.7fr 1fr 1fr}
+.story-season .story-facts dt{font-size:clamp(24px,1.8vw,34px)}.story-season .story-facts dd{font-size:10px;line-height:1.4;margin-top:5px}
+.story-controls{padding:20px 4vw 24px;border-top:1px solid #ffffff26;background:#080d18}
+.story-control-heading{display:flex;justify-content:space-between;align-items:center;gap:16px;margin-bottom:19px;font:500 11px/1.4 Inter,sans-serif;letter-spacing:.05em;color:#bcc5d1}
+.story-control-heading b{color:#d7b778;margin-left:22px;font-weight:500}.story-control-heading>div{display:flex;gap:8px}
+.story-control-heading button{display:flex;align-items:center;justify-content:center;gap:8px;border:1px solid #ffffff40;background:transparent;color:#f8f7f3;padding:10px 12px;min-height:44px;min-width:44px;cursor:pointer;font:500 11px/1 Inter,sans-serif;border-radius:3px}
+.story-control-heading button:disabled{opacity:.55;cursor:default}.story-control-heading button:hover:not(:disabled){border-color:#d7b778}
+.story-tabs{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:20px}
+.story-tabs button{position:relative;text-align:left;background:transparent;border:0;color:#aab5c3;padding:0 0 17px;cursor:pointer;min-height:58px}
+.story-tabs small{display:block;font:500 10px/1 Inter,sans-serif;margin-bottom:9px}.story-tabs strong{font:500 12px/1.4 Inter,sans-serif}
+.story-tabs button[aria-pressed=true]{color:#fff}.story-tabs button[aria-pressed=true] small{color:#d7b778}
+.story-track{position:absolute;inset:auto 0 0;height:2px;background:#ffffff30;overflow:hidden}.story-track i{display:block;height:100%;background:#d7b778;transform-origin:left;transform:scaleX(1)}
+.wcl-story-hero :focus-visible{outline:2px solid #d7b778;outline-offset:5px}
+@keyframes story-timer{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+@media(min-width:1700px){.story-stage,.story-scene{min-height:850px}.story-season{min-height:0}.story-visual{height:760px}}
+@media(min-width:701px) and (max-width:1100px){.story-season .hero-story-copy{padding:16px 3vw;gap:12px 3vw}.story-season h1{font-size:5.7vw}.story-season p.story-kicker{font-size:9px}.story-season .story-actions{gap:12px}.story-season .story-actions a{font-size:11px;min-height:44px}.story-season .story-facts{margin-top:10px;padding-top:10px}.story-season .story-facts>div+div{padding-left:8px}.story-season p.story-description{font-size:12px}.story-season .story-facts dt{font-size:23px}.story-season .story-facts dd{font-size:9px}.story-season .story-primary{padding:12px}.story-season .story-secondary{display:none}}
+@media(max-width:1000px){.story-scene:not(.story-season){gap:24px;min-height:680px}.story-scene:not(.story-season) h1{font-size:clamp(48px,6.5vw,65px)}.story-visual{height:600px}.story-tabs{gap:12px}.story-tabs strong{font-size:11px}.story-facts{gap:8px}.story-facts>div+div{padding-left:10px}.story-stage{min-height:0}}
+@media(max-width:700px){
+ .story-season-bar{padding:11px 20px;font-size:9px;gap:8px}.story-season-bar a{display:none}
+ .story-scene:not(.story-season){display:flex;flex-direction:column-reverse;padding:20px;gap:0;min-height:0;justify-content:flex-end}
+ .story-stage{min-height:0}.story-visual{height:340px;width:100%;flex-shrink:0}.hero-story-copy{width:100%;padding:30px 0 15px}
+ .wcl-story-hero p.story-kicker{margin-bottom:18px;font-size:10px}.wcl-story-hero h1,.story-scene:not(.story-season) h1{font-size:clamp(46px,11.8vw,64px);margin-bottom:20px}
+ .wcl-story-hero p.story-description{font-size:15px;line-height:1.65;margin-bottom:22px}.story-actions{gap:16px}.story-actions a{font-size:12px}
+ .story-facts{margin-top:25px;padding-top:18px}.story-facts dt{font-size:30px}.story-facts dd{font-size:11px}
+ .story-portraits figure{height:94%}.story-portraits figure:nth-child(2){transform:translateY(8px)}.story-portraits figcaption{padding:50px 12px 16px}.story-portraits figcaption strong{font-size:25px}.story-portraits figcaption small{font-size:10px}
+ .story-season{display:flex;flex-direction:column;aspect-ratio:auto;min-height:0}
+ .story-season .story-visual{height:auto;aspect-ratio:1717/916;flex:none;order:-1}.story-season .story-visual img{object-fit:contain}
+ .story-season .hero-story-copy{display:flex;flex-direction:column;align-items:flex-start;padding:26px 20px 30px;gap:0}
+ .story-season h1{font-size:clamp(44px,11.5vw,64px);margin:0 0 20px}
+ .story-season p.story-description{font-size:15px;margin:0 0 22px;max-width:310px}
+ .story-season .story-actions{width:100%;gap:20px}.story-season .story-facts{width:100%;margin:25px 0 0;padding:18px 0 0;gap:12px}.story-season .story-facts dt{font-size:28px}.story-season .story-facts dd{font-size:10px}
+ .story-controls{padding:17px 20px 22px}.story-control-heading{flex-wrap:wrap;font-size:10px}.story-control-heading>div{width:100%}.story-control-heading>div button:first-child{margin-right:auto}.story-control-heading button{font-size:10px}
+ .story-tabs{grid-template-columns:repeat(3,minmax(0,1fr));gap:18px 14px}.story-tabs strong{font-size:11px}
+}
+@media(min-width:1101px){.story-scene:not(.story-season){height:min(1080px,calc((100vw - 15px)*.5625));min-height:0}.story-scene:not(.story-season) .story-visual{height:100%;max-height:850px}}
+@media(min-width:701px) and (max-width:1100px){.story-season{aspect-ratio:auto;grid-template-rows:auto auto;overflow:visible}.story-season .story-visual{aspect-ratio:16/9;height:auto}.story-season .hero-story-copy{padding:28px 4vw;min-height:270px;gap:10px 4vw}.story-season p.story-kicker{margin-bottom:12px;font-size:10px}.story-season h1{font-size:5.8vw}.story-season p.story-description{font-size:14px}.story-season .story-facts dd{font-size:10px}.story-season .story-facts{margin-top:15px;padding-top:15px}.story-tabs{grid-template-columns:repeat(3,1fr);gap:20px}}
+@media(prefers-reduced-motion:reduce){.story-track i{animation:none!important}.wcl-story-hero *{transition:none!important}}

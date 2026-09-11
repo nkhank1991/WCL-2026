@@ -1,0 +1,33 @@
+/* Campaign typography follows the supplied gold LEGENDS artwork.
+   Interface text intentionally retains Inter for small-size readability. */
+:root{--campaign:'Cinzel',Georgia,serif}
+body .sports-feature-copy h1{font-family:var(--campaign);font-weight:600;font-size:clamp(34px,4.7vw,74px);line-height:1.08;letter-spacing:-.035em;max-width:1120px;text-shadow:0 2px 12px #0008}
+body .sports-feature-copy h1 span{color:#f6d783;font-weight:500;letter-spacing:.025em}
+body .sports-eyebrow{color:#f6d783;letter-spacing:.19em;font-size:11px}
+body .section-title h2{font:600 clamp(27px,3vw,43px)/1.16 var(--campaign);letter-spacing:-.025em}
+body .page-title h1{font:600 clamp(36px,5.5vw,76px)/1.08 var(--campaign);letter-spacing:-.035em}
+body .spotlight-bio h2{font:500 clamp(38px,4.3vw,64px)/1.08 var(--campaign);color:#f6d783;letter-spacing:-.035em}
+body .kicker{letter-spacing:.15em;font-weight:600}
+body .portrait-card{min-height:460px;border:1px solid #bf9c594f;border-bottom:3px solid #caa65f;background:#07162c;border-radius:20px}
+body .portrait-card>div{height:calc(100% - 138px);background:#e9e9e7;overflow:hidden}
+body .portrait-card>div>img{width:100%;height:100%;object-fit:contain;object-position:center top}
+body .portrait-card.campaign-portrait>div>img{object-fit:cover;object-position:center 12%}
+body .portrait-card>div:after{display:none}
+body .portrait-card>small{bottom:108px;color:#d6b978;font-size:10px;text-transform:uppercase;letter-spacing:.12em}
+body .portrait-card>h3{bottom:56px;min-height:42px;display:flex;align-items:center;font:600 25px/1.04 var(--display);letter-spacing:.015em;color:#fff}
+body .portrait-card>span{bottom:15px;font-size:11px;border-top:1px solid #c9a76240}
+body .portrait-card .crest{width:39px;height:39px;top:16px;right:16px}
+body .portrait-card:hover{border:1px solid #d9bc7b;border-bottom:3px solid #e4c47f}
+.portrait-unavailable{height:100%;display:flex;align-items:center;justify-content:center;color:#384258;font-size:14px;padding:24px;text-align:center}
+body .player-profile h1{font-family:var(--campaign);font-weight:600;letter-spacing:-.035em}
+body .player-profile>.wrap>img{object-fit:contain;object-position:center bottom}
+@media(max-width:640px){
+ body .sports-feature-copy h1{font-size:clamp(29px,6.8vw,43px);line-height:1.15}
+ body .section-title h2{font-size:26px}
+ body .spotlight-bio h2{font-size:37px}
+ body .portrait-card{min-height:350px}
+ body .portrait-card>h3{font-size:23px}
+ body .portrait-card>small{font-size:9px;letter-spacing:.06em}
+ body .portrait-card>span{font-size:10px}
+ body .portrait-card>div{height:calc(100% - 138px)}
+}

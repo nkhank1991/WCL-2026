@@ -1,0 +1,50 @@
+/* Compact association rail: one logo surface, original colours, no nested cards. */
+.brand-compact{padding:36px 0 26px;background:#070f22;border-block:1px solid #1c2c46}
+.brand-compact .association-heading{display:flex;align-items:center;justify-content:space-between;gap:24px;margin-bottom:22px}
+.brand-compact .association-eyebrow{margin:0 0 8px;color:#b4c4e1;font:500 10px/1.3 Inter,sans-serif;letter-spacing:.12em;text-transform:uppercase}
+.brand-compact h2{margin:0;color:#f5f8ff;font:600 clamp(22px,2vw,28px)/1.2 Inter,sans-serif;letter-spacing:-.035em;text-transform:none}
+.association-actions{display:flex;align-items:center;gap:6px;flex:none}
+.brand-compact button{display:inline-flex;align-items:center;justify-content:center;gap:9px;min-height:44px;border:0;border-radius:10px;color:#b4c4e1;background:transparent;font:500 12px/1.2 Inter,sans-serif;cursor:pointer;transition:color 200ms ease,background 200ms ease}
+.brand-compact button:hover{color:#f5f8ff;background:#102443}
+.association-motion{width:44px;padding:0}
+.association-toggle{padding:0 10px}
+.association-toggle svg{transition:transform 220ms cubic-bezier(.22,1,.36,1)}
+.association-toggle[aria-expanded=true] svg{transform:rotate(180deg)}
+.brand-compact button:focus-visible,.association-rail:focus-visible{outline:2px solid #ff823a;outline-offset:3px}
+.association-rail{overflow-x:auto;scrollbar-width:none;-ms-overflow-style:none;overscroll-behavior-x:contain;border-radius:16px;padding:2px 0}
+.association-rail::-webkit-scrollbar{display:none}
+.association-track,.association-set{display:flex;width:max-content}
+.association-set{gap:12px;padding-right:12px;flex:none}
+.association-logo{box-sizing:border-box;width:136px;height:72px;flex:none;display:flex;align-items:center;justify-content:center;background:#f5f8ff;border:1px solid #e2e8f3;border-radius:16px;padding:12px;transition:background 200ms ease,border-color 200ms ease}
+.association-logo-dark{background:#102443;border-color:#233652}
+.association-logo-window{position:relative;overflow:hidden;flex:none;max-width:100%;transition:transform 200ms cubic-bezier(.22,1,.36,1)}
+.association-logo-window img{position:absolute;max-width:none;object-fit:contain;filter:none}
+.association-logo:hover .association-logo-window{transform:translateY(-2px)}
+.association-logo-dark:hover{background:#173154;border-color:#345073}
+.association-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(124px,1fr));gap:12px;animation:association-reveal 220ms ease both}
+.association-grid .association-logo{width:100%;height:96px;flex-direction:column;gap:10px}
+.association-logo>span{font:400 10px/1.3 Inter,sans-serif;color:#44516a;text-align:center;max-width:100%}
+.association-logo-dark>span{color:#b4c4e1}
+.brand-compact .association-note{margin-top:16px;margin-bottom:0;color:#9baecc;font:400 11px/1.5 Inter,sans-serif}
+.association-sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+@keyframes association-reveal{from{opacity:0}to{opacity:1}}
+@media(max-width:700px){
+ .brand-compact{padding:28px 0 22px}
+ .brand-compact .association-heading{align-items:flex-start;gap:12px;margin-bottom:18px}
+ .brand-compact h2{font-size:22px;max-width:240px}
+ .association-actions{align-self:flex-end}
+ .association-toggle{white-space:nowrap;padding:0 4px}
+ .association-logo{width:124px;height:68px}
+ .association-set{gap:10px;padding-right:10px}
+ .association-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+ .association-grid .association-logo{padding:10px 6px}
+ .association-grid .association-logo-window{max-width:100%}
+ .association-rail{scroll-snap-type:x proximity}
+ .association-logo{scroll-snap-align:start}
+ .brand-compact .association-note{font-size:10px;line-height:1.6}
+ .association-logo:hover .association-logo-window{transform:none}
+}
+@media(max-width:360px){.association-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.brand-compact h2{font-size:20px}}
+@media(prefers-reduced-motion:reduce){.brand-compact *{animation:none!important;transition:none!important}.association-logo:hover .association-logo-window{transform:none}}
+.brand-compact[data-motion-enabled=false] *{animation:none!important;transition:none!important}
+.brand-compact[data-motion-enabled=false] .association-logo:hover .association-logo-window{transform:none}

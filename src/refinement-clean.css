@@ -1,0 +1,154 @@
+/* September refinement: calm information surfaces within WCL's blue sports identity. */
+:root{--ui-surface:#101e36;--ui-border:#ffffff1f;--ui-muted:#afbed5;--ui-radius:24px}
+html{scroll-padding-top:100px}
+button,a,input,select{ -webkit-tap-highlight-color:transparent }
+:focus-visible{outline:3px solid #ffac62!important;outline-offset:4px}
+.wcl-story-hero .story-stage{min-height:clamp(680px,77svh,940px)}
+.wcl-story-hero .story-scene{min-height:clamp(680px,77svh,940px);height:auto;max-width:2100px;padding-block:60px}
+.wcl-story-hero .hero-story-copy{max-width:630px}
+.wcl-story-hero h1{font-size:clamp(72px,7.6vw,150px);line-height:.95;letter-spacing:-.018em}
+.wcl-story-hero .story-season h1{font-size:clamp(90px,9.3vw,172px)}
+.wcl-story-hero .story-primary{border-radius:999px;padding-inline:24px}
+.wcl-story-hero .story-portraits figure{border-radius:24px}
+.wcl-story-hero .story-visual{max-height:720px;min-height:500px}
+.story-ensemble-2026{grid-template-columns:31% 69%;gap:24px!important;background:#071b40}
+.story-ensemble-2026 h1{font-size:clamp(60px,6vw,116px)}
+.story-ensemble-2026 .story-visual{padding:0;min-height:0!important}
+.story-ensemble-2026 .story-visual img{height:auto;border-radius:22px;aspect-ratio:1692/900}
+.hero-bottom{display:flex;align-items:center;justify-content:space-between;gap:30px;padding:20px 4vw;background:#050e21;border-top:1px solid #ffffff1c}
+.hero-dots{display:flex;flex-wrap:wrap;gap:0;max-width:580px;align-items:center}
+.hero-dots button{display:grid;place-items:center;width:34px;height:44px;padding:0;border:0;border-radius:12px;background:transparent;cursor:pointer}
+.hero-dots button span{height:6px;width:6px;border-radius:9px;background:#8c9bb6;transition:width .2s,background .2s}
+.hero-dots button[aria-pressed=true] span{background:#ff964f;width:22px}
+.hero-match-widget{display:flex;align-items:center;gap:18px;min-width:320px;max-width:540px;color:#fff;padding:15px 22px;border:1px solid #385077;border-radius:18px;background:#0c2043;transition:background .2s}
+.hero-match-widget:hover{background:#15305a}.hero-match-widget>svg{width:24px;height:24px;flex:none}.hero-match-widget>svg:last-child{margin-left:auto}
+.hero-match-widget span{display:grid;gap:4px}.hero-match-widget small{font:600 9px/1.5 Inter,sans-serif;letter-spacing:.12em;color:#ffac69}.hero-match-widget strong{font:600 15px/1.5 Inter,sans-serif}.hero-match-widget em{font:400 11px/1.5 Inter,sans-serif;color:#b5c5de}
+.hero-film{min-width:0;width:100%;padding-left:5%}.hero-film iframe,.hero-film-poster{width:100%;aspect-ratio:16/9;border:0;border-radius:24px;overflow:hidden;background:#010916}
+.hero-film-poster{position:relative;display:block;cursor:pointer;padding:0;color:white}
+.hero-film-poster img{width:100%;height:100%;object-fit:cover;opacity:.85}
+.hero-film-poster>span{position:absolute;inset:auto 24px 24px;display:flex;gap:12px;align-items:center;justify-content:center;padding:15px;border-radius:40px;background:#071124e8;font:600 14px/1.4 Inter,sans-serif}
+.hero-film>small{display:block;margin:16px 5px;font-size:11px;color:#aabdde}
+/* Matchday: one compact, shared information model. */
+.schedule-summary{display:grid;grid-template-columns:1fr 1.5fr auto;align-items:center;gap:32px;background:#104ad0;border:1px solid #4778e5;padding:36px 40px;border-radius:28px;margin-bottom:32px;color:white}
+.schedule-summary .kicker{color:#d3e1ff}.schedule-summary h2{font:700 clamp(34px,4vw,58px)/1.05 var(--display);margin:10px 0 0}
+.schedule-summary dl{display:flex;justify-content:space-around;gap:30px;margin:0}.schedule-summary dt{font:700 44px/1 var(--display);font-variant-numeric:tabular-nums}.schedule-summary dd{margin:10px 0 0;font:400 12px/1.5 Inter,sans-serif;color:#d5e3ff}
+.schedule-summary>a{font:600 12px/1.4 Inter,sans-serif;display:flex;gap:15px;align-items:center;border-bottom:1px solid #91b0fb;padding-bottom:10px}
+.filters{background:#0d1a2f;border:1px solid #ffffff1c;border-radius:20px;padding:20px;gap:16px!important;align-items:end;flex-wrap:wrap}
+.filters input,.filters select,.team-season-bar select,.ticket-planner select{border:1px solid #3a4d69!important;border-radius:12px!important;background:#10223e!important;color:white!important;min-height:46px}
+.filters .input-search{flex:1;min-width:230px}
+.match-view-bar{display:flex;align-items:center;justify-content:space-between;gap:20px;margin:26px 0 18px}
+.match-view-bar>p{font:400 12px/1.5 Inter,sans-serif;color:var(--ui-muted)}
+.segmented{background:#12213b!important;border:1px solid #ffffff12;border-radius:14px;padding:4px}
+.segmented button{border:0!important;border-radius:10px!important;min-height:40px;color:#c4d0e4!important;font:500 12px/1.4 Inter,sans-serif!important;padding:10px 18px!important}
+.segmented button[aria-pressed=true]{background:#315abe!important;color:#fff!important}
+.match-date-group{margin-top:36px}.match-date-group>h2{display:flex;align-items:center;gap:12px;font:600 16px/1.5 Inter,sans-serif;margin:0 0 14px;color:#dbe5f5}.match-date-group>h2 span{margin-left:auto;font:400 11px/1.4 Inter,sans-serif;color:#9baecc}
+.match-tile.broadcast-match.refined-match{background:#0f1e35!important;border:1px solid #ffffff1a!important;border-radius:22px!important;padding:24px 28px!important;min-height:132px;grid-template-columns:135px minmax(0,1fr) 220px 42px;gap:20px;box-shadow:0 6px 18px #0000000d!important}
+.match-tile.broadcast-match.refined-match:hover{background:#142743!important;border-color:#6c85ac!important;transform:translateY(-2px)}
+.refined-match .match-meta .status{font:600 9px/1.4 Inter,sans-serif;border-radius:6px;background:#1c3456;color:#d6e3f6;padding:5px 9px;letter-spacing:.04em}
+.refined-match .match-meta .status-live{background:#194630;color:#9ef5be}.refined-match .match-contender strong{font:600 21px/1.2 Inter,sans-serif!important;letter-spacing:-.035em}
+.refined-match .match-contender .crest{border:0;background:#fff!important;width:54px!important;height:54px!important;padding:5px}
+.refined-match .match-schedule .match-venue{font-size:11px}.verified-result{grid-column:2/4;font-size:13px}.verified-score{font:600 18px Inter,sans-serif;color:#c4dfff}
+/* Team and player information never crosses a season boundary. */
+.team-season-bar{display:flex;align-items:center;justify-content:space-between;gap:24px;border:1px solid #ffffff20;background:#101f38;border-radius:18px;padding:20px 26px;margin-bottom:24px}
+.team-season-bar p{font:500 13px/1.5 Inter,sans-serif;color:#afbed5;margin:0}
+.team-top h1{font-size:clamp(62px,8vw,116px)!important}.team-top .btn{border-radius:999px}
+.directory-summary{display:flex;align-items:center;justify-content:space-between;gap:24px;margin:26px 0;color:#aebed5}
+.directory-summary p{font:400 12px/1.6 Inter,sans-serif;margin:0}.directory-summary strong{font-size:22px;color:#fff;margin-right:4px}.directory-summary span{padding-left:12px}
+.players-grid{gap:24px!important}.player-card.portrait-card{border:1px solid #ffffff18!important;border-radius:22px!important;overflow:hidden;background:#101e34!important;box-shadow:none!important;padding-bottom:22px!important}
+.player-card.portrait-card>div{aspect-ratio:4/5;border-radius:0!important;height:auto!important;overflow:hidden}
+.player-card.portrait-card>div img{width:100%;height:100%;object-fit:cover;object-position:center top;filter:none!important;transition:transform .4s ease}
+.player-card.portrait-card:hover>div img{transform:scale(1.025)}
+.player-card.portrait-card h3{font:600 clamp(20px,2vw,28px)/1.15 'Barlow Condensed',sans-serif!important;margin:6px 20px!important}
+.player-card.portrait-card>small,.player-card.portrait-card>span{margin-inline:20px!important;font-size:11px!important;line-height:1.5}
+.player-card.portrait-card>small{margin-top:18px!important;display:block;color:#a9bad3}.portrait-card .crest{width:42px;height:42px}
+.player-profile>.wrap>img{max-height:670px;object-fit:contain!important;border-radius:26px}
+/* Editorial photography stays attached to its actual story. */
+.news-search{display:grid;gap:10px;max-width:620px;margin-bottom:24px;font:500 12px Inter,sans-serif;color:#bac9e0}
+.news-search input{min-height:52px;border:1px solid #3c516f;border-radius:15px;background:#10233e;color:white;padding:14px 18px;font:400 14px Inter,sans-serif}
+.press-grid{gap:24px!important;align-items:start}
+.press-card{background:#10203a!important;border:1px solid #ffffff1b!important;border-radius:22px!important;overflow:hidden;box-shadow:none!important;transition:transform .2s,border-color .2s}
+.press-card:hover{transform:translateY(-3px);border-color:#6685b0!important}
+.press-card .press-art{aspect-ratio:16/9;height:auto!important;min-height:0!important;border-radius:0!important}
+.press-card .press-art img{width:100%;height:100%;object-fit:cover;filter:none!important}
+.press-card .press-copy{padding:24px!important}.press-card h3{font:600 20px/1.35 Inter,sans-serif!important;letter-spacing:-.025em!important;text-transform:none!important;margin:12px 0!important}
+.press-card p{font:400 13px/1.65 Inter,sans-serif!important;color:#b8c8df!important;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.press-card .press-meta{font-size:9px;gap:8px}.press-card .press-byline{font-size:10px;line-height:1.5;margin-top:18px}.press-card .press-image-credit{font-size:9px;color:#9bafca}
+.press-card .press-action{font:500 11px/1.5 Inter,sans-serif;display:flex;margin-top:20px;justify-content:space-between}
+.press-home-grid{grid-template-columns:1.3fr 1fr;gap:24px}
+.press-supporting{gap:16px}.press-supporting .press-card>a{display:grid;grid-template-columns:38% 62%;align-items:start}.press-supporting .press-art{margin:16px 0 0 16px;border-radius:12px!important}.press-supporting .press-copy{padding:16px 20px!important}.press-supporting .press-copy h3{font-size:15px!important;margin-top:8px!important}.press-supporting .press-copy p,.press-supporting .press-image-credit,.press-supporting .press-action{display:none}.press-supporting .press-byline{margin-top:10px}
+.press-featured h3{font-size:28px!important}.news-editorial-grid>.press-featured{grid-column:span 2}.press-more h3{font:500 17px/1.4 Inter,sans-serif!important;text-transform:none!important}
+.press-filters{gap:8px;flex-wrap:wrap}.press-filters button{border-radius:999px!important;font-size:12px;padding:10px 17px}.press-load .btn{border-radius:999px}
+/* Compact WCL TV copy; no global heading-size change. */
+.video-card h3,.video-grid .video-card h3{font:600 17px/1.4 Inter,sans-serif!important;letter-spacing:-.02em!important;text-transform:none!important;margin:15px 0 9px!important}
+.video-card>span{font-size:11px!important}.video-card{border-radius:18px!important;overflow:hidden}.video-art{border-radius:18px!important}.video-art .video-season{font:500 9px Inter,sans-serif!important}
+.bento-watch h3{font-size:32px!important}.video-description h2{font:600 24px/1.35 Inter,sans-serif!important;text-transform:none!important}
+/* Historical brand collection: original logos, calm motion, usable static alternatives. */
+.brand-gallery{padding:76px 0 42px!important;background:#0a1d43!important;border-top:1px solid #29446b;overflow:hidden}
+.brand-gallery .section-title{align-items:end}.brand-gallery h2{font:600 clamp(30px,4vw,48px)/1.12 Inter,sans-serif!important;letter-spacing:-.04em;text-transform:none!important}
+.brand-actions{display:flex;gap:10px;flex-wrap:wrap}.brand-actions button{border:1px solid #587498;background:transparent;border-radius:999px;color:white;padding:12px 18px;font:500 11px Inter,sans-serif;min-height:44px;cursor:pointer}
+.brand-actions button[aria-expanded=true]{background:#2657b3}
+.brand-rails{display:grid;gap:16px;margin:36px 0 28px}.brand-rail{overflow:hidden}
+.brand-conveyor{display:flex;width:max-content;animation:brand-travel 100s linear infinite;animation-play-state:paused}
+.brand-rail:nth-child(2) .brand-conveyor{animation-direction:reverse;animation-duration:110s}
+.brand-gallery[data-running=true] .brand-conveyor{animation-play-state:running}
+.brand-gallery:hover .brand-conveyor,.brand-gallery:focus-within .brand-conveyor{animation-play-state:paused}
+.brand-set{display:flex;gap:16px;padding-right:16px;flex:none}
+.brand-gallery .brand-mark{background:#fff!important;border:1px solid #e0e7f0!important;border-radius:18px!important;padding:18px 22px!important;min-height:124px;width:200px;display:grid;place-items:center;gap:10px}
+.brand-gallery .brand-mark img{width:140px;height:58px;object-fit:contain;filter:none!important}.brand-gallery .brand-mark span{font:400 10px/1.4 Inter,sans-serif!important;color:#5e687a!important;text-align:center}
+.brand-gallery .brand-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:16px;margin-block:32px}.brand-gallery .brand-grid .brand-mark{width:auto;min-width:0}.brand-gallery .brand-grid .brand-mark img{max-width:100%}
+.brand-disclaimer{font:400 11px/1.6 Inter,sans-serif;color:#aabdde;max-width:100%;margin-top:28px}
+@keyframes brand-travel{to{transform:translateX(-50%)}}
+.ticket-planner{display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:center}.ticket-planner h2{font:700 clamp(40px,5vw,72px)/1 var(--display)}.ticket-planner p{color:#b7c5db;line-height:1.7}.ticket-planner .select-label{margin-top:28px}.ticket-availability{background:#11264a;padding:36px;border:1px solid #496088;border-radius:26px}.ticket-availability>.status{display:block;width:max-content;margin:18px 0}.ticket-availability h3{font:600 28px/1.2 Inter,sans-serif}.ticket-availability dl>div{display:flex;justify-content:space-between;gap:25px;padding:15px 0;border-bottom:1px solid #ffffff18;font:400 13px/1.5 Inter,sans-serif}.ticket-availability dt{color:#97afd0}.ticket-availability dd{margin:0;text-align:right;color:white}.ticket-availability>p{font-size:12px}
+@media(max-width:1100px){
+ .wcl-story-hero .story-scene{min-height:0;padding:30px 4vw;display:flex;flex-direction:column;gap:25px}.wcl-story-hero .story-stage{min-height:0}.wcl-story-hero .hero-story-copy{display:block!important;max-width:700px;padding:10px 0}.wcl-story-hero h1,.wcl-story-hero .story-season h1{font-size:clamp(72px,12vw,120px);margin:20px 0!important}.wcl-story-hero .story-season p.story-kicker,.wcl-story-hero .story-season p.story-description{margin:0 0 20px!important}.wcl-story-hero .story-season .story-actions,.wcl-story-hero .story-season .story-facts{margin:20px 0!important}.wcl-story-hero .rivalry-stage{height:530px;position:relative;inset:auto;width:100%;order:2}.wcl-story-hero .story-visual{height:450px;min-height:0;width:100%;padding:0}.story-ensemble-2026 .story-visual{height:auto}.hero-bottom{gap:16px;flex-wrap:wrap}.hero-film{padding:0}.schedule-summary{grid-template-columns:1fr 1.5fr}.schedule-summary>a{grid-column:1/-1;width:max-content}.match-tile.broadcast-match.refined-match{grid-template-columns:100px 1fr 180px;gap:15px}.refined-match .match-contender strong{font-size:17px!important}.brand-gallery .brand-grid{grid-template-columns:repeat(4,1fr)}
+}
+@media(max-width:700px){
+ .wcl-story-hero .story-scene{padding:24px 20px;gap:20px}.wcl-story-hero h1,.wcl-story-hero .story-season h1{font-size:clamp(55px,14.4vw,92px)}.wcl-story-hero .story-description{font-size:14px;max-width:none}.wcl-story-hero .story-facts{margin-top:22px;padding-top:18px}.wcl-story-hero .story-visual{height:360px}.wcl-story-hero .rivalry-stage{height:350px}.wcl-story-hero .hero-yuvraj{width:92%;left:-17%;top:-3%}.wcl-story-hero .hero-afridi{width:89%;right:-24%;top:0}.story-ensemble-2026 .story-visual{height:auto}.hero-bottom{padding:16px 20px;flex-direction:column;align-items:stretch}.hero-dots{justify-content:center;gap:0}.hero-dots button{width:23px;height:44px}.hero-dots button[aria-pressed=true] span{width:16px}.hero-match-widget{min-width:0;width:100%;padding:15px;gap:12px}.hero-match-widget strong{font-size:14px}.hero-film-poster>span{inset:auto 15px 15px;padding:10px;font-size:12px}
+ .schedule-summary{padding:26px;grid-template-columns:1fr;gap:26px}.schedule-summary h2 br{display:none}.schedule-summary dl{justify-content:space-between;gap:15px}.schedule-summary dt{font-size:34px}.schedule-summary>a{grid-column:auto}.filters{padding:16px}.filters .select-label{flex:1;min-width:120px}.filters .input-search{width:100%}.match-view-bar{align-items:flex-start;flex-direction:column;gap:8px}.match-tile.broadcast-match.refined-match{grid-template-columns:1fr!important;padding:22px!important}.refined-match .match-contender strong{font-size:17px!important;word-break:normal}.refined-match .match-contender{grid-template-columns:42px 1fr}.refined-match .match-contender .crest{width:40px!important;height:40px!important}.refined-match .match-arena{gap:28px!important}.team-season-bar{padding:16px;gap:12px}.team-season-bar p{font-size:11px}.directory-summary{align-items:flex-start;flex-direction:column;gap:8px}.players-grid{gap:14px!important;grid-template-columns:repeat(2,minmax(0,1fr))!important}.player-card.portrait-card h3{font-size:22px!important;margin-inline:14px!important}.player-card.portrait-card>small,.player-card.portrait-card>span{margin-inline:14px!important;font-size:10px!important}.portrait-card .crest{width:32px;height:32px}.ticket-planner{grid-template-columns:1fr;gap:28px}.ticket-availability{padding:26px}.ticket-availability h3{font-size:24px}
+ .press-home-grid{grid-template-columns:1fr}.press-grid{grid-template-columns:1fr!important}.news-editorial-grid>.press-featured{grid-column:auto}.press-featured h3{font-size:23px!important}.press-card h3{font-size:19px!important}.press-supporting .press-copy h3{font-size:14px!important}.press-card .press-copy{padding:21px!important}
+ .brand-gallery{padding-block:48px 30px!important}.brand-gallery .section-title{align-items:start;gap:22px;flex-direction:column}.brand-gallery .brand-grid{grid-template-columns:repeat(2,1fr);gap:12px}.brand-conveyor{animation:none!important}.brand-duplicate{display:none}.brand-rail{overflow-x:auto;scroll-snap-type:x mandatory;padding:0 20px 10px}.brand-gallery .brand-mark{scroll-snap-align:start;width:164px;min-height:114px;padding:16px!important}.brand-gallery .brand-grid .brand-mark{width:auto}.brand-gallery .brand-mark img{width:110px;height:52px}
+}
+@media(prefers-reduced-motion:reduce){.brand-conveyor{animation:none!important}.brand-duplicate{display:none!important}.brand-rail{overflow-x:auto}.player-card:hover>div img{transform:none!important}.hero-dots button span{transition:none}.press-card:hover,.match-tile.broadcast-match.refined-match:hover{transform:none!important}}
+[data-motion=off] .brand-conveyor{animation:none!important}[data-motion=off] .brand-duplicate{display:none!important}[data-motion=off] .brand-rail{overflow-x:auto}
+.brand-gallery .brand-conveyor{animation-duration:var(--brand-duration,100s)}.brand-gallery .brand-rail:nth-child(2) .brand-conveyor{animation-duration:calc(var(--brand-duration,100s) + 10s)}
+.filters .input-search{padding:0 12px;border:1px solid #3a4d69;border-radius:12px;background:#10223e}.filters .input-search input{border:0!important;background:transparent!important;width:100%;min-width:0}
+.portrait-card.full-campaign-frame>div>img{transform:scale(1.5);transform-origin:50% 16%}
+.portrait-card.full-campaign-frame:hover>div>img{transform:scale(1.52)}
+.hero-dots button{min-width:44px;min-height:44px}
+@media(max-width:700px){.hero-dots{flex-wrap:wrap;justify-content:center;max-width:350px;margin:auto}.hero-dots button{width:44px;min-width:44px}}
+.filters .select-label{color:#bdcce2!important}.filters .input-search{margin-left:0!important;max-width:none!important}.player-filters{display:grid!important;grid-template-columns:minmax(230px,2fr) repeat(3,minmax(140px,1fr))}
+.hero-match-widget{max-width:580px}.hero-match-crests{display:flex;align-items:center;gap:6px;flex:none}.hero-match-crests i{display:grid;place-items:center;width:32px;height:32px;border-radius:50%;padding:4px;background:#fff;color:#134166;font:700 9px Inter,sans-serif}.hero-match-crests img{width:100%;height:100%;object-fit:contain}.hero-match-widget .hero-match-action{font:500 10px/1.6 Inter,sans-serif;color:#d9e6ff;margin-top:2px}
+@media(max-width:700px){.player-filters{grid-template-columns:1fr 1fr}.player-filters .input-search{grid-column:1/-1;min-width:0}.hero-match-widget{gap:10px}.hero-match-crests{flex-direction:column}.hero-bottom{padding-bottom:22px}}
+@media(prefers-reduced-motion:reduce){.portrait-card.full-campaign-frame:hover>div>img{transform:scale(1.5)!important}}
+[data-motion=off] .portrait-card.full-campaign-frame:hover>div>img{transform:scale(1.5)!important}
+.news-editorial-grid>.press-featured{grid-column:1/-1}.news-editorial-grid>.press-featured>a{display:grid;grid-template-columns:1.25fr 1fr;align-items:center}.news-editorial-grid>.press-featured .press-art{margin:0;align-self:center}.news-editorial-grid>.press-featured .press-copy{padding:32px!important}.news-editorial-grid>.press-featured h3{font-size:clamp(24px,2.3vw,34px)!important}
+@media(max-width:700px){.news-editorial-grid>.press-featured>a{display:block}.news-editorial-grid>.press-featured .press-copy{padding:22px!important}.news-editorial-grid>.press-featured h3{font-size:23px!important}}
+.brand-gallery .brand-logo-window{position:relative;overflow:hidden;max-width:100%}.brand-gallery .brand-logo-window img{position:absolute;max-width:none!important;object-fit:contain}.brand-gallery .brand-mark.brand-on-dark{background:#152643!important;border-color:#344665!important}.brand-gallery .brand-mark.brand-on-dark span{color:#bdcce1!important}
+@media(min-width:701px) and (max-width:1000px){.player-filters{grid-template-columns:repeat(3,minmax(0,1fr))}.player-filters .input-search{grid-column:1/-1;min-width:0}}
+.hero-dots{max-width:620px}
+@media(max-width:700px){.hero-dots{max-width:350px}}
+/* About is a story inside the existing carousel, not another homepage section. */
+.wcl-story-hero .story-about-wcl{grid-template-columns:46% 54%;gap:0}
+.wcl-story-hero .story-about-wcl h1{font-size:clamp(64px,6.6vw,124px)}
+.wcl-story-hero .story-about-wcl .story-description{max-width:500px;margin-bottom:18px}
+.wcl-story-hero .hero-supporting-copy{color:#aebed7;font-size:14px}
+.wcl-story-hero .hero-story-chapter{font:500 18px/1.5 Inter,sans-serif;color:#b4c8e8;margin:0 0 16px}
+.wcl-story-hero .hero-story-role{font:600 13px/1.4 Inter,sans-serif;letter-spacing:.08em;color:#ffac69;margin:0 0 20px}
+.hero-biography-source{display:inline-flex;align-items:center;gap:8px;font:400 11px/1.5 Inter,sans-serif;color:#b3c5e0;min-height:44px;margin-top:12px;text-decoration:underline;text-underline-offset:4px}
+.hero-biography-source svg{width:14px;height:14px;transform:rotate(-45deg)}
+.hero-about-visual{min-width:0;padding-left:5%;width:100%}
+.hero-about-ensemble{display:block;width:100%;height:auto;aspect-ratio:1692/900;object-fit:contain;border-radius:24px 24px 0 0}
+.hero-about-team{padding:28px;background:#112b55;border:1px solid #ffffff1c;border-top:0;border-radius:0 0 24px 24px}
+.wcl-story-hero .hero-about-team .story-kicker{font-size:9px;margin-bottom:10px}
+.hero-about-team h2{font:600 clamp(24px,2.6vw,38px)/1.15 'Barlow Condensed',sans-serif;color:white;margin:0 0 22px;letter-spacing:0;text-transform:none}
+.hero-about-team h3{font:500 11px/1.5 Inter,sans-serif;color:#bccde5;margin:0 0 12px}
+.hero-leadership-links{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.hero-leadership-links>button,.hero-leadership-links>a{display:flex;align-items:center;gap:12px;text-align:left;padding:12px;border:1px solid #426084;background:#18365f;border-radius:14px;color:white;cursor:pointer;min-width:0;transition:background .2s,border-color .2s}
+.hero-leadership-links>button:hover,.hero-leadership-links>a:hover{background:#214779;border-color:#8eaad1}
+.hero-leadership-links img{width:42px;height:50px;flex:none;object-fit:cover;object-position:center 20%;border-radius:8px}
+.hero-leadership-links span{display:grid;gap:5px;min-width:0}.hero-leadership-links strong{font:600 13px/1.3 Inter,sans-serif}.hero-leadership-links small{font:400 10px/1.4 Inter,sans-serif;color:#bbcee8}.hero-leadership-links svg{margin-left:auto;width:16px;height:16px;flex:none}
+.hero-leadership-credit{font:400 10px/1.6 Inter,sans-serif;color:#a8bfde;margin:16px 0 0}
+@media(max-width:1250px) and (min-width:1101px){.hero-leadership-links{grid-template-columns:1fr}}
+@media(max-width:1100px){.hero-about-visual{padding:0;max-width:700px}.wcl-story-hero .story-about-wcl h1{font-size:clamp(64px,10vw,108px)}}
+@media(max-width:700px){.wcl-story-hero .story-about-wcl h1{font-size:clamp(48px,12vw,74px)}.hero-about-team{padding:22px}.hero-about-team h2{font-size:28px}.hero-leadership-links{grid-template-columns:1fr}.hero-leadership-links>button,.hero-leadership-links>a{padding:12px}.hero-leadership-links strong{font-size:14px}.wcl-story-hero .hero-story-chapter{font-size:16px}}
+@media(prefers-reduced-motion:reduce){.hero-leadership-links>button,.hero-leadership-links>a{transition:none}}
