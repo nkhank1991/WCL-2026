@@ -7,6 +7,12 @@ export default function PdfPreview({ blob, title, onClose, download = false }) {
     [error, setError] = useState(""),
     [loading, setLoading] = useState(true),
     [zoom, setZoom] = useState(1);
+  const [pdfUrl,setPdfUrl]=useState('');
+  useEffect(()=>{
+    if(!download)return;
+    const url=URL.createObjectURL(blob);setPdfUrl(url);
+    return ()=>URL.revokeObjectURL(url);
+  },[blob,download]);
   useEffect(() => {
     dialog.current.showModal();
     return () => dialog.current?.close();
@@ -83,11 +89,14 @@ export default function PdfPreview({ blob, title, onClose, download = false }) {
           </select>
         </label>
         {download && (
+          <>
+          <a href={pdfUrl||undefined} target="_blank" rel="noopener noreferrer">Open PDF to print</a>
           <button
             onClick={() => saveDownload(blob, "WCL-approved-preview.pdf")}
           >
             Save this PDF
           </button>
+          </>
         )}
       </div>
       {loading && <p role="status">Rendering the actual PDF…</p>}

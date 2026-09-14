@@ -19,7 +19,7 @@ export function AccessChoices({legend='Requested access',zones,selected,onChange
           disabled={disabled} checked={!disabled&&selected.includes(zone.id)}
           onChange={e=>onChange(e.target.checked?[...selected,zone.id]:selected.filter(id=>id!==zone.id))}/>
         {zone.code&&<span className="ops-access-code" aria-hidden="true">{zone.code}</span>}
-        <span>{zone.label}{zone.id==='SEC-5'&&<small>{eligible?'Restricted · independent approval required':'Players, match officials, team managers and essential team logistics only'}</small>}
+        <span>{zone.label}{zone.id==='SEC-5'&&<small>{eligible?'Players and Match Officials Area · explicit approval required':'Players, match officials, team managers and essential team logistics only'}</small>}
         {zone.enabled===false&&<small>Not open for requests</small>}</span>
       </label>;
     })}

@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import {AccessChoices,TeamAccessRole} from './AccessChoices';
+import {OwnerDecision} from './OwnerDecision';
 import {pmoaEligible} from '../../lib/access-sections.mjs';
 import {seatingLabels,seatingError} from '../../lib/accreditation-venues.mjs';
 import {
@@ -56,6 +57,7 @@ export function ReviewWorkspace({ user, config, run, onPreview }) {
         config={config}
         run={run}
         update={update}
+        onPreview={onPreview}
         onBack={() => setSelected(null)}
       />
     );
@@ -141,7 +143,7 @@ export function ReviewWorkspace({ user, config, run, onPreview }) {
   );
 }
 
-function CaseDetail({ record: r, user, config, run, update, onBack }) {
+function CaseDetail({ record: r, user, config, run, update, onBack, onPreview }) {
   const p = r.proposal || {},
     [zones, setZones] = useState(p.zones || r.requested.requestedZones || []),
     [venues, setVenues] = useState(
@@ -169,7 +171,7 @@ function CaseDetail({ record: r, user, config, run, update, onBack }) {
     run(() => update(r.id, { action, version: r.version, ...extra }));
   const same=(a=[],b=[])=>JSON.stringify([...a].sort())===JSON.stringify([...b].sort());
   const accessChanged=!same(zones,p.zones)||!same(venues,p.venues)||teamRole!==(p.teamRole||'')||conditions!==(p.conditions||'')||pmoaChecked!==(p.pmoaEligibilityChecked===true);
-  const accessProblem=!zones.length||!venues.length||(zones.includes('SEC-5')&&!pmoaChecked);
+  const accessProblem=!zones.length||(zones.includes('SEC-5')&&!pmoaChecked);
   const legacyProblem=p.category&&p.accessMode!=='sections'?seatingError(config,p):'';
   const chooseZones=next=>{setZones(next);setPmoaChecked(false);};
   const chooseRole=next=>{setTeamRole(next);setPmoaChecked(false);};
@@ -221,24 +223,25 @@ function CaseDetail({ record: r, user, config, run, update, onBack }) {
                 .map((z) => z.label)
                 .join(", ")}
             </dd>
-            <dt>Requested venues</dt>
+            {r.requested.requestedVenues?.length>0&&<><dt>Requested venues</dt>
             <dd>
               {config.venues
                 .filter((v) => r.requested.requestedVenues?.includes(v.id))
                 .map((v) => v.label)
                 .join(", ")}
-            </dd>
+            </dd></>}
           </dl>
         </section>
         <section className="ops-panel">
-          <h3>
+          {role!=='Owner'&&<h3>
             {canReview
               ? "Review application"
               : canApprove
                 ? "Approval decision"
                 : "Application details"}
-          </h3>
-          {p.category && (
+          </h3>}
+          {role==='Owner'&&<OwnerDecision record={r} config={config} act={act} run={run} onPreview={onPreview}/>}
+          {role!=='Owner'&&p.category && (
             <div className="ops-proposal">
               <strong>{canApprove?'Badge details':'Proposed access'}</strong>
               <p>
@@ -308,7 +311,7 @@ function CaseDetail({ record: r, user, config, run, update, onBack }) {
               <AccessChoices legend="Proposed access areas" zones={config.zones.filter(z=>z.enabled)} selected={zones} onChange={chooseZones} category={category} teamRole={teamRole}/>
               {pmoaCheck}
               <fieldset className="ops-choices">
-                <legend>Proposed venues</legend>
+                <legend>Optional venue limits</legend>
                 {config.venues
                   .filter((v) => v.enabled)
                   .map((v) => (
@@ -379,7 +382,7 @@ function CaseDetail({ record: r, user, config, run, update, onBack }) {
               {p.accessMode==='sections'&&<form className="ops-access-review" onSubmit={e=>{e.preventDefault();act('access',{zones,venues,teamRole,conditions,pmoaEligibilityChecked:pmoaChecked});}}>
                 <TeamAccessRole category={category} value={teamRole} onChange={chooseRole}/>
                 <AccessChoices legend="Select access" zones={config.zones.filter(z=>z.enabled)} selected={zones} onChange={chooseZones} category={category} teamRole={teamRole}/>
-                <fieldset className="ops-choices"><legend>Valid at</legend>{config.venues.filter(v=>v.enabled).map(v=><label key={v.id}><input type="checkbox" checked={venues.includes(v.id)} onChange={()=>{change(setVenues,venues,v.id);setPmoaChecked(false);}}/>{v.label}</label>)}</fieldset>
+                {config.venues.some(v=>v.enabled)&&<fieldset className="ops-choices"><legend>Optional venue limits</legend>{config.venues.filter(v=>v.enabled).map(v=><label key={v.id}><input type="checkbox" checked={venues.includes(v.id)} onChange={()=>{change(setVenues,venues,v.id);setPmoaChecked(false);}}/>{v.label}</label>)}</fieldset>}
                 <label>Access conditions<textarea name="conditions" rows={2} maxLength={500} value={conditions} onChange={e=>setConditions(e.target.value)}/></label>
                 {pmoaCheck}
                 <button disabled={!accessChanged||accessProblem}>Save access</button>
@@ -433,7 +436,7 @@ function CaseDetail({ record: r, user, config, run, update, onBack }) {
               <button className="ops-primary">Save restricted decision</button>
             </form>
           )}
-          {["Reviewer", "Approver"].includes(role) &&
+          {["Owner", "Reviewer", "Approver"].includes(role) &&
             [
               "review",
               "resubmitted",
@@ -445,7 +448,7 @@ function CaseDetail({ record: r, user, config, run, update, onBack }) {
                 <button onClick={() => setCorrection(!correction)}>
                   Request Correction
                 </button>
-                {role === "Approver" && r.status === "approval" && (
+                {["Owner","Approver"].includes(role) && ["review","resubmitted","approval"].includes(r.status) && (
                   <button
                     className="ops-danger"
                     onClick={() => {
@@ -458,7 +461,7 @@ function CaseDetail({ record: r, user, config, run, update, onBack }) {
                     Reject
                   </button>
                 )}
-                {role === "Approver" &&
+                {["Owner","Approver"].includes(role) &&
                   ["approved", "printed"].includes(r.status) && (
                     <button
                       className="ops-danger"
@@ -540,7 +543,7 @@ function CaseDetail({ record: r, user, config, run, update, onBack }) {
           )}
           {!canReview &&
             !canApprove &&
-            !["Restricted Approver", "Issuance Officer"].includes(role) && (
+            !["Owner","Restricted Approver", "Issuance Officer"].includes(role) && (
               <p>
                 Details are locked at this stage. Use the assigned role to take
                 the next action.

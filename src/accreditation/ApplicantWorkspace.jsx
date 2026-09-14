@@ -12,6 +12,7 @@ async function api(route, body) {
     headers: body ? { "Content-Type": "application/json" } : {},
     body: body ? JSON.stringify(body) : undefined,
     cache: "no-store",
+    signal: AbortSignal.timeout(20000),
   });
   const result = await r.json().catch(() => ({}));
   if (!r.ok)
@@ -380,31 +381,11 @@ export function ApplicantWorkspace() {
                       rows={3}
                     />
                   </label>
-                  <div className="ops-two">
-                    <fieldset className="ops-choices">
-                      <legend>Requested venue</legend>
-                      {config?.venues?.length ? (
-                        config.venues.map((v) => (
-                          <label key={v.id}>
-                            <input
-                              name="requestedVenues"
-                              type="checkbox"
-                              value={v.id}
-                            />
-                            {v.label}
-                          </label>
-                        ))
-                      ) : (
-                        <p>Venue options will appear when applications open.</p>
-                      )}
-                    </fieldset>
-                  </div>
                   <AccessChoices zones={config?.zones?.length?config.zones:accessSections}
                     selected={requestedZones} onChange={setRequestedZones} name="requestedZones"
                     category={category} teamRole={teamRole}/>
                   <p className="ops-caption">
-                    These are requests, not permissions. WCL confirms your
-                    approved areas and validity dates.
+                    Requested access is subject to approval.
                   </p>
                 </section>
                 <section className="ops-panel">
@@ -425,6 +406,11 @@ export function ApplicantWorkspace() {
                             if (photoRef.current)
                               URL.revokeObjectURL(photoRef.current);
                             const file = e.target.files[0];
+                            if(file&&(file.size>2*1024*1024||!['image/jpeg','image/png','image/webp'].includes(file.type))){
+                              setError('Choose a JPEG, PNG or WebP photograph below 2 MB.');
+                              e.target.value='';photoRef.current=null;setPhoto(null);return;
+                            }
+                            setError('');
                             photoRef.current = file
                               ? URL.createObjectURL(file)
                               : null;

@@ -69,7 +69,7 @@ export function AccessSettings({ api, onDirtyChange }) {
         <details><summary>Other configured areas</summary><p>Legacy areas keep their original IDs. They are not equivalent to the five numbered sections.</p>{config.zones.filter(z => !z.code).map(z => <label className="access-check" key={z.id}><input type="checkbox" checked={z.enabled === true} onChange={e => zone(z.id, e.target.checked)} />{z.label}</label>)}</details>
       </section>
       <section className="admin-panel">
-        <h3>03 / Venues</h3><p>{season3Event.label} · {season3Event.heading}</p>
+        <h3>03 / Optional venue limits</h3><p>Not required for applications or Owner approval.</p><p>{season3Event.label} · {season3Event.heading}</p>
         <div className="access-field-grid">{season3Venues.map(v=><div key={v.id}><strong>{v.label}</strong><p>{v.matchDates.map(d=>Number(d.slice(-2))).join(', ')} October 2026</p></div>)}</div>
         <p>{season3Finals.map(x=>x.label+': '+Number(x.date.slice(-2))+' October · Sharjah').join(' / ')}</p>
         <p>Match dates are reference information, not automatic credential validity. New venues start disabled.</p>
@@ -95,7 +95,7 @@ export function AccessSettings({ api, onDirtyChange }) {
         <label className="access-check"><input type="checkbox" checked={config.intake?.enabled === true} onChange={e => intake({ enabled: e.target.checked })} />Accept individual applications</label>
         <p>Opening the form requires an approved HTTPS privacy notice, support email and consent version. It does not issue credentials.</p>
       </section>
-      {config.workflowVersion && <section className="admin-panel"><h3>Departments & launch approvals</h3><p>Department ownership is separate from category and access. Assign reviewers and approvers in Staff.</p>
+      {config.workflowVersion && <section className="admin-panel"><h3>Departments & launch approvals</h3><p>The Owner can approve every department directly. Additional staff roles are optional.</p>
         <div className="access-field-grid">{config.departments.map(d=><label className="access-check" key={d.id}><input type="checkbox" checked={d.enabled} onChange={e=>change({departments:config.departments.map(x=>x.id===d.id?{...x,enabled:e.target.checked}:x)})}/>{d.label}</label>)}</div>
         <label>Approved retention policy<textarea value={config.activation.retention||''} onChange={e=>change({activation:{...config.activation,retention:e.target.value}})} placeholder="Retention and deletion arrangements approved by WCL"/></label>
         {[

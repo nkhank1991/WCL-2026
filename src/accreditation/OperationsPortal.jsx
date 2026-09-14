@@ -13,6 +13,7 @@ import "./operations.css";
 import {sharjahSeatingAreas} from '../../lib/accreditation-venues.mjs';
 const PdfPreview = lazy(() => import("./PdfPreview"));
 const workspaceNames = {
+  Owner: "Applications",
   Reviewer: "Applications",
   Approver: "Approvals",
   "Restricted Approver": "Restricted approvals",
@@ -80,7 +81,9 @@ export function OperationsPortal() {
   }, []);
   useEffect(() => {
     if (user) {
-      setTab(workspaceNames[user.role] || "Setup");
+      const requested=location.pathname==='/accreditation/print'?'Print queue':new URLSearchParams(location.search).get('workspace');
+      const allowed=user.role==='Owner'?['Setup','Applications','Print queue','Badge designs','Staff']:user.role==='Administrator'?['Setup','Badge designs']:[workspaceNames[user.role]];
+      setTab(allowed.includes(requested)?requested:workspaceNames[user.role] || "Setup");
       run(refresh);
     }
   }, [user?.id]);
@@ -135,6 +138,10 @@ export function OperationsPortal() {
                 onClick={() => {
                   if (leave()) {
                     setTab(t);
+                    const url=new URL(location.href);
+                    url.pathname=t==='Print queue'?'/accreditation/print':user.role==='Owner'?'/accreditation/owner':'/accreditation/review';
+                    url.searchParams.set('workspace',t);
+                    history.replaceState(null,'',url.pathname+url.search);
                     setDirty(false);
                     setError("");
                   }
@@ -187,10 +194,9 @@ export function OperationsPortal() {
           </section>
         ) : !user && !invite && connection?.ownerConfigured === false ? (
           <section className="ops-panel ops-login">
-            <h2>Owner setup is pending</h2>
-            <p>The service is connected. The first Owner must use their private setup invitation to create an account before staff can sign in.</p>
-            <p>Existing Render or Vercel credentials do not sign in here.</p>
-            <button className="ops-primary" onClick={checkConnection}>Check setup again</button>
+            <h2>Staff access is not ready yet</h2>
+            <p>Use your private account invitation, or contact the WCL accreditation team. If you already have an account, check again.</p>
+            <button className="ops-primary" onClick={checkConnection}>Check again</button>
           </section>
         ) : !user ? (
           <section className="ops-panel ops-login">
@@ -280,14 +286,14 @@ export function OperationsPortal() {
                 user={user}
                 config={config}
                 run={run}
-                onPreview={(blob, title) => setPreview({ blob, title })}
+                onPreview={(blob, title, download=false) => setPreview({ blob, title, download })}
               />
             )}
             {tab === "Print queue" && (
               <PrintWorkspace
                 config={config}
                 run={run}
-                onPreview={(blob, title) => setPreview({ blob, title })}
+                onPreview={(blob, title) => setPreview({ blob, title, download:true })}
               />
             )}
             {tab === "Badge designs" && (
@@ -301,12 +307,12 @@ export function OperationsPortal() {
                 <section className="ops-panel ops-readiness">
                   <h2>Activation checks</h2>
                   <p>
-                    Applications stay closed while any required check is
-                    outstanding.
+                    Intake checks control submissions. Artwork and print proof
+                    control final PDFs, not application approval.
                   </p>
                   {setup?.checks.map((c) => (
                     <div key={c.id}>
-                      <span>{c.label}</span>
+                      <span>{c.label}{c.stage==='printing'?' · Printing':''}</span>
                       <strong className={c.ok ? "is-verified" : ""}>
                         {c.ok ? "Verified" : "Incomplete"}
                       </strong>
