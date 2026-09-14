@@ -5,3 +5,7 @@ export function videoMatchLabel(video){
  const found=aliases.map(([name,pattern])=>({name,index:title.search(pattern)})).filter(x=>x.index>=0).sort((a,b)=>a.index-b.index);
  return found.length===2?found.map(x=>x.name).join(' × '):title;
 }
+
+// Compact card copy uses only team names present in the actual publisher title.
+// The full title remains on the watch page; no fabricated score or result is added.
+export function videoCardTitle(video){return video.cardTitle||videoMatchLabel(video);}

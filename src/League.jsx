@@ -1,4 +1,4 @@
-import {deliveryImage} from './media.js';
+import {deliveryImage,responsiveCampaign} from './media.js';
 import {CmsPageHeading as PageTitle,WclLogo,CmsNavigation,CmsFooter,CmsCopyright,useTeams,usePageCopy,RichCopy} from './cms/SiteContent.jsx';
 import {useState,useEffect,useRef,createContext,useContext,lazy,Suspense} from 'react';
 import {BrowserRouter,Routes,Route,Link,NavLink,useLocation,useParams,useSearchParams,Navigate} from 'react-router-dom';
@@ -28,7 +28,7 @@ import {motion,AnimatePresence} from 'motion/react';
 import {Reveal,FilmProgress} from './Cinematic.jsx';
 import {SportsHero} from './SportsHero.jsx';
 import {PlayerCard,PlayerRail} from './PlayerCard.jsx';
-import {videoMatchLabel} from './video-labels.js';
+import {videoMatchLabel,videoCardTitle} from './video-labels.js';
 import {ReelsSection} from './ReelsSection.jsx';
 import {StadiumExplorer} from './StadiumExplorer.jsx';
 import {SectionRule,FixtureStrip,ScoreUpdate,useBroadcastMotion,broadcastEase} from './BroadcastGraphics.jsx';
@@ -92,8 +92,28 @@ function MatchCard({match}){
 }
 function MatchStrip(){const data=useLeagueData();const finals=data.matches.filter(m=>m.label==='Final');return <div className="score-strip"><div className="score-intro"><p className="kicker">THE MATCH CENTRE</p><h3>Every contest.<br/>Every chapter.</h3><Link to="/matches">All matches <ArrowRight/></Link></div><Link className="next-season" to="/matches?season=3"><span className="status gold">NEXT CHAPTER</span><h3>Season 3 · UAE</h3><strong>03 — 18 OCT 2026</strong><p>24 fixtures · View the schedule <ArrowUpRight/></p></Link>{finals.reverse().map(m=><MatchCard key={m.id} match={m}/>)}</div>}
 function StoryCard({story,large=false}){return <Link className={`story-card ${large?'large':''}`} to={`/news/${story.id}`}><div className="story-art"><img loading="lazy" src={deliveryImage(story.image)} alt="WCL campaign artwork"/><span className="story-category">{story.category}</span><span className="round-arrow"><ArrowUpRight/></span></div><div className="story-copy"><small>WCL EDITORIAL</small><h3>{story.title}</h3><p>{story.intro}</p></div></Link>}
-function VideoCard({video}){const {spatial}=useBroadcastMotion();return <MotionLink whileHover={spatial?{y:-3}:undefined} transition={{duration:.2}} className="video-card" to={`/watch/${video.id}`}><div className="video-art"><img loading="lazy" src={video.thumbnail||`https://i.ytimg.com/vi/${video.id}/hqdefault.jpg`} alt=""/><span className="play-circle"><Play weight="fill"/></span><span className="video-season">SEASON {video.season}</span><span className="video-match-title">{videoMatchLabel(video)}</span><span className="video-editorial-label">MATCH HIGHLIGHTS</span></div><h3>{video.title}</h3><span>Match highlights <ArrowUpRight/></span></MotionLink>}
-function Home(){const data=useLeagueData();return <><SportsHero matches={data.matches} players={data.players}/><RivalryFeature/><CareerRecords/><section id="match-hub" className="wrap section"><Reveal><HomeMatchCentre/></Reveal></section><div className="wrap"><SeasonWidgets/></div><section className="spotlight-section"><div className="wrap section"><PlayerSpotlight/></div></section><section className="wrap section"><Reveal><HomePlayers/></Reveal></section><TrophyScene/><ReelsSection/><section className="video-section"><div className="wrap section"><SectionHead tag="WCL TV" title="Match highlights" to="/watch" label="Video library"/><div className="video-grid">{data.videos.slice(0,4).map(v=><VideoCard video={v} key={v.id}/>)}</div></div></section><HomeNews/><section id="wcl-teams" className="wrap section teams-home"><SectionHead tag="FIND YOUR TEAM" title="WCL teams" to="/teams" label="Team directory"/><TeamShowcase teams={teams} rail/></section><section className="wrap section"><SectionHead tag="OCTOBER 2026" title="Season 3 information"/><div className="guide-grid">{[['The tournament','Dates, teams and season information.','/season',<Trophy/>],['Tickets & venues','The latest information for your visit.','/tickets',<Ticket/>],['Your WCL','Your team and saved highlights.','/fan-zone',<Heart/>]].map(([title,copy,to,icon])=><Link className="guide-card" to={to} key={to}>{icon}<h3>{title}</h3><p>{copy}</p><ArrowRight/></Link>)}</div></section></>}
+function VideoCard({video}){const {spatial}=useBroadcastMotion();return <MotionLink whileHover={spatial?{y:-3}:undefined} transition={{duration:.2}} className="video-card" to={`/watch/${video.id}`}><div className="video-art"><img loading="lazy" decoding="async" width="480" height="360" src={video.thumbnail||`https://i.ytimg.com/vi/${video.id}/hqdefault.jpg`} alt=""/><span className="play-circle"><Play weight="fill"/></span><span className="video-season">SEASON {video.season}</span><span className="video-match-title">{videoMatchLabel(video)}</span><span className="video-editorial-label">MATCH HIGHLIGHTS</span></div><h3><span className="video-full-title">{video.title}</span><span className="video-compact-title">{videoCardTitle(video)}</span></h3><span>Match highlights <ArrowUpRight/></span></MotionLink>}
+function Home(){
+ const data=useLeagueData();
+ return <>
+  <nav className="mobile-home-paths" aria-label="Quick access">
+   <Link to="/matches">Fixtures</Link><Link to="/#wcl-teams">Teams</Link><Link to="/watch">Highlights</Link><Link to="/tickets">Tickets</Link>
+  </nav>
+  <SportsHero matches={data.matches} players={data.players}/>
+  <RivalryFeature/>
+  <section id="wcl-teams" className="wrap section teams-home"><SectionHead tag="FIND YOUR TEAM" title="WCL teams" to="/teams" label="All teams"/><TeamShowcase teams={teams} rail/></section>
+  <section id="match-hub" className="wrap section"><Reveal><HomeMatchCentre/></Reveal></section>
+  <div className="wrap home-secondary-promotion"><SeasonWidgets/></div>
+  <section className="spotlight-section"><div className="wrap section"><PlayerSpotlight/></div></section>
+  <section className="wrap section home-secondary-promotion"><Reveal><HomePlayers/></Reveal></section>
+  <div className="home-secondary-promotion"><TrophyScene/></div>
+  <ReelsSection/>
+  <section className="video-section"><div className="wrap section"><SectionHead tag="WCL TV" title="Highlights" to="/watch" label="All highlights"/><div className="video-grid">{data.videos.slice(0,4).map(v=><VideoCard video={v} key={v.id}/>)}</div></div></section>
+  <HomeNews/>
+  <CareerRecords/>
+  <section className="wrap section"><SectionHead tag="OCTOBER 2026" title="Plan your visit"/><div className="guide-grid">{[['Season 3','Dates and tournament information.','/season',<Trophy/>],['Tickets','Matchday information.','/tickets',<Ticket/>],['My WCL','Your team and saved highlights.','/fan-zone',<Heart/>]].map(([title,copy,to,icon])=><Link className="guide-card" to={to} key={to}>{icon}<h3>{title}</h3><p>{copy}</p><ArrowRight/></Link>)}</div></section>
+ </>;
+}
 
 function RosterPending(){return <details className="roster-pending"><summary>Lineup notes · {pendingSlots.length} unresolved slots</summary><p>The supplied workbook lists alternatives or leaves these slots empty. None are included in the player directory until resolved.</p><ul>{pendingSlots.map(s=><li key={s.sourceRow}>{teamById(s.team)?.name}: {s.sourceName||'Player to be confirmed'}</li>)}</ul></details>}
 function TrophyScene(){return <section className="trophy-scene"><div className="wrap trophy-scene-inner"><Reveal className="trophy-scene-art"><img src={deliveryImage("/assets/season3-trophy.png")} alt="Supplied WCL Season 3 gold trophy design with crown and winged handles" loading="lazy" decoding="async"/></Reveal><Reveal><p className="kicker">THE SEASON 3 TROPHY</p><h2>SEVEN NATIONS.<br/><span>ONE PRIZE.</span></h2><p>The next chapter of the World Championship of Legends. United Arab Emirates. 3–18 October 2026.</p><Button to="/season">Inside Season 3</Button></Reveal></div></section>}
@@ -117,7 +137,7 @@ function PlayerSpotlight(){const data=useLeagueData();const {spatial}=useBroadca
  const browse=direction=>setSelected(choices[(choices.findIndex(c=>c.id===t.id)+direction+choices.length)%choices.length].id);
  return <><SectionHead tag="PLAYER SPOTLIGHT" title="Featured players" to="/players" label="All players"/><div className="spotlight-grid" style={{'--club':t.color}}>
   <div className="spotlight-portrait"><motion.span key={t.id+'-colour'} className="spotlight-team-reveal" initial={{opacity:0}} animate={{opacity:.16}} transition={{duration:spatial?.3:.15}}/>
-   <AnimatePresence initial={false}><motion.img key={t.id} src={deliveryImage(t.image)} alt={t.legend} initial={spatial?{opacity:0,x:-12}:{opacity:0}} animate={{opacity:1,x:0}} exit={{opacity:0}} transition={{duration:spatial?.45:.15,ease:broadcastEase}}/></AnimatePresence>
+   <AnimatePresence initial={false}><motion.img key={t.id} src={deliveryImage(t.image)} {...responsiveCampaign(t.image)} loading="lazy" decoding="async" alt={t.legend} initial={spatial?{opacity:0,x:-12}:{opacity:0}} animate={{opacity:1,x:0}} exit={{opacity:0}} transition={{duration:spatial?.45:.15,ease:broadcastEase}}/></AnimatePresence>
    <motion.div className="portrait-caption" key={t.id+'-caption'} initial={{opacity:0}} animate={{opacity:1}} transition={{duration:.25,delay:spatial?.12:0}}><Crest id={t.id}/><span>{t.name} Champions</span></motion.div>
   </div>
   <motion.div className="spotlight-bio" key={t.id+'-bio'} initial={spatial?{opacity:0,x:-8}:{opacity:0}} animate={{opacity:1,x:0}} transition={{duration:spatial?.3:.15,delay:spatial?.12:0,ease:broadcastEase}}>
@@ -158,7 +178,7 @@ function TeamDetail(){const teams=useTeams();const teamById=id=>teams.find(t=>t.
  :tab==='Matches'?matches.length?<div className="match-grid">{matches.map(m=><MatchCard match={m} key={m.id}/>)}</div>:<Empty title="No fixtures for this season.">Try a different season.</Empty>
  :videos.length?<div className="video-grid">{videos.map(v=><VideoCard video={v} key={v.id}/>)}</div>:<Empty title="Highlights are on their way." icon={<Play size={36}/>}>No videos have been published for this team in Season {season}.</Empty>}</section></>
 }
-function Players(){const data=useLeagueData();return <><PageTitle tag="THE NAMES YOU NEVER FORGET" title="Players">Seven nations. Individual stories. Choose a team to meet its players.</PageTitle><TeamPlayerDirectory players={data.players} teams={teams}/></>}
+function Players(){const data=useLeagueData();return <><PageTitle tag="THE NAMES YOU NEVER FORGET" title="Players">Choose your team.</PageTitle><TeamPlayerDirectory players={data.players} teams={teams}/></>}
 function PlayerDetail(){const data=useLeagueData();const {id}=useParams();const player=data.players.find(p=>p.id===id);if(!player)return <NotFound/>;const team=teamById(player.team);
  return <><section className={'player-profile '+(!player.campaign?'headshot-profile':'')} style={{'--club':team.color}}><div className="wrap"><div><Link className="back" to={'/players?team='+team.id}><ArrowLeft/> Season 3 players</Link><p className="kicker">{team.name.toUpperCase()} CHAMPIONS</p><h1>{player.name}</h1><p>{player.role}</p><span className="status">SEASON 3 · 2026</span></div>{player.image?<img src={deliveryImage(player.profileImage||player.image)} alt={player.name}/>:<p className="portrait-unavailable">Portrait coming soon</p>}</div></section><section className="wrap section overview-grid"><div><p className="kicker">PLAYER PROFILE</p><h2>Part of the WCL story.</h2><p>{player.name} features in the Season 3 {team.name} Champions player list.</p><p>Explore the team and its fixtures for the UAE chapter. Match squads and appearances will be confirmed separately.</p><Button to={'/matches?season=3&team='+team.id}>Team fixtures</Button></div><div className="team-quick"><Crest id={team.id} size="big"/><h3>{team.name} Champions</h3><Button to={'/teams/'+team.id}>Visit team hub</Button></div></section></>
 }

@@ -1,0 +1,8 @@
+.ops-seating { margin-block: 24px; padding-block: 20px; border-block: 1px solid #dce2eb; }
+.ops-seating h4 { margin: 0 0 12px; font-size: 17px; }
+.ops-seating-map { margin-block: 12px 20px; }
+.ops-seating-map summary { cursor: pointer; min-height: 44px; padding-block: 12px; }
+.ops-seating-map img { display: block; width: 100%; max-width: 760px; height: auto; margin-block: 12px; border-radius: 8px; }
+.ops-seating-setting { display: grid; grid-template-columns: minmax(0,1fr) auto; gap: 20px; align-items: center; margin-bottom: 12px; }
+.ops-seating .ops-choices { margin-block: 16px; }
+@media(max-width:480px){.ops-seating-setting { gap: 12px; }.ops-seating .ops-choices { grid-template-columns: 1fr; }}

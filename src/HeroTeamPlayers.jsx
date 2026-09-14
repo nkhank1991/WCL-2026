@@ -10,6 +10,6 @@ export function HeroTeamPlayers({team='bangladesh',players:publishedPlayers=[]})
  const ranked=players.toSorted((a,b)=>(featured.includes(a.id)?featured.indexOf(a.id):99)-(featured.includes(b.id)?featured.indexOf(b.id):99));
  return <div className="hero-team-players" data-hero-interactive="true" aria-label="Bangladesh Season 3 players"><SignatureSweep/>
   <PlayerRail selection={team} label="Browse Bangladesh players" description="Bangladesh Champions · Season 3">{ranked.map(player=><PlayerCard key={player.id} player={player}/>)}</PlayerRail>
-  <p className="hero-team-note">{players.length} listed players · Match selection to be confirmed.</p>
+  <p className="hero-team-note">{players.length} player profiles</p>
  </div>;
 }

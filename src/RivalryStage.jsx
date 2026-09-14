@@ -1,6 +1,6 @@
 import {motion} from 'motion/react';
 import {SignatureSweep,useBroadcastMotion,broadcastEase} from './BroadcastGraphics.jsx';
-import {deliveryImage} from './media.js';
+import {deliveryImage,responsiveCampaign} from './media.js';
 
 // Native vector clipping preserves the original portrait pixels and jerseys.
 // These outlines are specific to the two approved source photos, not generic face masks.
@@ -14,8 +14,8 @@ export function RivalryStage(){
   <span className="rivalry-nation india-word" aria-hidden="true">IND</span>
   <span className="rivalry-nation pakistan-word" aria-hidden="true">PAK</span>
   <div className="arena-stripe" aria-hidden="true"/>
-  <motion.img className="hero-legend hero-afridi" src={deliveryImage('/assets/pakistan.png')} alt="Shahid Afridi in Pakistan Champions jersey" initial={spatial?{opacity:0,x:-14}:{opacity:0}} animate={{opacity:1,x:0}} transition={{duration:spatial?.45:.15,delay:spatial?.05:0,ease:broadcastEase}}/>
-  <motion.img className="hero-legend hero-yuvraj" src={deliveryImage('/assets/india.png')} alt="Yuvraj Singh in India Champions jersey" fetchPriority="high" initial={spatial?{opacity:0,x:-14}:{opacity:0}} animate={{opacity:1,x:0}} transition={{duration:spatial?.45:.15,ease:broadcastEase}}/>
+  <motion.img className="hero-legend hero-afridi" src={deliveryImage('/assets/pakistan.png')} {...responsiveCampaign('/assets/pakistan.png','(max-width: 700px) 80vw, 55vw')} alt="Shahid Afridi in Pakistan Champions jersey" initial={spatial?{opacity:0,x:-14}:{opacity:0}} animate={{opacity:1,x:0}} transition={{duration:spatial?.45:.15,delay:spatial?.05:0,ease:broadcastEase}}/>
+  <motion.img className="hero-legend hero-yuvraj" src={deliveryImage('/assets/india.png')} {...responsiveCampaign('/assets/india.png','(max-width: 700px) 80vw, 55vw')} alt="Yuvraj Singh in India Champions jersey" fetchPriority="high" initial={spatial?{opacity:0,x:-14}:{opacity:0}} animate={{opacity:1,x:0}} transition={{duration:spatial?.45:.15,ease:broadcastEase}}/>
   <div className="rivalry-stage-base" aria-hidden="true"/>
   <div className="hero-player-signatures"><span>YUVRAJ <b>SINGH</b><small>INDIA CHAMPIONS</small></span><i>×</i><span>SHAHID <b>AFRIDI</b><small>PAKISTAN CHAMPIONS</small></span></div>
  </div>;

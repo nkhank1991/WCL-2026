@@ -2,6 +2,7 @@
 .wcl-public :is(.story-description-mobile,.mobile-story-toggle,.mobile-filter-toggle,.mobile-footer-toggle,.mobile-record-toggle) { display:none; }
 .wcl-public .mobile-footer-links { display:contents; }
 .wcl-public .mobile-spotlight-browse { display:none; }
+.wcl-public :is(.mobile-home-paths,.mobile-story-browse,.video-compact-title) { display:none; }
 
 @media (max-width:700px) {
   /* More space between ideas; less repeated copy within each idea. */
@@ -192,6 +193,12 @@
 /* Image-first heroes and a single featured player on phones and small tablets.
    These supersede the earlier mobile copy-first / thumbnail-strip treatment. */
 @media (max-width:1100px) {
+  .wcl-public .wcl-story-hero .hero-access-button { display:none; }
+  .wcl-public .mobile-story-browse { display:flex; align-items:center; justify-content:flex-end; gap:8px; padding:4px 20px 16px; }
+  .wcl-public .mobile-story-browse>span { margin-left:auto; color:#b7c9e2; font:500 12px/1.4 Inter,sans-serif; font-variant-numeric:tabular-nums; }
+  .wcl-public .mobile-story-browse>button:not(.mobile-story-toggle) { display:grid; place-items:center; flex-shrink:0; height:44px; width:44px; padding:0; border:1px solid #324158; border-radius:50%; color:#f5f8ff; background:#101e34; }
+  .wcl-public .mobile-story-browse svg { width:18px; height:18px; }
+  .wcl-public .wcl-story-hero .mobile-story-browse>.mobile-story-toggle { order:0; margin:0; font-size:13px; white-space:nowrap; }
   .wcl-public .wcl-story-hero .story-scene { display:flex; flex-direction:column; height:auto; min-height:0; padding:24px 20px 32px; gap:24px!important; }
   .wcl-public .wcl-story-hero .story-scene>.hero-story-copy { order:2; display:flex; flex-direction:column; width:100%; max-width:720px; padding:0; align-self:center; }
   .wcl-public .wcl-story-hero .story-scene>:not(.hero-story-copy) { order:1; width:100%; max-width:720px; margin:0; align-self:center; }
@@ -234,4 +241,103 @@
   #root:not([data-client-ready=true]) .wcl-public .hero-story-copy[data-mobile-summary=true]>:is(.story-description-full,.hero-supporting-copy,.hero-biography-source) { display:block; }
   #root:not([data-client-ready=true]) .wcl-public .hero-story-copy[data-mobile-summary=true]>.story-facts { display:grid; }
   #root:not([data-client-ready=true]) .wcl-public .hero-story-copy>:is(.story-description-mobile,.mobile-story-toggle) { display:none; }
+}
+
+/* Public phone composition: imagery and essential destinations first.
+   Longer stories remain in disclosures or on their dedicated pages. */
+@media (max-width:700px) {
+  .wcl-public .mobile-home-paths { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); padding-inline:12px; border-bottom:1px solid #22324a; background:#080f1e; }
+  .wcl-public .mobile-home-paths a { display:flex; justify-content:center; align-items:center; min-height:44px; font:500 13px/1.3 Inter,sans-serif; color:#edf3fc; }
+  .wcl-public .home-secondary-promotion { display:none; }
+  .wcl-public .section { padding-block:40px; }
+  .wcl-public .section-title { margin-bottom:22px; }
+  .wcl-public .section-title .kicker,.wcl-public .mc-eyebrow { display:none; }
+  .wcl-public .page-title .kicker { display:none; }
+  .wcl-public .ticket-planner>div:first-child>:is(.kicker,h2,p) { display:none; }
+  .wcl-public .filters { display:grid; grid-template-columns:minmax(0,1fr); gap:12px; }
+  .wcl-public .filters :is(.select-label,.input-search) { width:100%; min-width:0; max-width:none; margin:0; }
+  .wcl-public .filters select { width:100%; min-width:0; font-size:16px; }
+  .wcl-public .section-title>a { max-width:none; font-size:13px; }
+  .wcl-public .wcl-story-hero .story-scene { padding:16px 20px 0; gap:18px!important; }
+  .wcl-public .wcl-story-hero .story-visual { height:clamp(220px,58vw,280px); }
+  .wcl-public .wcl-story-hero .story-season .rivalry-stage { height:clamp(240px,65vw,300px); }
+  .wcl-public .wcl-story-hero .story-trophy.hero-subject-scene .story-visual { height:240px; padding:0; }
+  .wcl-public .hero-team-players .player-profile-card .player-photo { height:190px; min-height:0; aspect-ratio:auto; }
+  .wcl-public .hero-team-players .player-profile-card .player-photo>img { object-fit:contain; }
+  .wcl-public .hero-team-players .player-caption { min-height:0; padding:12px; }
+  .wcl-public .hero-team-players .player-caption h3 { font-size:22px; }
+  .wcl-public .hero-team-players .player-caption>small,.wcl-public .hero-team-players .player-team-strip { display:none; }
+  .wcl-public .hero-team-players .player-rail-heading { margin:0 0 8px; }
+  .wcl-public .hero-team-note { font-size:12px; margin-top:8px; }
+  .wcl-public .hero-schedule { padding:14px; }
+  .wcl-public .hero-schedule-heading>span { font-size:12px; }
+  .wcl-public .hero-schedule-heading>small { font-size:11px; }
+  .wcl-public .hero-schedule-days { padding-block:12px; }
+  .wcl-public .hero-schedule-days>button { min-height:48px; flex-basis:44px; padding:8px; }
+  .wcl-public .hero-schedule-days>button small { display:none; }
+  .wcl-public .hero-schedule .hero-schedule-date { font-size:20px; margin-block:8px; }
+  .wcl-public .hero-schedule .hero-schedule-date>small { display:none; }
+  .wcl-public .hero-day-fixtures { min-height:0; gap:10px; }
+  .wcl-public .hero-fixture-card { display:grid; grid-template-columns:minmax(0,1fr) auto; padding:12px; gap:8px; }
+  .wcl-public .hero-fixture-meta { grid-column:1/-1; font-size:11px; }
+  .wcl-public .hero-fixture-sides { grid-column:1; grid-row:2; grid-template-columns:minmax(0,1fr); gap:6px; margin:0; }
+  .wcl-public .hero-fixture-sides>span:nth-child(2) { flex-direction:row; text-align:left; }
+  .wcl-public .hero-fixture-sides strong { font-size:18px; line-height:1.2; }
+  .wcl-public .hero-fixture-sides img { width:26px; height:26px; padding:0; background:none; border-radius:0; }
+  .wcl-public .hero-fixture-sides>b { display:none; }
+  .wcl-public .hero-fixture-card .fixture-info-strip { grid-column:2; grid-row:2; display:flex; flex-direction:column; justify-content:center; align-items:flex-end; border:0; padding:0; margin:0; gap:5px; }
+  .wcl-public .hero-fixture-card .fixture-info-strip>span { font-size:11px; }
+  .wcl-public .hero-fixture-card .fixture-info-strip>span:first-child>svg,.wcl-public .hero-fixture-card .fixture-info-strip time { display:none; }
+  .wcl-public .hero-fixture-action { display:none; }
+  .wcl-public .wcl-story-hero .hero-story-copy>h1 { font-size:clamp(36px,10vw,44px)!important; margin-bottom:8px; }
+  .wcl-public .wcl-story-hero .hero-story-copy[data-mobile-summary=true]>.story-description-mobile { display:none; }
+  .wcl-public .wcl-story-hero .hero-story-copy>.story-actions { margin-top:12px!important; }
+  .wcl-public .wcl-story-hero .hero-story-copy>.mobile-story-toggle { margin:0; font-size:13px; }
+  .wcl-public .hero-about-team { display:none; }
+  .wcl-public .wcl-story-hero .hero-about-visual { min-height:0; }
+  .wcl-public .rivalry-editorial { gap:22px; }
+  .wcl-public .rivalry-editorial .rivalry-poster { height:auto; aspect-ratio:4/3; }
+  .wcl-public .rivalry-editorial .rivalry-poster img { object-fit:cover; object-position:50% 26%; }
+  .wcl-public .rivalry-editorial-copy h2 { font-size:36px; line-height:1.05; margin-bottom:16px; }
+  .wcl-public .rivalry-editorial-copy .rivalry-nations { font-size:17px; margin-bottom:8px; }
+  .wcl-public .rivalry-editorial-copy .rivalry-date { color:#b7c9e2; font:400 14px/1.5 Inter,sans-serif; margin:0; }
+  .wcl-public .rivalry-editorial-copy .rivalry-links { margin-top:16px; }
+  .wcl-public .rivalry-editorial-copy .rivalry-links a { font-size:14px; }
+  .wcl-public .tc-card { grid-template-columns:44% minmax(0,1fr); }
+  .wcl-public .tc-portrait { min-height:355px; }
+  .wcl-public .tc-body { padding:18px 14px 14px; }
+  .wcl-public .tc-body h3 { margin:14px 0 18px; font-size:30px; }
+  .wcl-public .tc-record-label,.wcl-public .tc-stats dt { font-size:11px; }
+  .wcl-public .tc-record-label span { font-size:10px; }
+  .wcl-public .tc-stats>div { padding-left:6px; }
+  .wcl-public .tc-stats dd { font-size:28px; }
+  .wcl-public .tc-record-detail { display:none; }
+  .wcl-public .tc-finish { font-size:12px; line-height:1.4; min-height:34px; margin-top:12px; }
+  .wcl-public .tc-actions { flex-wrap:wrap; gap:4px 12px; margin-top:8px; }
+  .wcl-public .tc-actions>a { font-size:12px; min-height:44px; }
+  .wcl-public .tc-actions>a:last-child { min-width:44px; }
+  .wcl-public .tc-footnote { font-size:12px; gap:2px; }
+  .wcl-public .tc-footnote p { margin:0; }
+  .wcl-public .video-full-title,.wcl-public .video-art :is(.video-match-title,.video-editorial-label) { display:none; }
+  .wcl-public .video-compact-title { display:inline; }
+  .wcl-public .video-grid { grid-template-columns:minmax(0,1fr); gap:24px; }
+  .wcl-public .video-card>h3 { font-size:20px; line-height:1.3; margin-top:14px; }
+  .wcl-public .video-art { aspect-ratio:16/9; }
+  .wcl-public .video-art img { width:100%; height:100%; object-fit:cover; }
+  .wcl-public .press-card .press-copy>p { display:none; }
+  .wcl-public .press-card .press-copy h3 { font-size:23px; line-height:1.2; }
+  .wcl-public .press-disclosure { font-size:13px; }
+  .wcl-public .guide-grid { gap:0; }
+  .wcl-public .guide-card { display:grid; grid-template-columns:24px minmax(0,1fr) 20px; align-items:center; gap:16px; min-height:76px; padding:18px 4px; border:0; border-bottom:1px solid #26364b; border-radius:0; background:none; }
+  .wcl-public .guide-card p { display:none; }
+  .wcl-public .guide-card h3 { font:500 18px/1.3 Inter,sans-serif; margin:0; }
+  .wcl-public .guide-card>svg { position:static; width:22px; height:22px; margin:0; }
+  .wcl-public .fan-banner { margin-block:16px 32px; }
+  .wcl-public .ms-availability-note { font-size:13px; }
+}
+
+@media (min-width:371px) and (max-width:420px) {
+  /* Keep native option labels readable instead of clipping season/year text. */
+  .wcl-public .match-broadcast .mc-filters { grid-template-columns:minmax(0,1fr); }
+  .wcl-public .match-broadcast .mc-filters select { font-size:16px; }
 }

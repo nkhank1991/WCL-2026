@@ -1,4 +1,4 @@
-import {useState} from 'react';
+import {useRef,useState} from 'react';
 import {Link} from 'react-router-dom';
 import {ArrowRight,ArrowUpRight,Play} from '@phosphor-icons/react';
 import source from './data/news-public.json';
@@ -22,11 +22,22 @@ export function NewsCard({item,featured=false}){
  </article>
 }
 export function HomeNews(){
+ const supportingRef=useRef(null);
  const publishedNews=[destinationStory,...usePublished('news',source)].sort((a,b)=>(b.publishedAt||'').localeCompare(a.publishedAt||'')||(b.sourceItem||0)-(a.sourceItem||0));
  const featured=publishedNews.find(n=>n.featured)||publishedNews[0];
  const supporting=[destinationStory,...[32,28].map(id=>publishedNews.find(n=>n.sourceItem===id)).filter(Boolean)];
  const more=[33,34,35].map(id=>publishedNews.find(n=>n.sourceItem===id)).filter(Boolean);
- return <><section className="wrap section press-home" aria-labelledby="home-news-title"><Reveal className="section-title"><div><p className="kicker">THE NEXT CHAPTER, AS IT HAPPENS</p><h2 id="home-news-title">News & Updates</h2></div><Link to="/news">View All News <ArrowRight/></Link></Reveal><div className="press-home-grid"><NewsCard item={featured} featured/><div className="press-supporting">{supporting.map(n=><NewsCard key={n.id} item={n}/>)}</div></div><div className="press-more">{more.map(n=><a key={n.id} href={n.sourceUrl} target="_blank" rel="noopener noreferrer"><span>{n.sourceName} · {dateLabel(n.publishedAt)}</span><h3>{n.title}</h3><ArrowUpRight/></a>)}</div></section></>
+ function browseSupporting(event){
+  if(!['ArrowLeft','ArrowRight','Home','End'].includes(event.key)||event.altKey||event.ctrlKey||event.metaKey)return;
+  const links=[...supportingRef.current.querySelectorAll('.press-card > a')];
+  const current=links.indexOf(document.activeElement);
+  if(current<0)return;
+  const next=event.key==='Home'?0:event.key==='End'?links.length-1:Math.max(0,Math.min(links.length-1,current+(event.key==='ArrowRight'?1:-1)));
+  event.preventDefault();
+  links[next].focus({preventScroll:true});
+  links[next].scrollIntoView({block:'nearest',inline:'nearest',behavior:'auto'});
+ }
+ return <><section className="wrap section press-home" aria-labelledby="home-news-title"><Reveal className="section-title"><div><p className="kicker">THE NEXT CHAPTER, AS IT HAPPENS</p><h2 id="home-news-title">News & Updates</h2></div><Link to="/news">View All News <ArrowRight/></Link></Reveal><div className="press-home-grid"><NewsCard item={featured} featured/><div className="press-supporting" ref={supportingRef} onKeyDown={browseSupporting}>{supporting.map(n=><NewsCard key={n.id} item={n}/>)}</div></div><div className="press-more">{more.map(n=><a key={n.id} href={n.sourceUrl} target="_blank" rel="noopener noreferrer"><span>{n.sourceName} · {dateLabel(n.publishedAt)}</span><h3>{n.title}</h3><ArrowUpRight/></a>)}</div></section></>
 }
 export function NewsCentre(){
  const publishedNews=[destinationStory,...usePublished('news',source)].sort((a,b)=>(b.publishedAt||'').localeCompare(a.publishedAt||'')||(b.sourceItem||0)-(a.sourceItem||0));

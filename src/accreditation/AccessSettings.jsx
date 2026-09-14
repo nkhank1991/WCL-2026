@@ -1,6 +1,9 @@
 import { useEffect, useState } from 'react';
 import { accessSections, applicationLink, sectionLabel } from '../../lib/access-sections.mjs';
 import './access-settings.css';
+import {season3Event,season3Venues,season3Finals,emptySeatingConfig} from '../../lib/accreditation-venues.mjs';
+import {SeatingConfiguration} from './SeatingAreas';
+import {toUaeInput,fromUaeInput} from './operations-api';
 
 export function AccessSections({ zones, selected, onChange }) {
   return <fieldset className="access-section-picker"><legend>Access sections</legend>
@@ -67,10 +70,20 @@ export function AccessSettings({ api, onDirtyChange }) {
         <details><summary>Other configured areas</summary><p>Legacy areas keep their original IDs. They are not equivalent to the five numbered sections.</p>{config.zones.filter(z => !z.code).map(z => <label className="access-check" key={z.id}><input type="checkbox" checked={z.enabled === true} onChange={e => zone(z.id, e.target.checked)} />{z.label}</label>)}</details>
       </section>
       <section className="admin-panel">
-        <h3>03 / Venues</h3><p>Add the exact venue name confirmed by event operations. New venues start disabled.</p>
+        <h3>03 / Venues</h3><p>{season3Event.label} · {season3Event.heading}</p>
+        <div className="access-field-grid">{season3Venues.map(v=><div key={v.id}><strong>{v.label}</strong><p>{v.matchDates.map(d=>Number(d.slice(-2))).join(', ')} October 2026</p></div>)}</div>
+        <p>{season3Finals.map(x=>x.label+': '+Number(x.date.slice(-2))+' October · Sharjah').join(' / ')}</p>
+        <p>Match dates are reference information, not automatic credential validity. New venues start disabled.</p>
         {!config.venues.length && <p>No venues added. Applications can be reviewed, but access cannot be approved yet.</p>}
-        {config.venues.map(v => <div className="access-venue-row" key={v.id}><label>Venue name<input required maxLength={200} value={v.label} onChange={e => change({ venues: config.venues.map(x => x.id === v.id ? { ...x, label: e.target.value } : x) })} /></label><label className="access-check"><input type="checkbox" checked={v.enabled === true} onChange={e => change({ venues: config.venues.map(x => x.id === v.id ? { ...x, enabled: e.target.checked } : x) })} />Approved for assignment</label></div>)}
+        {config.venues.map(v => <div className="access-venue-row" key={v.id}><label>Venue name<input required readOnly={season3Venues.some(x=>x.id===v.id)} maxLength={200} value={v.label} onChange={e => change({ venues: config.venues.map(x => x.id === v.id ? { ...x, label: e.target.value } : x) })} /></label><label className="access-check"><input type="checkbox" checked={v.enabled === true} onChange={e => change({ venues: config.venues.map(x => x.id === v.id ? { ...x, enabled: e.target.checked } : x) })} />Approved for assignment</label></div>)}
+        {season3Venues.some(v=>!config.venues.some(x=>x.id===v.id))&&<button type="button" onClick={()=>change({venues:[...config.venues,...season3Venues.filter(v=>!config.venues.some(x=>x.id===v.id))]})}>Add supplied UAE venues</button>}
         <button type="button" onClick={() => change({ venues: [...config.venues, { id: 'v-' + crypto.randomUUID().slice(0, 18), label: '', enabled: false }] })}>Add venue</button>
+        {config.workflowVersion&&<><SeatingConfiguration value={config.sharjahSeating||emptySeatingConfig()} onChange={sharjahSeating=>change({sharjahSeating})}/>
+        <details><summary>Setup, training & operational dates</summary><p>Configure separately from match dates. Each operational credential still needs an individually approved start and end time.</p>
+          <div className="access-field-grid">{['from','to'].map(k=><label key={k}>{k==='from'?'Operational access starts':'Operational access ends'} · UAE<input type="datetime-local" value={toUaeInput(config.operationalAccess?.[k]||'')} onChange={e=>change({operationalAccess:{...config.operationalAccess,[k]:e.target.value?fromUaeInput(e.target.value):''}})}/></label>)}</div>
+          <label>Operational dates approval reference<input value={config.operationalAccess?.reference||''} onChange={e=>change({operationalAccess:{...config.operationalAccess,reference:e.target.value}})}/></label>
+          <label className="access-check"><input type="checkbox" checked={config.operationalAccess?.enabled===true} onChange={e=>change({operationalAccess:{...config.operationalAccess,enabled:e.target.checked}})}/>Allow individually reviewed operational validity</label>
+        </details></>}
       </section>
       <section className="admin-panel">
         <h3>04 / Open applications</h3>

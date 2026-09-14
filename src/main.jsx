@@ -20,6 +20,7 @@ import "./contact-policy.css";
 import "./seo/search-discovery.css";
 import "./mobile-refinement.css";
 import "./button-finish.css";
+import "./home-news.css";
 
 // Route and section navigation own their scroll position, not stale browser restoration.
 if ('scrollRestoration' in window.history) window.history.scrollRestoration = 'manual';

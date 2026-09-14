@@ -12,3 +12,6 @@ export const optimisedCampaignSources = new Set([
  '/assets/season3-trophy.png',
 ]);
 export const deliveryImage=source=>optimisedCampaignSources.has(source)?source.replace(/\.png$/,'-web.webp'):source;
+export const responsiveCampaign=(source,sizes='(max-width: 700px) 90vw, 600px')=>optimisedCampaignSources.has(source)?{
+ srcSet:[480,800].map(width=>source.replace(/\.png$/,`-w${width}.webp`)+` ${width}w`).concat(deliveryImage(source)+(source==='/assets/india.png'?' 1055w':' 1122w')).join(', '),sizes
+}:{};

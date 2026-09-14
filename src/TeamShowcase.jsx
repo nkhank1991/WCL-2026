@@ -2,7 +2,7 @@ import {useEffect,useId,useRef,useState} from 'react';
 import {Link} from 'react-router-dom';
 import {motion} from 'motion/react';
 import {ArrowLeft,ArrowRight,ArrowUpRight,InstagramLogo,Trophy} from '@phosphor-icons/react';
-import {deliveryImage} from './media.js';
+import {deliveryImage,responsiveCampaign} from './media.js';
 import {useTeamInstagram} from './SocialLinks.jsx';
 import {useTeams} from './cms/SiteContent.jsx';
 import {broadcastEase,useBroadcastMotion} from './BroadcastGraphics.jsx';
@@ -28,7 +28,7 @@ export function TeamCard({team,season,index=0}) {
   initial={spatial?{opacity:0,y:16}:false} whileInView={{opacity:1,y:0}} viewport={{once:true,amount:.15}}
   transition={{duration:.5,delay:spatial?Math.min(index%2,1)*.06:0,ease:broadcastEase}}>
   <Link to={'/teams/'+team.id} className="tc-portrait" aria-label={team.name+' Champions — explore the team'}>
-   {!failed?<img src={deliveryImage(team.image)} alt={team.legend+' in '+team.name+' Champions campaign kit'} loading="lazy" onError={()=>setFailed(true)}/>:<span className="tc-photo-unavailable">Portrait unavailable</span>}
+   {!failed?<img src={deliveryImage(team.image)} {...responsiveCampaign(team.image,'(max-width: 700px) 42vw, 340px')} alt={team.legend+' in '+team.name+' Champions campaign kit'} loading="lazy" decoding="async" width="1122" height="1402" onError={()=>setFailed(true)}/>:<span className="tc-photo-unavailable">Portrait unavailable</span>}
    <div className="tc-player"><span>{captain?'Captain · Season 3':'Featured legend'}</span><strong>{team.legend}</strong></div>
   </Link>
   <div className="tc-body">

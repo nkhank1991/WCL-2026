@@ -265,7 +265,7 @@
     grid-template-columns: minmax(0, 1fr);
     gap: 10px;
     max-width: 400px;
-    margin-top: 24px;
+    margin-top: 12px;
   }
   .wcl-public
     .wcl-story-hero
@@ -276,6 +276,18 @@
     min-height: 48px;
     padding-inline: 20px;
     justify-content: space-between;
+  }
+  /* One primary action; secondary navigation is quieter but remains a full tap target. */
+  .wcl-public .wcl-story-hero .hero-story-copy > .story-actions > .story-secondary {
+    min-height: 44px;
+    padding: 8px 0;
+    background: none;
+    border-color: transparent;
+    border-radius: 0;
+    box-shadow: none;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    color: #d4e0ef;
   }
 }
 /* User preferences always take precedence over the material effect. */

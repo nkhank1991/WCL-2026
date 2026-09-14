@@ -1,4 +1,6 @@
 import { useEffect, useState } from "react";
+import {SeatingAllocation} from './SeatingAreas';
+import {seatingLabels,seatingError} from '../../lib/accreditation-venues.mjs';
 import {
   statusLabels,
   correctionFields,
@@ -145,6 +147,7 @@ function CaseDetail({ record: r, user, config, run, update, onBack }) {
       p.venues || r.requested.requestedVenues || [],
     ),
     [correction, setCorrection] = useState(false),
+    [seatingAreas, setSeatingAreas] = useState(p.seatingAreas || []),
     [fields, setFields] = useState([]);
   const role = user.role,
     canReview =
@@ -157,6 +160,8 @@ function CaseDetail({ record: r, user, config, run, update, onBack }) {
     );
   const act = (action, extra = {}) =>
     run(() => update(r.id, { action, version: r.version, ...extra }));
+  const seatingChanged=JSON.stringify([...seatingAreas].sort())!==JSON.stringify([...(p.seatingAreas||[])].sort());
+  const seatingProblem=p.category?seatingError(config,{...p,seatingAreas}):'';
   return (
     <>
       <button className="ops-back" onClick={onBack}>
@@ -238,6 +243,8 @@ function CaseDetail({ record: r, user, config, run, update, onBack }) {
                 {uaeDate(p.validFrom)} — {uaeDate(p.validTo)}
               </p>
               <p>{p.conditions}</p>
+              {p.seatingAreas?.length>0&&<p>Permitted areas: {seatingLabels(p.seatingAreas).join(' · ')}</p>}
+              <p>{p.validityType==='operational'?'Operational access':'Tournament access'}</p>
               {p.zones.some((z) => restrictedZones.includes(z)) && (
                 <p className="ops-status">
                   Restricted decision:{" "}
@@ -256,6 +263,7 @@ function CaseDetail({ record: r, user, config, run, update, onBack }) {
                   category: f.get("category"),
                   zones,
                   venues,
+                  validityType: f.get('validityType'),
                   validFrom: fromUaeInput(f.get("validFrom")),
                   validTo: fromUaeInput(f.get("validTo")),
                   conditions: f.get("conditions"),
@@ -319,6 +327,7 @@ function CaseDetail({ record: r, user, config, run, update, onBack }) {
                     </label>
                   ))}
               </fieldset>
+              <label>Validity period<select name="validityType" defaultValue={p.validityType||'tournament'}><option value="tournament">Tournament · 3–18 October 2026</option><option value="operational" disabled={!config.operationalAccess?.enabled}>Separately approved operational dates</option></select></label>
               <div className="ops-two">
                 <label>
                   Valid from · UAE
@@ -371,7 +380,10 @@ function CaseDetail({ record: r, user, config, run, update, onBack }) {
           )}
           {canApprove && (
             <>
-              <button onClick={() => act("preview")}>
+              <SeatingAllocation config={config} proposal={p} value={seatingAreas} onChange={setSeatingAreas}/>
+              {seatingChanged&&<><button disabled={!!seatingProblem} onClick={()=>act('seating',{seatingAreas})}>Save permitted areas</button><p>Saving changes requires a fresh preview and, if applicable, a new restricted approval.</p></>}
+              {seatingProblem&&<p className="ops-error" role="status">{seatingProblem}</p>}
+              <button disabled={seatingChanged||!!seatingProblem} onClick={() => act("preview")}>
                 Preview front & back
               </button>
               <form
@@ -384,7 +396,7 @@ function CaseDetail({ record: r, user, config, run, update, onBack }) {
                   <input type="checkbox" required />I have checked the details,
                   proposed access and badge preview.
                 </label>
-                <button className="ops-primary">Approve</button>
+                <button className="ops-primary" disabled={seatingChanged||!!seatingProblem}>Approve</button>
               </form>
             </>
           )}

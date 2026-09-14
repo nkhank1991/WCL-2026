@@ -8,13 +8,14 @@ export async function operationsApi(route, body) {
         : { "Content-Type": "application/json", "X-CSRF-Token": csrf },
     body: body === undefined ? undefined : JSON.stringify(body),
     cache: "no-store",
+    signal: AbortSignal.timeout(20000),
   });
   if (!response.ok) {
     const result = await response.json().catch(() => ({}));
-    throw Error(
+    throw Object.assign(Error(
       result.error ||
         "The service could not complete this request. Please try again.",
-    );
+    ), {status:response.status});
   }
   if (!response.headers.get("content-type")?.includes("json"))
     return response.blob();

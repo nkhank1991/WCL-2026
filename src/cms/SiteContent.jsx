@@ -35,7 +35,7 @@ export function CmsNavigation() {
         to={l.to}
       >
         {l.primary && <Ticket />}
-        {l.label}
+        {({Matches:'Fixtures',Videos:'Highlights','Ticket info':'Tickets','News & Updates':'News'})[l.label] || l.label}
       </NavLink>
     ));
 }
@@ -69,13 +69,21 @@ export function usePageCopy(path) {
 export function CmsPageHeading({ tag, title, children }) {
   const { pathname } = useLocation(),
     page = usePageCopy(pathname);
+  // Retire the original repeated introductory copy without modifying CMS drafts.
+  // New editorial wording continues to render exactly as published.
+  const intro = page?.intro || children;
+  const conciseIntro = typeof intro === 'string' ? ({
+    'Seven nations. Individual stories. Choose a team to meet its players.': 'Choose your team.',
+    'Officially linked highlights from the first two chapters.': 'Highlights from WCL 1 & 2.',
+  })[intro] || intro : intro;
+  const heading = pathname === '/tickets' && page?.title === 'Your matchday starts here.' ? 'Tickets' : page?.title;
   return (
     <div className="page-title">
       <div className="wrap">
         <p className="kicker">{page?.tag || tag}</p>
         <h1>
-          {page?.title
-            ? page.title.split("\n").map((line, i) => (
+          {heading
+            ? heading.split("\n").map((line, i) => (
                 <Fragment key={i}>
                   {i > 0 && <br />}
                   {line}
@@ -83,7 +91,7 @@ export function CmsPageHeading({ tag, title, children }) {
               ))
             : title}
         </h1>
-        {(page?.intro || children) && <p>{page?.intro || children}</p>}
+        {conciseIntro && <p>{conciseIntro}</p>}
       </div>
     </div>
   );

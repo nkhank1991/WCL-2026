@@ -2,7 +2,8 @@ import {deliveryImage} from './media.js';
 import {useState,useRef,useEffect} from 'react';
 import {Link} from 'react-router-dom';
 import {AnimatePresence,motion} from 'motion/react';
-import {ArrowRight,CaretDown} from '@phosphor-icons/react';
+import {ArrowRight,ArrowLeft,CaretDown} from '@phosphor-icons/react';
+import {useCompactScreen} from './useCompactScreen.js';
 import {useFilmMotion} from './Cinematic.jsx';
 import {season3Players} from './season3-roster.js';
 import {RivalryStage} from './RivalryStage.jsx';
@@ -58,7 +59,9 @@ export function SportsHero({matches=[],players=season3Players}){
  const active=Math.min(activeIndex,Math.max(0,slides.length-1));
  const touchStart=useRef(null);
  const {enabled}=useFilmMotion();
- const {spatial}=useBroadcastMotion();
+ const {spatial:motionSpatial}=useBroadcastMotion();
+ const compact=useCompactScreen();
+ const spatial=motionSpatial&&!compact;
  const heroRef=useRef(null);
  const [paused,setPaused]=useState(false);
  const [hovered,setHovered]=useState(false);
@@ -74,7 +77,7 @@ export function SportsHero({matches=[],players=season3Players}){
  const teamCards=item?.id==='bangladesh';
  const silhouette=item&&!teamCards&&!leadershipPhoto&&silhouetteFor(item);
  const refinedGroup=item?.id==='new-stars'&&item.image==='/assets/season3-updates/new-stars.webp';
- const rotating=enabled&&!paused&&!hovered&&!focused&&inView&&pageVisible&&!filmPlaying&&slides.length>1;
+ const rotating=enabled&&!compact&&!paused&&!hovered&&!focused&&inView&&pageVisible&&!filmPlaying&&!storyExpanded&&slides.length>1;
  useEffect(()=>{const update=()=>setPageVisible(!document.hidden);document.addEventListener('visibilitychange',update);return()=>document.removeEventListener('visibilitychange',update)},[]);
  useEffect(()=>{if(typeof IntersectionObserver==='undefined')return;const observer=new IntersectionObserver(([entry])=>setInView(entry.isIntersecting&&entry.intersectionRatio>=.2),{threshold:.2});if(heroRef.current)observer.observe(heroRef.current);return()=>observer.disconnect()},[]);
  useEffect(()=>{if(!rotating)return;const timer=setTimeout(()=>setActive((active+1)%slides.length),4000);return()=>clearTimeout(timer)},[active,item?.id,slides.length,rotating]);
@@ -83,7 +86,7 @@ export function SportsHero({matches=[],players=season3Players}){
  function touchEnd(e){const start=touchStart.current;touchStart.current=null;if(!start)return;const t=e.changedTouches[0];if(Math.abs(t.clientX-start.x)>65&&Math.abs(t.clientY-start.y)<60)select(active+(t.clientX<start.x?1:-1));}
  if(!item)return null;
  return <section ref={heroRef} className="wcl-story-hero" aria-label="WCL featured stories" aria-roledescription="carousel" onKeyDown={keyboard} tabIndex={0} onPointerEnter={e=>{if(e.pointerType!=='touch')setHovered(true)}} onPointerLeave={()=>setHovered(false)} onFocusCapture={()=>setFocused(true)} onBlurCapture={e=>{if(!e.currentTarget.contains(e.relatedTarget))setFocused(false)}}>
-  <button className="hero-access-button" onClick={()=>setPaused(value=>!value)}>{paused?'Resume automatic stories':'Pause automatic stories'}</button>
+  {!compact&&<button className="hero-access-button" onClick={()=>setPaused(value=>!value)}>{paused?'Resume automatic stories':'Pause automatic stories'}</button>}
   <button className="hero-access-button" onClick={()=>select(active-1)}>Previous story</button>
   <button className="hero-access-button" onClick={()=>select(active+1)}>Next story</button>
   <div className="story-season-bar"><span className="uae-season-ribbon"><i aria-hidden="true"/>UAE · SEASON 3</span><strong>03–18 OCTOBER 2026</strong></div>
@@ -98,7 +101,6 @@ export function SportsHero({matches=[],players=season3Players}){
       {mobileBrief&&<p className="story-description story-description-mobile">{mobileBrief}</p>}
       <p className="story-description story-description-full" id={'story-copy-'+item.id}>{item.copy}</p>
       {item.supportingCopy&&<p className="story-description hero-supporting-copy">{item.supportingCopy}</p>}
-      {mobileBrief&&<button className="mobile-story-toggle" data-hero-interactive aria-expanded={storyExpanded} aria-controls={'story-copy-'+item.id+' story-facts-'+item.id} onClick={()=>{setExpandedStory(storyExpanded?null:item.id);setPaused(true)}}>{storyExpanded?'Less detail':'Story details'}<CaretDown aria-hidden="true"/></button>}
       <div className="story-actions"><Link className="story-primary" to={item.to}>{item.action}<ArrowRight/></Link><Link className="story-secondary" to={item.secondaryTo}>{item.secondary}<ArrowRight/></Link></div>
       <motion.dl className="story-facts" id={'story-facts-'+item.id} initial={spatial?{opacity:0,x:-8}:{opacity:0}} animate={{opacity:1,x:0}} transition={{duration:spatial?.25:.15,delay:spatial?.22:0,ease:broadcastEase}}>{item.facts.map(([value,label])=><div key={label}><dt data-compact={String(value).length>7||undefined}>{value}</dt><dd>{label}</dd></div>)}</motion.dl>
       {item.source&&<a className="hero-biography-source" href={item.source} target="_blank" rel="noreferrer">{item.note||'Biography & achievement source'} <ArrowRight/></a>}
@@ -110,5 +112,6 @@ export function SportsHero({matches=[],players=season3Players}){
     </motion.div>
    </AnimatePresence>
   </div>
+  <div className="mobile-story-browse" role="group" aria-label="Browse WCL stories">{mobileBrief&&<button className="mobile-story-toggle" data-hero-interactive aria-expanded={storyExpanded} aria-controls={'story-copy-'+item.id+' story-facts-'+item.id} onClick={()=>{setExpandedStory(storyExpanded?null:item.id);setPaused(true)}}>{storyExpanded?'Less detail':'Story details'}<CaretDown aria-hidden="true"/></button>}<span>{String(active+1).padStart(2,'0')} <span aria-hidden="true">/</span> {String(slides.length).padStart(2,'0')}</span><button aria-label="Previous WCL story" onClick={()=>select(active-1)}><ArrowLeft/></button><button aria-label="Next WCL story" onClick={()=>select(active+1)}><ArrowRight/></button></div>
  </section>
 }

@@ -10,6 +10,7 @@ import {
   restrictedZones,
 } from "../../lib/accreditation-model.mjs";
 import "./operations.css";
+import {sharjahSeatingAreas} from '../../lib/accreditation-venues.mjs';
 const PdfPreview = lazy(() => import("./PdfPreview"));
 const workspaceNames = {
   Reviewer: "Applications",
@@ -31,6 +32,8 @@ export function OperationsPortal() {
     [notice, setNotice] = useState(""),
     [preview, setPreview] = useState(null),
     [dirty, setDirty] = useState(false);
+  const [connection, setConnection] = useState(null);
+  const [connectionError, setConnectionError] = useState('');
   const [invite, setInvite] = useState(
     () => new URLSearchParams(location.hash.slice(1)).get("invite") || "",
   );
@@ -61,12 +64,19 @@ export function OperationsPortal() {
     );
     setSetup(w);
   }
+  async function checkConnection() {
+    setLoading(true);
+    setConnectionError('');
+    try {
+      setConnection(await api('status'));
+      try { setUser((await api('auth/session')).user); }
+      catch (e) { if(e.status !== 401) throw e; }
+    } catch(e) { setConnectionError(e.message); }
+    finally { setLoading(false); }
+  }
   useEffect(() => {
     if (location.hash) history.replaceState(null, "", location.pathname);
-    api("auth/session")
-      .then((r) => setUser(r.user))
-      .catch(() => {})
-      .finally(() => setLoading(false));
+    checkConnection();
   }, []);
   useEffect(() => {
     if (user) {
@@ -168,6 +178,20 @@ export function OperationsPortal() {
         )}
         {loading ? (
           <p role="status">Checking your session…</p>
+        ) : !user && connectionError ? (
+          <section className="ops-panel ops-login">
+            <h2>Staff sign-in is temporarily unavailable</h2>
+            <p role="alert">{connectionError}</p>
+            <p>No password has been checked. Retry when the service connection is ready.</p>
+            <button className="ops-primary" onClick={checkConnection}>Retry connection</button>
+          </section>
+        ) : !user && !invite && connection?.ownerConfigured === false ? (
+          <section className="ops-panel ops-login">
+            <h2>Owner setup is pending</h2>
+            <p>The service is connected. The first Owner must use their private setup invitation to create an account before staff can sign in.</p>
+            <p>Existing Render or Vercel credentials do not sign in here.</p>
+            <button className="ops-primary" onClick={checkConnection}>Check setup again</button>
+          </section>
         ) : !user ? (
           <section className="ops-panel ops-login">
             <h2>
@@ -188,6 +212,7 @@ export function OperationsPortal() {
                       password: f.get("password"),
                     });
                     setInvite("");
+                    setConnection(c => ({...c, ownerConfigured:true}));
                     setNotice(
                       "Account created. Sign in with your invited email.",
                     );
@@ -470,6 +495,8 @@ function StaffWorkspace({ config, run }) {
 
 function GateWorkspace({ config, run }) {
   const [result, setResult] = useState(null);
+  const [venue,setVenue]=useState(config.venues.find(v=>v.enabled)?.id||'');
+  const [zone,setZone]=useState(config.zones.find(z=>z.enabled)?.id||'');
   return (
     <section className="ops-panel ops-login">
       <h2>Verify a credential</h2>
@@ -489,7 +516,7 @@ function GateWorkspace({ config, run }) {
       >
         <label>
           Venue
-          <select name="venue" required>
+          <select name="venue" required value={venue} onChange={e=>{setVenue(e.target.value);setResult(null);}}>
             {config.venues
               .filter((v) => v.enabled)
               .map((v) => (
@@ -501,7 +528,7 @@ function GateWorkspace({ config, run }) {
         </label>
         <label>
           Checkpoint area
-          <select name="zone" required>
+          <select name="zone" required value={zone} onChange={e=>{setZone(e.target.value);setResult(null);}}>
             {config.zones
               .filter((z) => z.enabled)
               .map((z) => (
@@ -511,6 +538,7 @@ function GateWorkspace({ config, run }) {
               ))}
           </select>
         </label>
+        {venue==='sharjah'&&['SEC-3','SEC-4'].includes(zone)&&<label>Seating checkpoint<select key={venue+zone} name="area" required defaultValue=""><option value="">Choose permitted area</option>{(config.sharjahSeating?.areas||[]).filter(a=>config.sharjahSeating.approved&&a.enabled&&a.zone===zone).map(a=><option key={a.id} value={a.id}>{sharjahSeatingAreas.find(x=>x.id===a.id)?.label}</option>)}</select></label>}
         <label>
           Credential code
           <input name="token" required autoComplete="off" />
