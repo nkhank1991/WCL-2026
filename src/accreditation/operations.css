@@ -1,3 +1,5 @@
+/* Keep the private workspace usable at 320px including a classic scrollbar. */
+body:has(.ops-shell) { min-width: 0; }
 .ops-shell {
   --ops-ink: #13243b;
   --ops-line: #dce3eb;

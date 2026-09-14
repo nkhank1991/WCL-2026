@@ -538,7 +538,7 @@ function GateWorkspace({ config, run }) {
               ))}
           </select>
         </label>
-        {venue==='sharjah'&&['SEC-3','SEC-4'].includes(zone)&&<label>Seating checkpoint<select key={venue+zone} name="area" required defaultValue=""><option value="">Choose permitted area</option>{(config.sharjahSeating?.areas||[]).filter(a=>config.sharjahSeating.approved&&a.enabled&&a.zone===zone).map(a=><option key={a.id} value={a.id}>{sharjahSeatingAreas.find(x=>x.id===a.id)?.label}</option>)}</select></label>}
+        {venue==='sharjah'&&['SEC-3','SEC-4'].includes(zone)&&config.sharjahSeating?.approved&&<details><summary>Legacy seating checkpoint</summary><label>Seating checkpoint<select key={venue+zone} name="area" defaultValue=""><option value="">Section access · no seating allocation</option>{(config.sharjahSeating.areas||[]).filter(a=>a.enabled&&a.zone===zone).map(a=><option key={a.id} value={a.id}>{sharjahSeatingAreas.find(x=>x.id===a.id)?.label}</option>)}</select></label></details>}
         <label>
           Credential code
           <input name="token" required autoComplete="off" />

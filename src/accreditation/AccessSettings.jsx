@@ -1,8 +1,7 @@
 import { useEffect, useState } from 'react';
 import { accessSections, applicationLink, sectionLabel } from '../../lib/access-sections.mjs';
 import './access-settings.css';
-import {season3Event,season3Venues,season3Finals,emptySeatingConfig} from '../../lib/accreditation-venues.mjs';
-import {SeatingConfiguration} from './SeatingAreas';
+import {season3Event,season3Venues,season3Finals} from '../../lib/accreditation-venues.mjs';
 import {toUaeInput,fromUaeInput} from './operations-api';
 
 export function AccessSections({ zones, selected, onChange }) {
@@ -66,7 +65,7 @@ export function AccessSettings({ api, onDirtyChange }) {
       </section>
       <section className="admin-panel">
         <h3>02 / Access sections</h3><p>Enable only areas approved by event security. These switches make a section available to reviewers; they do not grant access to anyone.</p>
-        <div className="access-section-settings">{config.zones.filter(z => z.code).map(z => <label key={z.id}><span className="access-code">{z.code}</span><span>{z.label}<small>{z.code === '5' ? 'Restricted · explicit approval required for each person' : 'Individually assigned during review'}</small></span><input aria-label={'Enable ' + z.label} type="checkbox" checked={z.enabled === true} onChange={e => zone(z.id, e.target.checked)} /></label>)}</div>
+        <div className="access-section-settings">{config.zones.filter(z => z.code).map(z => <label key={z.id}><span className="access-code">{z.code}</span><span>{z.label}<small>{z.code === '5' ? 'Players, match officials, team managers and essential team logistics only · independent approval required' : 'Individually selected and approved'}</small></span><input aria-label={'Enable ' + z.label} type="checkbox" checked={z.enabled === true} onChange={e => zone(z.id, e.target.checked)} /></label>)}</div>
         <details><summary>Other configured areas</summary><p>Legacy areas keep their original IDs. They are not equivalent to the five numbered sections.</p>{config.zones.filter(z => !z.code).map(z => <label className="access-check" key={z.id}><input type="checkbox" checked={z.enabled === true} onChange={e => zone(z.id, e.target.checked)} />{z.label}</label>)}</details>
       </section>
       <section className="admin-panel">
@@ -78,7 +77,7 @@ export function AccessSettings({ api, onDirtyChange }) {
         {config.venues.map(v => <div className="access-venue-row" key={v.id}><label>Venue name<input required readOnly={season3Venues.some(x=>x.id===v.id)} maxLength={200} value={v.label} onChange={e => change({ venues: config.venues.map(x => x.id === v.id ? { ...x, label: e.target.value } : x) })} /></label><label className="access-check"><input type="checkbox" checked={v.enabled === true} onChange={e => change({ venues: config.venues.map(x => x.id === v.id ? { ...x, enabled: e.target.checked } : x) })} />Approved for assignment</label></div>)}
         {season3Venues.some(v=>!config.venues.some(x=>x.id===v.id))&&<button type="button" onClick={()=>change({venues:[...config.venues,...season3Venues.filter(v=>!config.venues.some(x=>x.id===v.id))]})}>Add supplied UAE venues</button>}
         <button type="button" onClick={() => change({ venues: [...config.venues, { id: 'v-' + crypto.randomUUID().slice(0, 18), label: '', enabled: false }] })}>Add venue</button>
-        {config.workflowVersion&&<><SeatingConfiguration value={config.sharjahSeating||emptySeatingConfig()} onChange={sharjahSeating=>change({sharjahSeating})}/>
+        {config.workflowVersion&&<>
         <details><summary>Setup, training & operational dates</summary><p>Configure separately from match dates. Each operational credential still needs an individually approved start and end time.</p>
           <div className="access-field-grid">{['from','to'].map(k=><label key={k}>{k==='from'?'Operational access starts':'Operational access ends'} · UAE<input type="datetime-local" value={toUaeInput(config.operationalAccess?.[k]||'')} onChange={e=>change({operationalAccess:{...config.operationalAccess,[k]:e.target.value?fromUaeInput(e.target.value):''}})}/></label>)}</div>
           <label>Operational dates approval reference<input value={config.operationalAccess?.reference||''} onChange={e=>change({operationalAccess:{...config.operationalAccess,reference:e.target.value}})}/></label>
@@ -101,7 +100,7 @@ export function AccessSettings({ api, onDirtyChange }) {
         <label>Approved retention policy<textarea value={config.activation.retention||''} onChange={e=>change({activation:{...config.activation,retention:e.target.value}})} placeholder="Retention and deletion arrangements approved by WCL"/></label>
         {[
           ['privacyApproved','privacyReference','Privacy notice, provider/region and retention reviewed'],
-          ['accessApproved','accessReference','Venue names and access mapping approved by security'],
+          ['accessApproved','accessReference','Venue names and access sections approved by security'],
           ['printApproved','printReference','Physical badge size, stock and duplex proof approved'],
         ].map(([flag,ref,label])=><div key={flag}><label className="access-check"><input type="checkbox" checked={config.activation[flag]===true} onChange={e=>change({activation:{...config.activation,[flag]:e.target.checked}})}/>{label}</label><label>{label} · approval reference<input value={config.activation[ref]||''} onChange={e=>change({activation:{...config.activation,[ref]:e.target.value}})}/></label></div>)}
         <p>These confirmations record WCL's decisions; the system does not provide legal, venue-security or hardware approval.</p>

@@ -1,6 +1,8 @@
 import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { statusLabels } from "../../lib/accreditation-model.mjs";
+import {accessSections,pmoaEligible} from '../../lib/access-sections.mjs';
+import {AccessChoices,TeamAccessRole} from './AccessChoices';
 import "./operations.css";
 import "./applicant-form.css";
 
@@ -51,7 +53,12 @@ export function ApplicantWorkspace() {
       () => new URLSearchParams(location.search).get("category") || "",
     ),
     [notice, setNotice] = useState(""),
+    [teamRole,setTeamRole] = useState(''),
+    [requestedZones,setRequestedZones] = useState([]),
     [photo, setPhoto] = useState(null);
+  useEffect(()=>{
+    if(!pmoaEligible(category,teamRole))setRequestedZones(z=>z.filter(id=>id!=='SEC-5'));
+  },[category,teamRole]);
   const photoRef = useRef(null);
   const link = secret
     ? location.origin + "/accreditation/apply#receipt=" + secret
@@ -344,7 +351,7 @@ export function ApplicantWorkspace() {
                       name="category"
                       required
                       value={category}
-                      onChange={(e) => setCategory(e.target.value)}
+                      onChange={(e) => {setCategory(e.target.value);setTeamRole('');}}
                     >
                       <option value="">Choose your category</option>
                       {config?.categories.map((c) => (
@@ -354,6 +361,7 @@ export function ApplicantWorkspace() {
                       ))}
                     </select>
                   </label>
+                  <TeamAccessRole category={category} value={teamRole} onChange={setTeamRole}/>
                   {category && (
                     <p className="ops-caption">
                       Reviewed by{" "}
@@ -390,26 +398,10 @@ export function ApplicantWorkspace() {
                         <p>Venue options will appear when applications open.</p>
                       )}
                     </fieldset>
-                    <fieldset className="ops-choices">
-                      <legend>Requested access</legend>
-                      {config?.zones?.length ? (
-                        config.zones.map((z) => (
-                          <label key={z.id}>
-                            <input
-                              name="requestedZones"
-                              type="checkbox"
-                              value={z.id}
-                            />
-                            {z.label}
-                          </label>
-                        ))
-                      ) : (
-                        <p>
-                          Access options will appear when applications open.
-                        </p>
-                      )}
-                    </fieldset>
                   </div>
+                  <AccessChoices zones={config?.zones?.length?config.zones:accessSections}
+                    selected={requestedZones} onChange={setRequestedZones} name="requestedZones"
+                    category={category} teamRole={teamRole}/>
                   <p className="ops-caption">
                     These are requests, not permissions. WCL confirms your
                     approved areas and validity dates.

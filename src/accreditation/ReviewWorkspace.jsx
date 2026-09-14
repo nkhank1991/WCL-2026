@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
-import {SeatingAllocation} from './SeatingAreas';
+import {AccessChoices,TeamAccessRole} from './AccessChoices';
+import {pmoaEligible} from '../../lib/access-sections.mjs';
 import {seatingLabels,seatingError} from '../../lib/accreditation-venues.mjs';
 import {
   statusLabels,
@@ -147,8 +148,14 @@ function CaseDetail({ record: r, user, config, run, update, onBack }) {
       p.venues || r.requested.requestedVenues || [],
     ),
     [correction, setCorrection] = useState(false),
-    [seatingAreas, setSeatingAreas] = useState(p.seatingAreas || []),
+    [category,setCategory] = useState(p.category || r.category),
+    [teamRole,setTeamRole] = useState(p.teamRole || r.requested.teamRole || ''),
+    [conditions,setConditions] = useState(p.conditions || ''),
+    [pmoaChecked,setPmoaChecked] = useState(p.pmoaEligibilityChecked === true),
     [fields, setFields] = useState([]);
+  useEffect(()=>{
+    if(!pmoaEligible(category,teamRole))setZones(z=>z.filter(id=>id!=='SEC-5'));
+  },[category,teamRole]);
   const role = user.role,
     canReview =
       role === "Reviewer" &&
@@ -160,8 +167,13 @@ function CaseDetail({ record: r, user, config, run, update, onBack }) {
     );
   const act = (action, extra = {}) =>
     run(() => update(r.id, { action, version: r.version, ...extra }));
-  const seatingChanged=JSON.stringify([...seatingAreas].sort())!==JSON.stringify([...(p.seatingAreas||[])].sort());
-  const seatingProblem=p.category?seatingError(config,{...p,seatingAreas}):'';
+  const same=(a=[],b=[])=>JSON.stringify([...a].sort())===JSON.stringify([...b].sort());
+  const accessChanged=!same(zones,p.zones)||!same(venues,p.venues)||teamRole!==(p.teamRole||'')||conditions!==(p.conditions||'')||pmoaChecked!==(p.pmoaEligibilityChecked===true);
+  const accessProblem=!zones.length||!venues.length||(zones.includes('SEC-5')&&!pmoaChecked);
+  const legacyProblem=p.category&&p.accessMode!=='sections'?seatingError(config,p):'';
+  const chooseZones=next=>{setZones(next);setPmoaChecked(false);};
+  const chooseRole=next=>{setTeamRole(next);setPmoaChecked(false);};
+  const pmoaCheck=zones.includes('SEC-5')&&<label className="ops-check"><input type="checkbox" required checked={pmoaChecked} onChange={e=>setPmoaChecked(e.target.checked)}/>PMOA eligibility verified against the assigned duties</label>;
   return (
     <>
       <button className="ops-back" onClick={onBack}>
@@ -228,21 +240,22 @@ function CaseDetail({ record: r, user, config, run, update, onBack }) {
           </h3>
           {p.category && (
             <div className="ops-proposal">
-              <strong>Proposed access</strong>
+              <strong>{canApprove?'Badge details':'Proposed access'}</strong>
               <p>
-                {config.categories.find((c) => c.id === p.category)?.label} ·{" "}
-                {p.zones
+                {config.categories.find((c) => c.id === p.category)?.label}
+                {!canApprove&&' · '}
+                {!canApprove&&p.zones
                   .map((z) => config.zones.find((x) => x.id === z)?.label)
                   .join(", ")}
               </p>
               <p>
-                {p.venues
+                {!canApprove&&p.venues
                   .map((v) => config.venues.find((x) => x.id === v)?.label)
                   .join(", ")}
-                <br />
+                {!canApprove&&<br />}
                 {uaeDate(p.validFrom)} — {uaeDate(p.validTo)}
               </p>
-              <p>{p.conditions}</p>
+              {!canApprove&&<p>{p.conditions}</p>}
               {p.seatingAreas?.length>0&&<p>Permitted areas: {seatingLabels(p.seatingAreas).join(' · ')}</p>}
               <p>{p.validityType==='operational'?'Operational access':'Tournament access'}</p>
               {p.zones.some((z) => restrictedZones.includes(z)) && (
@@ -263,6 +276,8 @@ function CaseDetail({ record: r, user, config, run, update, onBack }) {
                   category: f.get("category"),
                   zones,
                   venues,
+                  teamRole,
+                  pmoaEligibilityChecked:pmoaChecked,
                   validityType: f.get('validityType'),
                   validFrom: fromUaeInput(f.get("validFrom")),
                   validTo: fromUaeInput(f.get("validTo")),
@@ -275,7 +290,7 @@ function CaseDetail({ record: r, user, config, run, update, onBack }) {
             >
               <label>
                 Recommended category
-                <select name="category" defaultValue={p.category || r.category}>
+                <select name="category" value={category} onChange={e=>{setCategory(e.target.value);chooseRole('');}}>
                   {config.categories
                     .filter((c) =>
                       config.departments
@@ -289,29 +304,9 @@ function CaseDetail({ record: r, user, config, run, update, onBack }) {
                     ))}
                 </select>
               </label>
-              <fieldset className="ops-choices">
-                <legend>Proposed access areas</legend>
-                {config.zones
-                  .filter((z) => z.enabled)
-                  .map((z) => (
-                    <label key={z.id}>
-                      <input
-                        type="checkbox"
-                        checked={zones.includes(z.id)}
-                        onChange={() => change(setZones, zones, z.id)}
-                      />
-                      <span>
-                        {z.code ? z.code + " · " : ""}
-                        {z.label}
-                        {restrictedZones.includes(z.id) && (
-                          <small>
-                            Independent restricted approval required
-                          </small>
-                        )}
-                      </span>
-                    </label>
-                  ))}
-              </fieldset>
+              <TeamAccessRole category={category} value={teamRole} onChange={chooseRole}/>
+              <AccessChoices legend="Proposed access areas" zones={config.zones.filter(z=>z.enabled)} selected={zones} onChange={chooseZones} category={category} teamRole={teamRole}/>
+              {pmoaCheck}
               <fieldset className="ops-choices">
                 <legend>Proposed venues</legend>
                 {config.venues
@@ -354,7 +349,8 @@ function CaseDetail({ record: r, user, config, run, update, onBack }) {
                   name="conditions"
                   maxLength={500}
                   rows={3}
-                  defaultValue={p.conditions}
+                  value={conditions}
+                  onChange={e=>setConditions(e.target.value)}
                   placeholder="Assigned area, shift, escort or device conditions"
                 />
               </label>
@@ -380,10 +376,17 @@ function CaseDetail({ record: r, user, config, run, update, onBack }) {
           )}
           {canApprove && (
             <>
-              <SeatingAllocation config={config} proposal={p} value={seatingAreas} onChange={setSeatingAreas}/>
-              {seatingChanged&&<><button disabled={!!seatingProblem} onClick={()=>act('seating',{seatingAreas})}>Save permitted areas</button><p>Saving changes requires a fresh preview and, if applicable, a new restricted approval.</p></>}
-              {seatingProblem&&<p className="ops-error" role="status">{seatingProblem}</p>}
-              <button disabled={seatingChanged||!!seatingProblem} onClick={() => act("preview")}>
+              {p.accessMode==='sections'&&<form className="ops-access-review" onSubmit={e=>{e.preventDefault();act('access',{zones,venues,teamRole,conditions,pmoaEligibilityChecked:pmoaChecked});}}>
+                <TeamAccessRole category={category} value={teamRole} onChange={chooseRole}/>
+                <AccessChoices legend="Select access" zones={config.zones.filter(z=>z.enabled)} selected={zones} onChange={chooseZones} category={category} teamRole={teamRole}/>
+                <fieldset className="ops-choices"><legend>Valid at</legend>{config.venues.filter(v=>v.enabled).map(v=><label key={v.id}><input type="checkbox" checked={venues.includes(v.id)} onChange={()=>{change(setVenues,venues,v.id);setPmoaChecked(false);}}/>{v.label}</label>)}</fieldset>
+                <label>Access conditions<textarea name="conditions" rows={2} maxLength={500} value={conditions} onChange={e=>setConditions(e.target.value)}/></label>
+                {pmoaCheck}
+                <button disabled={!accessChanged||accessProblem}>Save access</button>
+                {accessChanged&&<p className="ops-caption" role="status">Save your changes before previewing or approving. Restricted access needs a fresh independent decision.</p>}
+              </form>}
+              {legacyProblem&&<p className="ops-error" role="status">Return this application for a fresh review to use section selection.</p>}
+              <button disabled={accessChanged||!!legacyProblem} onClick={() => act("preview")}>
                 Preview front & back
               </button>
               <form
@@ -396,7 +399,7 @@ function CaseDetail({ record: r, user, config, run, update, onBack }) {
                   <input type="checkbox" required />I have checked the details,
                   proposed access and badge preview.
                 </label>
-                <button className="ops-primary" disabled={seatingChanged||!!seatingProblem}>Approve</button>
+                <button className="ops-primary" disabled={accessChanged||!!legacyProblem}>Approve</button>
               </form>
             </>
           )}

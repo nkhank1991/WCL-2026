@@ -1,0 +1,12 @@
+.ops-shell .ops-access-choices {border:0;padding:0;margin:24px 0;min-width:0;display:grid;gap:8px}
+.ops-access-choices legend {font-weight:600;margin-bottom:12px}
+.ops-shell .ops-access-choices > label {display:flex;align-items:center;gap:12px;min-height:56px;padding:12px 14px;border:1px solid var(--ops-line,#d9dfe7);border-radius:12px;cursor:pointer;margin:0}
+.ops-shell .ops-access-choices input {width:18px;height:18px;min-height:18px;flex:0 0 18px;accent-color:#2870ce}
+.ops-access-code {display:grid;place-items:center;flex:0 0 28px;height:28px;border:1px solid currentColor;border-radius:7px;font-variant-numeric:tabular-nums;font-weight:600}
+.ops-access-choices small {display:block;line-height:1.5;margin-top:4px;font-size:12px}
+.ops-shell .ops-access-choices > .is-selected {border-color:#2870ce;box-shadow:inset 3px 0 #2870ce}
+.ops-access-choices label:has(input:focus-visible) {outline:2px solid #2870ce;outline-offset:3px}
+.ops-access-choices label:has(input:disabled) {cursor:default}
+.ops-access-review {margin-bottom:24px}
+@media(max-width:480px){.ops-shell .ops-access-choices > label {padding:12px;gap:10px}}
+@media(forced-colors:active){.ops-shell .ops-access-choices > .is-selected {outline:2px solid Highlight}}
