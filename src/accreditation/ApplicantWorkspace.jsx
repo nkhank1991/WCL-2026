@@ -113,6 +113,7 @@ export function ApplicantWorkspace() {
       });
       setSecret(result.token);
       setReceipt(result);
+      setNotice('Application received. Save your application number and private status link.');
       form.reset();
       setPhoto(null);
       window.scrollTo({ top: 0, behavior: "instant" });
