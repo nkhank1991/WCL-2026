@@ -36,7 +36,6 @@
 .wcl-public :is(.source-note,.archive-label,.player-archive-note) { color: var(--finish-muted); font-size: 12px; line-height: 1.65; }
 
 /* Stable navigation and a consistent, dark-text-on-orange primary action. */
-.wcl-public .utility { background: #050b19; color: #b4c4dd; border-color: #202c40; }
 .wcl-public .league-header { background: #050b19; border-bottom: 1px solid #202c40; box-shadow: none; backdrop-filter: none; }
 .wcl-public .nav-wrap { max-width: 1440px; width: calc(100% - 96px); height: 78px; }
 .wcl-public .league-header nav>a:not(.ticket-link) { font: 500 13px/1.4 Inter,sans-serif; }

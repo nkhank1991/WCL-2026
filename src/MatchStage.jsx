@@ -5,14 +5,14 @@ import {ArrowRight,MapPin,CaretDown} from '@phosphor-icons/react';
 import {teams,teamName,fixtureState,matchMoment,venueLabel} from './match-model.jsx';
 import {liveSnapshot,chaseEquation,scoreFor,eligibleMoment} from './match-live.js';
 import {useBroadcastMotion,broadcastEase} from './BroadcastGraphics.jsx';
-import logos from './data/team-logos.json';
+import {useTeams} from './cms/SiteContent.jsx';
 import {deliveryImage} from './media.js';
 import './match-stage.css';
 
 const labels={toss:'Toss',innings:'In progress',chase:'The chase','innings-break':'Innings break',result:'Result'};
 function Identity({id}){
- const [failed,setFailed]=useState(false),team=teams.find(t=>t.id===id);
- return logos[id]&&!failed?<img className="ms-crest" src={logos[id]} alt="" onError={()=>setFailed(true)}/>:<span className="ms-crest-text" aria-hidden="true">{team?.short||'TBC'}</span>;
+ const [failed,setFailed]=useState(false),team=useTeams().find(t=>t.id===id);
+ return team?.logo&&!failed?<img className="ms-crest" src={team?.logo} alt="" onError={()=>setFailed(true)}/>:<span className="ms-crest-text" aria-hidden="true">{team?.short||'TBC'}</span>;
 }
 function useMoment(match){
  const event=eligibleMoment(match);

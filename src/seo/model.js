@@ -1,14 +1,19 @@
-import source from '../data/wcl.json' with {type:'json'};
-import {teams,stories} from '../league-editorial.js';
-import {season3Players} from '../season3-roster.js';
+import originalSource from '../data/wcl.json' with {type:'json'};
+import {teams as originalTeams,stories} from '../league-editorial.js';
+import {season3Players as originalPlayers} from '../season3-roster.js';
 import {season3Matches} from '../season3-schedule.js';
 import {withArchiveFinal} from '../team-records.js';
 import {answers} from './answers.js';
 import {absoluteUrl,canonicalPath,seoConfig} from './config.js';
 
+import builtContent from '../data/cms-public.json' with {type:'json'};
+import {applyContentMetadata} from '../cms/metadata.js';
+const teams=builtContent.teams??originalTeams;
+const season3Players=builtContent.players??originalPlayers;
+const source={...originalSource,videos:builtContent.videos??originalSource.videos};
 const team = id => teams.find(t => t.id === id);
 const teamName = id => team(id)?.name || 'Qualifier';
-const allMatches = [...season3Matches,...source.matches].map(withArchiveFinal);
+const allMatches = (builtContent.fixtures??[...season3Matches,...source.matches]).map(withArchiveFinal);
 const shareImage = '/assets/wcl-approved-lineup.webp';
 const staticPages = {
   '/':['WCL | World Championship of Legends Cricket','World Championship of Legends cricket: discover seven teams, the UAE 2026 Season 3 schedule, India vs Pakistan, players and WCL highlights.','Home'],
@@ -29,7 +34,6 @@ const staticPages = {
   '/cookies':['Cookies & Browser Storage | WCL','Understand WCL browser preferences, local storage and third-party media services, and manage locally saved WCL preferences.','Cookies & storage'],
   '/terms':['Website Terms of Use | WCL','Read the terms for using the World Championship of Legends website, its editorial content, media links and contact services.','Terms of use'],
   '/india-vs-pakistan':['India vs Pakistan WCL 2026 | Date, Time & Match Guide','India Champions vs Pakistan Champions: 10 October 2026 at 19:30 UAE time. Explore the WCL fixture, team lists and the verified 2024 final.','India vs Pakistan'],
-  '/sitemap':['Explore WCL | Teams, Players, Fixtures & Stories','Find your way around WCL: all teams, listed players, fixtures, highlights, stories and essential information in one directory.','Explore WCL'],
   '/news/the-uae-stage':['The UAE Stage | WCL Destination Guide','Explore Dubai and Sharjah through credited destination films and discover the setting for the next World Championship of Legends chapter.','The UAE stage'],
 };
 export const publicRoutes = [
@@ -106,19 +110,9 @@ export function pageMetadata(input, config = seoConfig) {
     isPartOf:{'@id':absoluteUrl('/#website')},publisher:{'@id':organization['@id']},
     ...(extra.length?{about:{'@id':extra[0]['@id']}}:{}),
     ...(path==='/faq'?{mainEntity:answers.map(a=>({'@type':'Question',name:a.q,acceptedAnswer:{'@type':'Answer',text:a.a}}))}:{})};
-  const graph=known?[organization,{'@type':'WebSite','@id':absoluteUrl('/#website'),url:absoluteUrl('/'),name:'World Championship of Legends',alternateName:'WCL',inLanguage:'en',publisher:{'@id':organization['@id']}},webPage,...extra]:[];
+  const graph=known?[organization,{'@type':'WebSite','@id':absoluteUrl('/#website'),url:absoluteUrl('/'),name:'World Championship of Legends',alternateName:'WCL',inLanguage:'en',creator:{'@type':'Person',name:'Nayeem Khan'},publisher:{'@id':organization['@id']}},webPage,...extra]:[];
   if(known&&breadcrumbs.length)graph.push({'@type':'BreadcrumbList','@id':canonical+'#breadcrumbs',itemListElement:breadcrumbs.map((c,i)=>({'@type':'ListItem',position:i+1,name:c.name,item:absoluteUrl(c.path)}))});
-  return {path,known,title,description,canonical,image:absoluteUrl(image),imageAlt:'World Championship of Legends',breadcrumbs,
+  return applyContentMetadata({path,known,title,description,canonical,image:absoluteUrl(image),imageAlt:'World Championship of Legends',breadcrumbs,
     robots:indexable?'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1':'noindex, follow',
-    graph:{'@context':'https://schema.org','@graph':graph}};
-}
-export function directoryGroups(){
-  return [
-    {title:'Tournament & information',items:Object.keys(staticPages).filter(p=>p!=='/sitemap'&&!p.startsWith('/news/')).map(path=>({path,label:staticPages[path][2]}))},
-    {title:'Teams',items:teams.map(t=>({path:'/teams/'+t.id,label:t.name+' Champions'}))},
-    ...teams.map(t=>({title:t.name+' players',items:season3Players.filter(p=>p.team===t.id).map(p=>({path:'/players/'+p.id,label:p.name}))})),
-    ...[3,2,1].map(season=>({title:'Season '+season+' fixtures',items:allMatches.filter(m=>m.season===season).map(m=>({path:'/matches/'+m.id,label:pageMetadata('/matches/'+m.id).title.replace(/ \| WCL/,' · WCL')}))})),
-    {title:'WCL TV',items:source.videos.map(v=>({path:'/watch/'+v.id,label:v.title}))},
-    {title:'Editorial',items:[...stories.map(s=>({path:'/news/'+s.id,label:s.title})),{path:'/news/the-uae-stage',label:'The UAE stage'}]},
-  ];
+    graph:{'@context':'https://schema.org','@graph':graph}},builtContent);
 }

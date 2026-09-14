@@ -1,10 +1,10 @@
 # WCL 2026
 
-Public website for the World Championship of Legends, built with React, Vite and a Vercel contact function. The approved canonical address is https://www.wclcricket.com.
+Public website for the World Championship of Legends, built with React, Vite and isolated Vercel API functions. The approved canonical address is https://www.wclcricket.com.
 
 ## Development
 
-Use Node.js 24. Run `npm ci`, then `npm run dev`. `npm run build` creates the public site in `dist/client`, including 223 prerendered public pages. Run `npm test` after building.
+Use Node.js 24. Run `npm ci`, then `npm run dev`. `npm run build` creates the public site in `dist/client`, including 222 prerendered public pages. Run `npm test` after building.
 
 ## Release boundaries
 

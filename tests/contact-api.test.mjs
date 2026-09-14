@@ -51,7 +51,7 @@ test('provider failure, quota and uncertain response never return a false succes
   for(const [options,status] of [[{status:403},502],[{status:429},429],[{receipt:{}},502],[{fail:true},502]]){const f=await fixture(t,options);const r=await f.request();assert.equal(r.status,status);assert(!r.body.ok);assert(!JSON.stringify(r).includes('secret-provider-error'));if(status===429)assert.equal(r.headers.get('retry-after'),'60');}
 });
 test('Vercel entry is isolated; static public pages and private-only rewrites exclude the contact API',()=>{
-  const config=JSON.parse(readFileSync('vercel.json','utf8'));assert.equal(config.outputDirectory,'dist/client');assert.equal(config.cleanUrls,true);assert.deepEqual(config.rewrites.map(r=>r.source),['/admin/:path*','/accreditation/:path*']);assert(config.rewrites.every(r=>r.destination==='/private-shell'));assert(config.functions['api/contact.js']);assert(!readFileSync('api/contact.js','utf8').includes('server/index'));
+  const config=JSON.parse(readFileSync('vercel.json','utf8'));assert.equal(config.outputDirectory,'dist/client');assert.equal(config.cleanUrls,true);assert.deepEqual(config.rewrites.filter(r=>!r.source.startsWith('/api/')).map(r=>r.source),['/admin/:path*','/accreditation/:path*']);assert(config.rewrites.filter(r=>!r.source.startsWith('/api/')).every(r=>r.destination==='/private-shell'));assert(config.functions['api/contact.js']);assert(!readFileSync('api/contact.js','utf8').includes('server/index'));
 });
 test('pre-parsed Vercel requests use the same validation and body limits',async()=>{
   const handler=createContactHandler({env,fetcher:async url=>new Response(JSON.stringify(url.includes('siteverify')?{success:true,hostname:'wcl.example',action:'contact'}:{id:'test-only'}))});

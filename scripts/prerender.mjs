@@ -37,7 +37,7 @@ function documentFor(route,{shell=false}={}){
         el.attr('style',style.replace(/(?:^|;)opacity:0(?=;|$)/,';opacity:1').replace(/(?:^|;)transform:[^;]+/g,''));
       }
     });
-    $('body').append('<noscript><p style="padding:16px;text-align:center;background:#0d1b30;color:#fff">Enable JavaScript for interactive filters and media. You can still browse every page through the <a style="color:#ff8b4a" href="/sitemap">WCL directory</a>.</p></noscript>');
+    $('body').append('<noscript><p style="padding:16px;text-align:center;background:#0d1b30;color:#fff">Enable JavaScript for interactive filters and media. Browse <a style="color:#ff8b4a" href="/teams">teams</a> and <a style="color:#ff8b4a" href="/matches">fixtures</a> without JavaScript.</p></noscript>');
   }
   return $.html();
 }
@@ -54,6 +54,6 @@ await writeFile(path.join(out,'robots.txt'),'# WCL public search access. robots.
 await writeFile(path.join(out,'sitemap.xml'),'<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'+publicRoutes.map(p=>'  <url><loc>'+escape(SITE_ORIGIN+(p==='/'?'/':p))+'</loc></url>').join('\n')+'\n</urlset>\n');
 // Optional plain-text discovery file; not a ranking signal or a substitute for HTML.
 await writeFile(path.join(out,'llms.txt'),'# World Championship of Legends\n\n> WCL cricket: seven national teams, Season 3 scheduled in the UAE for 3–18 October 2026, and archives of Seasons 1 and 2. Check individual pages for current published information.\n\n## Public information\n'+[
- ['Tournament dates and schedule','/season'],['Teams','/teams'],['Players by team','/players'],['Fixtures and verified results','/matches'],['India vs Pakistan','/india-vs-pakistan'],['Official highlights library','/watch'],['Frequently asked questions','/faq'],['Full page directory','/sitemap'],['Contact','/contact'],['Privacy','/privacy']
+ ['Tournament dates and schedule','/season'],['Teams','/teams'],['Players by team','/players'],['Fixtures and verified results','/matches'],['India vs Pakistan','/india-vs-pakistan'],['Official highlights library','/watch'],['Frequently asked questions','/faq'],['Contact','/contact'],['Privacy','/privacy']
 ].map(([label,p])=>'- ['+label+']('+SITE_ORIGIN+p+')').join('\n')+'\n\nListed players are not confirmed match squads. Archive schedules without verified results do not establish a score. Fixture times are UAE time (UTC+4) when labelled as such. Media playback depends on its publisher.\n');
 console.log('Prerendered '+publicRoutes.length+' canonical public pages, plus private shell, My WCL and 404. Search indexing: '+(config.indexable?'ENABLED':'DISABLED (preview-safe)'));

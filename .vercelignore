@@ -1,4 +1,4 @@
-# Only the public Vite site and isolated contact API belong on Vercel.
+# Public frontend, isolated gateways and build-time content validation only.
 .git
 .env
 .env.*
@@ -6,6 +6,7 @@ node_modules
 dist
 server/*
 !server/policy.mjs
+!server/cms-content.mjs
 private-inputs
 docs
 deliverables

@@ -4,14 +4,14 @@ import {motion} from 'motion/react';
 import {ArrowUpRight,ArrowLeft,ArrowRight} from '@phosphor-icons/react';
 import {useFilmMotion} from './Cinematic.jsx';
 import {deliveryImage} from './media.js';
-import {teams} from './match-model.jsx';
-import logos from './data/team-logos.json';
+import {useTeams} from './cms/SiteContent.jsx';
 import {useBroadcastMotion,broadcastEase} from './BroadcastGraphics.jsx';
 const MotionLink=motion.create(Link);
 
 export function PlayerCard({player}){
- const team=teams.find(t=>t.id===player.team);
+ const team=useTeams().find(t=>t.id===player.team);
  const [failed,setFailed]=useState(false);
+ useEffect(()=>setFailed(false),[player.image]);
  const {spatial}=useBroadcastMotion();
  const lowerThird=delay=>({hidden:{opacity:0,x:spatial?-8:0},shown:{opacity:1,x:0,transition:{duration:spatial?.28:.15,delay:spatial?delay:0,ease:broadcastEase}}});
  return <motion.article layout={spatial?'position':false} initial="hidden" whileInView="shown" variants={lowerThird(0)} viewport={{once:true,amount:.12}} className="player-card player-profile-card" style={{'--club':team?.color||'#185bff'}}>
@@ -22,7 +22,7 @@ export function PlayerCard({player}){
    </div>
    <div className="player-caption"><motion.h3 variants={lowerThird(.08)}>{player.name}</motion.h3><motion.small variants={lowerThird(.14)}>{player.role}</motion.small></div>
   </Link>
-  {team&&<MotionLink variants={lowerThird(.18)} className="player-team-strip" to={'/teams/'+team.id+'?season=3'} aria-label={'Explore '+team.name+' Champions'}>{logos[team.id]?<img src={logos[team.id]} alt="" loading="lazy"/>:<span className="player-team-code" aria-hidden="true">{team.short}</span>}<span>{team.name}<small>Champions · Season 3</small></span><ArrowUpRight/></MotionLink>}
+  {team&&<MotionLink variants={lowerThird(.18)} className="player-team-strip" to={'/teams/'+team.id+'?season=3'} aria-label={'Explore '+team.name+' Champions'}>{team.logo?<img src={team.logo} alt="" loading="lazy"/>:<span className="player-team-code" aria-hidden="true">{team.short}</span>}<span>{team.name}<small>Champions · Season 3</small></span><ArrowUpRight/></MotionLink>}
  </motion.article>;
 }
 

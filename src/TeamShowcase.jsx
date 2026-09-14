@@ -3,7 +3,8 @@ import {Link} from 'react-router-dom';
 import {motion} from 'motion/react';
 import {ArrowLeft,ArrowRight,ArrowUpRight,InstagramLogo,Trophy} from '@phosphor-icons/react';
 import {deliveryImage} from './media.js';
-import {teamInstagram} from './SocialLinks.jsx';
+import {useTeamInstagram} from './SocialLinks.jsx';
+import {useTeams} from './cms/SiteContent.jsx';
 import {broadcastEase,useBroadcastMotion} from './BroadcastGraphics.jsx';
 import {captainAppointments,recordSources,teamRecord} from './team-records.js';
 
@@ -19,7 +20,9 @@ export function TeamRecord({id,season}) {
 }
 
 export function TeamCard({team,season,index=0}) {
+ const resolved=useTeams().find(t=>t.id===team.id);team={...team,...resolved};const instagram=useTeamInstagram(team.id);
  const {spatial}=useBroadcastMotion(),[failed,setFailed]=useState(false),[crestFailed,setCrestFailed]=useState(false);
+ useEffect(()=>{setFailed(false)},[team.image]);useEffect(()=>{setCrestFailed(false)},[team.logo]);
  const appointment=captainAppointments[team.id],captain=appointment?.name===team.legend;
  return <motion.article className="tc-card" data-team={team.id} style={{'--tc-colour':team.color}}
   initial={spatial?{opacity:0,y:16}:false} whileInView={{opacity:1,y:0}} viewport={{once:true,amount:.15}}
@@ -32,7 +35,7 @@ export function TeamCard({team,season,index=0}) {
    <div className="tc-identity"><span className="tc-code">{team.short}</span>{team.logo&&!crestFailed?<img src={team.logo} alt={team.name+' Champions crest'} onError={()=>setCrestFailed(true)}/>:null}</div>
    <h3><Link to={'/teams/'+team.id}>{team.name}{' '}<span>Champions</span></Link></h3>
    <TeamRecord id={team.id} season={season}/>
-   <div className="tc-actions"><Link to={'/teams/'+team.id} aria-label={'Explore '+team.name+' Champions'}>Explore team <ArrowRight/></Link><a href={teamInstagram[team.id]} target="_blank" rel="noopener noreferrer" aria-label={team.name+' Champions on Instagram (opens in a new tab)'}><InstagramLogo size={19}/></a></div>
+   <div className="tc-actions"><Link to={'/teams/'+team.id} aria-label={'Explore '+team.name+' Champions'}>Explore team <ArrowRight/></Link>{instagram&&<a href={instagram} target="_blank" rel="noopener noreferrer" aria-label={team.name+' Champions on Instagram (opens in a new tab)'}><InstagramLogo size={19}/></a>}</div>
   </div>
  </motion.article>;
 }

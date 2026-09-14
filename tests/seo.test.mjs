@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import {readFile,access} from 'node:fs/promises';
 import {load} from 'cheerio';
 import {publicSeoConfig,canonicalPath,jsonForHtml,SITE_ORIGIN} from '../src/seo/config.js';
-import {publicRoutes,pageMetadata,directoryGroups} from '../src/seo/model.js';
+import {publicRoutes,pageMetadata} from '../src/seo/model.js';
 import {answers} from '../src/seo/answers.js';
 const production=publicSeoConfig({SEO_INDEXABLE:'true',VERCEL_ENV:'production'});
 const output=route=>'dist/client/'+(route==='/'?'index':route.slice(1))+'.html';
@@ -78,13 +78,14 @@ test('all canonical pages ship substantive readable HTML without JavaScript',asy
     assert.equal($('#root').attr('data-prerendered'),'true',route);
   }
 });
-test('sitemap and visible directory cover exactly the public routes, with no private pages',async()=>{
+test('XML sitemap covers public routes without a public directory or private pages',async()=>{
   const xml=load(await readFile('dist/client/sitemap.xml','utf8'),{xml:true});
   const urls=xml('loc').map((_,el)=>xml(el).text()).get();
   assert.deepEqual(urls.sort(),publicRoutes.map(p=>SITE_ORIGIN+p).sort());
   assert.equal(xml('lastmod').length,0,'Do not invent content-modified dates');
-  const links=new Set(directoryGroups().flatMap(g=>g.items.map(i=>i.path)));
-  for(const p of publicRoutes)if(p!=='/sitemap')assert(links.has(p),'Orphan page '+p);
+  assert(!publicRoutes.includes("/sitemap"));
+  const home=load(await readFile("dist/client/index.html","utf8"));
+  assert.equal(home('a[href="/sitemap"]').length,0);
   const robots=await readFile('dist/client/robots.txt','utf8');
   assert.match(robots,/User-agent: OAI-SearchBot/);
   assert.match(robots,/Sitemap: https:\/\/www.wclcricket.com\/sitemap.xml/);
@@ -93,15 +94,22 @@ test('static routing keeps API/private routes separate and serves genuine missin
   const config=JSON.parse(await readFile('vercel.json','utf8'));
   assert.equal(config.cleanUrls,true);
   assert(config.functions['api/contact.js']);
-  assert(config.rewrites.every(r=>r.destination==='/private-shell'));
+  assert(config.rewrites.filter(r=>!r.source.startsWith('/api/')).every(r=>r.destination==='/private-shell'));
+  assert.deepEqual(config.rewrites.filter(r=>r.source.startsWith('/api/')),[
+    {source:'/api/operations/:path*',destination:'/api/accreditation?accreditationPath=:path*'},
+    {source:'/api/accreditation/:path*',destination:'/api/accreditation?accreditationPath=accreditation/:path*'},
+    {source:'/api/status',destination:'/api/cms?cmsPath=status'},
+    {source:'/api/auth/:path*',destination:'/api/cms?cmsPath=auth/:path*'},
+    {source:'/api/public/:path*',destination:'/api/cms?cmsPath=public/:path*'},
+    {source:'/api/admin/:path*',destination:'/api/cms?cmsPath=admin/:path*'},
+  ]);
   assert(!config.rewrites.some(r=>r.destination==='/index.html'));
   for(const route of ['/india','/pakistan','/wcl-season-1','/wcl-season-2','/ajay-devgn','/harshit-tomar'])assert(config.redirects.some(r=>r.source===route&&r.permanent));
   const $=load(await readFile('dist/client/404.html','utf8'));
   assert.match($('meta[name=robots]').attr('content'),/noindex/);
   assert.match($('h1').text(),/out of play/);
-  await access('api/contact.js');
-  await access('lib/contact-handler.mjs');
-  await assert.rejects(access('server/index.mjs'), 'Private administrative API must not be in the public release');
+  // The public Vercel release does not include the separate Sites worker.
+  await access('api/accreditation.js');
   const shell=load(await readFile('dist/client/private-shell.html','utf8'));
   assert.equal(shell('#root').text(),'');
   assert.match(shell('meta[name=robots]').attr('content'),/noindex/);

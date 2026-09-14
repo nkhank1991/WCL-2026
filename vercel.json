@@ -8,9 +8,39 @@
   "functions": {
     "api/contact.js": {
       "maxDuration": 30
+    },
+    "api/cms.js": {
+      "maxDuration": 30
+    },
+    "api/accreditation.js": {
+      "maxDuration": 30
     }
   },
   "rewrites": [
+    {
+      "source": "/api/operations/:path*",
+      "destination": "/api/accreditation?accreditationPath=:path*"
+    },
+    {
+      "source": "/api/accreditation/:path*",
+      "destination": "/api/accreditation?accreditationPath=accreditation/:path*"
+    },
+    {
+      "source": "/api/status",
+      "destination": "/api/cms?cmsPath=status"
+    },
+    {
+      "source": "/api/auth/:path*",
+      "destination": "/api/cms?cmsPath=auth/:path*"
+    },
+    {
+      "source": "/api/public/:path*",
+      "destination": "/api/cms?cmsPath=public/:path*"
+    },
+    {
+      "source": "/api/admin/:path*",
+      "destination": "/api/cms?cmsPath=admin/:path*"
+    },
     {
       "source": "/admin/:path*",
       "destination": "/private-shell"

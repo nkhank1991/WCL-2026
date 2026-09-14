@@ -51,7 +51,14 @@ export const archiveFinals = {
 };
 export function withArchiveFinal(match) {
   const final = archiveFinals[match.id];
-  if (!final || match.status !== 'Archive schedule' || match.verificationStatus === 'verified'
-    || Number(match.season) !== final.season || JSON.stringify(match.teams) !== JSON.stringify(final.teams)) return match;
+  if (!final || Number(match.season) !== final.season
+    || JSON.stringify(match.teams) !== JSON.stringify(final.teams)) return match;
+  // Older published snapshots retained the verified score but dropped these two
+  // fields. Restore only missing metadata for an exact, unchanged sourced result.
+  if (match.status === 'Completed' && match.verificationStatus === 'verified'
+    && match.result === final.result && JSON.stringify(match.scores) === JSON.stringify(final.scores)) {
+    return {...match, winner: match.winner ?? final.winner, scoreSource: match.scoreSource ?? final.scoreSource};
+  }
+  if (match.status !== 'Archive schedule' || match.verificationStatus === 'verified') return match;
   return {...match, ...final, status:'Completed', verificationStatus:'verified'};
 }

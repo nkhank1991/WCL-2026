@@ -1,3 +1,4 @@
+import {accessSections} from '../lib/access-sections.mjs';
 export const roles=['Owner','Administrator','Editor','Publisher','Media Manager','Analyst','Accreditation Manager','Gate Operator'];
 export const permissions={
  Owner:['*'],Administrator:['content:read','content:write','content:publish','media:write','accred:read','accred:write','accred:approve','accred:scan','config:write','audit:read'],
@@ -18,21 +19,29 @@ export const categories=[
 export const defaultAccreditationConfig={
  intake:{enabled:false,privacyNoticeUrl:'',contactEmail:'',consentVersion:''},
  season:'2026',categories,
- zones:[{id:'FOP',label:'Field of play',enabled:false},{id:'DRESS',label:'Dressing rooms',enabled:false},{id:'MEDIA',label:'Media box',enabled:false},{id:'BROADCAST',label:'Broadcast compound',enabled:false},{id:'OPS',label:'Operations',enabled:false},{id:'LOUNGE',label:'Pitch Lounge',enabled:false}],
+ zones:[...accessSections,{id:'FOP',label:'Field of play',enabled:false},{id:'DRESS',label:'Dressing rooms',enabled:false},{id:'MEDIA',label:'Media box',enabled:false},{id:'BROADCAST',label:'Broadcast compound',enabled:false},{id:'OPS',label:'Operations',enabled:false},{id:'LOUNGE',label:'Pitch Lounge',enabled:false}],
  venues:[],widthMm:85,heightMm:120,backText:'Personal, non-transferable accreditation. Access is limited to the dates, venue and zones approved for this credential. Follow the instructions of venue security. Report a lost pass to WCL accreditation immediately.',
  reviewNotice:'Historical PDF colour categories are references, not Season 3 access approvals. Venue and zone mappings require event-security sign-off.'
 };
-export const collections=['hero','news','brands','leadership','players','teams','fixtures','pages','navigation','footer','seasons','records','videos','tickets','experience','social','seo'];
+export const collections=['hero','news','brands','leadership','players','teams','fixtures','pages','navigation','footer','seasons','records','videos','tickets','experience','social','seo','identity','reels'];
 const publicFields={
- hero:'id label tag title line copy supportingCopy chapter role source action to secondary secondaryTo facts note image alt players videoId visible order',
+ hero:'id label tag title line copy mobileCopy supportingCopy chapter role source action to secondary secondaryTo facts note image alt players videoId visible order',
  news:'id sourceItem sourceUrl title summary sourceName contentType category team season publishedAt thumbnail imageAlt imageCredit featured verificationStatus order',
  players:'id name team role image headshot participation campaign portraitVariants portraitReviewStatus order',
- fixtures:'id season number label teams participants date time timeZone startsAt venue source sourceLabel stage status verificationStatus result scores order',
+ fixtures:'id season number label teams participants date time timeZone startsAt venue source sourceLabel stage status verificationStatus result scores winner scoreSource order',
  brands:'id name image source sourceImage association season category order',
  leadership:'id name role image source copy facts order',
  videos:'id title thumbnail season source url teams order',
  tickets:'id matchId label title verificationStatus availability bookingUrl provider venue priceLabel category order',
- experience:'id label motionEnabled brandMotion brandDuration revealDuration'
+ experience:'id label motionEnabled brandMotion brandDuration revealDuration',
+ teams:'id name short color image logo legend order',
+ identity:'id name logo logoAlt favicon copyright tagline contactEmail',
+ social:'id label platform team url visible order',
+ reels:'id title sourceUrl sourceName team season contentType thumbnail imageAlt publishedAt order',
+ navigation:'id label to primary visible order',
+ footer:'id title links order',
+ pages:'id path title tag intro updatedAt sections order',
+ seo:'id path title description image imageAlt noindex order'
 };
 export function publicPayload(collection,payload){const fields=(publicFields[collection]||'id title name label summary body image alt to order').split(' ');return Object.fromEntries(fields.filter(key=>payload[key]!==undefined).map(key=>[key,payload[key]]));}
 export function validatePayload(collection,payload){
@@ -55,6 +64,8 @@ export function validatePayload(collection,payload){
   if(![1,2,3].includes(Number(payload.season))||payload.teams.length>2||new Set(payload.teams).size!==payload.teams.length||payload.teams.some(id=>!teamIds.includes(id)))throw Object.assign(Error('Choose a valid season and up to two distinct WCL teams.'),{status:400});
   if(payload.startsAt&&!Number.isFinite(Date.parse(payload.startsAt)))throw Object.assign(Error('Match start must be a valid date/time.'),{status:400});
   if(payload.scores&&(!Array.isArray(payload.scores)||payload.scores.length>2||payload.scores.some(s=>typeof s!=='string')))throw Object.assign(Error('Scores must be up to two verified text summaries.'),{status:400});
+  if(payload.winner && !payload.teams.includes(payload.winner))throw Object.assign(Error('The winner must be one of this fixture’s teams.'),{status:400});
+  if(payload.scoreSource && !/^https:\/\/[^\s<>"'\\]+$/.test(payload.scoreSource))throw Object.assign(Error('Use an HTTPS scorecard source.'),{status:400});
  }
  if(collection==='players'&&!teamIds.includes(payload.team))throw Object.assign(Error('Choose a WCL team.'),{status:400});
  if(collection==='hero'&&payload.players&&(!Array.isArray(payload.players)||payload.players.length>3||payload.players.some(p=>!p.name||!p.team||!/^(https:\/\/[^\s]+|\/(?!\/)[^\s]*)$/.test(p.image||''))))throw Object.assign(Error('Hero portraits need a name, team and safe image URL; maximum three portraits per story.'),{status:400});

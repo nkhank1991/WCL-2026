@@ -4,12 +4,13 @@ import {motion,AnimatePresence} from 'motion/react';
 import {ArrowUpRight,CalendarBlank,ArrowLeft,ArrowRight} from '@phosphor-icons/react';
 import {SignatureSweep,FixtureStrip,useBroadcastMotion,broadcastEase} from './BroadcastGraphics.jsx';
 import {teams,teamName,fixtureState} from './match-model.jsx';
-import logos from './data/team-logos.json';
+import {useTeams} from './cms/SiteContent.jsx';
 
 const dayKey=match=>match.startsAt?.slice(0,10);
 const dateLabel=day=>new Intl.DateTimeFormat('en-GB',{weekday:'short',day:'2-digit',month:'long',timeZone:'Asia/Dubai'}).format(new Date(day+'T12:00:00+04:00'));
 
 export function HeroSchedule({matches=[]}){
+ const logos=Object.fromEntries(useTeams().map(t=>[t.id,t.logo]));
  const fixtures=matches.filter(m=>Number(m.season)===3&&Number.isFinite(Date.parse(m.startsAt))).sort((a,b)=>Date.parse(a.startsAt)-Date.parse(b.startsAt));
  const days=[...new Set(fixtures.map(dayKey))];
  const [selected,setSelected]=useState(null);

@@ -1,0 +1,237 @@
+/* Mobile reading layer. The approved desktop composition is intentionally untouched. */
+.wcl-public :is(.story-description-mobile,.mobile-story-toggle,.mobile-filter-toggle,.mobile-footer-toggle,.mobile-record-toggle) { display:none; }
+.wcl-public .mobile-footer-links { display:contents; }
+.wcl-public .mobile-spotlight-browse { display:none; }
+
+@media (max-width:700px) {
+  /* More space between ideas; less repeated copy within each idea. */
+  .wcl-public .section { padding-block:52px; }
+  .wcl-public .section-title { gap:16px; margin-bottom:26px; align-items:flex-end; }
+  .wcl-public .section-title>div { min-width:0; }
+  .wcl-public .section-title h2 { font-size:32px; line-height:1.08; text-wrap:balance; }
+  .wcl-public .section-title>a { flex-shrink:0; max-width:104px; min-height:44px; font-size:12px; line-height:1.4; gap:8px; align-items:center; }
+  .wcl-public :is(.kicker,.mc-eyebrow) { font-size:10px; line-height:1.6; letter-spacing:.09em; margin-bottom:12px; }
+  .wcl-public .page-title { padding:28px 0; }
+  .wcl-public .page-title h1 { font-size:42px; line-height:1.06; margin-bottom:16px; }
+  .wcl-public .page-title p:not(.kicker) { font-size:15px; line-height:1.65; margin-bottom:0; max-width:40ch; }
+  .wcl-public :is(input,select,textarea) { font-size:16px; }
+  .wcl-public :is(.team-pills,.league-tabs) { gap:8px; }
+  .wcl-public .team-pills button { min-height:44px; padding-inline:16px; font-size:12px; }
+
+  /* Complete facts and both actions remain visible. No fixed-height text masks. */
+  .wcl-public .wcl-story-hero .story-scene { min-height:0; height:auto; padding:28px 20px 24px; gap:24px; }
+  .wcl-public .wcl-story-hero .hero-story-copy { width:100%; padding:0; min-height:0; }
+  .wcl-public .wcl-story-hero .story-season :is(.story-kicker,.story-description,.story-actions,.story-facts) { margin-inline:0!important; }
+  .wcl-public .wcl-story-hero .story-season h1 { padding-inline:0; }
+  .wcl-public .wcl-story-hero h1 { font-size:clamp(40px,12vw,64px)!important; line-height:1.03!important; margin:0 0 18px; padding:0; }
+  .wcl-public .wcl-story-hero .story-kicker { font-size:10px; line-height:1.5; letter-spacing:.08em; margin:0 0 16px; gap:10px; }
+  .wcl-public .wcl-story-hero .hero-story-chapter { display:none; }
+  .wcl-public .wcl-story-hero .hero-story-role { font-size:14px; margin:0 0 12px; }
+  .wcl-public .wcl-story-hero .story-description { font-size:15px!important; line-height:1.6; margin:0; max-width:42ch!important; }
+  .wcl-public .hero-story-copy[data-mobile-summary=true] .story-description-mobile { display:block; }
+  .wcl-public .hero-story-copy[data-mobile-summary=true][data-mobile-expanded=false] :is(.story-description-full,.hero-supporting-copy,.hero-biography-source) { display:none; }
+  .wcl-public .hero-story-copy[data-mobile-expanded=true] .story-description-mobile { display:none; }
+  .wcl-public .wcl-story-hero .hero-supporting-copy { margin-top:12px; }
+  .wcl-public .mobile-story-toggle { display:inline-flex; align-items:center; gap:8px; min-height:44px; padding:6px 0; border:0; background:none; font:500 12px/1.4 Inter,sans-serif; color:#b7c9e2; }
+  .wcl-public .mobile-story-toggle svg { width:14px; height:14px; }
+  .wcl-public .mobile-story-toggle[aria-expanded=true] svg { transform:rotate(180deg); }
+  .wcl-public .wcl-story-hero .story-actions { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); align-items:stretch; gap:12px; margin:10px 0 0; }
+  .wcl-public .wcl-story-hero .story-actions>a { width:auto; min-width:0; min-height:48px; padding:12px 10px; font-size:12px; line-height:1.4; gap:8px; justify-content:space-between; white-space:normal; }
+  .wcl-public .wcl-story-hero .story-actions svg { width:16px; height:16px; flex-shrink:0; }
+  .wcl-public .wcl-story-hero .story-facts { margin:22px 0 0!important; padding:18px 0 0; gap:14px; grid-template-columns:repeat(3,minmax(0,1fr)); }
+  .wcl-public .wcl-story-hero .story-facts>div { grid-template-rows:minmax(26px,auto) auto; gap:6px; }
+  .wcl-public .wcl-story-hero .story-facts dt { font:700 20px/1.25 Inter,sans-serif; overflow-wrap:normal; }
+  .wcl-public .wcl-story-hero .story-facts dt[data-compact] { font-size:15px; line-height:1.6; }
+  .wcl-public .wcl-story-hero .story-facts dd { font:400 12px/1.5 Inter,sans-serif; }
+  .wcl-public .wcl-story-hero .hero-biography-source { margin-top:16px; font-size:12px; }
+  .wcl-public .wcl-story-hero .story-season .rivalry-stage { margin-top:0; }
+  .wcl-public .wcl-story-hero .hero-about-team { padding:22px 18px; }
+  .wcl-public .hero-about-team>h3,.wcl-public .hero-leadership-credit { display:none; }
+  .wcl-public .wcl-story-hero .hero-about-team h2 { font-size:26px; }
+
+  /* A portrait, a name and one clear action. Repeated fields live on the profile. */
+  .wcl-public .spotlight-grid { gap:22px; }
+  .wcl-public .spotlight-portrait { height:360px; }
+  .wcl-public .spotlight-bio :is(.kicker,.spotlight-role,.spotlight-description,.player-facts,.archive-label) { display:none; }
+  .wcl-public .spotlight-bio h2 { margin:0 0 18px; font-size:34px; line-height:1.1; }
+  .wcl-public .spotlight-bio .btn { min-height:46px; padding:12px 18px; font-size:13px; }
+  .wcl-public .spotlight-picker { padding-top:4px; }
+  .wcl-public .spotlight-picker button { min-height:76px; }
+  .wcl-public .player-rail-heading { gap:12px; margin-block:16px; }
+  .wcl-public .player-rail-heading>p { display:none; }
+  .wcl-public .player-rail-heading .rail-controls { margin-left:auto; }
+  .wcl-public .team-roster-intro { flex-direction:row; align-items:center; gap:16px; margin-bottom:24px; }
+  .wcl-public .team-roster-intro>div { flex:1; min-width:0; }
+  .wcl-public .team-roster-intro p { font-size:14px; line-height:1.6; margin:0; }
+  .wcl-public .team-roster-intro>div>span { display:none; }
+  .wcl-public .team-roster-intro .select-label { width:164px; min-width:0; flex-shrink:0; }
+  .wcl-public .team-roster-intro select { font-size:14px; padding-inline:10px; }
+  .wcl-public .team-roster-list { gap:16px; }
+  .wcl-public .team-roster-toggle { gap:10px 16px; padding:20px 18px; }
+  .wcl-public .team-roster-name small { letter-spacing:.03em; }
+  .wcl-public .team-roster-content { padding:0 16px 24px; }
+  .wcl-public .team-roster-toolbar { padding-block:22px; gap:16px; }
+  .wcl-public .team-roster-content .players-grid { gap:20px 12px; }
+  .wcl-public .team-roster-content .player-team-strip small { display:none; }
+  .wcl-public .team-roster-content .player-team-strip { min-height:44px; }
+
+  /* Two primary filters; optional date/search. Active secondary filters stay signposted. */
+  .wcl-public .match-broadcast .mc-header { gap:16px; margin-bottom:24px; align-items:flex-start; }
+  .wcl-public .match-broadcast .mc-header :is(h1,h2) { font-size:36px; }
+  .wcl-public .match-broadcast .mc-header-note { font-size:11px; line-height:1.6; padding-top:4px; }
+  .wcl-public .match-broadcast .mc-toolbar { gap:12px; padding-bottom:24px; }
+  .wcl-public .match-broadcast .mc-filters { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:12px; width:100%; }
+  .wcl-public .match-broadcast .mc-filters label { gap:8px; font-size:12px; }
+  .wcl-public .match-broadcast .mc-filters select { width:100%; min-width:0; min-height:48px; font-size:14px; padding:10px 24px 10px 12px; }
+  .wcl-public .mobile-filter-toggle { display:flex; grid-column:1/-1; align-items:center; gap:10px; min-height:44px; padding:6px 0; border:0; background:none; color:#b7c9e2; font:500 12px/1.4 Inter,sans-serif; text-align:left; }
+  .wcl-public .mobile-filter-toggle>span { margin-left:auto; color:#ff9b64; }
+  .wcl-public .mobile-filter-toggle svg { width:15px; height:15px; }
+  .wcl-public .mobile-filter-toggle[aria-expanded=true] svg { transform:rotate(180deg); }
+  .wcl-public .mc-filters .mc-extra-filter { grid-column:1/-1; }
+  .wcl-public .mc-toolbar[data-extra-filters=false] :is(.mc-extra-filter,.mc-search) { display:none; }
+  .wcl-public .match-broadcast .mc-search { width:100%; min-height:48px; }
+  .wcl-public .match-broadcast .mc-search input { font-size:16px; }
+  .wcl-public .mc-list-bar { gap:14px; padding-block:24px; }
+  .wcl-public .mc-view-filter { width:100%; display:flex; }
+  .wcl-public .mc-view-filter button { min-height:44px; flex:1; padding-inline:12px; font-size:12px; }
+  .wcl-public .mc-date-group { margin-top:22px; }
+  .wcl-public .mc-date-group h2 { padding-block:12px; }
+  .wcl-public .mc-home-grid .mc-fixture { min-height:0; }
+  .wcl-public .ms-scorecard .ms-story-strap { padding-block:16px; }
+  .wcl-public .ms-scorecard .ms-story-message p { font-size:13px; line-height:1.6; }
+
+  /* Secondary editorial copy should not compete with the subject. */
+  .wcl-public .career-section .section-title { display:block; }
+  .wcl-public .career-section .record-context { margin:12px 0 0; font-size:12px; line-height:1.6; }
+  .wcl-public .records-grid { grid-template-columns:minmax(0,1fr); gap:24px; }
+  .wcl-public .records-grid .record-card { display:grid; grid-template-columns:36% minmax(0,1fr); }
+  .wcl-public .records-grid .record-image { display:block; height:100%; min-height:250px; }
+  .wcl-public .records-grid .record-image img { height:100%; object-fit:cover; object-position:50% 10%; }
+  .wcl-public .records-grid .record-image>span { display:none; }
+  .wcl-public .records-grid .record-content { padding:24px 18px; }
+  .wcl-public .record-content .record-player { font-size:22px; line-height:1.15; margin-bottom:18px; }
+  .wcl-public .record-content .record-number { font-size:48px; line-height:1; }
+  .wcl-public .record-content .record-unit { font-size:11px; line-height:1.5; margin:10px 0 8px; }
+  .wcl-public .record-content>h3 { display:none; }
+  .wcl-public .record-content[data-expanded=false] :is(.record-detail,.record-source) { display:none; }
+  .wcl-public .mobile-record-toggle { display:flex; align-items:center; gap:8px; min-height:44px; padding:6px 0; border:0; background:none; color:#b7c9e2; font:500 12px/1.5 Inter,sans-serif; }
+  .wcl-public .mobile-record-toggle[aria-expanded=true] svg { transform:rotate(180deg); }
+  .wcl-public .record-content .record-detail { font-size:13px!important; line-height:1.7; margin-top:12px!important; }
+  .wcl-public .record-content .record-source { font-size:12px; line-height:1.5; min-height:44px; }
+  .wcl-public .rivalry-editorial-copy>p:not([class])+p:not([class]) { display:none; }
+  .wcl-public .rivalry-editorial-copy>p:not([class]) { font-size:15px; line-height:1.65; }
+  .wcl-public .rivalry-editorial-copy .source-note { font-size:12px; line-height:1.6; }
+  .wcl-public .rivalry-editorial-copy .rivalry-links { gap:16px; margin-top:24px; }
+  .wcl-public .rivalry-editorial-copy .rivalry-links a { min-height:48px; font-size:12px; line-height:1.5; }
+  .wcl-public .tc-toolbar>div:first-child { display:none; }
+  .wcl-public .tc-toolbar { margin-bottom:24px; }
+  .wcl-public .tc-footnote { font-size:12px; line-height:1.6; gap:8px; margin-top:18px; }
+  .wcl-public .tc-footnote a { min-height:44px; align-items:center; }
+  .wcl-public .reels-toolbar { margin-bottom:24px; gap:16px; }
+  .wcl-public .reels-section .reels-channel { width:100%; justify-content:space-between; }
+  .wcl-public .reels-channel select { flex:1; max-width:240px; font-size:16px; }
+  .wcl-public .video-grid { gap:28px 16px; }
+  .wcl-public .video-card>h3 { font-size:16px; line-height:1.55; -webkit-line-clamp:unset; display:block; }
+  .wcl-public .guide-grid { gap:16px; }
+  .wcl-public .guide-card { padding:24px; }
+  .wcl-public .guide-card p { font-size:14px; line-height:1.6; }
+  .wcl-public .fan-banner { padding:28px 24px; gap:20px; }
+  .wcl-public .fan-banner .kicker { display:none; }
+  .wcl-public .fan-banner p { font-size:14px; line-height:1.6; }
+  .wcl-public .contact-intro>h2,.wcl-public .contact-intro>p:not(.contact-small) { display:none; }
+  .wcl-public .contact-layout { gap:28px; }
+  .wcl-public .contact-intro .contact-email { margin:0 0 20px; }
+  .wcl-public .contact-shortcuts { display:flex; flex-wrap:wrap; gap:8px 20px; border:0; }
+  .wcl-public .contact-shortcuts>a { border:0; padding:6px 0; min-height:44px; font-size:12px; }
+  .wcl-public .contact-shortcuts>a:last-child { display:none; }
+  .wcl-public .contact-panel :is(input,select,textarea) { font-size:16px; }
+  .wcl-public .contact-form-heading { align-items:start; gap:12px; }
+  .wcl-public .contact-form-heading>p { font-size:12px; line-height:1.5; }
+  .wcl-public .policy-part { margin-bottom:36px; padding-bottom:28px; }
+  .wcl-public .policy-part :is(p,li) { font-size:15px; line-height:1.8; }
+  .wcl-public .policy-part h2 { font-size:22px; line-height:1.3; }
+
+  /* Footer destinations stay available, without three screens of navigation. */
+  .wcl-public .footer-grid { display:block; padding-bottom:28px; }
+  .wcl-public .footer-grid>div:first-child { margin-bottom:28px; }
+  .wcl-public .mobile-footer-group { border-top:1px solid #26364b; }
+  .wcl-public .mobile-footer-group:last-child { border-bottom:1px solid #26364b; }
+  .wcl-public .footer-desktop-heading { display:none; }
+  .wcl-public .mobile-footer-toggle { width:100%; display:flex; justify-content:space-between; align-items:center; min-height:56px; padding:16px 0; border:0; background:none; text-align:left; font:600 14px/1.5 Inter,sans-serif; color:#f5f8ff; }
+  .wcl-public .mobile-footer-toggle[aria-expanded=true] svg { transform:rotate(180deg); }
+  .wcl-public .mobile-footer-links { display:none; padding:0 0 16px; }
+  .wcl-public .mobile-footer-group[data-expanded=true] .mobile-footer-links { display:grid; }
+  .wcl-public .footer-grid .mobile-footer-links a { display:flex; align-items:center; min-height:44px; margin:0; font-size:14px; }
+  .wcl-public .copyright { margin-top:0; padding-top:24px; gap:16px; line-height:1.6; }
+  .wcl-public .copyright>a { display:inline-flex; align-items:center; min-height:44px; }
+
+  /* Prerendered pages remain readable and navigable when JavaScript is unavailable. */
+  #root:not([data-client-ready=true]) .wcl-public .hero-story-copy[data-mobile-summary=true] :is(.story-description-full,.hero-supporting-copy,.hero-biography-source) { display:block; }
+  #root:not([data-client-ready=true]) .wcl-public :is(.story-description-mobile,.mobile-story-toggle,.mobile-filter-toggle,.mobile-footer-toggle) { display:none; }
+  #root:not([data-client-ready=true]) .wcl-public .footer-desktop-heading { display:block; margin-top:20px; }
+  #root:not([data-client-ready=true]) .wcl-public .mobile-footer-links { display:grid; }
+  #root:not([data-client-ready=true]) .wcl-public .mc-toolbar :is(.mc-extra-filter,.mc-search) { display:flex; }
+  #root:not([data-client-ready=true]) .wcl-public .mobile-record-toggle { display:none; }
+  #root:not([data-client-ready=true]) .wcl-public .record-content :is(.record-detail,.record-source) { display:block; }
+}
+
+@media (max-width:370px) {
+  .wcl-public .section-title { flex-wrap:wrap; gap:8px; }
+  .wcl-public .section-title>a { max-width:none; }
+  .wcl-public .team-roster-intro { flex-wrap:wrap; }
+  .wcl-public .team-roster-intro .select-label { width:100%; }
+  .wcl-public .team-roster-content .players-grid { grid-template-columns:minmax(0,1fr); }
+  .wcl-public .team-roster-content .player-caption h3 { font-size:26px; }
+  .wcl-public .team-roster-content .player-team-strip span { font-size:13px; }
+  .wcl-public .mc-header { flex-wrap:wrap; }
+  .wcl-public .mc-header-note { text-align:left; }
+  .wcl-public .match-broadcast .mc-filters { grid-template-columns:minmax(0,1fr); }
+  .wcl-public .match-broadcast .mc-filters select { font-size:16px; }
+}
+
+/* Image-first heroes and a single featured player on phones and small tablets.
+   These supersede the earlier mobile copy-first / thumbnail-strip treatment. */
+@media (max-width:1100px) {
+  .wcl-public .wcl-story-hero .story-scene { display:flex; flex-direction:column; height:auto; min-height:0; padding:24px 20px 32px; gap:24px!important; }
+  .wcl-public .wcl-story-hero .story-scene>.hero-story-copy { order:2; display:flex; flex-direction:column; width:100%; max-width:720px; padding:0; align-self:center; }
+  .wcl-public .wcl-story-hero .story-scene>:not(.hero-story-copy) { order:1; width:100%; max-width:720px; margin:0; align-self:center; }
+  .wcl-public .wcl-story-hero .story-season::before { display:none; }
+  .wcl-public .wcl-story-hero .story-season .rivalry-stage { position:relative; inset:auto; height:clamp(300px,76vw,430px); border-radius:20px; margin:0; background:#0a2453; }
+  .wcl-public .wcl-story-hero .story-visual { padding:0; height:clamp(270px,65vw,430px); }
+  .wcl-public .wcl-story-hero .story-portraits figure { height:100%; transform:none; }
+  .wcl-public .wcl-story-hero .story-poster:has(>img) { height:auto; aspect-ratio:auto; }
+  .wcl-public .wcl-story-hero .story-poster>img { width:100%; height:auto; max-height:440px; object-fit:contain; }
+  .wcl-public .wcl-story-hero .story-visual>.hero-subject-art { height:100%; max-height:430px; }
+  .wcl-public .wcl-story-hero .hero-story-copy>.story-kicker,
+  .wcl-public .wcl-story-hero .hero-story-chapter { display:none; }
+  .wcl-public .wcl-story-hero .hero-story-copy>h1 { order:0; font-size:clamp(38px,10.5vw,58px)!important; line-height:1.02!important; margin:0 0 14px; padding:0; }
+  .wcl-public .wcl-story-hero .hero-story-role { order:0; font:500 14px/1.5 Inter,sans-serif; margin:0 0 10px; }
+  .wcl-public .wcl-story-hero .hero-story-copy>.story-description-mobile { order:1; display:block; font:400 15px/1.6 Inter,sans-serif!important; margin:0!important; max-width:48ch!important; }
+  .wcl-public .wcl-story-hero .hero-story-copy>.story-actions { order:2; display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:12px; margin:20px 0 0!important; }
+  .wcl-public .wcl-story-hero .hero-story-copy>.story-actions>a { width:auto; min-width:0; min-height:48px; padding:12px 10px; font-size:13px; line-height:1.4; white-space:normal; gap:8px!important; }
+  .wcl-public .wcl-story-hero .hero-story-copy>.story-actions svg { width:16px; height:16px; flex-shrink:0; }
+  .wcl-public .wcl-story-hero .mobile-story-toggle { order:3; display:flex; align-items:center; align-self:flex-start; min-height:44px; gap:8px; padding:8px 0; margin:8px 0 0; border:0; background:none; color:#b7c9e2; font:500 12px/1.4 Inter,sans-serif; }
+  .wcl-public .wcl-story-hero .hero-story-copy>:is(.story-description-full,.hero-supporting-copy) { order:4; font-size:15px!important; line-height:1.65; margin:12px 0 0!important; }
+  .wcl-public .wcl-story-hero .hero-story-copy>.story-facts { order:5; margin:20px 0 0!important; }
+  .wcl-public .wcl-story-hero .hero-story-copy>.hero-biography-source { order:6; }
+  .wcl-public .wcl-story-hero .hero-story-copy[data-mobile-summary=true][data-mobile-expanded=false]>:is(.story-description-full,.hero-supporting-copy,.story-facts,.hero-biography-source) { display:none; }
+  .wcl-public .wcl-story-hero .hero-story-copy[data-mobile-expanded=true]>.story-description-mobile { display:none; }
+  .wcl-public .hero-leadership-photo figcaption { display:none; }
+  .wcl-public .hero-about-team>:is(.story-kicker,h2,h3,.hero-leadership-credit) { display:none; }
+
+  .wcl-public .spotlight-grid { display:grid; grid-template-columns:minmax(0,1fr) auto; gap:24px 12px; }
+  .wcl-public .spotlight-grid>.spotlight-portrait { grid-column:1/-1; grid-row:1; height:clamp(320px,70vw,440px); }
+  .wcl-public .spotlight-grid>.spotlight-bio { grid-column:1/-1; grid-row:2; min-width:0; padding:0; }
+  .wcl-public .spotlight-bio :is(.kicker,.spotlight-role,.spotlight-description,.player-facts,.archive-label) { display:none; }
+  .wcl-public .spotlight-bio>h2 { margin:0 0 20px; padding-right:110px; font-size:34px; line-height:1.15; }
+  .wcl-public .spotlight-bio>.btn { min-height:46px; padding:12px 18px; font-size:13px; }
+  .wcl-public .spotlight-grid>.spotlight-picker { display:none; }
+  .wcl-public .mobile-spotlight-browse { display:flex; grid-column:2; grid-row:2; align-self:start; gap:8px; z-index:1; }
+  .wcl-public .mobile-spotlight-browse button { display:grid; place-items:center; width:44px; height:44px; padding:0; background:transparent; border:1px solid #34455e; border-radius:50%; color:#f5f8ff; }
+  .wcl-public .mobile-spotlight-browse button svg { width:18px; height:18px; }
+  .wcl-public .mobile-spotlight-browse button:is(:hover,:focus-visible) { background:#142c4c; border-color:#ff823a; }
+  #root:not([data-client-ready=true]) .wcl-public .mobile-spotlight-browse { display:none; }
+  #root:not([data-client-ready=true]) .wcl-public .hero-story-copy[data-mobile-summary=true]>:is(.story-description-full,.hero-supporting-copy,.hero-biography-source) { display:block; }
+  #root:not([data-client-ready=true]) .wcl-public .hero-story-copy[data-mobile-summary=true]>.story-facts { display:grid; }
+  #root:not([data-client-ready=true]) .wcl-public .hero-story-copy>:is(.story-description-mobile,.mobile-story-toggle) { display:none; }
+}

@@ -32,7 +32,7 @@ export default defineConfig(({mode}) => ({
     include: ["react", "react-dom/client"],
   },
   server: {
-    proxy: {"/api": "http://127.0.0.1:4174"},
+    proxy: {"/api/operations": {target: "http://127.0.0.1:4175", rewrite: path => path.replace(/^\/api\/operations/, "/api")}, "/api/accreditation": "http://127.0.0.1:4175", "/api": "http://127.0.0.1:4174"},
     host: "0.0.0.0",
     allowedHosts: ["terminal.local"],
     warmup: {

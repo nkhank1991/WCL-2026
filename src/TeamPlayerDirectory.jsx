@@ -5,7 +5,7 @@ import {CaretDown,ArrowUpRight,ArrowUp} from '@phosphor-icons/react';
 import {PlayerCard} from './PlayerCard.jsx';
 import {validSeason} from './match-model.jsx';
 import {useBroadcastMotion,broadcastEase} from './BroadcastGraphics.jsx';
-import logos from './data/team-logos.json';
+import {useTeams} from './cms/SiteContent.jsx';
 
 function RosterPanel({team,players,season,close}){
  const [role,setRole]=useState('all');
@@ -29,6 +29,7 @@ function RosterPanel({team,players,season,close}){
 }
 
 export function TeamPlayerDirectory({teams,players}){
+ teams=useTeams();
  const [params,setParams]=useSearchParams();
  const season=validSeason(params.get('season'));
  const open=teams.some(team=>team.id===params.get('team'))?params.get('team'):null;
@@ -58,7 +59,7 @@ export function TeamPlayerDirectory({teams,players}){
    const roster=available.filter(player=>player.team===team.id),expanded=open===team.id;
    return <article className={'team-roster-card'+(expanded?' is-open':'')} key={team.id} style={{'--club':team.color}}>
     <h2 className="team-roster-heading"><button id={'team-toggle-'+team.id} className="team-roster-toggle" aria-expanded={expanded} aria-controls={'roster-'+team.id} onClick={()=>choose(expanded?null:team.id)} onKeyDown={event=>keyNavigation(event,index)}>
-     <img src={logos[team.id]} alt="" width="64" height="72"/>
+     <img src={team.logo} alt="" width="64" height="72"/>
      <span className="team-roster-name">{team.name}<small>Champions</small></span>
      <span className="team-roster-count">{season==='3'?roster.length+' players':'Season '+season+' archive'}</span>
      <span className="team-roster-action">{expanded?'Close players':'Explore players'}<CaretDown/></span>

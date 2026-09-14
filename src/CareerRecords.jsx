@@ -1,8 +1,8 @@
 import {deliveryImage} from './media.js';
-import {useEffect,useRef} from 'react';
+import {useEffect,useRef,useState} from 'react';
 import {Link} from 'react-router-dom';
 import {animate,useInView} from 'motion/react';
-import {ArrowUpRight,ArrowRight} from '@phosphor-icons/react';
+import {ArrowUpRight,ArrowRight,CaretDown} from '@phosphor-icons/react';
 import {Reveal,useFilmMotion} from './Cinematic.jsx';
 
 // Historical career achievements, not WCL statistics. Sources checked 10 September 2026.
@@ -23,12 +23,16 @@ function StatNumber({value}){
  return <strong className="record-number" aria-label={String(value)}><span ref={ref} aria-hidden="true">{value}</span></strong>;
 }
 
+function CareerRecord({record:r,index:i}) {
+ const [expanded,setExpanded]=useState(false);
+ return <Reveal className={'record-card record-'+i} delay={i*.06}>
+  <div className="record-image"><img src={deliveryImage(r.image)} alt={r.name+' in supplied '+r.team+' campaign kit'} loading="lazy" decoding="async" width="1122" height="1402"/><span>{r.team} / {r.year}</span></div>
+  <div className="record-content" data-expanded={expanded}><p className="record-player">{r.name}</p><StatNumber value={r.value}/><p className="record-unit">{r.unit}</p><h3>{r.title}</h3><button className="mobile-record-toggle" aria-expanded={expanded} aria-controls={r.id+'-milestone '+r.id+'-source'} onClick={()=>setExpanded(value=>!value)}>{expanded?'Less detail':'The story'}<CaretDown aria-hidden="true"/></button><p className="record-detail" id={r.id+'-milestone'}>{r.copy}</p><a id={r.id+'-source'} href={r.source} target="_blank" rel="noreferrer" className="record-source">Read the ICC source <ArrowUpRight/></a></div>
+ </Reveal>;
+}
 export function CareerRecords(){return <section className="career-section" id="career-records" aria-labelledby="career-title"><div className="wrap section">
  <Reveal className="section-title"><div><p className="kicker">THE NUMBERS. THE MEMORIES.</p><h2 id="career-title">Greatness, on the record.</h2></div><p className="record-context">Career milestones.<br/>Separate from WCL tournament statistics.</p></Reveal>
- <div className="records-grid">{careerRecords.map((r,i)=><Reveal className={'record-card record-'+i} delay={i*.06} key={r.id}>
-  <div className="record-image"><img src={deliveryImage(r.image)} alt={r.name+' in supplied '+r.team+' campaign kit'} loading="lazy" decoding="async" width="1122" height="1402"/><span>{r.team} / {r.year}</span></div>
-  <div className="record-content"><p className="record-player">{r.name}</p><StatNumber value={r.value}/><p className="record-unit">{r.unit}</p><h3>{r.title}</h3><p>{r.copy}</p><a href={r.source} target="_blank" rel="noreferrer" className="record-source">Read the ICC source <ArrowUpRight/></a></div>
- </Reveal>)}</div>
+ <div className="records-grid">{careerRecords.map((r,i)=><CareerRecord record={r} index={i} key={r.id}/>)}</div>
  </div></section>}
 
 export function RivalryFeature(){return <section id="rivalries" className="rivalry-editorial wrap section" aria-labelledby="rivalry-title">

@@ -1,9 +1,9 @@
-import {useRef,useState} from 'react';
+import {useId,useRef,useState} from 'react';
 import {Link,useSearchParams} from 'react-router-dom';
 import {useInView} from 'motion/react';
-import {ArrowRight,CaretRight,MagnifyingGlass} from '@phosphor-icons/react';
+import {ArrowRight,CaretRight,CaretDown,MagnifyingGlass} from '@phosphor-icons/react';
 import {teams,teamName,validSeason,inSeason,fixtureState,priorityFixture,venueLabel} from './match-model.jsx';
-import logos from './data/team-logos.json';
+import {useTeams} from './cms/SiteContent.jsx';
 import {useBroadcastMotion} from './BroadcastGraphics.jsx';
 import './match-broadcast.css';
 import {MatchStage} from './MatchStage.jsx';
@@ -34,10 +34,11 @@ export function matchDate(match){
 }
 
 export function TeamMark({id}){
+ const teams=useTeams();
  const [failed,setFailed]=useState(false);
  const team=teams.find(team=>team.id===id);
- return logos[id]&&!failed
-  ?<img className="mc-crest" src={logos[id]} alt="" onError={()=>setFailed(true)}/>
+ return team?.logo&&!failed
+  ?<img className="mc-crest" src={team.logo} alt="" onError={()=>setFailed(true)}/>
   :<span className="mc-team-code" aria-hidden="true">{team?.short||'—'}</span>;
 }
 
@@ -78,6 +79,8 @@ export function MatchBroadcast({matches=[],players=[],compact=false}){
  const date=compact?'all':params.get('date')||'all';
  const view=compact?'all':params.get('view')||'all';
  const query=compact?'':params.get('q')||'';
+ const [extraFilters,setExtraFilters]=useState(false),filterId=useId();
+ const activeExtras=Number(date!=='all')+Number(!!query.trim());
  function set(key,value){
   if(compact){setLocal(previous=>({...previous,[key]:value}));return}
   const next=new URLSearchParams(params);
@@ -116,13 +119,14 @@ export function MatchBroadcast({matches=[],players=[],compact=false}){
    <div><p className="mc-eyebrow">EVERY CONTEST. EVERY CHAPTER.</p>{compact?<h2>Match centre<span>.</span></h2>:<h1>Match centre<span>.</span></h1>}</div>
    {compact?<Link className="mc-all-link" to={allLink}>All matches <ArrowRight/></Link>:<p className="mc-header-note">{season==='3'?<>3–18 October 2026<br/>United Arab Emirates</>:<>Season {season} · {2023+Number(season)}<br/>Fixture archive</>}</p>}
   </header>
-  <div className="mc-toolbar">
+  <div className="mc-toolbar" data-extra-filters={extraFilters}>
    <div className="mc-filters">
     <label>Season<select aria-label="Season" value={season} onChange={event=>set('season',event.target.value)}>{['3','2','1'].map(value=><option value={value} key={value}>Season {value} · {2023+Number(value)}</option>)}</select></label>
     <label>Team<select aria-label={compact?'Filter homepage matches by team':'Team'} value={team} onChange={event=>set('team',event.target.value)}><option value="all">All teams</option>{teams.map(team=><option value={team.id} key={team.id}>{team.name}</option>)}</select></label>
-    {!compact&&<label>Date<select aria-label="Date" value={date} onChange={event=>set('date',event.target.value)}><option value="all">All dates</option>{dates.map(value=><option key={value}>{value}</option>)}</select></label>}
+    {!compact&&<button className="mobile-filter-toggle" aria-expanded={extraFilters} aria-controls={filterId+'-date '+filterId+'-search'} onClick={()=>setExtraFilters(value=>!value)}>{extraFilters?'Fewer filters':'Date & search'}{activeExtras>0&&<span>{activeExtras} active</span>}<CaretDown aria-hidden="true"/></button>}
+    {!compact&&<label className="mc-extra-filter" id={filterId+'-date'}>Date<select aria-label="Date" value={date} onChange={event=>set('date',event.target.value)}><option value="all">All dates</option>{dates.map(value=><option key={value}>{value}</option>)}</select></label>}
    </div>
-   {!compact&&<label className="mc-search"><MagnifyingGlass aria-hidden="true"/><input aria-label="Search matches" value={query} placeholder="Find a match" onChange={event=>set('q',event.target.value)}/></label>}
+   {!compact&&<label className="mc-search" id={filterId+'-search'}><MagnifyingGlass aria-hidden="true"/><input aria-label="Search matches" value={query} placeholder="Find a match" onChange={event=>set('q',event.target.value)}/></label>}
    {compact&&<p className="mc-timezone">{season==='3'?'3–18 October 2026 · UAE time':'Season '+season+' · Fixture archive'}</p>}
   </div>
   {featured&&<div className="mc-stage-wrap"><MatchStage key={featured.id} match={featured} players={players} compact={compact}/></div>}

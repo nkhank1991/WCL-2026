@@ -1,3 +1,4 @@
+import {CmsPageHeading} from './cms/SiteContent.jsx';
 import {useEffect, useRef, useState} from 'react';
 import {Link} from 'react-router-dom';
 import {ArrowRight, ArrowUpRight, Check, EnvelopeSimple} from '@phosphor-icons/react';
@@ -72,7 +73,7 @@ export function ContactPage() {
   function FieldError({name}) { return errors[name] ? <span id={`error-${name}`} className="contact-field-error">{errors[name]}</span> : null; }
   const props = name => ({'aria-labelledby': `contact-label-${name}`, 'aria-invalid': Boolean(errors[name]), 'aria-describedby': errors[name] ? `error-${name}` : undefined});
   return <>
-    <div className="page-title"><div className="wrap"><p className="kicker">GET IN TOUCH</p><h1>Let’s talk cricket.</h1><p>Questions, ideas or a place in the next chapter. We’d like to hear from you.</p></div></div>
+    <CmsPageHeading tag="GET IN TOUCH" title="Let’s talk cricket.">Questions, ideas or a place in the next chapter. We’d like to hear from you.</CmsPageHeading>
     <section className="wrap contact-layout">
       <aside className="contact-intro"><EnvelopeSimple size={28}/><h2>A direct line to WCL.</h2><p>For matchday questions, media enquiries, partnerships and everything in between.</p><a className="contact-email" href="mailto:info@wclcricket.com">info@wclcricket.com <ArrowUpRight size={18}/></a><div className="contact-shortcuts"><Link to="/faq">Quick answers <ArrowRight size={16}/></Link><Link to="/tickets">Tickets & venue information <ArrowRight size={16}/></Link><Link to="/privacy">How we handle your information <ArrowRight size={16}/></Link></div><p className="contact-small">Please don’t include payment details, passwords or identity documents in your message.</p></aside>
       <div className="contact-panel">

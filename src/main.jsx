@@ -18,6 +18,8 @@ import "./premium-finish.css";
 import "./team-score-finish.css";
 import "./contact-policy.css";
 import "./seo/search-discovery.css";
+import "./mobile-refinement.css";
+import "./button-finish.css";
 
 // Route and section navigation own their scroll position, not stale browser restoration.
 if ('scrollRestoration' in window.history) window.history.scrollRestoration = 'manual';
