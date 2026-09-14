@@ -25,7 +25,7 @@ export default async function handler(req, res) {
     if (req.method === 'POST') {
       if (!String(req.headers['content-type']).includes('application/json')) return fail(415, 'JSON body required.');
       body = typeof req.body === 'string' ? req.body : JSON.stringify(req.body || {});
-      if (Buffer.byteLength(body) > 3 * 1024 * 1024) return fail(413, 'Choose a headshot below 2 MB.');
+      if (Buffer.byteLength(body) > 3 * 1024 * 1024) return fail(413, 'Each upload must be below 2 MB. Upload documents separately.');
     }
     const response = await fetch(new URL('/api/' + route, backend), { method: req.method, headers, body, redirect: 'error', signal: AbortSignal.timeout(20000) });
     res.statusCode = response.status;

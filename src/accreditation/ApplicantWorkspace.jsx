@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 import { statusLabels } from "../../lib/accreditation-model.mjs";
 import {accessSections,pmoaEligible} from '../../lib/access-sections.mjs';
 import {AccessChoices,TeamAccessRole} from './AccessChoices';
+import {ApplicationFields,DocumentInput} from './ApplicationFields';
+import {documentKinds,documentLabels} from '../../lib/application-form.mjs';
 import "./operations.css";
 import "./applicant-form.css";
 
@@ -39,6 +41,7 @@ const fieldLabels = {
   assignment: "Assignment",
   category: "Requested category",
   headshot: "Replacement photograph",
+  ...documentLabels,department:'Department',departmentOther:'Specify department',roleChoice:'Actual role',team:'Team',idType:'ID type',idDescription:'Government ID name',idHasReverse:'ID has a reverse side',requestedDays:'Requested event dates',requestedZones:'Requested access',restrictedReason:'Reason for restricted access',nominatorName:'Nominating contact',nominatorContact:'Contact email or international phone',remarks:'Additional remarks',
 };
 
 export function ApplicantWorkspace() {
@@ -61,6 +64,8 @@ export function ApplicantWorkspace() {
     if(!pmoaEligible(category,teamRole))setRequestedZones(z=>z.filter(id=>id!=='SEC-5'));
   },[category,teamRole]);
   const photoRef = useRef(null);
+  const [croppedPhoto,setCroppedPhoto]=useState('');
+  const documentCache=useRef(new Map());
   const link = secret
     ? location.origin + "/accreditation/apply#receipt=" + secret
     : "";
@@ -71,6 +76,7 @@ export function ApplicantWorkspace() {
       setConfig(await api("config"));
       if (secret) setReceipt(await api("status", { token: secret }));
     } catch (e) {
+      setNotice('');
       setError(e.message);
     } finally {
       setLoading(false);
@@ -90,7 +96,9 @@ export function ApplicantWorkspace() {
     try {
       await fn();
     } catch (e) {
+      setNotice('');
       setError(e.message);
+      window.scrollTo({top:0,behavior:'instant'});
     } finally {
       setBusy(false);
     }
@@ -103,9 +111,29 @@ export function ApplicantWorkspace() {
         file = f.get("headshot");
       if (!file?.size || file.size > 2 * 1024 * 1024)
         throw Error("Choose a photograph below 2 MB.");
+      const documents={};
+      if(config.formVersion===2){
+        if(!croppedPhoto)throw Error('Wait for the portrait preview before submitting.');
+        if(!f.getAll('requestedDays').length)throw Error('Select at least one required match or working date.');
+        if(!f.getAll('requestedZones').length)throw Error('Select the access areas you are requesting.');
+        for(const kind of documentKinds){
+          const document=f.get(kind);if(!document?.size)continue;
+          if(document.size>2*1024*1024)throw Error('Each document must be below 2 MB.');
+          let cached=documentCache.current.get(document);
+          if(!cached||cached.expires<Date.now()){
+            setNotice('Uploading '+(kind==='assignmentEvidence'?'assignment evidence':'identity proof')+'…');
+            const uploaded=await api('upload',{kind,base64:await encode(document)});
+            cached={token:uploaded.token,expires:Date.now()+25*60000};documentCache.current.set(document,cached);
+          }
+          documents[kind]=cached.token;
+        }
+        setNotice('Submitting your application…');
+      }
       const result = await api("apply", {
         ...Object.fromEntries(f),
-        headshot: await encode(file),
+        headshot: config.formVersion===2?croppedPhoto:await encode(file),
+        documents,requestedDays:f.getAll('requestedDays'),
+        accuracy:f.get('accuracy')==='on',eventTerms:f.get('eventTerms')==='on',idHasReverse:f.get('idHasReverse')==='on',
         requestedVenues: f.getAll("requestedVenues"),
         requestedZones: f.getAll("requestedZones"),
         consent: f.get("consent") === "on",
@@ -205,6 +233,12 @@ export function ApplicantWorkspace() {
                   run(async () => {
                     const fields = {};
                     for (const key of receipt.correction.fields) {
+                      if(documentKinds.includes(key)){
+                        const file=f.get(key);if(!file?.size||file.size>2*1024*1024)throw Error('Choose the replacement document below 2 MB.');
+                        fields[key]=(await api('upload',{kind:key,base64:await encode(file),receipt:secret})).token;continue;
+                      }
+                      if(['requestedDays','requestedZones'].includes(key)){fields[key]=f.getAll(key);continue;}
+                      if(key==='idHasReverse'){fields[key]=f.get(key)==='on';continue;}
                       fields[key] =
                         key === "headshot"
                           ? await encode(f.get(key))
@@ -227,9 +261,13 @@ export function ApplicantWorkspace() {
                   <h3>Correction requested</h3>
                   <p>{receipt.correction.message}</p>
                   {receipt.correction.fields.map((key) => (
+                    documentKinds.includes(key)?<DocumentInput key={key} kind={key} required/>:
+                    ['requestedDays','requestedZones'].includes(key)?<fieldset key={key}><legend>{fieldLabels[key]}</legend>{(key==='requestedDays'?config.matchDays.map(id=>({id,label:id})):config.zones).map(x=><label className="ops-check" key={x.id}><input type="checkbox" name={key} value={x.id} defaultChecked={receipt.correction.values[key]?.includes(x.id)}/>{x.label}</label>)}</fieldset>:
                     <label key={key}>
                       {fieldLabels[key]}
-                      {key === "headshot" ? (
+                      {key==='idHasReverse'?<input name={key} type="checkbox" defaultChecked={receipt.correction.values[key]===true}/>:['department','roleChoice','team','idType'].includes(key)?<select name={key} required defaultValue={receipt.correction.values[key]}>
+                        <option value="">Choose</option>{(key==='department'?config.departments.map(d=>[d.id,d.label]):key==='team'?config.teams.map(t=>[t,t]):key==='idType'?[['passport','Passport'],['emirates-id','Emirates ID'],['other','Other government photo ID']]:[...new Set(config.departments.flatMap(d=>d.roles))].map(r=>[r,r])).map(([id,label])=><option key={id} value={id}>{label}</option>)}
+                      </select>:key === "headshot" ? (
                         <input
                           type="file"
                           name={key}
@@ -276,6 +314,7 @@ export function ApplicantWorkspace() {
             )}
             <form onSubmit={submit} className="application-form">
               <fieldset disabled={!config?.enabled || busy}>
+                {config?.formVersion===2?<ApplicationFields config={config} busy={busy} onPhoto={setCroppedPhoto}/>:<>
                 <section className="ops-panel">
                   <div className="application-section-title">
                     <span>01</span>
@@ -469,6 +508,7 @@ export function ApplicantWorkspace() {
                     receipt link shown after submission.
                   </p>
                 </section>
+                </>}
               </fieldset>
             </form>
           </>

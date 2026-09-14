@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import {AccessChoices,TeamAccessRole} from './AccessChoices';
 import {OwnerDecision} from './OwnerDecision';
 import {pmoaEligible} from '../../lib/access-sections.mjs';
+import {applicationLabels} from '../../lib/application-form.mjs';
 import {seatingLabels,seatingError} from '../../lib/accreditation-venues.mjs';
 import {
   statusLabels,
@@ -13,6 +14,7 @@ import {
   toUaeInput,
   fromUaeInput,
   uaeDate,
+  saveDownload,
 } from "./operations-api";
 
 export function ReviewWorkspace({ user, config, run, onPreview }) {
@@ -216,6 +218,17 @@ function CaseDetail({ record: r, user, config, run, update, onBack, onPreview })
             </dd>
             <dt>Assignment</dt>
             <dd>{r.requested.assignment}</dd>
+            {r.requested.formVersion===2&&<>
+              <dt>Full name on ID</dt><dd>{r.name}</dd>
+              <dt>Email / mobile</dt><dd>{r.source.email}<br/>{r.requested.mobile}</dd>
+              <dt>Department</dt><dd>{config.departments.find(d=>d.id===r.department)?.label}{r.requested.departmentOther&&' · '+r.requested.departmentOther}</dd>
+              {r.requested.team&&<><dt>Team</dt><dd>{r.requested.team}</dd></>}
+              <dt>Requested dates</dt><dd>{r.requested.requestedDays.join(' · ')}</dd>
+              {r.requested.restrictedReason&&<><dt>Reason for restricted access</dt><dd>{r.requested.restrictedReason}</dd></>}
+              {r.requested.nominatorName&&<><dt>Nominating contact</dt><dd>{r.requested.nominatorName}<br/>{r.requested.nominatorContact}</dd></>}
+              <dt>ID type</dt><dd>{r.requested.idType}{r.requested.idDescription&&' · '+r.requested.idDescription}</dd>
+              {r.requested.remarks&&<><dt>Remarks</dt><dd>{r.requested.remarks}</dd></>}
+            </>}
             <dt>Requested access</dt>
             <dd>
               {config.zones
@@ -231,6 +244,7 @@ function CaseDetail({ record: r, user, config, run, update, onBack, onPreview })
                 .join(", ")}
             </dd></>}
           </dl>
+          {['Owner','Reviewer','Approver'].includes(role)&&r.requested.documents?.length>0&&<div className="ops-document-links"><h3>Private review documents</h3>{r.requested.documents.map(d=><button key={d.id} onClick={()=>run(async()=>saveDownload(await api('admin/documents/'+d.id),d.kind+(d.mime==='application/pdf'?'.pdf':'.jpg')))}>Open {d.label}</button>)}<p className="ops-caption">For identity review only. Not included in printer downloads.</p></div>}
         </section>
         <section className="ops-panel">
           {role!=='Owner'&&<h3>
@@ -287,6 +301,7 @@ function CaseDetail({ record: r, user, config, run, update, onBack, onPreview })
                   conditions: f.get("conditions"),
                   notes: f.get("notes"),
                   identityChecked: f.get("identity") === "on",
+                  ...(r.requested.formVersion===2?{documentsChecked:f.get('documentsChecked')==='on',approvedDays:f.getAll('approvedDays')}:{ }),
                   accessReviewed: f.get("access") === "on",
                 });
               }}
@@ -310,6 +325,7 @@ function CaseDetail({ record: r, user, config, run, update, onBack, onPreview })
               <TeamAccessRole category={category} value={teamRole} onChange={chooseRole}/>
               <AccessChoices legend="Proposed access areas" zones={config.zones.filter(z=>z.enabled)} selected={zones} onChange={chooseZones} category={category} teamRole={teamRole}/>
               {pmoaCheck}
+              {r.requested.formVersion===2&&<><fieldset><legend>Proposed dates</legend>{r.requested.requestedDays.map(day=><label className="ops-check" key={day}><input type="checkbox" name="approvedDays" value={day} defaultChecked={(p.approvedDays||r.requested.requestedDays).includes(day)}/>{day}</label>)}</fieldset><label className="ops-check"><input type="checkbox" name="documentsChecked" required/>ID proof, nominating contact and required assignment evidence checked</label></>}
               <fieldset className="ops-choices">
                 <legend>Optional venue limits</legend>
                 {config.venues
@@ -490,14 +506,14 @@ function CaseDetail({ record: r, user, config, run, update, onBack, onPreview })
             >
               <fieldset className="ops-choices">
                 <legend>What needs correcting?</legend>
-                {correctionFields.map((f) => (
+                {correctionFields.filter(f=>r.requested.formVersion===2||['name','displayName','email','mobile','organisation','jobTitle','assignment','category','headshot'].includes(f)).map((f) => (
                   <label key={f}>
                     <input
                       type="checkbox"
                       checked={fields.includes(f)}
                       onChange={() => change(setFields, fields, f)}
                     />
-                    {f.replace(/([A-Z])/g, " $1")}
+                    {applicationLabels[f]||f}
                   </label>
                 ))}
               </fieldset>

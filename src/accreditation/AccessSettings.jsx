@@ -3,6 +3,7 @@ import { accessSections, applicationLink, sectionLabel } from '../../lib/access-
 import './access-settings.css';
 import {season3Event,season3Venues,season3Finals} from '../../lib/accreditation-venues.mjs';
 import {toUaeInput,fromUaeInput} from './operations-api';
+import {DepartmentSettings} from './DepartmentSettings';
 
 export function AccessSections({ zones, selected, onChange }) {
   return <fieldset className="access-section-picker"><legend>Access sections</legend>
@@ -55,6 +56,7 @@ export function AccessSettings({ api, onDirtyChange }) {
     {error && <p role="alert" className="admin-error">{error}</p>}
     {notice && <p role="status" className="access-notice">{notice}</p>}
     <fieldset disabled={busy}>
+      {config.formVersion===2&&<DepartmentSettings departments={config.departments} categories={config.categories} onChange={departments=>change({departments})}/>}
       <section className="admin-panel">
         <h3>01 / Application links</h3><p>Choose the categories available to individual applicants. Every submission enters review with no venue or section access.</p>
         <div className="access-category-links">{config.categories.filter(c => config.workflowVersion || !c.id.startsWith('temporary-')).map(category => <div key={category.id}>
@@ -73,7 +75,7 @@ export function AccessSettings({ api, onDirtyChange }) {
         <div className="access-field-grid">{season3Venues.map(v=><div key={v.id}><strong>{v.label}</strong><p>{v.matchDates.map(d=>Number(d.slice(-2))).join(', ')} October 2026</p></div>)}</div>
         <p>{season3Finals.map(x=>x.label+': '+Number(x.date.slice(-2))+' October · Sharjah').join(' / ')}</p>
         <p>Match dates are reference information, not automatic credential validity. New venues start disabled.</p>
-        {!config.venues.length && <p>No venues added. Applications can be reviewed, but access cannot be approved yet.</p>}
+        {!config.venues.length && <p>No optional venue limits configured. Individual section approval remains available.</p>}
         {config.venues.map(v => <div className="access-venue-row" key={v.id}><label>Venue name<input required readOnly={season3Venues.some(x=>x.id===v.id)} maxLength={200} value={v.label} onChange={e => change({ venues: config.venues.map(x => x.id === v.id ? { ...x, label: e.target.value } : x) })} /></label><label className="access-check"><input type="checkbox" checked={v.enabled === true} onChange={e => change({ venues: config.venues.map(x => x.id === v.id ? { ...x, enabled: e.target.checked } : x) })} />Approved for assignment</label></div>)}
         {season3Venues.some(v=>!config.venues.some(x=>x.id===v.id))&&<button type="button" onClick={()=>change({venues:[...config.venues,...season3Venues.filter(v=>!config.venues.some(x=>x.id===v.id))]})}>Add supplied UAE venues</button>}
         <button type="button" onClick={() => change({ venues: [...config.venues, { id: 'v-' + crypto.randomUUID().slice(0, 18), label: '', enabled: false }] })}>Add venue</button>
@@ -90,6 +92,7 @@ export function AccessSettings({ api, onDirtyChange }) {
           <label>Season year<input required inputMode="numeric" pattern="[0-9]{4}" value={config.season} onChange={e => change({ season: e.target.value })} /></label>
           <label>Support email<input type="email" value={config.intake?.contactEmail || ''} onChange={e => intake({ contactEmail: e.target.value })} required={config.intake?.enabled} /></label>
           <label>Approved privacy-notice URL<input type="url" placeholder="https://" value={config.intake?.privacyNoticeUrl || ''} onChange={e => intake({ privacyNoticeUrl: e.target.value })} required={config.intake?.enabled} /></label>
+          {config.formVersion===2&&<label>Approved event-terms URL<input type="url" placeholder="https://" value={config.intake?.eventTermsUrl||''} onChange={e=>intake({eventTermsUrl:e.target.value})} required={config.intake?.enabled}/></label>}
           <label>Consent version<input placeholder="Version approved by WCL" value={config.intake?.consentVersion || ''} onChange={e => intake({ consentVersion: e.target.value })} required={config.intake?.enabled} /></label>
         </div>
         <label className="access-check"><input type="checkbox" checked={config.intake?.enabled === true} onChange={e => intake({ enabled: e.target.checked })} />Accept individual applications</label>
@@ -98,6 +101,7 @@ export function AccessSettings({ api, onDirtyChange }) {
       {config.workflowVersion && <section className="admin-panel"><h3>Departments & launch approvals</h3><p>The Owner can approve every department directly. Additional staff roles are optional.</p>
         <div className="access-field-grid">{config.departments.map(d=><label className="access-check" key={d.id}><input type="checkbox" checked={d.enabled} onChange={e=>change({departments:config.departments.map(x=>x.id===d.id?{...x,enabled:e.target.checked}:x)})}/>{d.label}</label>)}</div>
         <label>Approved retention policy<textarea value={config.activation.retention||''} onChange={e=>change({activation:{...config.activation,retention:e.target.value}})} placeholder="Retention and deletion arrangements approved by WCL"/></label>
+        {config.formVersion===2&&<><label className="access-check"><input type="checkbox" checked={config.activation.identityDocumentsApproved===true} onChange={e=>change({activation:{...config.activation,identityDocumentsApproved:e.target.checked}})}/>ID-proof and assignment-document collection, access, retention and deletion approved</label><label>Identity-document policy approval reference<input value={config.activation.identityDocumentsReference||''} onChange={e=>change({activation:{...config.activation,identityDocumentsReference:e.target.value}})}/></label></>}
         {[
           ['privacyApproved','privacyReference','Privacy notice, provider/region and retention reviewed'],
           ['accessApproved','accessReference','Venue names and access sections approved by security'],

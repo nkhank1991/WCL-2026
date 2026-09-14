@@ -64,6 +64,21 @@
 .application-submit {
   min-width: 170px;
 }
+.portrait-editor {display:grid;grid-template-columns:minmax(0,1fr) 180px;gap:28px;align-items:start;}
+.portrait-editor figure {margin:0;}
+.portrait-editor canvas {width:100%;height:auto;display:block;border-radius:10px;background:#f3f5f8;}
+.portrait-editor figcaption {font-size:12px;line-height:1.5;color:#526278;margin-top:8px;}
+.portrait-editor input[type=range] {width:100%;min-height:44px;padding:0;}
+.application-days {display:flex;flex-wrap:wrap;gap:8px;margin-bottom:14px;}
+.application-days legend {margin-bottom:14px;}
+.application-days label {position:relative;min-width:58px;margin:0;}
+.application-days input {position:absolute;opacity:0;width:100%;height:100%;margin:0;}
+.application-days span {display:grid;text-align:center;padding:10px;border:1px solid #ccd5e0;border-radius:8px;font-size:19px;}
+.application-days small {font-size:12px;}
+.application-days input:checked+span {background:#eaf0f7;border-color:#203957;box-shadow:inset 0 0 0 1px #203957;}
+.application-days input:focus-visible+span {outline:3px solid #2d6dca;outline-offset:2px;}
+.application-form input[type=file] {max-width:100%;white-space:normal;}
+@media(max-width:560px){.portrait-editor{grid-template-columns:minmax(0,1fr);gap:16px;}.portrait-editor figure{max-width:180px;}}
 .application-receipt h2 {
   margin-top: 20px;
   overflow-wrap: anywhere;
