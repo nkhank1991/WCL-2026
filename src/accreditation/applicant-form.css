@@ -1,0 +1,115 @@
+.applicant-simple main {
+  max-width: 920px;
+}
+.applicant-simple .ops-page-heading {
+  margin-bottom: 18px;
+}
+.applicant-simple .ops-lead {
+  max-width: 610px;
+  margin-bottom: 30px;
+}
+.application-form .ops-panel {
+  margin-bottom: 20px;
+  padding: 30px;
+}
+.application-section-title {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 26px;
+}
+.application-section-title > span {
+  font-size: 12px;
+  letter-spacing: 0.05em;
+  color: #805216;
+  border: 1px solid #e5d3b3;
+  border-radius: 7px;
+  padding: 6px 9px;
+  background: #fff4e1;
+}
+.application-section-title h2 {
+  margin: 0;
+  font-size: 22px;
+}
+.application-photo {
+  display: flex;
+  gap: 30px;
+  align-items: flex-start;
+}
+.application-photo > div {
+  flex: 1;
+}
+.application-photo p {
+  font-size: 13px;
+}
+.application-photo figure {
+  margin: 0;
+  width: 150px;
+  flex: none;
+}
+.application-photo img {
+  width: 150px;
+  height: 200px;
+  object-fit: contain;
+  border: 1px solid #dce3eb;
+  background: #f3f5f8;
+  border-radius: 8px;
+}
+.application-photo figcaption {
+  font-size: 11px;
+  line-height: 1.5;
+  color: #526278;
+  margin-top: 8px;
+}
+.application-submit {
+  min-width: 170px;
+}
+.application-receipt h2 {
+  margin-top: 20px;
+  overflow-wrap: anywhere;
+}
+.application-receipt form {
+  border-top: 1px solid #dce3eb;
+  margin-top: 28px;
+  padding-top: 28px;
+}
+.applicant-simple .application-honeypot {
+  position: absolute;
+  left: -10000px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+.application-form fieldset:disabled {
+  opacity: 0.7;
+}
+.applicant-simple .ops-check a {
+  text-decoration: underline;
+}
+.applicant-simple .ops-choices {
+  margin-top: 0;
+}
+.applicant-simple .ops-notice p {
+  margin: 8px 0 0;
+}
+@media (max-width: 560px) {
+  .application-form .ops-panel {
+    padding: 24px 18px;
+  }
+  .application-section-title {
+    margin-bottom: 22px;
+  }
+  .application-section-title h2 {
+    font-size: 20px;
+  }
+  .application-photo {
+    flex-direction: column;
+    gap: 12px;
+  }
+  .application-submit {
+    width: 100%;
+  }
+  .applicant-simple .ops-topbar > a:last-child {
+    font-size: 13px;
+  }
+}

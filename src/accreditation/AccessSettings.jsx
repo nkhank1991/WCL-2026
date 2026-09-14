@@ -55,7 +55,7 @@ export function AccessSettings({ api, onDirtyChange }) {
     <fieldset disabled={busy}>
       <section className="admin-panel">
         <h3>01 / Application links</h3><p>Choose the categories available to individual applicants. Every submission enters review with no venue or section access.</p>
-        <div className="access-category-links">{config.categories.filter(c => !c.id.startsWith('temporary-')).map(category => <div key={category.id}>
+        <div className="access-category-links">{config.categories.filter(c => config.workflowVersion || !c.id.startsWith('temporary-')).map(category => <div key={category.id}>
           <label><input type="checkbox" checked={category.acceptApplications !== false} onChange={e => change({ categories: config.categories.map(c => c.id === category.id ? { ...c, acceptApplications: e.target.checked } : c) })} />{category.label}</label>
           <button type="button" aria-label={"Copy link for " + category.label} onClick={() => copy(category.id)}>Copy link</button>
           <a href={applicationLink(category.id)} target="_blank" rel="noreferrer" aria-label={'Preview ' + category.label + ' application'}>Preview ↗</a>
@@ -83,13 +83,23 @@ export function AccessSettings({ api, onDirtyChange }) {
         <label className="access-check"><input type="checkbox" checked={config.intake?.enabled === true} onChange={e => intake({ enabled: e.target.checked })} />Accept individual applications</label>
         <p>Opening the form requires an approved HTTPS privacy notice, support email and consent version. It does not issue credentials.</p>
       </section>
-      <details className="admin-panel"><summary>Badge layout & category colours</summary><div className="access-field-grid">
+      {config.workflowVersion && <section className="admin-panel"><h3>Departments & launch approvals</h3><p>Department ownership is separate from category and access. Assign reviewers and approvers in Staff.</p>
+        <div className="access-field-grid">{config.departments.map(d=><label className="access-check" key={d.id}><input type="checkbox" checked={d.enabled} onChange={e=>change({departments:config.departments.map(x=>x.id===d.id?{...x,enabled:e.target.checked}:x)})}/>{d.label}</label>)}</div>
+        <label>Approved retention policy<textarea value={config.activation.retention||''} onChange={e=>change({activation:{...config.activation,retention:e.target.value}})} placeholder="Retention and deletion arrangements approved by WCL"/></label>
+        {[
+          ['privacyApproved','privacyReference','Privacy notice, provider/region and retention reviewed'],
+          ['accessApproved','accessReference','Venue names and access mapping approved by security'],
+          ['printApproved','printReference','Physical badge size, stock and duplex proof approved'],
+        ].map(([flag,ref,label])=><div key={flag}><label className="access-check"><input type="checkbox" checked={config.activation[flag]===true} onChange={e=>change({activation:{...config.activation,[flag]:e.target.checked}})}/>{label}</label><label>{label} · approval reference<input value={config.activation[ref]||''} onChange={e=>change({activation:{...config.activation,[ref]:e.target.value}})}/></label></div>)}
+        <p>These confirmations record WCL's decisions; the system does not provide legal, venue-security or hardware approval.</p>
+      </section>}
+      {!config.workflowVersion && <details className="admin-panel"><summary>Badge layout & category colours</summary><div className="access-field-grid">
         <label>Width · mm<input type="number" min={50} max={150} required value={config.widthMm} onChange={e => change({ widthMm: Number(e.target.value) })} /></label>
         <label>Height · mm<input type="number" min={70} max={220} required value={config.heightMm} onChange={e => change({ heightMm: Number(e.target.value) })} /></label>
       </div><label>Back-of-badge conditions<textarea rows={4} maxLength={3000} value={config.backText} onChange={e => change({ backText: e.target.value })} /></label>
         <div className="access-colours">{config.categories.map(c => <label key={c.id}><input type="color" value={c.color} onChange={e => change({ categories: config.categories.map(x => x.id === c.id ? { ...x, color: e.target.value } : x) })} />{c.label}</label>)}</div>
         <p>The five slots display approved codes only. Printer dimensions and final artwork still require sign-off.</p><BadgeSections />
-      </details>
+      </details>}
       <footer><label className="access-check"><input type="checkbox" required checked={reviewed} onChange={e => setReviewed(e.target.checked)} />I have checked these settings and have authority to make these changes.</label><button type="submit" className="admin-primary" disabled={!dirty || !reviewed}>{busy ? 'Saving…' : 'Save settings'}</button>{dirty && <small>Unsaved changes</small>}</footer>
     </fieldset>
   </form>;

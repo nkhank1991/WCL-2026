@@ -29,7 +29,7 @@ export default async function handler(req, res) {
     }
     const response = await fetch(new URL('/api/' + route, backend), { method: req.method, headers, body, redirect: 'error', signal: AbortSignal.timeout(20000) });
     res.statusCode = response.status;
-    for (const key of ['content-type','x-frame-options']) if (response.headers.has(key)) res.setHeader(key, response.headers.get(key));
+    for (const key of ['content-type','x-frame-options','content-disposition']) if (response.headers.has(key)) res.setHeader(key, response.headers.get(key));
     const session = response.headers.get('set-cookie');
     if (session?.startsWith('wcl_accreditation_session=')) res.setHeader('set-cookie', session);
     res.end(Buffer.from(await response.arrayBuffer()));

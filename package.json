@@ -22,6 +22,7 @@
     "fast-xml-parser": "^5.11.1",
     "fflate": "^0.8.3",
     "motion": "^13.2.0",
+    "pdfjs-dist": "^5.4.296",
     "qrcode": "^1.5.4",
     "react": "19.2.0",
     "react-dom": "19.2.0",

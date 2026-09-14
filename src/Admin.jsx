@@ -7,13 +7,15 @@ import {sectionLabel} from '../lib/access-sections.mjs';
 const apiUrl=route=>(location.pathname.startsWith('/accreditation/')?'/api/operations/':'/api/')+route;
 import {ContentStudio} from './cms/ContentStudio.jsx';
 import {WclLogo} from './cms/SiteContent.jsx';
+import {OperationsPortal} from './accreditation/OperationsPortal';
 let csrf='';
 async function api(route,body){const response=await fetch(apiUrl(route),{method:body?'POST':'GET',headers:body?{'Content-Type':'application/json','X-CSRF-Token':csrf}:{},body:body?JSON.stringify(body):undefined,cache:'no-store'});const result=await response.json();if(!response.ok)throw Error(result.error||'Request failed');return result;}
 const file64=file=>new Promise((resolve,reject)=>{const reader=new FileReader();reader.onload=()=>resolve(String(reader.result).split(',')[1]);reader.onerror=reject;reader.readAsDataURL(file);});
 const date=value=>value?new Date(value).toLocaleString('en-GB',{timeZone:'Asia/Dubai'}):'—';
 function Field({label,children}){const id=useId();const control=isValidElement(children)&&['input','select','textarea'].includes(children.type);return <div className="admin-field" role={control?undefined:'group'} aria-labelledby={control?undefined:id}>{control?<label htmlFor={id}>{label}</label>:<span id={id}>{label}</span>}{control?cloneElement(children,{id}):children}</div>;}
 export function AccreditationPlan(){return <section className="wrap section accreditation-plan"><p className="kicker">WCL / EVENT OPERATIONS</p><h1>Accreditation.<br/>The right access.</h1><p>A role is not an access pass. Every Season 3 credential requires an individual identity check, authorised venue and zone grants, and a defined validity window.</p><div className="accreditation-steps">{['Register or import','Review identity','Approve access','Issue & print','Confirm collection','Scan at the zone','Expire or revoke'].map((label,i)=><div key={label}><small>0{i+1}</small><h3>{label}</h3></div>)}</div><h2>One system. Clear categories.</h2><div className="category-preview">{categories.map(c=><div key={c.id} style={{borderColor:c.color}}><i style={{background:c.color}}/>{c.label}</div>)}</div><div className="accreditation-disclaimer"><h3>Security approval comes first.</h3><p>The 2025 register and historical badge designs guide category planning only. Blank fields, YES/NO markers, “all venues” and former access codes never become current permissions automatically. Current venues and zone mappings are disabled until the event security team approves them.</p><p>Badge dimensions, print stock, lanyards, retention periods and final category/access mappings need operational sign-off. Accreditation is not evidence that someone played in a match squad.</p><Link className="btn" to="/accreditation/apply">Apply for accreditation →</Link></div></section>}
-export function Admin({portal='cms'}){
+export function Admin({portal='cms'}){return portal==='accreditation'?<OperationsPortal/>:<LegacyAdmin portal={portal}/>;}
+function LegacyAdmin({portal='cms'}){
  const accreditation=portal==='accreditation';
  const [contentDirty,setContentDirty]=useState(false),[authNotice,setAuthNotice]=useState('');
  const leaveContent=()=>!contentDirty||window.confirm('Discard the unsaved content changes?');
