@@ -797,3 +797,16 @@ body:has(.ops-shell) { min-width: 0; }
     appearance: auto;
   }
 }
+.ops-secure-document,.ops-identity-review{padding:20px 0;border-top:1px solid #ccd4df;margin-top:20px;min-width:0}
+.ops-secure-document .ops-actions,.ops-identity-review .ops-actions{flex-wrap:wrap;gap:10px}
+.ops-identity-review strong{overflow-wrap:anywhere}
+.ops-document-link{display:inline-flex;align-items:center;min-height:44px;padding:10px 14px}
+.ops-identity-review form{display:grid;gap:12px}
+.ops-identity-review summary{cursor:pointer;min-height:44px;font-weight:600}
+.ops-id-preview{display:block;width:100%;height:340px;border:1px solid var(--ops-border,#dce3eb);border-radius:12px;background:#fff;flex-basis:100%}
+.ops-identity>.ops-identity-review{grid-column:1/-1;width:100%}
+.ops-days-review{margin:18px 0}
+.ops-days-review summary{cursor:pointer;min-height:44px;display:list-item;font-weight:600;padding:10px 0}
+.ops-days-review fieldset{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin:12px 0}
+.ops-days-review .ops-check{margin:0;min-height:44px}
+@media(max-width:560px){.ops-days-review fieldset{grid-template-columns:repeat(2,minmax(0,1fr))}}

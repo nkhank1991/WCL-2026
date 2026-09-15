@@ -4,6 +4,9 @@ import { statusLabels } from "../../lib/accreditation-model.mjs";
 import {accessSections,pmoaEligible} from '../../lib/access-sections.mjs';
 import {AccessChoices,TeamAccessRole} from './AccessChoices';
 import {ApplicationFields,DocumentInput} from './ApplicationFields';
+import {SecureDocumentInput} from './SecureDocumentInput';
+import {SimpleApplicationFields} from './SimpleApplicationFields';
+import {DriveDocumentInput} from './DriveDocumentInput';
 import {documentKinds,documentLabels} from '../../lib/application-form.mjs';
 import "./operations.css";
 import "./applicant-form.css";
@@ -117,6 +120,7 @@ export function ApplicantWorkspace() {
         if(!f.getAll('requestedDays').length)throw Error('Select at least one required match or working date.');
         if(!f.getAll('requestedZones').length)throw Error('Select the access areas you are requesting.');
         for(const kind of documentKinds){
+          if(config.identityMode==='external'){if(f.get(kind))documents[kind]=f.get(kind);continue;}
           const document=f.get(kind);if(!document?.size)continue;
           if(document.size>2*1024*1024)throw Error('Each document must be below 2 MB.');
           let cached=documentCache.current.get(document);
@@ -134,6 +138,7 @@ export function ApplicantWorkspace() {
         headshot: config.formVersion===2?croppedPhoto:await encode(file),
         documents,requestedDays:f.getAll('requestedDays'),
         accuracy:f.get('accuracy')==='on',eventTerms:f.get('eventTerms')==='on',idHasReverse:f.get('idHasReverse')==='on',
+        whatsappOptIn:f.get('whatsappOptIn')==='on',
         requestedVenues: f.getAll("requestedVenues"),
         requestedZones: f.getAll("requestedZones"),
         consent: f.get("consent") === "on",
@@ -185,7 +190,7 @@ export function ApplicantWorkspace() {
         ) : receipt ? (
           <section className="ops-panel application-receipt">
             <span className={"ops-status " + receipt.status}>
-              {statusLabels[receipt.status] || receipt.status}
+              {receipt.statusLabel || statusLabels[receipt.status] || receipt.status}
             </span>
             <h2>{receipt.reference}</h2>
             <p>
@@ -222,8 +227,8 @@ export function ApplicantWorkspace() {
               <input readOnly value={link} onFocus={(e) => e.target.select()} />
             </label>
             <p className="ops-caption">
-              Automatic email notifications are not connected. Keep this link
-              private; it is needed to return to your application.
+              Keep this link private. You need it to return to your application,
+              even if you receive status notifications.
             </p>
             {receipt.correction && (
               <form
@@ -234,6 +239,7 @@ export function ApplicantWorkspace() {
                     const fields = {};
                     for (const key of receipt.correction.fields) {
                       if(documentKinds.includes(key)){
+                        if(config.identityMode==='external'){fields[key]=f.get(key);continue;}
                         const file=f.get(key);if(!file?.size||file.size>2*1024*1024)throw Error('Choose the replacement document below 2 MB.');
                         fields[key]=(await api('upload',{kind:key,base64:await encode(file),receipt:secret})).token;continue;
                       }
@@ -261,7 +267,7 @@ export function ApplicantWorkspace() {
                   <h3>Correction requested</h3>
                   <p>{receipt.correction.message}</p>
                   {receipt.correction.fields.map((key) => (
-                    documentKinds.includes(key)?<DocumentInput key={key} kind={key} required/>:
+                    documentKinds.includes(key)?(config.identityProvider==='google-drive'?<DriveDocumentInput key={key} kind={key} receipt={secret}/>:config.identityMode==='external'?<SecureDocumentInput key={key} kind={key} required receipt={secret}/>:<DocumentInput key={key} kind={key} required/>):
                     ['requestedDays','requestedZones'].includes(key)?<fieldset key={key}><legend>{fieldLabels[key]}</legend>{(key==='requestedDays'?config.matchDays.map(id=>({id,label:id})):config.zones).map(x=><label className="ops-check" key={x.id}><input type="checkbox" name={key} value={x.id} defaultChecked={receipt.correction.values[key]?.includes(x.id)}/>{x.label}</label>)}</fieldset>:
                     <label key={key}>
                       {fieldLabels[key]}
@@ -315,7 +321,7 @@ export function ApplicantWorkspace() {
             {!config?.enabled&&<nav aria-label="Accreditation policy drafts" className="application-policy-links"><Link to="/accreditation/privacy">Privacy notice draft</Link><Link to="/accreditation/terms">Event terms draft</Link><Link to="/accreditation/id-policy">ID handling draft</Link></nav>}
             <form onSubmit={submit} className="application-form">
               <fieldset disabled={!config?.enabled || busy}>
-                {config?.formVersion===2?<ApplicationFields config={config} busy={busy} onPhoto={setCroppedPhoto}/>:<>
+                {config?.formVersion===2?(config.simpleApplication?<SimpleApplicationFields config={config} busy={busy} onPhoto={setCroppedPhoto}/>:<ApplicationFields config={config} busy={busy} onPhoto={setCroppedPhoto}/>):<>
                 <section className="ops-panel">
                   <div className="application-section-title">
                     <span>01</span>

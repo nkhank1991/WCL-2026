@@ -20,6 +20,7 @@ const workspaceNames = {
   "Print Operator": "Print queue",
   "Issuance Officer": "Collection",
   "Gate Operator": "Gate check",
+  "Security Lead": "Security",
 };
 
 export function OperationsPortal() {
@@ -280,6 +281,7 @@ export function OperationsPortal() {
               "Approvals",
               "Restricted approvals",
               "Collection",
+              "Security",
             ].includes(tab) && (
               <ReviewWorkspace
                 key={tab}

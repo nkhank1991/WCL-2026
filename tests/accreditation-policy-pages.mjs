@@ -8,6 +8,7 @@ import {MemoryRouter} from 'react-router-dom';
 import {JSDOM} from 'jsdom';
 import {policyDocuments,policyPaths,policyStatus,policyVersion} from '../src/accreditation/policy-content.js';
 import {pageMetadata} from '../src/seo/model.js';
+import {retentionDraft,approvalTemplates,policyPack} from '../lib/accreditation-policy-pack.mjs';
 
 const out=path.resolve('node_modules/.cache/accreditation-policy-pages.mjs');
 await build({entryPoints:['src/accreditation/AccreditationPolicyPage.jsx'],outfile:out,bundle:true,platform:'node',format:'esm',jsx:'automatic',external:['react','react-dom','react/*','react-dom/*','react-router-dom']});
@@ -29,4 +30,14 @@ await build({entryPoints:['src/accreditation/AccreditationPolicyPage.jsx'],outfi
   }
   assert.match(JSON.stringify(policyDocuments.privacy),/data controller/);
   assert.match(JSON.stringify(policyDocuments.storage),/not yet enabled/);
+  assert.equal(policyPack.status,'draft');
+  assert.equal(approvalTemplates.length,5);
+  assert.match(retentionDraft,/within 30 days after the event ends/);
+  assert.match(JSON.stringify(policyDocuments.storage),/7 days after issue/);
+  assert.match(JSON.stringify(policyDocuments.storage),/90 days after event end/);
+  assert.match(JSON.stringify(policyDocuments.terms),/WCL-S3-TERMS-001/);
+  for(const doc of Object.values(policyDocuments)){
+    assert.ok(doc.documentId);
+    assert.doesNotMatch(JSON.stringify(doc),/\[COMPLETE REGISTERED ADDRESS\]/);
+  }
   console.log('PASS three readable draft policies, navigation, noindex metadata and no collection');

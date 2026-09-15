@@ -14,7 +14,7 @@ export function AccreditationPolicyPage({kind='privacy'}){
       <p className="ops-lead">{page.intro}</p>
       <p className="ops-notice"><strong>{draftNotice}</strong></p>
       <nav className="policy-tabs" aria-label="Accreditation policies">{Object.entries(policyPaths).map(([key,to])=><NavLink key={key} to={to}>{key==='privacy'?'Privacy notice':key==='terms'?'Event terms':'ID handling'}</NavLink>)}</nav>
-      <div className="policy-meta"><span>Prepared {policyDate}</span><span>{policyVersion}</span></div>
+      <div className="policy-meta"><span>Prepared {policyDate}</span><span>{page.documentId}</span><span>{policyVersion}</span></div>
       <ul className="policy-summary">{page.summary.map(item=><li key={item}>{item}</li>)}</ul>
       <div className="policy-layout">
         <nav className="policy-contents" aria-label="On this page"><h2>On this page</h2>{page.sections.map((section,i)=><a href={'#'+section.id} key={section.id}><span>{String(i+1).padStart(2,'0')}</span>{section.title}</a>)}</nav>

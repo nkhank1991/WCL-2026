@@ -3,6 +3,8 @@ import {AccessChoices} from './AccessChoices';
 import {PortraitCrop} from './PortraitCrop';
 import {requestedTeamRole,documentLabels} from '../../lib/application-form.mjs';
 import {pmoaEligible} from '../../lib/access-sections.mjs';
+import {SecureDocumentInput} from './SecureDocumentInput';
+import {DriveDocumentInput} from './DriveDocumentInput';
 
 export function ApplicationSection({number,title,children}){return <section className="ops-panel"><div className="application-section-title"><span>{number}</span><h2>{title}</h2></div>{children}</section>;}
 export function DocumentInput({kind,required=false}){
@@ -18,6 +20,7 @@ export function ApplicationFields({config,busy,onPhoto}){
   const [department,setDepartment]=useState(()=>config.departments.find(d=>d.categories.includes(initial))?.id||'');
   const [category,setCategory]=useState(initial),[role,setRole]=useState(''),[idType,setIdType]=useState(''),[reverse,setReverse]=useState(false),[zones,setZones]=useState([]);
   const dept=config.departments.find(d=>d.id===department);
+  const Document=config.identityProvider==='google-drive'?DriveDocumentInput:config.identityMode==='external'?SecureDocumentInput:DocumentInput;
   const roleOptions=dept?.roles||[];
   const chooseRole=next=>{setRole(next);const c=department==='teams'?(next==='Player'?'player':'team-staff'):category;setCategory(c);if(!pmoaEligible(c,requestedTeamRole(c,next)))setZones(z=>z.filter(id=>id!=='SEC-5'));};
   const field=(name,label,options={})=><label>{label}<input name={name} required maxLength={200} {...options}/></label>;
@@ -40,15 +43,15 @@ export function ApplicationFields({config,busy,onPhoto}){
       {(department==='teams'||['player','team-staff'].includes(category))&&<label>Team<select name="team" required><option value="">Choose team</option>{config.teams.map(t=><option key={t}>{t}</option>)}</select></label>}
       <label>Assignment / purpose of attendance<textarea name="assignment" required minLength={8} maxLength={1000} rows={2}/></label>
       {dept?.nominationRequired&&<div className="ops-two">{field('nominatorName','Nominating manager / department contact')}{field('nominatorContact','Contact email or international phone')}</div>}
-      {dept?.evidenceRequired&&<DocumentInput kind="assignmentEvidence" required/>}
+      {dept?.evidenceRequired&&<Document kind="assignmentEvidence" required/>}
     </ApplicationSection>
     <ApplicationSection number="03" title="Your photograph"><PortraitCrop onChange={onPhoto}/></ApplicationSection>
     <ApplicationSection number="04" title="Identity proof">
       <label>ID type<select name="idType" required value={idType} onChange={e=>{setIdType(e.target.value);setReverse(false);}}><option value="">Choose ID type</option><option value="passport">Passport</option><option value="emirates-id">Emirates ID</option><option value="other">Other government photo ID</option></select></label>
       {idType==='other'&&field('idDescription','Government photo ID name')}
-      <DocumentInput kind="idFront" required/>
+      <Document kind="idFront" required/>
       {idType!=='emirates-id'&&<label className="ops-check"><input type="checkbox" name="idHasReverse" checked={reverse} onChange={e=>setReverse(e.target.checked)}/>My ID has a reverse side with identity details</label>}
-      {(idType==='emirates-id'||reverse)&&<DocumentInput kind="idBack" required/>}
+      {(idType==='emirates-id'||reverse)&&<Document kind="idBack" required/>}
       <p className="ops-caption">Clear JPG, PNG or PDF · up to 2 MB each. PDF: up to five pages, without passwords, forms or attachments. Identity documents are private and never printed on the badge.</p>
     </ApplicationSection>
     <ApplicationSection number="05" title="Dates & requested access">
@@ -62,6 +65,7 @@ export function ApplicationFields({config,busy,onPhoto}){
     <ApplicationSection number="06" title="Confirm & submit">
       <label className="application-honeypot" aria-hidden="true">Website<input name="website" tabIndex={-1} autoComplete="off"/></label>
       <label className="ops-check"><input type="checkbox" name="accuracy" required/>I confirm my details and documents are accurate.</label>
+      {config.whatsappAvailable&&<label className="ops-check"><input type="checkbox" name="whatsappOptIn"/>Send accreditation status updates to my mobile number using WhatsApp (optional).</label>}
       <label className="ops-check"><input type="checkbox" name="eventTerms" required/><span>I accept the {config.eventTermsUrl?<a href={config.eventTermsUrl} target="_blank" rel="noreferrer">event terms</a>:'event terms (awaiting approval)'}.</span></label>
       <label className="ops-check"><input type="checkbox" name="consent" required/><span>I acknowledge the {config.privacyNoticeUrl?<a href={config.privacyNoticeUrl} target="_blank" rel="noreferrer">accreditation privacy notice</a>:'accreditation privacy notice (awaiting approval)'}.</span></label>
       <button className="ops-primary application-submit">{busy?'Submitting…':'Submit'}</button>

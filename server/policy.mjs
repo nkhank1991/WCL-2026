@@ -1,5 +1,5 @@
 import {accessSections} from '../lib/access-sections.mjs';
-export const roles=['Owner','Administrator','Editor','Publisher','Media Manager','Analyst','Accreditation Manager','Gate Operator','Reviewer','Approver','Restricted Approver','Print Operator','Issuance Officer'];
+export const roles=['Owner','Administrator','Editor','Publisher','Media Manager','Analyst','Accreditation Manager','Gate Operator','Reviewer','Approver','Restricted Approver','Print Operator','Issuance Officer','Security Lead'];
 export const permissions={
  Owner:['*'],Administrator:['content:read','content:write','content:publish','media:write','accred:read','accred:write','accred:approve','accred:scan','config:write','audit:read'],
  Editor:['content:read','content:write'],Publisher:['content:read','content:publish'],
@@ -7,7 +7,7 @@ export const permissions={
  'Accreditation Manager':['accred:read','accred:write','accred:approve','accred:scan'],
  'Gate Operator':['accred:scan'],
  Reviewer:['accred:read'],Approver:['accred:read'],'Restricted Approver':['accred:read'],
- 'Print Operator':['accred:print'],'Issuance Officer':['accred:read']
+ 'Print Operator':['accred:print'],'Issuance Officer':['accred:read'],'Security Lead':['accred:read']
 };
 export const can=(role,permission)=>permissions[role]?.some(p=>p==='*'||p===permission)||false;
 export function check(role,permission){if(!can(role,permission))throw Object.assign(Error('Your role cannot perform this action.'),{status:403});}

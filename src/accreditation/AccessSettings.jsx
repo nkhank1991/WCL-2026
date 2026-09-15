@@ -4,6 +4,7 @@ import './access-settings.css';
 import {season3Event,season3Venues,season3Finals} from '../../lib/accreditation-venues.mjs';
 import {toUaeInput,fromUaeInput} from './operations-api';
 import {DepartmentSettings} from './DepartmentSettings';
+import {retentionDraft,approvalTemplates,settingsDeclaration} from '../../lib/accreditation-policy-pack.mjs';
 
 export function AccessSections({ zones, selected, onChange }) {
   return <fieldset className="access-section-picker"><legend>Access sections</legend>
@@ -102,6 +103,11 @@ export function AccessSettings({ api, onDirtyChange }) {
         <div className="access-field-grid">{config.departments.map(d=><label className="access-check" key={d.id}><input type="checkbox" checked={d.enabled} onChange={e=>change({departments:config.departments.map(x=>x.id===d.id?{...x,enabled:e.target.checked}:x)})}/>{d.label}</label>)}</div>
         <nav aria-label="Accreditation policy drafts" className="access-policy-links"><a href="/accreditation/privacy" target="_blank" rel="noreferrer">Privacy notice draft</a><a href="/accreditation/terms" target="_blank" rel="noreferrer">Event terms draft</a><a href="/accreditation/id-policy" target="_blank" rel="noreferrer">ID handling draft</a></nav>
         <p>These documents are prepared for review, not approved policies. Confirm the legal organiser, lawful processing basis, provider contracts, privacy contact and retention controls before opening applications.</p>
+        <details className="policy-review-pack"><summary>Version 1.0 · proposed retention & approval records</summary>
+          <h4>Retention draft · WCL-S3-RET-001</h4><p>{retentionDraft}</p>
+          <p>Use this proposal when preparing the adoption record. It is not an approved policy and does not enable automatic deletion or open applications.</p>
+          {approvalTemplates.map(template=><section key={template.title}><h4>{template.title}</h4><p>{template.reference}</p></section>)}
+        </details>
         <label>Approved retention policy<textarea value={config.activation.retention||''} onChange={e=>change({activation:{...config.activation,retention:e.target.value}})} placeholder="Retention and deletion arrangements approved by WCL"/></label>
         {config.formVersion===2&&<><label className="access-check"><input type="checkbox" checked={config.activation.identityProviderApproved===true} onChange={e=>change({activation:{...config.activation,identityProviderApproved:e.target.checked}})}/>Written provider arrangements permit government-ID processing throughout the upload and storage route</label><label>Provider contract or written permission reference<input value={config.activation.identityProviderReference||''} onChange={e=>change({activation:{...config.activation,identityProviderReference:e.target.value}})}/></label><p>Render's standard terms exclude government identification numbers; Vercel's DPA also restricts sensitive data. Confirm permission from every relevant provider or use an approved alternative. WCL consent alone does not override provider restrictions.</p></>}
         {config.formVersion===2&&<><label className="access-check"><input type="checkbox" checked={config.activation.identityDocumentsApproved===true} onChange={e=>change({activation:{...config.activation,identityDocumentsApproved:e.target.checked}})}/>ID-proof and assignment-document collection, access, retention and deletion approved</label><label>Identity-document policy approval reference<input value={config.activation.identityDocumentsReference||''} onChange={e=>change({activation:{...config.activation,identityDocumentsReference:e.target.value}})}/></label></>}
@@ -119,7 +125,7 @@ export function AccessSettings({ api, onDirtyChange }) {
         <div className="access-colours">{config.categories.map(c => <label key={c.id}><input type="color" value={c.color} onChange={e => change({ categories: config.categories.map(x => x.id === c.id ? { ...x, color: e.target.value } : x) })} />{c.label}</label>)}</div>
         <p>The five slots display approved codes only. Printer dimensions and final artwork still require sign-off.</p><BadgeSections />
       </details>}
-      <footer><label className="access-check"><input type="checkbox" required checked={reviewed} onChange={e => setReviewed(e.target.checked)} />I have checked these settings and have authority to make these changes.</label><button type="submit" className="admin-primary" disabled={!dirty || !reviewed}>{busy ? 'Saving…' : 'Save settings'}</button>{dirty && <small>Unsaved changes</small>}</footer>
+      <footer><label className="access-check"><input type="checkbox" required checked={reviewed} onChange={e => setReviewed(e.target.checked)} />{settingsDeclaration}</label><button type="submit" className="admin-primary" disabled={!dirty || !reviewed}>{busy ? 'Saving…' : 'Save settings'}</button>{dirty && <small>Unsaved changes</small>}</footer>
     </fieldset>
   </form>;
 }

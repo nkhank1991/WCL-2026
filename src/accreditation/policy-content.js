@@ -1,127 +1,295 @@
-// Prepared for WCL review. Publication of these drafts is not legal approval.
-// No legal entity, provider permission or retention automation is inferred.
+// Supplied policy pack v1.0. Draft publication is not adoption or activation.
 export const policyVersion = 'WCL-S3-2026-DRAFT-20260915';
 export const policyDate = '15 September 2026';
-export const policyPaths = {
-  privacy: '/accreditation/privacy',
-  terms: '/accreditation/terms',
-  storage: '/accreditation/id-policy',
-};
 export const policyStatus = 'draft';
+export const policyPaths = {privacy:'/accreditation/privacy',terms:'/accreditation/terms',storage:'/accreditation/id-policy'};
 export const draftNotice = 'Draft for WCL review — not yet in force. Applications and document uploads remain closed.';
 export const policyReferences = [
-  ['UAE Government: data protection laws','https://u.ae/en/about-the-uae/digital-uae/data/data-protection-laws.'],
-  ['Render: terms of service','https://render.com/terms'],
-  ['Render: persistent disk security and snapshots','https://render.com/docs/disks'],
-  ['Vercel: data-processing addendum','https://vercel.com/legal/dpa'],
+  [
+    "UAE Government: data protection laws",
+    "https://u.ae/en/about-the-uae/digital-uae/data/data-protection-laws"
+  ],
+  [
+    "Render: terms of service",
+    "https://render.com/terms"
+  ],
+  [
+    "Vercel: data-processing addendum",
+    "https://vercel.com/legal/dpa"
+  ],
+  [
+    "Google: Cloud Data Processing Addendum",
+    "https://cloud.google.com/terms/data-processing-addendum/"
+  ]
 ];
 export const policyDocuments = {
-  privacy: {
-    title: 'Accreditation privacy notice',
-    intro: 'How personal information would be used for World Championship of Legends — Season 3, 3–18 October 2026, in the UAE.',
-    summary: ['Event accreditation only', 'Human approval of access', 'ID documents never printed'],
-    sections: [
-      {id:'responsibility',title:'Who is responsible',paragraphs:[
-        'This draft covers the WCL Season 3 accreditation application, review, badge production and credential checks. It is separate from the website privacy policy, ticket purchases and any employment or player agreement.',
-        'Before this notice takes effect, WCL must identify the registered legal entity acting as data controller, its postal address and its authorised privacy contact. Those details have not been confirmed; “WCL” is the event identity, not a substitute for the legal entity.',
-        'Proposed contact: info@wclcricket.com, subject to confirmation that this mailbox handles privacy requests. Do not email passport copies, ID numbers or other identity documents. Quote your application reference when asking about an application.'
-      ]},
-      {id:'information',title:'Information in an application',paragraphs:[
-        'The proposed form collects your full name, optional card name, email, international mobile number, organisation, department, role, team where relevant, portrait, requested days and access areas, assignment and any restricted-access justification. It also records declarations and their version and time.',
-        'Where required for a verified role, it requests a nominating contact and assignment evidence. The proposed identity process requests a government photo-ID copy and its reverse where relevant. ID collection is not active: its necessity, permitted hosting route and retention arrangements must first be approved.',
-        'The system also records application references, corrections, human decisions, approved access and dates, badge versions, downloads, credential checks and security events. Hosting services process technical information such as connection details. Nomination details may be checked with your named manager or department contact; share their work contact details only with authority.'
-      ]},
-      {id:'purposes',title:'Why it is needed',paragraphs:[
-        'Information is intended to verify the applicant and assignment, assess access requests, manage corrections, prepare an accurate credential, control approved access, prevent misuse and handle accreditation enquiries or incidents. A request does not grant access. PMOA requires a verified eligible role and explicit approval.',
-        'This workflow does not subscribe applicants to marketing, sell their information, publish their ID documents, perform automated face recognition or make admission decisions solely by automated profiling. A printer receives the approved badge PDF and queue details, not the ID proof, private contact information or assignment evidence.',
-        'WCL must document the applicable lawful basis for each purpose before collection. An acknowledgement that you have read this notice is not, by itself, consent to every use. Where consent is the appropriate basis, the specific use and withdrawal method must be stated separately; any reliance on a contract or legal obligation must be identified and justified. No blanket claim is made that UAE law requires every applicant to upload an ID copy.'
-      ]},
-      {id:'sharing',title:'Who can see it and where it travels',paragraphs:[
-        'Authorised accreditation staff can access records within their assigned role and department. Identity documents are restricted to the Owner and assigned reviewers or approvers. Approved badge information may be used by authorised printers, issuance staff and venue access personnel for their duties. Disclosure to authorities must have a valid legal basis and be limited to what is necessary.',
-        'The current website and request gateway use Vercel; the private application database is on Render in Frankfurt, Germany. This is not UAE-only processing: delivery, support, logs and subprocessors may involve other countries. WCL must review the complete provider arrangements and lawful international-transfer mechanism before collection.',
-        'Government-ID uploads are blocked pending provider permission. Standard Render terms exclude government identification numbers, and Vercel’s data-processing terms restrict sensitive data. WCL must obtain suitable written arrangements or use a permitted alternative. Encryption or applicant consent alone does not resolve a contractual restriction.'
-      ]},
-      {id:'retention',title:'Keeping and deleting information',paragraphs:[
-        'The proposed retention schedule is in the ID handling policy. It recommends keeping identity and assignment copies for the shortest verification period, separate from the badge and decision record. The proposed periods are operational recommendations, not a statutory retention requirement or a claim that scheduled deletion is already operating.',
-        'Currently, unsubmitted staged uploads expire after 30 minutes. The active system periodically removes expired unclaimed files. Automatic deletion of submitted documents, application history, downloaded printer copies and backups is not yet configured. That gap must be resolved before accepting real documents.',
-        'A documented legal or security hold may preserve only relevant records for an identified purpose and review period. Backups and downloaded copies require their own deletion controls. A database deletion does not mean every historical copy disappears immediately.'
-      ]},
-      {id:'rights',title:'Questions, corrections and your rights',paragraphs:[
-        'Depending on the applicable law, you may request information about processing, access to your personal data, correction, deletion, restriction, objection, portability or withdrawal of consent where relied upon. These rights can have lawful limits. WCL must provide its confirmed contact and the applicable supervisory complaint route before this draft becomes effective.',
-        'Use the private application link for requested corrections. For privacy requests, contact the confirmed privacy team with your application reference; proportionate identity checks may be needed. Do not send further ID documents by ordinary email. Refusing information genuinely necessary for accreditation may prevent review; ask about an approved alternative verification method.',
-        'The standard form has not been designed as a child or guardian application. Under-18 applicants should not submit documents until WCL provides an approved safeguarding and guardian process. Necessary processing and requests must not be repurposed for a later season without a fresh justification and notice.'
-      ]},
+  "privacy": {
+    "title": "Accreditation privacy notice",
+    "documentId": "WCL-S3-PRIV-001 v1.0",
+    "intro": "World Championship of Legends — Season 3 · 3–18 October 2026 · UAE.",
+    "summary": [
+      "Event accreditation only",
+      "Human approval of access",
+      "ID documents never printed"
     ],
+    "sections": [
+      {
+        "id": "policy-2-0",
+        "title": "Controller and document status",
+        "paragraphs": [
+          "Document: WCL-S3-PRIV-001 v1.0. Effective date: pending confirmation: date. Controller: World Champions League Cricket LLC FZ, CENTER 1, M FLOOR, THE MEYDAN HOTEL, NAD AL SHEBA, DUBAI, U.A.E.. Contact: pending confirmation: monitored privacy email.",
+          "The organiser details above were supplied by WCL. Final trade-licence spelling, monitored contacts and the data controller’s adoption record are pending. Publication of this draft does not start collection."
+        ]
+      },
+      {
+        "id": "policy-2-1",
+        "title": "Why we collect your information",
+        "paragraphs": [
+          "We use your information to review your WCL Season 3 accreditation application, verify your identity and event assignment, determine appropriate access, produce your badge, manage collection and entry, communicate application updates, and deal with relevant credential or security incidents. An application does not guarantee accreditation or access to any particular area."
+        ]
+      },
+      {
+        "id": "policy-2-2",
+        "title": "What we collect and where it comes from",
+        "paragraphs": [
+          "We collect the information you submit: your full name, contact details, portrait, organisation or team, department, role, requested venues/dates/access, and necessary assignment evidence. For identity verification, we request one accepted government ID: an Emirates ID or passport. The upload instructions specify the necessary card sides or passport identity page. The document number is visible to authorised ID reviewers and, where separately required for verification, is handled through the same restricted process.",
+          "We also keep your acknowledgement number, review and verification outcome, approved access, badge number/version, issuance or replacement history, necessary gate-scan records and service/security logs. A team or employer may provide assignment details where authorised; we may check the stated assignment with them. Do not upload banking information, medical records, unrelated passport pages or another person's documents without authority."
+        ]
+      },
+      {
+        "id": "policy-2-3",
+        "title": "Our basis for using the information",
+        "paragraphs": [
+          "Where processing is objectively necessary to take steps you request for an accreditation arrangement or to perform that arrangement, we rely on the applicable contractual necessity basis. Where that basis does not cover a particular use, we will identify and obtain valid consent or use another specifically applicable legal basis before that processing. Any reliance on a legal obligation or legal proceeding must relate to an actual applicable requirement or matter. We do not treat acceptance of this notice as consent to every possible use.",
+          "If consent is the basis for a use, you may withdraw it through the privacy contact. Withdrawal does not affect processing already lawfully carried out. We will explain any effect on your application and whether a different lawful basis requires us to retain limited information. If we cannot complete a necessary identity or assignment check, we cannot issue the requested accreditation until it is resolved."
+        ]
+      },
+      {
+        "id": "policy-2-4",
+        "title": "Who can see it",
+        "paragraphs": [
+          "Authorised WCL accreditation reviewers can access the information needed for their decisions. ID documents are restricted to approved identity reviewers. Access approvers receive the information needed to assess your duties and requested permissions. Print staff receive the approved badge artwork and print fields. Collection and gate staff receive your portrait and the information needed to establish that the credential is yours and valid for the access requested.",
+          "Approved service providers process information on WCL's instructions for hosting, secure document handling, notifications and support. Venue/security partners receive only what they need for authorised event access and incident handling. We may disclose information to competent authorities where required by law or through a valid legal process. Accreditation information is not sold or supplied to sponsors for their independent marketing."
+        ]
+      },
+      {
+        "id": "policy-2-5",
+        "title": "Storage and international processing",
+        "paragraphs": [
+          "The intended ID repository is WCL's restricted organisation-controlled Google Drive location under the agreement recorded for that account. The existing hosting and notification services handle their approved portions of the application. ID copies and numbers must use only the reviewed document route.",
+          "Publication entry to complete from the actual provider record: pending confirmation: service providers and their functions; pending confirmation: relevant countries/regions; pending confirmation: applicable transfer safeguard or legal mechanism; pending confirmation: how to request details.",
+          "Providers may process data outside the UAE. WCL will identify the applicable locations and safeguards before using that route. We will not describe the service as UAE-only unless that statement is supported by the actual arrangement. A folder's name or privacy setting does not establish its processing country."
+        ]
+      },
+      {
+        "id": "policy-2-6",
+        "title": "How long we keep it",
+        "paragraphs": [
+          "ID copies, separately captured ID numbers and assignment evidence are removed from active storage within 30 days after the event. For finally rejected or withdrawn applications, the deadline is 30 days after closure or the event-based deadline if earlier. A documented appeal, relevant incident or legal hold may require specific evidence to be retained longer.",
+          "Application details, portraits and identifiable access logs are deleted or anonymised within 90 days after the event. A minimum verification and administrative audit trail is retained for up to 12 months after the event. Unsubmitted uploads expire after 7 days of inactivity. Print working copies are removed within 7 days after issue, or within 7 days after the event for uncollected badges.",
+          "Deleting an active file is different from the provider's removal of residual system copies. Where the Google Cloud Data Processing Addendum governs the service, its general deletion clause allows up to 180 days after customer-irrecoverable deletion, subject to applicable legal exceptions. Other provider cycles must be confirmed in the provider record. Residual copies are not retained by WCL for routine use. Relevant evidence on a documented hold is restricted, periodically reviewed and deleted when that need ends."
+        ]
+      },
+      {
+        "id": "policy-2-7",
+        "title": "Security, decisions and your rights",
+        "paragraphs": [
+          "We apply access restrictions, protected transfers, controlled document viewing and audit records appropriate to the data. Your ID number and ID document will not be printed on your badge or encoded in its QR. The QR identifies a credential record; staff check the current approval, activation and access permissions. Identity review and accreditation approval are handled by authorised staff. If a gate check fails or you believe a decision is wrong, request human review through the helpdesk.",
+          "You may request information about our use of your data, access, correction, deletion, restriction, objection or portability where applicable, and withdraw consent where it is relied upon. Contact pending confirmation: monitored privacy email, quoting your acknowledgement number. Do not send an ID attachment by ordinary email unless we arrange an appropriate channel. We will verify the request proportionately, respond within applicable requirements and explain any lawful limitation. You may also complain to the competent data-protection authority.",
+          "This notice covers accreditation. Any optional marketing, promotional portrait use or separate media activity requires its own appropriate notice and permission. Material changes to this notice will be published with an updated effective date and notified where appropriate."
+        ]
+      }
+    ]
   },
-  terms: {
-    title: 'Accreditation event terms',
-    intro: 'Proposed conditions for applying for and using a WCL Season 3 accreditation credential.',
-    summary: ['Personal and non-transferable', 'Approved areas and dates only', 'Not a spectator ticket'],
-    sections: [
-      {id:'scope',title:'Event and scope',paragraphs:[
-        'These draft conditions relate to World Championship of Legends — Season 3, 3–18 October 2026, at Sharjah Cricket Stadium and Dubai International Cricket Stadium. Match schedules may change. Your credential is valid only for the dates, areas and any venue restrictions expressly approved for you.',
-        'Setup, training and operational access are separate approvals. A reference number, submitted form or downloaded draft is not an admission credential. Accreditation does not itself provide a ticket, reserved seat, hospitality benefit, parking, transport, accommodation, employment, visa or permission to play.'
-      ]},
-      {id:'application',title:'Accurate information and authority',paragraphs:[
-        'Provide your correct identity, current role and assignment, and a recent recognisable portrait. Use only documents you are entitled to provide. Obtain authority before giving a manager’s or colleague’s contact details. Do not upload unrelated financial, medical or other sensitive information.',
-        'WCL may verify nominations, ask for corrections or additional relevant evidence through an approved channel, approve a narrower request, or reject an application. Tell the accreditation team promptly if your employer, team, role, dates or contact details change. A department or job title selected on the form does not grant access or administrative authority.',
-        'ID uploads will remain unavailable until the approved identity-verification method is announced. Do not put ID numbers in remarks, use the portrait field for an ID document, or send an ID copy by email as a workaround.'
-      ]},
-      {id:'access',title:'Access is explicitly approved',paragraphs:[
-        'Use only the areas and dates shown in the current approved credential. The five requested access categories are Broadcast; Media Centre / Photography Area; Stands; Hospitality Area; and PMOA. A checked request box is not permission to enter.',
-        'PMOA is the Players and Match Officials Area. Eligibility to request it is limited to players, match officials, team managers and essential team logistics personnel. The Owner must verify the assignment and explicitly clear access. The role label alone is insufficient.',
-        'A credential does not override a restricted gate, safety closure, capacity limit, escort requirement or separately notified venue condition. A missing venue assignment is not automatic permission for both venues. Follow lawful instructions from authorised event and venue personnel.'
-      ]},
-      {id:'credential',title:'Care of your credential',paragraphs:[
-        'Your credential is personal and non-transferable. Do not lend, sell, copy, alter or publish its barcode, QR code or private download link. Display it when required and present it for authorised checks. Report loss, theft, damaged artwork or incorrect details promptly.',
-        'Only the latest approved version may be issued or used. Replaced, withdrawn, expired or revoked versions are invalid. Printing a card does not activate entry: required identity, issuance and access checks must still be completed. Printers must use approved files without editing names, photographs, dates or permissions.'
-      ]},
-      {id:'conduct',title:'Conduct, media and safety',paragraphs:[
-        'Do not obstruct play or operations, enter areas without permission, misrepresent your assignment, harass others or interfere with security controls. Follow applicable safety and emergency directions. Report an immediate emergency to venue emergency personnel rather than through the application form.',
-        'Media or broadcast accreditation is not an unlimited right to film, stream, photograph or commercially exploit event material. Your assignment and any separately agreed media or rights-holder conditions determine those permissions. These accreditation terms do not request a blanket promotional licence over your portrait or ID.'
-      ]},
-      {id:'decisions',title:'Changes, suspension and review',paragraphs:[
-        'WCL may restrict or suspend a credential where an assignment changes, information is materially inaccurate, permission is misused, or lawful safety, security or operational needs require it. A person may request a review or correction through the accreditation team. Where lawful and practicable, the reason and next steps should be explained.',
-        'These terms do not exclude liability or remove rights that cannot lawfully be excluded. They are not a waiver of all personal-injury or consumer rights. Any binding jurisdiction, organiser identity or additional venue conditions require WCL’s legal review before publication as effective terms.',
-        'The approved version and acknowledgement time will accompany an application. Material changes must be explained and re-acknowledged when required. The website terms, ticket seller’s conditions, employment agreements and approved reverse-side badge wording remain separate; this draft does not replace them automatically.'
-      ]},
+  "terms": {
+    "title": "Accreditation event terms",
+    "documentId": "WCL-S3-TERMS-001 v1.0",
+    "intro": "Proposed conditions for applying for and using a WCL Season 3 credential.",
+    "summary": [
+      "Personal and non-transferable",
+      "Approved areas and dates only",
+      "Printing is not issuance"
     ],
+    "sections": [
+      {
+        "id": "policy-3-0",
+        "title": "Event and document status",
+        "paragraphs": [
+          "Document: WCL-S3-TERMS-001 v1.0. Organiser: World Champions League Cricket LLC FZ. Event: WCL Season 3, on the dates and at the venues confirmed in the accreditation portal. Helpdesk: pending confirmation: monitored helpdesk email."
+        ]
+      },
+      {
+        "id": "policy-3-1",
+        "title": "Application and verification",
+        "paragraphs": [
+          "You must provide accurate information, a current recognisable portrait and the ID/assignment evidence requested for your role. Apply in the name shown on your accepted identity document and notify us of relevant changes. Use your existing acknowledgement number when correcting an application rather than creating unnecessary duplicates. If you apply on behalf of another person, you must have the authority to do so and ensure that person receives the privacy notice and applicable terms.",
+          "WCL may request a correction or further evidence where a detail is unclear or inconsistent. Submission, an acknowledgement email, a department selection or an ID upload does not grant entry. WCL may approve, limit or refuse access according to the verified assignment, available capacity, safety and applicable event requirements. You may request review through the helpdesk."
+        ]
+      },
+      {
+        "id": "policy-3-2",
+        "title": "Badge and permitted access",
+        "paragraphs": [
+          "Accreditation is personal and may only be used by the named individual. It may not be lent, sold, copied, altered or used to admit another person. Wear or present it as instructed. Access is limited to the approved venues, areas, dates, times, duties and applicable team or match scope. A legend printed on the back describes codes; it does not grant every listed area. A badge does not automatically provide a spectator seat, hospitality, parking, player access or other entitlement unless specifically approved.",
+          "PMOA, field-of-play, team and other restricted areas require the additional authorisations and conditions specified by the event. Follow the applicable device, photography and integrity instructions for those areas. Commercial or VIP status does not override those conditions. Accreditation does not grant broadcast, intellectual-property, image, endorsement or commercial filming rights beyond any separate written permission."
+        ]
+      },
+      {
+        "id": "policy-3-3",
+        "title": "Collection and entry",
+        "paragraphs": [
+          "Approved details populate the badge. At collection, staff match you to the approved portrait and record issuance. Where identity is unresolved, there is a mismatch or a check is otherwise required, an authorised reviewer may request your original accepted ID. Printing a card or receiving an approval message does not activate entry.",
+          "Gate staff may scan the QR, compare the portrait, check current access and carry out lawful venue screening. A copied QR, an expired or revoked badge, or access outside the approved scope will not be accepted. If a badge cannot be read, follow staff instructions for the authorised exception process."
+        ]
+      },
+      {
+        "id": "policy-3-4",
+        "title": "Conduct, changes and loss",
+        "paragraphs": [
+          "Follow event, security, emergency and evacuation instructions. Do not obstruct play, production, team operations or other authorised work. Respect confidential areas and information. Inform WCL if your assignment changes or ends. WCL may amend, suspend or revoke access where necessary for safety, verified changes of role, misuse, non-compliance or applicable event requirements, with review available where appropriate.",
+          "Report a lost, stolen or damaged badge promptly using your acknowledgement or badge number. The old credential will be revoked before a replacement becomes valid. Any replacement fee must be communicated before it is charged. Return or dispose of the badge as instructed after expiry; no access survives its approved validity."
+        ]
+      },
+      {
+        "id": "policy-3-5",
+        "title": "Personal information and legal rights",
+        "paragraphs": [
+          "WCL handles accreditation information under the privacy notice and ID handling policy. These terms do not authorise unrelated marketing or unrestricted reuse of your ID or portrait. Applications involving minors require an authorised parent/guardian process and compliance with the event's applicable age rules.",
+          "These terms are subject to applicable UAE law and any mandatory law governing the relevant activity. Nothing excludes liability or rights that cannot lawfully be excluded. Employment, supplier, media and other separately agreed rights remain governed by their applicable agreements. Contact the helpdesk first about accreditation corrections, access reviews or operational disputes."
+        ]
+      }
+    ]
   },
-  storage: {
-    title: 'ID handling & retention policy',
-    intro: 'A proposed operating policy for accreditation identity proof, assignment evidence, photographs and credential records.',
-    summary: ['Minimum necessary information', 'Role-limited access', 'Documented deletion'],
-    sections: [
-      {id:'purpose',title:'Purpose and collection limits',paragraphs:[
-        'Use identity material only to check an applicant’s identity and role for this event, resolve a relevant correction or investigate documented misuse. It must not become a general personnel archive, marketing list or future-season database.',
-        'Before requiring a copy, document why inspection of an original, a verified nomination or a minimal verification record is insufficient. If an approved copy workflow permits redaction, specify which details must remain visible and how unnecessary numbers, machine-readable zones, signatures or addresses can be removed. Do not assume redaction alone resolves the provider contract restriction.',
-        'Never place identity documents in public assets, GitHub, badges, analytics, application logs, shared chat or ordinary email. A portrait upload is for the badge portrait, not an ID scan. Do not collect bank details, health records or criminal-history documents through this workflow.'
-      ]},
-      {id:'controls',title:'Controls already implemented',paragraphs:[
-        'Staged files have one-use, time-limited upload references. File type, size and image content are checked; image metadata is stripped. Simple PDFs are limited to five pages and rejected if encrypted or containing forms, active actions, links or attachments. These checks are not a complete malware scan.',
-        'Submitted documents are stored as private database files. Only the Owner and assigned reviewers or approvers may retrieve them; access is logged. Printer accounts cannot open them. HTTPS, session controls, role checks and no-store download responses are used. Render documents encryption at rest for its persistent disks and snapshots; this does not establish permission to store every type of data.',
-        'The deployed database is in Frankfurt. An isolated backup restoration has been verified, including the document table. No real ID documents were present at verification. A restore test is not a scheduled offsite backup or a guarantee of deletion from historical backups.'
-      ]},
-      {id:'schedule',title:'Proposed retention schedule',paragraphs:[
-        'These periods are recommendations for WCL approval, not legal minimums. They are not yet enabled as an automatic deletion schedule. Shorter periods should be used where the purpose ends earlier.'
-      ],rows:[
-        ['Unsubmitted staged files','30 minutes; existing expiry and cleanup controls apply.'],
-        ['ID and assignment-document copies','Proposed: delete within 30 days after verification or final rejection/withdrawal, and no later than 30 days after the event ends, unless a documented hold applies.'],
-        ['Applications, portraits and badge PDFs','Proposed: delete or irreversibly de-identify within 90 days after the event ends; remove printer working copies within 30 days after their approved use ends.'],
-        ['Minimal decision and security audit records','Proposed: retain up to 12 months after the event for accountable access decisions and incident handling; exclude document bytes and unnecessary contact details.'],
-        ['Backups and restore-test copies','Proposed: controlled rolling expiry, target no more than 35 days, subject to the verified provider limits; reapply recorded deletions before a restored service is reopened.'],
-      ]},
-      {id:'operations',title:'Handling, deletion and incidents',paragraphs:[
-        'An authorised privacy lead must approve retention exceptions and assign a review date. Retain only records relevant to a specific legal obligation, claim or incident. Keep the reason, approver and next review date without duplicating the ID itself.',
-        'Deletion must cover current and superseded uploads, correction history, photo copies, badge files, local downloads, database storage, backups and restoration directories. Use a dry-run inventory, obtain the authorised decision, perform deletion and retain a minimal deletion record. Do not promise instant secure erasure from snapshots or storage media.',
-        'Reviewers should view documents on managed devices and avoid keeping downloads. Printers must delete local files and securely dispose of spoiled badges. Revoke access immediately when a staff assignment ends. Limit support access and never send a raw ID in a support ticket.',
-        'If data is exposed or misused, restrict affected access, preserve necessary evidence, notify the designated privacy/security lead and assess required notifications under the applicable law. Do not assume a universal notification deadline. Only authorised personnel should contact affected applicants or authorities.'
-      ]},
-      {id:'activation',title:'What must be approved before collection',paragraphs:[
-        'Confirm the legal controller and privacy contact, the necessity and lawful basis of ID collection, a provider-permitted upload and storage route, international transfers, document retention and deletion controls, and responsibility for rights requests and incidents. Review whether a formal impact assessment and further safeguards are required.',
-        'Existing standard Render terms prohibit government identification numbers. Vercel’s DPA also restricts sensitive data. Obtain appropriate written permission from each provider, or approve an alternative such as in-person ID inspection without retaining a copy. No provider contract has been changed by publishing this draft.',
-        'Applications remain closed. This document does not activate storage, create provider permission, approve a legal basis or switch on retention deletion. WCL’s authorised decision and verified technical controls are still required.'
-      ]},
+  "storage": {
+    "title": "ID handling & retention policy",
+    "documentId": "WCL-S3-ID-001 / WCL-S3-RET-001 v1.0",
+    "intro": "Proposed controls for identity evidence, authorised review and deletion.",
+    "summary": [
+      "Minimum necessary information",
+      "Role-limited access",
+      "Documented deletion"
     ],
-  },
+    "sections": [
+      {
+        "id": "policy-4-0",
+        "title": "Policy ownership",
+        "paragraphs": [
+          "Document: WCL-S3-ID-001 v1.0. Owner: WCL Accreditation Lead. Privacy owner: pending confirmation: name / role. Adoption record: pending confirmation: approver / date / link."
+        ]
+      },
+      {
+        "id": "policy-4-1",
+        "title": "Purpose and collection",
+        "paragraphs": [
+          "WCL will collect ID evidence to establish that the application and credential relate to the correct person, prevent impersonation, and resolve relevant accreditation incidents. The responsible owner must document why each item is needed and the lawful basis for collecting and retaining it. This policy does not assert that legislation universally requires every event to retain a complete ID copy.",
+          "Accept one Emirates ID or passport, as specified in the form. Request only the card side(s) or passport identity page necessary for the check. Do not routinely collect both documents, unrelated passport pages, bank details or medical records. Assignment letters must contain only the details needed to confirm the role. Avoid requiring users to type the ID number again when the reviewed document already supplies it. Where a separate number is justified, protect it with the same access and deletion rules as the document.",
+          "The applicant completes this within the existing application. The reviewer checks the name, portrait, document type, relevant validity and assignment, records the outcome and resolves mismatches in the same case. A manual visual check must not be described as validation against a government database. Do not introduce facial recognition or automated biometric matching through this policy."
+        ]
+      },
+      {
+        "id": "policy-4-2",
+        "title": "Access and responsibilities",
+        "paragraphs": [
+          "Use individual staff accounts, appropriate strong authentication and an explicit reviewer list. Remove access when assignments end. Restrict public/link sharing and unauthorised downloads. Keep audit records of document views and decisions without copying ID content into the logs."
+        ],
+        "rows": [
+          [
+            "Applicant",
+            "Own submission, corrections and status through a verified session."
+          ],
+          [
+            "Authorised ID reviewer",
+            "Restricted ID evidence and the details needed for identity review."
+          ],
+          [
+            "Access approver / department manager",
+            "Assignment, requested permissions and verification outcome; ID view only if separately authorised."
+          ],
+          [
+            "Print operator",
+            "Approved badge PDF and print metadata. No ID files or numbers."
+          ],
+          [
+            "Collection / gate staff",
+            "Approved portrait, badge identity, validity and applicable access decision."
+          ],
+          [
+            "Technical administrator",
+            "Configuration and operational metadata; exceptional ID access only when authorised for a recorded purpose."
+          ]
+        ]
+      },
+      {
+        "id": "policy-4-3",
+        "title": "Approved route and use",
+        "paragraphs": [
+          "Use the existing organisation-controlled storage and reviewed provider arrangements. ID files, number fields, previews, temporary files, logs, backups and any document-scanning service must all be accounted for. A storage change is not sufficient if an unapproved intermediary still receives the ID data. File names, URLs and notification text must not expose ID numbers.",
+          "Badge generation uses approved display fields and the portrait, not the ID copy. The QR uses an opaque credential reference. Retain a verification record containing the application reference, outcome, reviewer and time, method of check and necessary reason for any exception. Do not include the raw ID number or document in ordinary exports, analytics, debugging output or AI tools. Do not use the evidence for sponsorship marketing, profiling or unrelated purposes."
+        ]
+      },
+      {
+        "id": "policy-4-4",
+        "title": "Issuance, exceptions and incidents",
+        "paragraphs": [
+          "Before issue, require the recorded identity outcome and applicable access approvals. At collection, use a face-to-approved-photo match; unresolved or suspicious cases go to the existing authorised reviewer. On loss or replacement, link the case to the same individual and revoke the old credential before activating a replacement.",
+          "If documents are exposed, access is misused or impersonation is suspected, restrict the affected access, preserve only relevant evidence, record the incident and notify the WCL privacy/security owner promptly. That owner determines required notifications and action under the applicable law and agreements. Any preservation hold must identify the affected records, reason, owner and next review date."
+        ]
+      },
+      {
+        "id": "policy-5-0",
+        "title": "Proposed retention schedule",
+        "paragraphs": [
+          "Document: WCL-S3-RET-001 v1.0. The following are proposed maximum routine periods for adoption and implementation. Delete earlier where the information is no longer required. Event end means the last official day of the relevant event, or its confirmed cancellation date; postponement requires a recorded review of continued need.",
+          "The 12-month audit record must not become a second application archive: no raw ID, full number, portrait, broad scan history or unnecessary contact data. Aggregate reporting may remain only when individuals cannot be identified or relinked."
+        ],
+        "rows": [
+          [
+            "Unsubmitted uploads",
+            "7 days after last activity — Delete orphaned ID/assignment files and temporary copies."
+          ],
+          [
+            "ID copies, separately captured ID numbers and assignment files",
+            "30 days after event end — Permanently remove active copies, trash, versions under WCL control and access links."
+          ],
+          [
+            "Same documents for finally rejected/withdrawn applications",
+            "30 days after closure, or the event deadline if earlier — Delete unless a recorded appeal or specific hold applies."
+          ],
+          [
+            "Application details, portrait and identifiable scan logs",
+            "90 days after event end — Delete or irreversibly anonymise; apply specific holds separately."
+          ],
+          [
+            "Badge PDFs, downloads and printer working files",
+            "7 days after issue; 7 days after event end for uncollected badges — Remove print files/spools and securely destroy unused physical prints."
+          ],
+          [
+            "Minimum verification/admin audit trail",
+            "Up to 12 months after event end — Retain only necessary references, decisions, actions, reviewer/operator and time; then delete."
+          ],
+          [
+            "Evidence for an active incident, dispute or legal requirement",
+            "Only while the documented need continues — Restrict the named records; review every 30 days; delete promptly when released."
+          ]
+        ]
+      },
+      {
+        "id": "policy-5-1",
+        "title": "Deletion controls",
+        "paragraphs": [
+          "Set deletion due dates automatically, run the deletion job daily and alert the responsible owner to failures. Record completion without retaining deleted ID content. Remove temporary previews, working copies and trash as well as the primary record. Confirm whether Drive versions, Vault/holds, admin recovery or another system can still restore a copy. Do not report complete deletion merely because a visible folder is empty.",
+          "Provider residual copies follow the accepted contract and documented recovery/deletion cycle. Where Google's general CDPA clause applies, provider erasure may take up to 180 days after customer-irrecoverable deletion, with legal exceptions. Confirm the exact service terms and any retention configuration. Any WCL-controlled backup or restore must honour deletion records; reapply deletions before restoring normal access. Do not promise immediate erasure from every backup."
+        ]
+      },
+      {
+        "id": "implementation-status",
+        "title": "Implementation and adoption status",
+        "paragraphs": [
+          "This supplied schedule is a draft for adoption. Its complete automatic deletion schedule is not yet enabled. The private Google connection, account-contract coverage, document restoration and monitoring must be verified before real ID collection. Saving this draft or its reference is not approval.",
+          "The website and application gateway use Vercel; the private application database is hosted on Render in Frankfurt. The intended ID route sends document bytes directly to restricted company Google Drive, not through either host. Processing locations and applicable transfer safeguards for the complete route still require a recorded review.",
+          "The short back-of-badge proposal in the source pack has not replaced any artwork. Category designs, approved dimensions and physical print proof remain separate approvals."
+        ]
+      }
+    ]
+  }
 };

@@ -9,6 +9,7 @@ export default async function handler(req, res) {
   const incoming = new URL(req.url, 'https://www.wclcricket.com');
   const route = String(req.query?.accreditationPath || incoming.searchParams.get('accreditationPath') || '');
   if (!allowedAccreditationRoute(route)) return fail(404, 'Not found.');
+  if(route==='accreditation/upload'||route.startsWith('admin/documents/'))return fail(410,'Use the separate secure identity service. ID documents are not accepted or served by the website gateway.');
   if (!process.env.ACCREDITATION_BACKEND_ORIGIN || !process.env.ACCREDITATION_PROXY_SECRET) return fail(503, 'The accreditation service is not connected. Applications have not opened.');
   try {
     const backend = new URL(process.env.ACCREDITATION_BACKEND_ORIGIN);

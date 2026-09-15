@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import {AccessChoices,TeamAccessRole} from './AccessChoices';
 import {OwnerDecision} from './OwnerDecision';
+import {IdentityReview,CollectionAndSecurity} from './IdentityReview';
 import {pmoaEligible} from '../../lib/access-sections.mjs';
 import {applicationLabels} from '../../lib/application-form.mjs';
 import {seatingLabels,seatingError} from '../../lib/accreditation-venues.mjs';
@@ -23,9 +24,10 @@ export function ReviewWorkspace({ user, config, run, onPreview }) {
     [department, setDepartment] = useState(""),
     [status, setStatus] = useState(""),
     [query, setQuery] = useState("");
-  const load = async () => {
-    const { items } = await api("admin/accreditations");
-    setRows(items);
+  const [nextOffset,setNextOffset]=useState(null);
+  const load = async (offset=0) => {
+    const { items,nextOffset } = await api("admin/application-search",{query,department,status,offset});
+    setRows(old=>offset?[...(old||[]),...items]:items);setNextOffset(nextOffset);
     return items;
   };
   useEffect(() => {
@@ -37,15 +39,16 @@ export function ReviewWorkspace({ user, config, run, onPreview }) {
       onPreview(r, "Draft · not valid for entry");
       return;
     }
-    setSelected(r);
+    const fresh=(await api("admin/accreditations/"+id)).items[0];
+    setSelected(fresh);
     await load();
-    return r;
+    return fresh;
   };
   const shown = (rows || []).filter(
     (r) =>
       (!department || r.department === department) &&
       (!status || r.status === status) &&
-      [r.name, r.organisation, r.source.reference]
+      [r.name, r.organisation, r.source.reference,...(r.badgeHistory||[]).map(b=>b.id)]
         .join(" ")
         .toLowerCase()
         .includes(query.toLowerCase()),
@@ -99,10 +102,10 @@ export function ReviewWorkspace({ user, config, run, onPreview }) {
             type="search"
             value={query}
             onChange={(e) => setQuery(e.target.value)}
-            placeholder="Name, company or reference"
+            placeholder="Name, acknowledgement or badge number"
           />
         </label>
-        <button onClick={() => run(load)}>Refresh</button>
+        <button onClick={() => run(()=>load())}>Search / refresh</button>
       </div>
       <section className="ops-panel">
         <div className="ops-section-heading">
@@ -141,11 +144,13 @@ export function ReviewWorkspace({ user, config, run, onPreview }) {
           </div>
         )}
       </section>
+      {nextOffset!==null&&<button onClick={()=>run(()=>load(nextOffset))}>Load more applications</button>}
     </>
   );
 }
 
 function CaseDetail({ record: r, user, config, run, update, onBack, onPreview }) {
+  const [identitySessions,setIdentitySessions]=useState([]);
   const p = r.proposal || {},
     [zones, setZones] = useState(p.zones || r.requested.requestedZones || []),
     [venues, setVenues] = useState(
@@ -216,14 +221,13 @@ function CaseDetail({ record: r, user, config, run, update, onBack, onPreview })
                 )?.label
               }
             </dd>
-            <dt>Assignment</dt>
-            <dd>{r.requested.assignment}</dd>
+            {!r.requested.simpleApplication&&<><dt>Assignment</dt><dd>{r.requested.assignment}</dd></>}
             {r.requested.formVersion===2&&<>
-              <dt>Full name on ID</dt><dd>{r.name}</dd>
+              {!r.requested.simpleApplication&&<><dt>Full name on ID</dt><dd>{r.name}</dd></>}
               <dt>Email / mobile</dt><dd>{r.source.email}<br/>{r.requested.mobile}</dd>
               <dt>Department</dt><dd>{config.departments.find(d=>d.id===r.department)?.label}{r.requested.departmentOther&&' · '+r.requested.departmentOther}</dd>
               {r.requested.team&&<><dt>Team</dt><dd>{r.requested.team}</dd></>}
-              <dt>Requested dates</dt><dd>{r.requested.requestedDays.join(' · ')}</dd>
+              <dt>Requested dates</dt><dd>{r.requested.requestedDays.map(d=>Number(d.slice(-2))).join(', ')} October 2026</dd>
               {r.requested.restrictedReason&&<><dt>Reason for restricted access</dt><dd>{r.requested.restrictedReason}</dd></>}
               {r.requested.nominatorName&&<><dt>Nominating contact</dt><dd>{r.requested.nominatorName}<br/>{r.requested.nominatorContact}</dd></>}
               <dt>ID type</dt><dd>{r.requested.idType}{r.requested.idDescription&&' · '+r.requested.idDescription}</dd>
@@ -244,9 +248,12 @@ function CaseDetail({ record: r, user, config, run, update, onBack, onPreview })
                 .join(", ")}
             </dd></>}
           </dl>
-          {['Owner','Reviewer','Approver'].includes(role)&&r.requested.documents?.length>0&&<div className="ops-document-links"><h3>Private review documents</h3>{r.requested.documents.map(d=><button key={d.id} onClick={()=>run(async()=>saveDownload(await api('admin/documents/'+d.id),d.kind+(d.mime==='application/pdf'?'.pdf':'.jpg')))}>Open {d.label}</button>)}<p className="ops-caption">For identity review only. Not included in printer downloads.</p></div>}
+          {['Owner','Reviewer','Approver'].includes(role)&&r.requested.documents?.some(d=>!d.external)&&<div className="ops-document-links"><h3>Private review documents</h3>{r.requested.documents.filter(d=>!d.external).map(d=><button key={d.id} onClick={()=>run(async()=>saveDownload(await api('admin/documents/'+d.id),d.kind+(d.mime==='application/pdf'?'.pdf':'.jpg')))}>Open {d.label}</button>)}<p className="ops-caption">For identity review only. Not included in printer downloads.</p></div>}
+          {['Owner','Reviewer','Approver','Security Lead'].includes(role)&&<IdentityReview record={r} run={run} act={act} canVerify={!['Security Lead','Owner'].includes(role)} onSessions={setIdentitySessions}/>}
         </section>
         <section className="ops-panel">
+          {r.duplicates?.length>0&&<div className="ops-notice"><h3>Possible duplicate applications</h3><p>Check these separately; matching details never merge identities or grant access.</p>{r.duplicates.map(d=><p key={d.id}>{d.name} · {d.reference} · {d.status}</p>)}</div>}
+          <CollectionAndSecurity record={r} user={user} act={act}/>
           {role!=='Owner'&&<h3>
             {canReview
               ? "Review application"
@@ -254,7 +261,7 @@ function CaseDetail({ record: r, user, config, run, update, onBack, onPreview })
                 ? "Approval decision"
                 : "Application details"}
           </h3>}
-          {role==='Owner'&&<OwnerDecision record={r} config={config} act={act} run={run} onPreview={onPreview}/>}
+          {role==='Owner'&&<OwnerDecision record={r} config={config} act={act} run={run} onPreview={onPreview} viewSessions={identitySessions}/>}
           {role!=='Owner'&&p.category && (
             <div className="ops-proposal">
               <strong>{canApprove?'Badge details':'Proposed access'}</strong>
@@ -540,22 +547,6 @@ function CaseDetail({ record: r, user, config, run, update, onBack, onPreview })
               <strong>Correction requested</strong>
               <p>{r.correction.message}</p>
             </div>
-          )}
-          {role === "Issuance Officer" && r.status === "printed" && (
-            <form
-              onSubmit={(e) => {
-                e.preventDefault();
-                act("collect", { identityChecked: true });
-              }}
-            >
-              <label className="ops-check">
-                <input type="checkbox" required />
-                Recipient identity verified and the printed card handed over
-              </label>
-              <button className="ops-primary">
-                Confirm handover & activate
-              </button>
-            </form>
           )}
           {!canReview &&
             !canApprove &&
