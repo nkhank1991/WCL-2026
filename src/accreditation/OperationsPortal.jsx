@@ -96,6 +96,11 @@ export function OperationsPortal() {
         : [workspaceNames[user.role]].filter(Boolean)
     : [];
   const leave = () => !dirty || confirm("Discard unsaved settings changes?");
+  // Keep real staff authentication on its HTTPS origin when the preview's
+  // separate local service is offline. Never forward query data or invitations.
+  const localStaffUrl = ['localhost', '127.0.0.1', '[::1]'].includes(location.hostname)
+    && ['/accreditation/review', '/accreditation/owner', '/accreditation/print'].includes(location.pathname)
+    ? 'https://wcl-2026-iota.vercel.app' + location.pathname : null;
   return (
     <div className="ops-shell">
       <header className="ops-topbar">
@@ -188,10 +193,18 @@ export function OperationsPortal() {
           <p role="status">Checking your session…</p>
         ) : !user && connectionError ? (
           <section className="ops-panel ops-login">
-            <h2>Staff sign-in is temporarily unavailable</h2>
-            <p role="alert">{connectionError}</p>
-            <p>No password has been checked. Retry when the service connection is ready.</p>
-            <button className="ops-primary" onClick={checkConnection}>Retry connection</button>
+            {localStaffUrl ? <>
+              <h2>Continue to the secure staff portal</h2>
+              <p>This website preview is not connected to a local staff service. Use the live WCL portal with your existing account.</p>
+              <a className="ops-primary ops-portal-link" href={localStaffUrl} referrerPolicy="no-referrer" rel="noreferrer">Open staff sign-in</a>
+              <p className="ops-caption">Your account and records stay in the secure portal. No password has been checked here.</p>
+              <button onClick={checkConnection}>Retry local connection</button>
+            </> : <>
+              <h2>Staff sign-in is temporarily unavailable</h2>
+              <p role="alert">{connectionError}</p>
+              <p>No password has been checked. Retry when the service connection is ready.</p>
+              <button className="ops-primary" onClick={checkConnection}>Retry connection</button>
+            </>}
           </section>
         ) : !user && !invite && connection?.ownerConfigured === false ? (
           <section className="ops-panel ops-login">
@@ -301,13 +314,13 @@ export function OperationsPortal() {
             {tab === "Badge designs" && (
               <DesignWorkspace
                 run={run}
-                onPreview={(blob, title) => setPreview({ blob, title })}
+                onPreview={(blob, title) => setPreview({ blob, title, download:true })}
               />
             )}
             {tab === "Setup" && (
               <>
-                <section className="ops-panel ops-readiness">
-                  <h2>Activation checks</h2>
+                <details className="ops-panel ops-readiness">
+                  <summary>Activation checks <small>{setup?.checks.filter(c=>c.ok).length||0} / {setup?.checks.length||0} verified</small></summary>
                   <p>
                     Intake checks control submissions. Artwork and print proof
                     control final PDFs, not application approval.
@@ -318,11 +331,12 @@ export function OperationsPortal() {
                       <strong className={c.ok ? "is-verified" : ""}>
                         {c.ok ? "Verified" : "Incomplete"}
                       </strong>
+                      {!c.ok&&c.nextAction&&<p className="setup-next-action">{c.nextAction}</p>}
                     </div>
                   ))}
                   <button onClick={() => run(refresh)}>Recheck setup</button>
-                </section>
-                <AccessSettings api={api} onDirtyChange={setDirty} />
+                </details>
+                <AccessSettings api={api} onDirtyChange={setDirty} onSaved={refresh} />
               </>
             )}
             {tab === "Staff" && <StaffWorkspace config={config} run={run} />}

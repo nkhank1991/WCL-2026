@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { saveDownload } from "./operations-api";
 
-export default function PdfPreview({ blob, title, onClose, download = false }) {
+export default function PdfPreview({ blob, title, onClose, download = false, inline = false, filename = 'WCL-approved-preview.pdf' }) {
   const dialog = useRef(),
     pages = useRef(),
     [error, setError] = useState(""),
@@ -14,9 +14,10 @@ export default function PdfPreview({ blob, title, onClose, download = false }) {
     return ()=>URL.revokeObjectURL(url);
   },[blob,download]);
   useEffect(() => {
+    if (inline) return;
     dialog.current.showModal();
     return () => dialog.current?.close();
-  }, []);
+  }, [inline]);
   useEffect(() => {
     let stopped = false,
       document;
@@ -64,16 +65,17 @@ export default function PdfPreview({ blob, title, onClose, download = false }) {
       document?.destroy();
     };
   }, [blob]);
+  const Container = inline ? 'section' : 'dialog';
   return (
-    <dialog className="ops-pdf-dialog" ref={dialog} onCancel={onClose}>
+    <Container className={inline ? 'ops-pdf-inline' : 'ops-pdf-dialog'} ref={dialog} onCancel={onClose}>
       <header>
         <div>
           <p>BADGE PREVIEW</p>
           <h2>{title}</h2>
         </div>
-        <button autoFocus onClick={onClose} aria-label="Close badge preview">
+        {!inline && <button autoFocus onClick={onClose} aria-label="Close badge preview">
           Close
-        </button>
+        </button>}
       </header>
       <div className="ops-pdf-controls">
         <span>Front & back · 100 × 140 mm trim · 3 mm bleed</span>
@@ -92,7 +94,7 @@ export default function PdfPreview({ blob, title, onClose, download = false }) {
           <>
           <a href={pdfUrl||undefined} target="_blank" rel="noopener noreferrer">Open PDF to print</a>
           <button
-            onClick={() => saveDownload(blob, "WCL-approved-preview.pdf")}
+            onClick={() => saveDownload(blob, filename)}
           >
             Save this PDF
           </button>
@@ -110,6 +112,6 @@ export default function PdfPreview({ blob, title, onClose, download = false }) {
         On-screen size is illustrative. Print at Actual Size / 100% using the
         approved stock and duplex settings.
       </p>
-    </dialog>
+    </Container>
   );
 }

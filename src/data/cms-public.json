@@ -1,6 +1,23 @@
 {
   "hero": [
     {
+      "id": "tickets-district",
+      "label": "Tickets · District UAE",
+      "tag": "TICKETS / UAE",
+      "title": "TICKETS.",
+      "line": "DISTRICT UAE.",
+      "copy": "Explore District UAE for ticket information.",
+      "image": "/assets/season3-ensemble-2026.webp",
+      "alt": "Seven WCL nations represented by the supplied Season 3 campaign lineup",
+      "action": "Open District UAE",
+      "to": "https://www.district.ae/",
+      "secondary": "View fixtures",
+      "secondaryTo": "/matches?season=3",
+      "facts": [["03–18 OCT", "2026"], ["UAE", "Season 3"], ["07", "Nations"]],
+      "order": 0.3,
+      "visible": true
+    },
+    {
       "id": "season",
       "label": "The UAE chapter",
       "tag": "WORLD CHAMPIONSHIP OF LEGENDS",
@@ -363,7 +380,7 @@
     {
       "id": "ajay-devgn",
       "label": "Ajay Devgn",
-      "tag": "THE PEOPLE BEHIND THE CHAMPIONSHIP",
+      "tag": "WCL SPOTLIGHT",
       "title": "AJAY",
       "line": "DEVGN.",
       "copy": "Cinema meets cricket. Ajay Devgn brings his screen presence and creative experience to WCL as Co-Founder.",
@@ -391,12 +408,12 @@
       "note": "Biography & achievement source",
       "image": "/assets/leadership/ajay-devgn.jpg",
       "alt": "Ajay Devgn — official WCL photograph",
-      "order": 10
+      "order": 0.2
     },
     {
       "id": "harshit-tomar",
       "label": "Harshit Tomar",
-      "tag": "THE PEOPLE BEHIND THE CHAMPIONSHIP",
+      "tag": "WCL SPOTLIGHT",
       "title": "HARSHIT",
       "line": "TOMAR.",
       "copy": "From music and sports marketing to building a championship. Harshit Tomar is the Founder & CEO behind WCL.",
@@ -424,7 +441,7 @@
       "note": "Biography & achievement source",
       "image": "/assets/leadership/harshit-tomar.jpg",
       "alt": "Harshit Tomar — official WCL photograph",
-      "order": 11
+      "order": 0.1
     },
     {
       "id": "film-story",

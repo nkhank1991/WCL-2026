@@ -1,6 +1,6 @@
 import {useEffect,useState} from 'react';
 
-// Layout stays CSS-driven. This only disables automatic/spatial behaviour on touch layouts.
+// Layout stays CSS-driven. Components use this to simplify spatial effects and controls.
 export function useCompactScreen(query='(max-width: 1100px)') {
  const [compact,setCompact]=useState(()=>typeof window!=='undefined'&&typeof window.matchMedia==='function'&&window.matchMedia(query).matches);
  useEffect(()=>{

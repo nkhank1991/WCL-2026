@@ -51,7 +51,7 @@ try{
  assert.equal(document.querySelectorAll('.story-actions>a').length,2);
  fireEvent.click(story);assert.equal(story.getAttribute('aria-expanded'),'true');
  assert.equal(document.querySelector('.hero-story-copy').dataset.mobileExpanded,'true');
- assert.equal(screen.queryByRole('button',{name:'Resume automatic stories'}),null,'Mobile stories never auto-advance');
+ assert.equal(screen.queryByRole('button',{name:'Resume automatic stories'}),null,'Reduced motion keeps automatic stories disabled');
  assert(screen.getByRole('button',{name:'Next WCL story'}));
  const storyTargets=story.getAttribute('aria-controls').split(' ').map(id=>document.getElementById(id));
  assert(storyTargets.every(Boolean));

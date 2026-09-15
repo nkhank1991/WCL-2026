@@ -20,6 +20,7 @@ import additions from './data/hero-additions.json';
 import {silhouetteFor} from './hero-silhouettes.js';
 import {HeroSubject} from './HeroSubject.jsx';
 export const features=structuredClone(storyData);
+export const HERO_INTERVAL_MS=2000;
 
 // Editorial mobile summaries, not clipped text. Full copy stays available on tap.
 const mobileStoryCopy={
@@ -36,7 +37,8 @@ const mobileStoryCopy={
  'ensemble-2026':'Meet the legends of the UAE chapter.',
  'film-story':'South Africa × West Indies. Revisit the 2025 highlights.',
  'ajay-devgn':'Cinema meets cricket with WCL Co-Founder Ajay Devgn.',
- 'harshit-tomar':'Meet Harshit Tomar, the Founder & CEO behind WCL.'
+ 'harshit-tomar':'Meet Harshit Tomar, the Founder & CEO behind WCL.',
+ 'tickets-district':'Explore District UAE for ticket information.'
 };
 
 features.push(...leadership.map(leadershipStory));
@@ -49,11 +51,12 @@ for(const feature of features){
 }
 
 function StoryFilm({item,onPlay}){return <div className="hero-film"><SignatureSweep/><BroadcastVideo videoId={item.videoId} title={item.alt} poster={item.image} onPlay={onPlay}/><small>Official WCL highlights · 2025 archive</small></div>}
-features.forEach((item,index)=>{item.order=index});
+function StoryAction({to,className,children}){return /^https:\/\//.test(to)?<a className={className} href={to} target="_blank" rel="noopener noreferrer">{children}<ArrowRight aria-hidden="true"/></a>:<Link className={className} to={to}>{children}<ArrowRight aria-hidden="true"/></Link>}
+features.forEach((item,index)=>{item.order??=index});
 features.push(...additions);
 features.sort((a,b)=>a.order-b.order);
 export function SportsHero({matches=[],players=season3Players}){
- const slides=usePublished('hero',features).filter(item=>item.visible!==false&&item.id!=='uae');
+ const slides=usePublished('hero',features).filter(item=>item.visible!==false&&item.id!=='uae').sort((a,b)=>(a.order||0)-(b.order||0));
  const people=usePublished('leadership',leadership);
  const [activeIndex,setActive]=useState(0);
  const active=Math.min(activeIndex,Math.max(0,slides.length-1));
@@ -77,22 +80,22 @@ export function SportsHero({matches=[],players=season3Players}){
  const teamCards=item?.id==='bangladesh';
  const silhouette=item&&!teamCards&&!leadershipPhoto&&silhouetteFor(item);
  const refinedGroup=item?.id==='new-stars'&&item.image==='/assets/season3-updates/new-stars.webp';
- const rotating=enabled&&!compact&&!paused&&!hovered&&!focused&&inView&&pageVisible&&!filmPlaying&&!storyExpanded&&slides.length>1;
+ const rotating=enabled&&!paused&&!hovered&&!focused&&inView&&pageVisible&&!filmPlaying&&!storyExpanded&&slides.length>1;
  useEffect(()=>{const update=()=>setPageVisible(!document.hidden);document.addEventListener('visibilitychange',update);return()=>document.removeEventListener('visibilitychange',update)},[]);
  useEffect(()=>{if(typeof IntersectionObserver==='undefined')return;const observer=new IntersectionObserver(([entry])=>setInView(entry.isIntersecting&&entry.intersectionRatio>=.2),{threshold:.2});if(heroRef.current)observer.observe(heroRef.current);return()=>observer.disconnect()},[]);
- useEffect(()=>{if(!rotating)return;const timer=setTimeout(()=>setActive((active+1)%slides.length),4000);return()=>clearTimeout(timer)},[active,item?.id,slides.length,rotating]);
+ useEffect(()=>{if(!rotating)return;const timer=setTimeout(()=>setActive((active+1)%slides.length),HERO_INTERVAL_MS);return()=>clearTimeout(timer)},[active,item?.id,slides.length,rotating]);
  function select(index){if(!slides.length)return;setFilmPlaying(false);setActive((index+slides.length)%slides.length)}
- function keyboard(e){if(e.target.matches('input,select,textarea,iframe')||e.target.closest('[data-hero-interactive]'))return;if(e.key==='ArrowRight'||e.key==='ArrowLeft'){e.preventDefault();select(active+(e.key==='ArrowRight'?1:-1));}else if(e.code==='Space'&&e.target===e.currentTarget){e.preventDefault();setPaused(value=>!value)}}
+ function togglePlayback(){if(paused){setFocused(false);setHovered(false)}setPaused(!paused)}
+ function keyboard(e){if(e.target.matches('input,select,textarea,iframe')||e.target.closest('[data-hero-interactive]'))return;if(e.key==='ArrowRight'||e.key==='ArrowLeft'){e.preventDefault();select(active+(e.key==='ArrowRight'?1:-1));}else if((e.key===' '||e.code==='Space')&&e.target===e.currentTarget){e.preventDefault();togglePlayback()}}
  function touchEnd(e){const start=touchStart.current;touchStart.current=null;if(!start)return;const t=e.changedTouches[0];if(Math.abs(t.clientX-start.x)>65&&Math.abs(t.clientY-start.y)<60)select(active+(t.clientX<start.x?1:-1));}
  if(!item)return null;
- return <section ref={heroRef} className="wcl-story-hero" aria-label="WCL featured stories" aria-roledescription="carousel" onKeyDown={keyboard} tabIndex={0} onPointerEnter={e=>{if(e.pointerType!=='touch')setHovered(true)}} onPointerLeave={()=>setHovered(false)} onFocusCapture={()=>setFocused(true)} onBlurCapture={e=>{if(!e.currentTarget.contains(e.relatedTarget))setFocused(false)}}>
-  {!compact&&<button className="hero-access-button" onClick={()=>setPaused(value=>!value)}>{paused?'Resume automatic stories':'Pause automatic stories'}</button>}
+ return <section ref={heroRef} className="wcl-story-hero" aria-label="WCL featured stories" aria-roledescription="carousel" aria-description="Use the arrow keys to browse stories. Press Space to stop or start automatic slides." aria-keyshortcuts="ArrowLeft ArrowRight Space" onKeyDown={keyboard} tabIndex={0} onPointerEnter={e=>{if(e.pointerType!=='touch')setHovered(true)}} onPointerLeave={()=>setHovered(false)} onFocusCapture={()=>setFocused(true)} onBlurCapture={e=>{if(!e.currentTarget.contains(e.relatedTarget))setFocused(false)}}>
   <button className="hero-access-button" onClick={()=>select(active-1)}>Previous story</button>
   <button className="hero-access-button" onClick={()=>select(active+1)}>Next story</button>
   <div className="story-season-bar"><span className="uae-season-ribbon"><i aria-hidden="true"/>UAE · SEASON 3</span><strong>03–18 OCTOBER 2026</strong></div>
   <div className="story-stage" onPointerDown={e=>{if(e.target.closest('[data-hero-interactive]'))setPaused(true)}} onTouchStart={e=>{if(e.target.closest('[data-hero-interactive]')){touchStart.current=null;return}const t=e.touches[0];touchStart.current={x:t.clientX,y:t.clientY}}} onTouchEnd={touchEnd} aria-live={rotating?'off':'polite'} aria-atomic="true">
    <AnimatePresence mode="wait" initial={false}>
-    <motion.div className={'story-scene story-'+item.id+(silhouette?' hero-subject-scene':'')+(silhouette?.group?' hero-group-scene':'')+(refinedGroup?' hero-refined-scene':'')+(teamCards?' hero-roster-scene':'')+(leadershipPhoto?' hero-leadership-scene':'')} key={item.id} role="group" aria-roledescription="slide" aria-label={`${active+1} of ${slides.length}: ${item.label}`} initial={enabled?{opacity:0}:false} animate={{opacity:1}} exit={{opacity:0,transition:{duration:enabled?.08:.1}}} transition={{duration:enabled?.45:.15,ease:broadcastEase}}>
+    <motion.div className={'story-scene story-'+item.id+(silhouette?' hero-subject-scene':'')+(silhouette?.group?' hero-group-scene':'')+(refinedGroup?' hero-refined-scene':'')+(teamCards?' hero-roster-scene':'')+(leadershipPhoto?' hero-leadership-scene':'')} key={item.id} role="group" aria-roledescription="slide" aria-label={`${active+1} of ${slides.length}: ${item.label}`} initial={enabled?{opacity:0}:false} animate={{opacity:1}} exit={{opacity:0,transition:{duration:.08}}} transition={{duration:enabled?.22:.15,ease:broadcastEase}}>
      <div className="hero-story-copy" data-mobile-expanded={storyExpanded} data-mobile-summary={!!mobileBrief}>
       <p className="story-kicker"><span/>{item.tag}</p>
       {item.chapter&&<p className="hero-story-chapter">{item.chapter}</p>}
@@ -101,7 +104,7 @@ export function SportsHero({matches=[],players=season3Players}){
       {mobileBrief&&<p className="story-description story-description-mobile">{mobileBrief}</p>}
       <p className="story-description story-description-full" id={'story-copy-'+item.id}>{item.copy}</p>
       {item.supportingCopy&&<p className="story-description hero-supporting-copy">{item.supportingCopy}</p>}
-      <div className="story-actions"><Link className="story-primary" to={item.to}>{item.action}<ArrowRight/></Link><Link className="story-secondary" to={item.secondaryTo}>{item.secondary}<ArrowRight/></Link></div>
+      <div className="story-actions"><StoryAction className="story-primary" to={item.to}>{item.action}</StoryAction><StoryAction className="story-secondary" to={item.secondaryTo}>{item.secondary}</StoryAction></div>
       <motion.dl className="story-facts" id={'story-facts-'+item.id} initial={spatial?{opacity:0,x:-8}:{opacity:0}} animate={{opacity:1,x:0}} transition={{duration:spatial?.25:.15,delay:spatial?.22:0,ease:broadcastEase}}>{item.facts.map(([value,label])=><div key={label}><dt data-compact={String(value).length>7||undefined}>{value}</dt><dd>{label}</dd></div>)}</motion.dl>
       {item.source&&<a className="hero-biography-source" href={item.source} target="_blank" rel="noreferrer">{item.note||'Biography & achievement source'} <ArrowRight/></a>}
      </div>

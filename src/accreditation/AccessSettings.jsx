@@ -4,7 +4,8 @@ import './access-settings.css';
 import {season3Event,season3Venues,season3Finals} from '../../lib/accreditation-venues.mjs';
 import {toUaeInput,fromUaeInput} from './operations-api';
 import {DepartmentSettings} from './DepartmentSettings';
-import {retentionDraft,approvalTemplates,settingsDeclaration} from '../../lib/accreditation-policy-pack.mjs';
+import {retentionDraft} from '../../lib/accreditation-policy-pack.mjs';
+import {SetupReviews} from './SetupReviews';
 
 export function AccessSections({ zones, selected, onChange }) {
   return <fieldset className="access-section-picker"><legend>Access sections</legend>
@@ -19,12 +20,12 @@ export function BadgeSections({ zones = [] }) {
   return <div className="badge-section-codes" aria-label="Approved section codes">{accessSections.map(section => <span key={section.id} className={zones.includes(section.id) ? 'granted' : ''} title={sectionLabel(section) + (zones.includes(section.id) ? ' · approved' : ' · not approved')}>{zones.includes(section.id) ? section.code : '—'}</span>)}</div>;
 }
 
-export function AccessSettings({ api, onDirtyChange }) {
+export function AccessSettings({ api, onDirtyChange, onSaved }) {
   const [config, setConfig] = useState(null), [initial, setInitial] = useState(''), [loading, setLoading] = useState(true), [busy, setBusy] = useState(false), [error, setError] = useState(''), [notice, setNotice] = useState(''), [reviewed, setReviewed] = useState(false);
   const dirty = !!config && JSON.stringify(config) !== initial;
   useEffect(() => { onDirtyChange?.(dirty); return () => onDirtyChange?.(false); }, [dirty, onDirtyChange]);
-  async function load() {
-    setLoading(true); setError('');
+  async function load(showLoading = true) {
+    if(showLoading)setLoading(true); setError('');
     try { const c = await api('admin/config'); setConfig(c); setInitial(JSON.stringify(c)); }
     catch (e) { setError(e.message); } finally { setLoading(false); }
   }
@@ -43,6 +44,7 @@ export function AccessSettings({ api, onDirtyChange }) {
     try {
       const c = await api('admin/config', { config });
       setConfig(c); setInitial(JSON.stringify(c)); setReviewed(false); setNotice('Settings saved. Existing badges have not been given any new access.');
+      await onSaved?.();
     } catch (e) { setError(e.message); } finally { setBusy(false); }
   }
   async function copy(category) {
@@ -57,6 +59,8 @@ export function AccessSettings({ api, onDirtyChange }) {
     {error && <p role="alert" className="admin-error">{error}</p>}
     {notice && <p role="status" className="access-notice">{notice}</p>}
     <fieldset disabled={busy}>
+      {config.workflowVersion&&<SetupReviews api={api} config={config} dirty={dirty} change={change} onApproved={async()=>{await load(false);await onSaved?.();}}/>}
+      <details className="admin-panel setup-settings-details"><summary>Application settings and access areas</summary>
       {config.formVersion===2&&<DepartmentSettings departments={config.departments} categories={config.categories} onChange={departments=>change({departments})}/>}
       <section className="admin-panel">
         <h3>01 / Application links</h3><p>Choose the categories available to individual applicants. Every submission enters review with no venue or section access.</p>
@@ -83,7 +87,7 @@ export function AccessSettings({ api, onDirtyChange }) {
         {config.workflowVersion&&<>
         <details><summary>Setup, training & operational dates</summary><p>Configure separately from match dates. Each operational credential still needs an individually approved start and end time.</p>
           <div className="access-field-grid">{['from','to'].map(k=><label key={k}>{k==='from'?'Operational access starts':'Operational access ends'} · UAE<input type="datetime-local" value={toUaeInput(config.operationalAccess?.[k]||'')} onChange={e=>change({operationalAccess:{...config.operationalAccess,[k]:e.target.value?fromUaeInput(e.target.value):''}})}/></label>)}</div>
-          <label>Operational dates approval reference<input value={config.operationalAccess?.reference||''} onChange={e=>change({operationalAccess:{...config.operationalAccess,reference:e.target.value}})}/></label>
+          <p>{config.operationalAccess?.reference?'Recorded access-plan approval: '+config.operationalAccess.reference:'Save these dates, then review and approve the access plan below.'}</p>
           <label className="access-check"><input type="checkbox" checked={config.operationalAccess?.enabled===true} onChange={e=>change({operationalAccess:{...config.operationalAccess,enabled:e.target.checked}})}/>Allow individually reviewed operational validity</label>
         </details></>}
       </section>
@@ -99,25 +103,8 @@ export function AccessSettings({ api, onDirtyChange }) {
         <label className="access-check"><input type="checkbox" checked={config.intake?.enabled === true} onChange={e => intake({ enabled: e.target.checked })} />Accept individual applications</label>
         <p>Opening the form requires an approved HTTPS privacy notice, support email and consent version. It does not issue credentials.</p>
       </section>
-      {config.workflowVersion && <section className="admin-panel"><h3>Departments & launch approvals</h3><p>The Owner can approve every department directly. Additional staff roles are optional.</p>
-        <div className="access-field-grid">{config.departments.map(d=><label className="access-check" key={d.id}><input type="checkbox" checked={d.enabled} onChange={e=>change({departments:config.departments.map(x=>x.id===d.id?{...x,enabled:e.target.checked}:x)})}/>{d.label}</label>)}</div>
-        <nav aria-label="Accreditation policies" className="access-policy-links"><a href="/accreditation/privacy" target="_blank" rel="noreferrer">Privacy notice</a><a href="/accreditation/terms" target="_blank" rel="noreferrer">Event terms</a><a href="/accreditation/id-policy" target="_blank" rel="noreferrer">ID handling</a></nav>
-        <p>WCL adopted policy pack v1.0 on 15 September 2026. Provider permission, monitored contacts, data transfers and retention implementation still require verification before applications open.</p>
-        <details className="policy-review-pack"><summary>Version 1.0 · adopted retention & supporting records</summary>
-          <h4>Retention policy · WCL-S3-RET-001</h4><p>{retentionDraft}</p>
-          <p>Adoption record: WCL-S3-ADOPT-20260915-001. Policy adoption does not enable automatic deletion or open applications. The templates below still require actual supporting evidence.</p>
-          {approvalTemplates.map(template=><section key={template.title}><h4>{template.title}</h4><p>{template.reference}</p></section>)}
-        </details>
-        <label>Approved retention policy<textarea value={config.activation.retention||''} onChange={e=>change({activation:{...config.activation,retention:e.target.value}})} placeholder="Retention and deletion arrangements approved by WCL"/></label>
-        {config.formVersion===2&&<><label className="access-check"><input type="checkbox" checked={config.activation.identityProviderApproved===true} onChange={e=>change({activation:{...config.activation,identityProviderApproved:e.target.checked}})}/>Written provider arrangements permit government-ID processing throughout the upload and storage route</label><label>Provider contract or written permission reference<input value={config.activation.identityProviderReference||''} onChange={e=>change({activation:{...config.activation,identityProviderReference:e.target.value}})}/></label><p>Render's standard terms exclude government identification numbers; Vercel's DPA also restricts sensitive data. Confirm permission from every relevant provider or use an approved alternative. WCL consent alone does not override provider restrictions.</p></>}
-        {config.formVersion===2&&<><label className="access-check"><input type="checkbox" checked={config.activation.identityDocumentsApproved===true} onChange={e=>change({activation:{...config.activation,identityDocumentsApproved:e.target.checked}})}/>ID-proof and assignment-document collection, access, retention and deletion approved</label><label>Identity-document policy approval reference<input value={config.activation.identityDocumentsReference||''} onChange={e=>change({activation:{...config.activation,identityDocumentsReference:e.target.value}})}/></label></>}
-        {[
-          ['privacyApproved','privacyReference','Privacy notice, provider/region and retention reviewed'],
-          ['accessApproved','accessReference','Venue names and access sections approved by security'],
-          ['printApproved','printReference','Physical badge size, stock and duplex proof approved'],
-        ].map(([flag,ref,label])=><div key={flag}><label className="access-check"><input type="checkbox" checked={config.activation[flag]===true} onChange={e=>change({activation:{...config.activation,[flag]:e.target.checked}})}/>{label}</label><label>{label} · approval reference<input value={config.activation[ref]||''} onChange={e=>change({activation:{...config.activation,[ref]:e.target.value}})}/></label></div>)}
-        <p>These confirmations record WCL's decisions; the system does not provide legal, venue-security or hardware approval.</p>
-      </section>}
+      {config.workflowVersion&&<section className="admin-panel"><h3>Retention settings</h3><label>Retention policy to review<textarea value={config.activation.retention||''} onChange={e=>change({activation:{...config.activation,retention:e.target.value}})}/></label>{!config.activation.retention&&<button type="button" onClick={()=>change({activation:{...config.activation,retention:retentionDraft}})}>Use prepared WCL retention policy</button>}<p>Saving text does not approve it or verify deletion automation.</p></section>}
+      </details>
       {!config.workflowVersion && <details className="admin-panel"><summary>Badge layout & category colours</summary><div className="access-field-grid">
         <label>Width · mm<input type="number" min={50} max={150} required value={config.widthMm} onChange={e => change({ widthMm: Number(e.target.value) })} /></label>
         <label>Height · mm<input type="number" min={70} max={220} required value={config.heightMm} onChange={e => change({ heightMm: Number(e.target.value) })} /></label>
@@ -125,7 +112,7 @@ export function AccessSettings({ api, onDirtyChange }) {
         <div className="access-colours">{config.categories.map(c => <label key={c.id}><input type="color" value={c.color} onChange={e => change({ categories: config.categories.map(x => x.id === c.id ? { ...x, color: e.target.value } : x) })} />{c.label}</label>)}</div>
         <p>The five slots display approved codes only. Printer dimensions and final artwork still require sign-off.</p><BadgeSections />
       </details>}
-      <footer><label className="access-check"><input type="checkbox" required checked={reviewed} onChange={e => setReviewed(e.target.checked)} />{settingsDeclaration}</label><button type="submit" className="admin-primary" disabled={!dirty || !reviewed}>{busy ? 'Saving…' : 'Save settings'}</button>{dirty && <small>Unsaved changes</small>}</footer>
+      <footer><label className="access-check"><input type="checkbox" required checked={reviewed} onChange={e => setReviewed(e.target.checked)} />I checked these settings. Saving changes does not approve them or give applicants access.</label><button type="submit" className="admin-primary" disabled={!dirty || !reviewed}>{busy ? 'Saving…' : 'Save settings'}</button>{dirty && <small>Unsaved changes</small>}</footer>
     </fieldset>
   </form>;
 }

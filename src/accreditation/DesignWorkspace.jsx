@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { operationsApi as api } from "./operations-api";
+import BadgeProofReview from './BadgeProofReview';
 const encode = (file) =>
   new Promise((resolve, reject) => {
     const reader = new FileReader();
@@ -8,9 +9,9 @@ const encode = (file) =>
     reader.readAsDataURL(file);
   });
 
-export function DesignWorkspace({ run, onPreview }) {
+export function DesignWorkspace({ run }) {
   const [rows, setRows] = useState(null),
-    [selected, setSelected] = useState(null);
+    [selected, setSelected] = useState(null), [dirty,setDirty] = useState(false);
   const load = async () => {
     const r = await api("admin/designs");
     setRows(r.items);
@@ -23,6 +24,7 @@ export function DesignWorkspace({ run, onPreview }) {
     const result = await api("admin/designs/" + selected.id, body);
     const items = await load();
     setSelected(items.find((d) => d.id === (result.id || selected.id)));
+    setDirty(false);
   }
   return (
     <>
@@ -39,7 +41,7 @@ export function DesignWorkspace({ run, onPreview }) {
               <button
                 className="ops-design-card"
                 key={d.id}
-                onClick={() => setSelected(d)}
+                onClick={() => {setSelected(d);setDirty(false);}}
               >
                 <span
                   className="ops-design-band"
@@ -83,7 +85,7 @@ export function DesignWorkspace({ run, onPreview }) {
         </div>
       ) : (
         <>
-          <button className="ops-back" onClick={() => setSelected(null)}>
+          <button className="ops-back" onClick={() => {if(!dirty||window.confirm('Discard unsaved draft changes?'))setSelected(null);}}>
             ← All badge designs
           </button>
           <section className="ops-panel">
@@ -94,18 +96,6 @@ export function DesignWorkspace({ run, onPreview }) {
               </span>
             </div>
             <div className="ops-actions">
-              <button
-                onClick={() =>
-                  run(async () =>
-                    onPreview(
-                      await api("admin/designs/" + selected.id),
-                      "Sample · " + selected.settings.label,
-                    ),
-                  )
-                }
-              >
-                Preview front & back
-              </button>
               {selected.status === "published" && (
                 <button
                   onClick={() => run(() => update({ action: "new-version" }))}
@@ -122,6 +112,7 @@ export function DesignWorkspace({ run, onPreview }) {
             {selected.status === "draft" && (
               <form
                 key={selected.id}
+                onChange={() => setDirty(true)}
                 onSubmit={(e) => {
                   e.preventDefault();
                   const f = new FormData(e.currentTarget);
@@ -164,6 +155,7 @@ export function DesignWorkspace({ run, onPreview }) {
                       {side === "front" ? "Front" : "Back"} artwork
                       <input
                         type="file"
+                        disabled={dirty}
                         accept="image/png,image/jpeg,image/webp"
                         onChange={(e) => {
                           const f = e.target.files[0];
@@ -216,43 +208,7 @@ export function DesignWorkspace({ run, onPreview }) {
                 <button>Save draft</button>
               </form>
             )}
-            {selected.status === "draft" && (
-              <form
-                className="ops-publish"
-                onSubmit={(e) => {
-                  e.preventDefault();
-                  const f = new FormData(e.currentTarget);
-                  run(() =>
-                    update({
-                      action: "publish",
-                      brandApproved: true,
-                      printProofApproved: true,
-                      reference: f.get("reference"),
-                    }),
-                  );
-                }}
-              >
-                <h3>Publish after approval</h3>
-                <label className="ops-check">
-                  <input type="checkbox" required />
-                  WCL has approved both artwork sides and on-card terms.
-                </label>
-                <label className="ops-check">
-                  <input type="checkbox" required />
-                  The actual-size physical print proof has been checked.
-                </label>
-                <label>
-                  Approval / print-proof reference
-                  <input name="reference" required minLength={8} />
-                </label>
-                <button
-                  className="ops-primary"
-                  disabled={!selected.hasFront || !selected.hasBack}
-                >
-                  Publish design version
-                </button>
-              </form>
-            )}
+            <BadgeProofReview design={selected} dirty={dirty} onApproved={async()=>{const items=await load();setSelected(items.find(d=>d.id===selected.id));}}/>
           </section>
         </>
       )}

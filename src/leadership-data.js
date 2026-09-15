@@ -16,7 +16,7 @@ export function leadershipHeroImage(person){
 
 // Shared by the static preview, fresh CMS seed and scoped content migration.
 export function leadershipStory(person){return {
- id:person.id,label:person.name,tag:'THE PEOPLE BEHIND THE CHAMPIONSHIP',
+ id:person.id,label:person.name,tag:'WCL SPOTLIGHT',order:person.id==='harshit-tomar'?.1:.2,
  chapter:'Building the next chapter.',role:person.role,
  title:person.name.split(' ')[0].toUpperCase(),line:person.name.split(' ').slice(1).join(' ').toUpperCase()+'.',
  copy:person.copy,image:person.image,alt:person.name+' — official WCL photograph',

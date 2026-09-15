@@ -1,5 +1,22 @@
 [
   {
+    "id": "tickets-district",
+    "label": "Tickets · District UAE",
+    "tag": "TICKETS / UAE",
+    "title": "TICKETS.",
+    "line": "DISTRICT UAE.",
+    "copy": "Explore District UAE for ticket information.",
+    "image": "/assets/season3-ensemble-2026.webp",
+    "alt": "Seven WCL nations represented by the supplied Season 3 campaign lineup",
+    "action": "Open District UAE",
+    "to": "https://www.district.ae/",
+    "secondary": "View fixtures",
+    "secondaryTo": "/matches?season=3",
+    "facts": [["03–18 OCT", "2026"], ["UAE", "Season 3"], ["07", "Nations"]],
+    "order": 0.3,
+    "visible": true
+  },
+  {
     "id": "about-wcl",
     "label": "About WCL",
     "tag": "ABOUT WCL",
