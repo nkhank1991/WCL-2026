@@ -1,4 +1,5 @@
 import {useEffect,useState} from 'react';
+import {originalIdAtCollection} from '../../lib/application-form.mjs';
 import {uaeDate} from './operations-api';
 import {sharjahSeatingAreas} from '../../lib/accreditation-venues.mjs';
 import './setup-reviews.css';
@@ -25,6 +26,7 @@ export function SetupReviews({api,config,dirty,onApproved,change}){
     {!data&&!error&&<p role="status">Loading current documents and approvals…</p>}
     {dirty&&<p className="setup-warning">Save your settings before reviewing or approving the updated version.</p>}
     {data&&!data.reviewer.name&&<label>Your name for approval records<input value={name} onChange={e=>setName(e.target.value)} maxLength={150} autoComplete="name"/><small>Your signed-in account and role are recorded automatically.</small></label>}
+    {originalIdAtCollection(config)&&<p className="ops-notice">No-ID-copy workflow: portrait and details → approval → print → original-ID check and issue. ID hosting is not applicable; privacy review still covers the personal data we retain.</p>}
     {data?.policyAdoption&&<p>Existing policy adoption retained: {data.policyAdoption.reference}. Operational approvals remain separate.</p>}
     {data?.items.map(item=><details className="setup-review-card" key={item.kind}><summary><span>{titles[item.kind]}</span><small>{item.status}</small></summary>
       <div className="setup-review-layout"><div className="setup-review-source">
@@ -43,11 +45,11 @@ export function SetupReviews({api,config,dirty,onApproved,change}){
       </div></div>
     </details>)}
     <section className="setup-review-card"><h3>Review and approve physical badge proof</h3><p>Upload your own front and back in Badge designs. Preview the exact PDF, print it at actual size and record the physical and QR tests for that category.</p><a href="/accreditation/owner?workspace=Badge%20designs">Open badge designs →</a></section>
-    <details className="setup-review-card"><summary>Supporting provider records</summary><p>Keep pending if an applicable account contract or written confirmation is missing. Do not upload applicant IDs here.</p>{['Google Workspace','Render','Vercel'].map(provider=>{
+    {!originalIdAtCollection(config)&&<details className="setup-review-card"><summary>Supporting provider records</summary><p>Keep pending if an applicable account contract or written confirmation is missing. Do not upload applicant IDs here.</p>{['Google Workspace','Render','Vercel'].map(provider=>{
       const evidence=(config.providerEvidence||[]).find(e=>e.provider===provider)||{provider};
       const update=patch=>change({providerEvidence:[...(config.providerEvidence||[]).filter(e=>e.provider!==provider),{...evidence,...patch}]});
       return <fieldset key={provider}><legend>{provider}</legend>{[['account','Company account / tenant'],['documentTitle','Accepted contract or provider confirmation'],['version','Contract version / date'],['url','Private agreement or confirmation link']].map(([key,label])=><label key={key}>{label}<input type={key==='url'?'url':'text'} value={evidence[key]||''} onChange={e=>update({[key]:e.target.value})} maxLength={1000}/></label>)}<label>Permitted data and relevant clause / confirmation<textarea value={evidence.scope||''} onChange={e=>update({scope:e.target.value})} maxLength={4000}/></label><label className="access-check"><input type="checkbox" checked={evidence.applicable===true} onChange={e=>update({applicable:e.target.checked})}/>Evidence checked against this company account and its actual processing role.</label></fieldset>;
-    })}</details>
+    })}</details>}
     {!!data?.history.length&&<details className="setup-review-card"><summary>Approval history · {data.history.length} records</summary>{data.history.map(r=><section key={r.reference}><h4>{r.kind} · {r.scope}</h4><ApprovalRecord record={r}/></section>)}</details>}
   </section>;
 }

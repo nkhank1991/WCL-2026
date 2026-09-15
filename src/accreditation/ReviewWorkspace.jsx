@@ -230,7 +230,7 @@ function CaseDetail({ record: r, user, config, run, update, onBack, onPreview })
               <dt>Requested dates</dt><dd>{r.requested.requestedDays.map(d=>Number(d.slice(-2))).join(', ')} October 2026</dd>
               {r.requested.restrictedReason&&<><dt>Reason for restricted access</dt><dd>{r.requested.restrictedReason}</dd></>}
               {r.requested.nominatorName&&<><dt>Nominating contact</dt><dd>{r.requested.nominatorName}<br/>{r.requested.nominatorContact}</dd></>}
-              <dt>ID type</dt><dd>{r.requested.idType}{r.requested.idDescription&&' · '+r.requested.idDescription}</dd>
+              {r.requested.identityVerificationMode!=='original-at-collection'&&<><dt>ID type</dt><dd>{r.requested.idType}{r.requested.idDescription&&' · '+r.requested.idDescription}</dd></>}
               {r.requested.remarks&&<><dt>Remarks</dt><dd>{r.requested.remarks}</dd></>}
             </>}
             <dt>Requested access</dt>
@@ -332,7 +332,7 @@ function CaseDetail({ record: r, user, config, run, update, onBack, onPreview })
               <TeamAccessRole category={category} value={teamRole} onChange={chooseRole}/>
               <AccessChoices legend="Proposed access areas" zones={config.zones.filter(z=>z.enabled)} selected={zones} onChange={chooseZones} category={category} teamRole={teamRole}/>
               {pmoaCheck}
-              {r.requested.formVersion===2&&<><fieldset><legend>Proposed dates</legend>{r.requested.requestedDays.map(day=><label className="ops-check" key={day}><input type="checkbox" name="approvedDays" value={day} defaultChecked={(p.approvedDays||r.requested.requestedDays).includes(day)}/>{day}</label>)}</fieldset><label className="ops-check"><input type="checkbox" name="documentsChecked" required/>ID proof, nominating contact and required assignment evidence checked</label></>}
+              {r.requested.formVersion===2&&<><fieldset><legend>Proposed dates</legend>{r.requested.requestedDays.map(day=><label className="ops-check" key={day}><input type="checkbox" name="approvedDays" value={day} defaultChecked={(p.approvedDays||r.requested.requestedDays).includes(day)}/>{day}</label>)}</fieldset>{r.requested.identityVerificationMode!=='original-at-collection'&&<label className="ops-check"><input type="checkbox" name="documentsChecked" required/>ID proof, nominating contact and required assignment evidence checked</label>}</>}
               <fieldset className="ops-choices">
                 <legend>Optional venue limits</legend>
                 {config.venues
@@ -513,7 +513,7 @@ function CaseDetail({ record: r, user, config, run, update, onBack, onPreview })
             >
               <fieldset className="ops-choices">
                 <legend>What needs correcting?</legend>
-                {correctionFields.filter(f=>r.requested.formVersion===2||['name','displayName','email','mobile','organisation','jobTitle','assignment','category','headshot'].includes(f)).map((f) => (
+                {correctionFields.filter(f=>!(config.identityVerificationMode==='original-at-collection'&&['idFront','idBack','assignmentEvidence','idType','idDescription','idHasReverse'].includes(f))).filter(f=>r.requested.formVersion===2||['name','displayName','email','mobile','organisation','jobTitle','assignment','category','headshot'].includes(f)).map((f) => (
                   <label key={f}>
                     <input
                       type="checkbox"

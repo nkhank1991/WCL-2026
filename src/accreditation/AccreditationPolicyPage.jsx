@@ -13,7 +13,7 @@ export function AccreditationPolicyPage({kind='privacy'}){
       <h1>{page.title}</h1>
       <p className="ops-lead">{page.intro}</p>
       <p className="ops-notice"><strong>{policyNotice}</strong></p>
-      <nav className="policy-tabs" aria-label="Accreditation policies">{Object.entries(policyPaths).map(([key,to])=><NavLink key={key} to={to}>{key==='privacy'?'Privacy notice':key==='terms'?'Event terms':'ID handling'}</NavLink>)}</nav>
+      <nav className="policy-tabs" aria-label="Accreditation policies">{Object.entries(policyPaths).map(([key,to])=><NavLink key={key} to={to}>{key==='privacy'?'Privacy notice':key==='terms'?'Event terms':'Identity checks'}</NavLink>)}</nav>
       <div className="policy-meta"><span>Prepared {policyDate}</span><span>{page.documentId}</span><span>{policyVersion}</span></div>
       <ul className="policy-summary">{page.summary.map(item=><li key={item}>{item}</li>)}</ul>
       <div className="policy-layout">
@@ -23,6 +23,6 @@ export function AccreditationPolicyPage({kind='privacy'}){
       <aside className="policy-related"><h2>Related policies</h2>{Object.entries(policyPaths).filter(([key])=>key!==kind).map(([key,to])=><Link key={key} to={to}>{policyDocuments[key].title}</Link>)}<Link to="/privacy">Website privacy policy</Link></aside>
       <aside className="policy-related"><h2>Research references</h2><p>Official sources reviewed on {policyDate}. These inform the policies; they do not certify WCL compliance or approve its provider arrangements.</p>{policyReferences.map(([label,url])=><a key={url} href={url} target="_blank" rel="noreferrer">{label}</a>)}</aside>
     </main>
-    <footer className="ops-footer"><span>WCL accreditation · policy v1.0</span><Link to="/accreditation/apply">Return to application</Link></footer>
+    <footer className="ops-footer"><span>WCL accreditation · policy v1.1</span><Link to="/accreditation/apply">Return to application</Link></footer>
   </div>;
 }

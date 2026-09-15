@@ -1,11 +1,12 @@
 import {useState} from 'react';
 import {AccessChoices,TeamAccessRole} from './AccessChoices';
 import {restrictedZones} from '../../lib/accreditation-model.mjs';
+import {originalIdAtCollection as isNoCopyWorkflow} from '../../lib/application-form.mjs';
 import {pmoaEligible} from '../../lib/access-sections.mjs';
 import {toUaeInput,fromUaeInput,uaeDate,operationsApi as api} from './operations-api';
 
 export function OwnerDecision({record:r,config,act,run,onPreview,viewSessions=[]}) {
-  const p=r.proposal||{};
+  const p=r.proposal||{},noCopy=isNoCopyWorkflow(r.requested);
   const [category,setCategory]=useState(p.category||r.category);
   const [teamRole,setTeamRole]=useState(p.teamRole||r.requested.teamRole||'');
   const [zones,setZones]=useState((p.zones||r.requested.requestedZones||[]).filter(z=>config.zones.some(x=>x.id===z&&x.enabled)));
@@ -22,8 +23,8 @@ export function OwnerDecision({record:r,config,act,run,onPreview,viewSessions=[]
   const needsRestricted=zones.some(z=>restrictedZones.includes(z));
   const idVerified=r.identity?.status==='verified';
   const idReady=!r.requested.documents?.some(d=>d.external)||idVerified||viewSessions.length===(r.requested.documents||[]).length;
-  const valid=idReady&&zones.length&&identity&&access&&(r.requested.formVersion!==2||(documentsChecked&&approvedDays.length))&&(!zones.includes('SEC-5')||pmoa)&&(!needsRestricted||(restricted&&conditions.trim().length>=8));
-  const values=()=>({category,teamRole,zones,venues:p.venues||[],accessMode:'sections',validFrom:fromUaeInput(from),validTo:fromUaeInput(to),validityType:p.validityType||'tournament',identityChecked:identity,accessReviewed:access,pmoaEligibilityChecked:pmoa,restrictedConfirmed:restricted,conditions,confirmed:true,...(r.requested.formVersion===2?{documentsChecked,approvedDays}:{})});
+  const valid=idReady&&zones.length&&identity&&access&&(r.requested.formVersion!==2||((noCopy||documentsChecked)&&approvedDays.length))&&(!zones.includes('SEC-5')||pmoa)&&(!needsRestricted||(restricted&&conditions.trim().length>=8));
+  const values=()=>({category,teamRole,zones,venues:p.venues||[],accessMode:'sections',validFrom:fromUaeInput(from),validTo:fromUaeInput(to),validityType:p.validityType||'tournament',identityChecked:identity,accessReviewed:access,pmoaEligibilityChecked:pmoa,restrictedConfirmed:restricted,conditions,confirmed:true,...(r.requested.formVersion===2?{...(noCopy?{}:{documentsChecked}),approvedDays}:{})});
   if(!pending)return <section className="ops-owner-result">
     {r.approval&&<><h3>Approved access</h3><p>{r.approval.snapshot.zones.map(id=>config.zones.find(z=>z.id===id)?.label||id).join(' · ')}</p>{r.approval.snapshot.approvedDays&&<p>Approved dates: {r.approval.snapshot.approvedDays.map(d=>Number(d.slice(-2))).join(', ')} October 2026</p>}<p className="ops-caption">{uaeDate(r.approval.created)} · Owner decision recorded</p></>}
     {r.status==='approved'&&<div className="ops-notice" role="status">
@@ -51,16 +52,16 @@ export function OwnerDecision({record:r,config,act,run,onPreview,viewSessions=[]
       <label>Valid until · UAE<input type="datetime-local" required value={to} onChange={e=>setTo(e.target.value)}/></label>
     </div>
     <label>Assignment / access conditions<textarea rows={2} maxLength={500} required={needsRestricted||zones.some(z=>['SEC-3','SEC-4'].includes(z))} value={conditions} onChange={e=>{setConditions(e.target.value);setRestricted(false);}}/></label>
-    <label className="ops-check"><input type="checkbox" required checked={identity} onChange={e=>{setIdentity(e.target.checked);if(r.requested.simpleApplication)setDocumentsChecked(e.target.checked);}}/>ID, photograph, name, organisation and role checked</label>
-    {r.requested.formVersion===2&&!r.requested.simpleApplication&&<label className="ops-check"><input type="checkbox" required checked={documentsChecked} onChange={e=>setDocumentsChecked(e.target.checked)}/>ID proof, nominating contact and required assignment evidence checked</label>}
+    <label className="ops-check"><input type="checkbox" required checked={identity} onChange={e=>{setIdentity(e.target.checked);if(r.requested.simpleApplication)setDocumentsChecked(e.target.checked);}}/>{noCopy?'Photograph, name, organisation and assigned role checked':'ID, photograph, name, organisation and role checked'}</label>
+    {r.requested.formVersion===2&&!noCopy&&!r.requested.simpleApplication&&<label className="ops-check"><input type="checkbox" required checked={documentsChecked} onChange={e=>setDocumentsChecked(e.target.checked)}/>ID proof, nominating contact and required assignment evidence checked</label>}
     <label className="ops-check"><input type="checkbox" required checked={access} onChange={e=>setAccess(e.target.checked)}/>Selected access matches the verified assignment</label>
     {zones.includes('SEC-5')&&<label className="ops-check"><input type="checkbox" required checked={pmoa} onChange={e=>setPmoa(e.target.checked)}/>PMOA eligibility verified against assigned duties</label>}
     {needsRestricted&&<label className="ops-check"><input type="checkbox" required checked={restricted} onChange={e=>setRestricted(e.target.checked)}/>I explicitly approve the selected restricted access as Owner</label>}
     <div className="ops-actions">
       <button type="submit" className="ops-primary" disabled={!valid}>Approve</button>
-      <button type="button" disabled={!valid||!idVerified} onClick={()=>act('owner-preview',values())}>Preview draft</button>
+      <button type="button" disabled={!valid||(!noCopy&&!idVerified)} onClick={()=>act('owner-preview',values())}>Preview draft</button>
     </div>
     <p className="ops-caption">Only an approved final PDF enters the print queue. A draft is not an access pass.</p>
-    {r.requested.simpleApplication&&<label className="ops-check"><input type="checkbox" checked={originalIdAtCollection} onChange={e=>setOriginalIdAtCollection(e.target.checked)}/>Require an additional original-ID check at collection</label>}
+    {noCopy?<p className="ops-caption">Original ID and photo matching are required at collection. Approval does not verify the ID or activate the badge.</p>:r.requested.simpleApplication&&<label className="ops-check"><input type="checkbox" checked={originalIdAtCollection} onChange={e=>setOriginalIdAtCollection(e.target.checked)}/>Require an additional original-ID check at collection</label>}
   </form>;
 }

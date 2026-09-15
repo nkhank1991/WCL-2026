@@ -13,13 +13,13 @@ import {retentionDraft,approvalTemplates,policyPack} from '../lib/accreditation-
 const out=path.resolve('node_modules/.cache/accreditation-policy-pages.mjs');
 await build({entryPoints:['src/accreditation/AccreditationPolicyPage.jsx'],outfile:out,bundle:true,platform:'node',format:'esm',jsx:'automatic',external:['react','react-dom','react/*','react-dom/*','react-router-dom']});
   const {AccreditationPolicyPage}=await import(pathToFileURL(out).href);
-  assert.equal(policyStatus,'adopted-pending-activation');
+  assert.equal(policyStatus,'review-required');
   for(const [kind,path] of Object.entries(policyPaths)){
     const html=renderToStaticMarkup(React.createElement(MemoryRouter,{initialEntries:[path]},React.createElement(AccreditationPolicyPage,{kind})));
     const doc=new JSDOM(html).window.document;
     assert.equal(doc.querySelector('h1').textContent,policyDocuments[kind].title);
-    assert.match(doc.body.textContent,/Adopted by WCL on 15 September 2026/);
-    assert.match(doc.body.textContent,/uploads remain closed/);
+    assert.match(doc.body.textContent,/requires WCL privacy and retention approval/);
+    assert.match(doc.body.textContent,/No ID copies or numbers are collected/);
     assert.ok(doc.body.textContent.includes(policyVersion));
     assert.ok(doc.querySelector('a[href="/accreditation/apply"]'));
     for(const a of doc.querySelectorAll('a[href^="#"]'))assert.ok(doc.getElementById(a.getAttribute('href').slice(1)),'Broken contents link');
@@ -40,4 +40,4 @@ await build({entryPoints:['src/accreditation/AccreditationPolicyPage.jsx'],outfi
     assert.ok(doc.documentId);
     assert.doesNotMatch(JSON.stringify(doc),/\[COMPLETE REGISTERED ADDRESS\]/);
   }
-  console.log('PASS three adopted policies, explicit pending activation, navigation, noindex metadata and no collection');
+  console.log('PASS three no-copy policies, explicit review required, navigation, noindex metadata and no collection');

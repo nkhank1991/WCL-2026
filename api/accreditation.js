@@ -9,7 +9,7 @@ export default async function handler(req, res) {
   const incoming = new URL(req.url, 'https://www.wclcricket.com');
   const route = String(req.query?.accreditationPath || incoming.searchParams.get('accreditationPath') || '');
   if (!allowedAccreditationRoute(route)) return fail(404, 'Not found.');
-  if(route==='accreditation/upload'||route.startsWith('admin/documents/'))return fail(410,'Use the separate secure identity service. ID documents are not accepted or served by the website gateway.');
+  if(route==='accreditation/upload'||route.startsWith('admin/documents/'))return fail(410,'ID documents are not accepted or served by this website. Bring your original ID to badge collection; do not send a copy.');
   if (!process.env.ACCREDITATION_BACKEND_ORIGIN || !process.env.ACCREDITATION_PROXY_SECRET) return fail(503, 'The accreditation service is not connected. Applications have not opened.');
   try {
     const backend = new URL(process.env.ACCREDITATION_BACKEND_ORIGIN);
@@ -26,7 +26,7 @@ export default async function handler(req, res) {
     if (req.method === 'POST') {
       if (!String(req.headers['content-type']).includes('application/json')) return fail(415, 'JSON body required.');
       body = typeof req.body === 'string' ? req.body : JSON.stringify(req.body || {});
-      if (Buffer.byteLength(body) > 3 * 1024 * 1024) return fail(413, 'Each upload must be below 2 MB. Upload documents separately.');
+      if (Buffer.byteLength(body) > 3 * 1024 * 1024) return fail(413, 'Choose a portrait below 2 MB and keep the application within the size limit. Do not upload ID documents.');
     }
     const response = await fetch(new URL('/api/' + route, backend), { method: req.method, headers, body, redirect: 'error', signal: AbortSignal.timeout(20000) });
     res.statusCode = response.status;

@@ -5,6 +5,7 @@ import {season3Event,season3Venues,season3Finals} from '../../lib/accreditation-
 import {toUaeInput,fromUaeInput} from './operations-api';
 import {DepartmentSettings} from './DepartmentSettings';
 import {retentionDraft} from '../../lib/accreditation-policy-pack.mjs';
+import {noCopyRetention} from '../../lib/accreditation-no-copy-policy.mjs';
 import {SetupReviews} from './SetupReviews';
 
 export function AccessSections({ zones, selected, onChange }) {
@@ -103,7 +104,7 @@ export function AccessSettings({ api, onDirtyChange, onSaved }) {
         <label className="access-check"><input type="checkbox" checked={config.intake?.enabled === true} onChange={e => intake({ enabled: e.target.checked })} />Accept individual applications</label>
         <p>Opening the form requires an approved HTTPS privacy notice, support email and consent version. It does not issue credentials.</p>
       </section>
-      {config.workflowVersion&&<section className="admin-panel"><h3>Retention settings</h3><label>Retention policy to review<textarea value={config.activation.retention||''} onChange={e=>change({activation:{...config.activation,retention:e.target.value}})}/></label>{!config.activation.retention&&<button type="button" onClick={()=>change({activation:{...config.activation,retention:retentionDraft}})}>Use prepared WCL retention policy</button>}<p>Saving text does not approve it or verify deletion automation.</p></section>}
+      {config.workflowVersion&&<section className="admin-panel"><h3>Retention settings</h3><label>Retention policy to review<textarea value={config.activation.retention||''} onChange={e=>change({activation:{...config.activation,retention:e.target.value}})}/></label>{!config.activation.retention&&<button type="button" onClick={()=>change({activation:{...config.activation,retention:config.identityVerificationMode==='original-at-collection'?noCopyRetention:retentionDraft}})}>Use prepared WCL retention policy</button>}<p>Saving text does not approve it or verify deletion automation.</p></section>}
       </details>
       {!config.workflowVersion && <details className="admin-panel"><summary>Badge layout & category colours</summary><div className="access-field-grid">
         <label>Width · mm<input type="number" min={50} max={150} required value={config.widthMm} onChange={e => change({ widthMm: Number(e.target.value) })} /></label>
