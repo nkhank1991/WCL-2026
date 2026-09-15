@@ -312,6 +312,7 @@ export function ApplicantWorkspace() {
                 </p>
               </div>
             )}
+            {!config?.enabled&&<nav aria-label="Accreditation policy drafts" className="application-policy-links"><Link to="/accreditation/privacy">Privacy notice draft</Link><Link to="/accreditation/terms">Event terms draft</Link><Link to="/accreditation/id-policy">ID handling draft</Link></nav>}
             <form onSubmit={submit} className="application-form">
               <fieldset disabled={!config?.enabled || busy}>
                 {config?.formVersion===2?<ApplicationFields config={config} busy={busy} onPhoto={setCroppedPhoto}/>:<>

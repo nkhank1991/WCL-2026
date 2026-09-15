@@ -47,3 +47,5 @@
 @media(forced-colors:active) {.access-section-picker .is-selected {outline:2px solid Highlight}}
 .access-settings > header p {letter-spacing:0;text-transform:none;font-size:14px;font-weight:400}
 .access-settings > header h2 {font-family:Inter,sans-serif;font-size:22px;letter-spacing:-.4px;text-transform:none}
+.access-policy-links { display: flex; flex-wrap: wrap; gap: 8px 24px; margin: 16px 0; }
+.access-policy-links a { display: inline-flex; align-items: center; min-height: 44px; }

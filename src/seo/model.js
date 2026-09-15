@@ -103,6 +103,8 @@ export function pageMetadata(input, config = seoConfig) {
   }
   if(path==='/fan-zone'){title='My WCL | Saved Team & Videos';description='Your favourite WCL team and saved videos, stored only in this browser.';label='My WCL';}
   if(isPrivatePath(path) && path!=='/fan-zone'){title='Private portal | WCL';description='WCL private services.';label='Private portal';}
+  const policyTitles={'/accreditation/privacy':'Accreditation privacy notice','/accreditation/terms':'Accreditation event terms','/accreditation/id-policy':'ID handling and retention'};
+  if(policyTitles[path]){label=policyTitles[path];title=label+' — Draft | WCL';description='Draft for WCL review. Applications and document uploads remain closed pending approval.';}
   const breadcrumbs=path==='/'?[]:[{name:'Home',path:'/'},...(parent?[{name:parent[0],path:parent[1]}]:[]),{name:label,path}];
   const indexable=config.indexable && known && !isPrivatePath(path);
   const webPage={'@type':path==='/faq'?'FAQPage':(['teams','players','matches','news','watch'].includes(section)&&!id?'CollectionPage':'WebPage'),

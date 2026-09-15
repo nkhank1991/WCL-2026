@@ -10,7 +10,7 @@
     "dev": "vite",
     "build": "node scripts/sync-cms-content.mjs && vite build && node scripts/prerender.mjs && node scripts/trim-preview-assets.mjs",
     "preview": "vite preview",
-    "test": "npm run test:seo && npm run test:contact && node --test tests/archive-publishing.test.mjs tests/accreditation-gateway.test.mjs tests/public-snapshot-gateway.test.mjs && node tests/mobile-refinement.mjs && node tests/button-finish.mjs && node tests/team-score-cards.mjs && node tests/navigation-rosters.mjs && node tests/league-flows.mjs",
+    "test": "npm run test:seo && npm run test:contact && node --test tests/archive-publishing.test.mjs tests/accreditation-gateway.test.mjs tests/public-snapshot-gateway.test.mjs && node tests/mobile-refinement.mjs && node tests/button-finish.mjs && node tests/team-score-cards.mjs && node tests/navigation-rosters.mjs && node tests/league-flows.mjs && node tests/accreditation-policy-pages.mjs",
     "test:contact": "node --test tests/contact-api.test.mjs && node tests/contact-pages.mjs",
     "test:seo": "node --test tests/seo.test.mjs",
     "seo:check-live": "node scripts/check-live-seo.mjs"

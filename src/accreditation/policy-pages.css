@@ -1,0 +1,39 @@
+.accreditation-policy main { max-width: 1120px; }
+.accreditation-policy .ops-lead { max-width: 760px; margin-top: 18px; }
+.policy-eyebrow { font-size: 11px; letter-spacing: .1em; font-weight: 650; }
+.policy-tabs,.policy-meta,.policy-summary { display: flex; flex-wrap: wrap; gap: 12px 24px; }
+.policy-tabs { border-bottom: 1px solid var(--ops-line); margin: 28px 0 16px; gap: 8px 28px; }
+.policy-tabs a { padding: 12px 0; min-height: 44px; text-decoration: none; border-bottom: 2px solid transparent; }
+.policy-tabs a.active { border-color: var(--ops-ink); font-weight: 650; }
+.policy-meta { color: var(--ops-muted); font-size: 12px; overflow-wrap: anywhere; }
+.policy-summary { list-style: none; margin: 26px 0 34px; padding: 0; }
+.policy-summary li { border-left: 2px solid var(--ops-line); padding-left: 12px; }
+.policy-layout { display: grid; grid-template-columns: 240px minmax(0,1fr); gap: 40px; }
+.policy-contents { align-self: start; position: sticky; top: 24px; }
+.policy-contents h2 { font-size: 15px; letter-spacing: 0; }
+.policy-contents a { display: flex; gap: 12px; padding: 9px 0; min-height: 44px; text-decoration: none; font-size: 14px; }
+.policy-contents a span { color: var(--ops-muted); font-variant-numeric: tabular-nums; }
+.accreditation-policy article { min-width: 0; }
+.accreditation-policy article section { margin-bottom: 38px; scroll-margin-top: 24px; }
+.accreditation-policy article h2 { font-size: 23px; line-height: 1.3; }
+.accreditation-policy article p { line-height: 1.75; }
+.retention-list { margin: 20px 0; }
+.retention-list div { border-top: 1px solid var(--ops-line); padding: 18px 0; }
+.retention-list dt { font-weight: 650; margin-bottom: 8px; }
+.retention-list dd { margin: 0; color: var(--ops-muted); line-height: 1.7; }
+.policy-related { border-top: 1px solid var(--ops-line); padding-top: 24px; }
+.policy-related h2 { font-size: 18px; }
+.policy-related a { display: inline-flex; align-items: center; min-height: 44px; margin-right: 24px; }
+.policy-skip { position: absolute; left: 16px; top: -100px; padding: 12px; background: white; z-index: 10; }
+.policy-skip:focus { top: 12px; }
+.accreditation-policy a:focus-visible { outline: 3px solid #173c65; outline-offset: 4px; }
+.accreditation-policy .ops-topbar a:last-child { white-space: nowrap; }
+@media(max-width:760px){
+  .policy-layout { grid-template-columns: minmax(0,1fr); gap: 26px; }
+  .policy-contents { position: static; border-bottom: 1px solid var(--ops-line); padding-bottom: 20px; }
+  .policy-summary { display: grid; gap: 10px; }
+  .accreditation-policy main { padding-inline: 20px; }
+  .accreditation-policy .ops-topbar { gap: 14px; padding-inline: 16px; }
+  .accreditation-policy .ops-topbar > span { font-size: 14px; }
+  .accreditation-policy .ops-topbar img { width: 64px; }
+}
