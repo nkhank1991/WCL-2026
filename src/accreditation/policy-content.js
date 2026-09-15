@@ -1,9 +1,9 @@
-// Supplied policy pack v1.0. Draft publication is not adoption or activation.
-export const policyVersion = 'WCL-S3-2026-DRAFT-20260915';
+// Adopted by the organiser; collection still depends on operational verification.
+export const policyVersion = 'WCL-S3-2026-v1.0';
 export const policyDate = '15 September 2026';
-export const policyStatus = 'draft';
+export const policyStatus = 'adopted-pending-activation';
 export const policyPaths = {privacy:'/accreditation/privacy',terms:'/accreditation/terms',storage:'/accreditation/id-policy'};
-export const draftNotice = 'Draft for WCL review — not yet in force. Applications and document uploads remain closed.';
+export const policyNotice = 'Adopted by WCL on 15 September 2026. Applications and document uploads remain closed pending operational activation.';
 export const policyReferences = [
   [
     "UAE Government: data protection laws",
@@ -38,7 +38,7 @@ export const policyDocuments = {
         "title": "Controller and document status",
         "paragraphs": [
           "Document: WCL-S3-PRIV-001 v1.0. Effective date: pending confirmation: date. Controller: World Champions League Cricket LLC FZ, CENTER 1, M FLOOR, THE MEYDAN HOTEL, NAD AL SHEBA, DUBAI, U.A.E.. Contact: pending confirmation: monitored privacy email.",
-          "The organiser details above were supplied by WCL. Final trade-licence spelling, monitored contacts and the data controller’s adoption record are pending. Publication of this draft does not start collection."
+          "The data controller details above were supplied by WCL. Policy adoption was authorised by Nayeem Khan, WCL Owner, on 15 September 2026; record WCL-S3-ADOPT-20260915-001. Operational effectiveness for ID collection starts only after the required provider, privacy-contact and technical checks pass."
         ]
       },
       {
@@ -104,7 +104,7 @@ export const policyDocuments = {
   "terms": {
     "title": "Accreditation event terms",
     "documentId": "WCL-S3-TERMS-001 v1.0",
-    "intro": "Proposed conditions for applying for and using a WCL Season 3 credential.",
+    "intro": "Conditions for applying for and using a WCL Season 3 credential.",
     "summary": [
       "Personal and non-transferable",
       "Approved areas and dates only",
@@ -163,7 +163,7 @@ export const policyDocuments = {
   "storage": {
     "title": "ID handling & retention policy",
     "documentId": "WCL-S3-ID-001 / WCL-S3-RET-001 v1.0",
-    "intro": "Proposed controls for identity evidence, authorised review and deletion.",
+    "intro": "Adopted controls for identity evidence, authorised review and deletion.",
     "summary": [
       "Minimum necessary information",
       "Role-limited access",
@@ -174,7 +174,7 @@ export const policyDocuments = {
         "id": "policy-4-0",
         "title": "Policy ownership",
         "paragraphs": [
-          "Document: WCL-S3-ID-001 v1.0. Owner: WCL Accreditation Lead. Privacy owner: pending confirmation: name / role. Adoption record: pending confirmation: approver / date / link."
+          "Document: WCL-S3-ID-001 v1.0. Accountable organiser representative: Nayeem Khan, WCL Owner. Adopted 15 September 2026; record WCL-S3-ADOPT-20260915-001. Operational privacy duties must be assigned before collection."
         ]
       },
       {
@@ -237,9 +237,9 @@ export const policyDocuments = {
       },
       {
         "id": "policy-5-0",
-        "title": "Proposed retention schedule",
+        "title": "Adopted retention schedule",
         "paragraphs": [
-          "Document: WCL-S3-RET-001 v1.0. The following are proposed maximum routine periods for adoption and implementation. Delete earlier where the information is no longer required. Event end means the last official day of the relevant event, or its confirmed cancellation date; postponement requires a recorded review of continued need.",
+          "Document: WCL-S3-RET-001 v1.0. WCL adopted the following maximum routine periods on 15 September 2026. Implementation must be verified before ID collection. Delete earlier where information is no longer required. Event end means the last official day of the relevant event, or its confirmed cancellation date; postponement requires a recorded review of continued need.",
           "The 12-month audit record must not become a second application archive: no raw ID, full number, portrait, broad scan history or unnecessary contact data. Aggregate reporting may remain only when individuals cannot be identified or relinked."
         ],
         "rows": [
@@ -285,7 +285,7 @@ export const policyDocuments = {
         "id": "implementation-status",
         "title": "Implementation and adoption status",
         "paragraphs": [
-          "This supplied schedule is a draft for adoption. Its complete automatic deletion schedule is not yet enabled. The private Google connection, account-contract coverage, document restoration and monitoring must be verified before real ID collection. Saving this draft or its reference is not approval.",
+          "WCL adopted this schedule on 15 September 2026. Its complete automatic deletion schedule is not yet enabled. The private Google connection, account-contract coverage, document restoration and monitoring must be verified before real ID collection. Organiser adoption does not certify provider compliance or technical readiness.",
           "The website and application gateway use Vercel; the private application database is hosted on Render in Frankfurt. The intended ID route sends document bytes directly to restricted company Google Drive, not through either host. Processing locations and applicable transfer safeguards for the complete route still require a recorded review.",
           "The short back-of-badge proposal in the source pack has not replaced any artwork. Category designs, approved dimensions and physical print proof remain separate approvals."
         ]

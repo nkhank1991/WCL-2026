@@ -101,11 +101,11 @@ export function AccessSettings({ api, onDirtyChange }) {
       </section>
       {config.workflowVersion && <section className="admin-panel"><h3>Departments & launch approvals</h3><p>The Owner can approve every department directly. Additional staff roles are optional.</p>
         <div className="access-field-grid">{config.departments.map(d=><label className="access-check" key={d.id}><input type="checkbox" checked={d.enabled} onChange={e=>change({departments:config.departments.map(x=>x.id===d.id?{...x,enabled:e.target.checked}:x)})}/>{d.label}</label>)}</div>
-        <nav aria-label="Accreditation policy drafts" className="access-policy-links"><a href="/accreditation/privacy" target="_blank" rel="noreferrer">Privacy notice draft</a><a href="/accreditation/terms" target="_blank" rel="noreferrer">Event terms draft</a><a href="/accreditation/id-policy" target="_blank" rel="noreferrer">ID handling draft</a></nav>
-        <p>These documents are prepared for review, not approved policies. Confirm the legal organiser, lawful processing basis, provider contracts, privacy contact and retention controls before opening applications.</p>
-        <details className="policy-review-pack"><summary>Version 1.0 · proposed retention & approval records</summary>
-          <h4>Retention draft · WCL-S3-RET-001</h4><p>{retentionDraft}</p>
-          <p>Use this proposal when preparing the adoption record. It is not an approved policy and does not enable automatic deletion or open applications.</p>
+        <nav aria-label="Accreditation policies" className="access-policy-links"><a href="/accreditation/privacy" target="_blank" rel="noreferrer">Privacy notice</a><a href="/accreditation/terms" target="_blank" rel="noreferrer">Event terms</a><a href="/accreditation/id-policy" target="_blank" rel="noreferrer">ID handling</a></nav>
+        <p>WCL adopted policy pack v1.0 on 15 September 2026. Provider permission, monitored contacts, data transfers and retention implementation still require verification before applications open.</p>
+        <details className="policy-review-pack"><summary>Version 1.0 · adopted retention & supporting records</summary>
+          <h4>Retention policy · WCL-S3-RET-001</h4><p>{retentionDraft}</p>
+          <p>Adoption record: WCL-S3-ADOPT-20260915-001. Policy adoption does not enable automatic deletion or open applications. The templates below still require actual supporting evidence.</p>
           {approvalTemplates.map(template=><section key={template.title}><h4>{template.title}</h4><p>{template.reference}</p></section>)}
         </details>
         <label>Approved retention policy<textarea value={config.activation.retention||''} onChange={e=>change({activation:{...config.activation,retention:e.target.value}})} placeholder="Retention and deletion arrangements approved by WCL"/></label>
